@@ -2,8 +2,7 @@
 	\newpage
 	\thispagestyle{empty}
 	\mbox{}
-	\section{Functional Analysis}
-	
+	\section{Functional Analysis}\label{functional analysis}
 \lettrine[lines=4]{\color{BrickRed}F}unctional analysis is the branch of mathematics and specifically of the analysis that is related to the study of function spaces. It takes its historical roots in the study of transformations such as the Fourier transform and in the study of differential equations and integrals. As such it encompasses so many areas that it is difficult to justify that it be a section of this book because it is rather a field of study. Moreover, it is because of this difficulty to accurately identify the area it covers that the reader will find the Fundamental Theorem of Calculus in the chapter of Integral and Differential Calculus rather than here...
 
 Why do we we use the term "analysis" in the particular case of functions? The reason lies in the historical study of various phenomena of nature and resolution of various technical problems and therefore mathematics, which often lead us to consider the variation of a parameter correlated with the variation of another or several other variables. To study these variations, many tools are available to each of us:
@@ -31,7 +30,21 @@ Before starting to read what follows, it may be useful to remind the reader that
 
 Among the possible visual representation of functions, the most intuitive and the oldest is the one where we have in the column or the row of a table in an orderly way the values of the independent variable $x_1,x_2,...,x_n$ and the corresponding values, namely the "\NewTerm{transformed variables}\index{transformed variables}" of the function $y_1,y_2,...,y_n$ in another column or aligned row:
 
-		
+	\begin{table}[H]
+	\begin{center}
+		\definecolor{gris}{gray}{0.85}
+			\begin{tabular}{|p{2cm}|p{2.5cm}|}
+				\hline
+				\multicolumn{1}{c}{\cellcolor{black!30}\textbf{$x$}} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}\textbf{$y=f(x)$}} \\ \hline
+				\centering\arraybackslash\ $x_1$ & \centering\arraybackslash\ $y_1=f(x_1)$ \\ \hline
+				\centering\arraybackslash\ $x_2$ & \centering\arraybackslash\ $y_2=f(x_2)$  \\ \hline
+				\centering\arraybackslash\ $...$ & \centering\arraybackslash\ $...$  \\ \hline
+				\centering\arraybackslash\ $x_n$ & \centering\arraybackslash\ $y_n=f(x_n)$  \\ \hline
+		\end{tabular}
+	\end{center}
+	\caption[]{Values and corresponding transformed variables}
+	\end{table}	
 	
 	In the expression:
 	
@@ -45,10 +58,9 @@ However, this method is laborious and does not permit to directly see the behavi
 
 	\pagebreak
 	\subsubsection{Graphical Representation}
+	The natural, relative, real or purely imaginary numbers  (\SeeChapter{see section Numbers page \pageref{type of numbers}}) can all be represented as simply by points on a numerical infinite axis (straight line).
 
-The natural, relative or purely imaginary numbers (\SeeChapter{see section Numbers}) can all be represented as simply by points on a numerical infinite axis (straight line).
-
-To this purpose, we choose on this axis:
+	To this purpose, we choose on this axis:
 	\begin{enumerate}
 		\item A point O named "\NewTerm{origin}\index{origin}"
 		\item A positive direction, that we indicate by a horizontal arrow
@@ -75,7 +87,7 @@ There are besides the one dimensional representations other of higher dimensions
 In single-variable calculus, the functions that one encounters are functions of a variable (usually $x$ or $t$) that varies over some subset of the real number line (which we denote by $\mathbb{R}$). For such a function, say, $y = f (x)$, the graph of the function $f$ consists of the points 
 	
 These points lie in the Euclidean plane, which, in the Cartesian or rectangular
-coordinate system, consists of all ordered pairs of real numbers $(a,b)$. We use the word "Euclidean" to denote a system in which all the usual rules of Euclidean geometry hold (\SeeChapter{see section Euclidean Geometry}). We denote the Euclidean plane by $\mathbb{R}^2$. where the exponent "$2$" represents the number of dimensions of the plane.
+coordinate system, consists of all ordered pairs of real numbers $(a,b)$. We use the word "Euclidean" to denote a system in which all the usual rules of Euclidean geometry hold (\SeeChapter{see section Euclidean Geometry page \pageref{hilbert axioms}}). We denote the Euclidean plane by $\mathbb{R}^2$. where the exponent "$2$" represents the number of dimensions of the plane.
 
 Thus we can for each of a variable $x$ on a horizontal axis, named commonly "\NewTerm{$x$-axis\index{$x$-axis}}" match a value $y$ through a function $f$ such that:
 	
@@ -83,9 +95,9 @@ plotted on a vertical axis, named commonly the "\NewTerm{$y$-axis}\index{$y$-axi
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{img/analysis/representative_2d_planar.eps}
-\caption{Typical example of a planar representation with orthogonal axes, origin $O$ and the 4 quadrants}
+\caption{Typical example of a planar representation with orthogonal axes, origin O and the $4$ quadrants}
 \end{figure}
-All points of the plan denoted with the variations $X\text{O}Y$, $XY$ or $x\text{O}y$, $\text{O}xy$, $xy$, whose abscissa is traditionally the values of the independent variable and the ordinates the corresponding values of the function is named "\NewTerm{planar graph}\index{planar graph}" of this function. If there is no confusion, we just say "\NewTerm{graph}\index{graph}".
+All points of the plane denoted with the variations $X\text{O}Y$, $XY$ or $x\text{O}y$, $\text{O}xy$, $xy$, whose abscissa is traditionally the values of the independent variable and the ordinates the corresponding values of the function is named "\NewTerm{planar graph}\index{planar graph}" of this function. If there is no confusion, we just say "\NewTerm{graph}\index{graph}".
 
 In the case of representation by a rectangular coordinate system (cartesian, polar or logarithmic) as the figure above, we can see that the entire coordinate plane is divided into four areas that by tradition we name "\NewTerm{quadrants}\index{quadrants}".
 
@@ -93,11 +105,11 @@ In the case of representation by a rectangular coordinate system (cartesian, pol
 	When we wish to highlight a particular point on the graph representing the function, we draw most of time a small round as presented above for the point of coordinates $(x_n,y_n)$.
 	\end{tcolorbox}	
 
-Another classic case of plane graph representation  known by a large number of students is the plot of polynomials (\SeeChapter{see section Calculus}) with real coefficients or trigonometric functions (\SeeChapter{see section Trigonometry}).
+Another classic case of plane graph representation  known by a large number of students is the plot of polynomials (\SeeChapter{see section Calculus page \pageref{polynomial}}) with real coefficients or trigonometric functions (\SeeChapter{see section Trigonometry page \pageref{trigonometry}}).
 
-Indeed, to solve polynomial equations of the second degree (\SeeChapter{see section Calculus}), it is common in small classes that the teacher asks his students in addition to give an algebraic expression of the roots of:
+Indeed, to solve polynomial equations of the second degree (\SeeChapter{see section Calculus page \pageref{second order polynomials}}), it is common in small classes that the teacher asks his students in addition to give an algebraic expression of the roots of:
 	
-given by for recall (see section Calculus for the proof):
+given by for recall (see section Calculus page \pageref{double root} for the proof):
 	
 a graphics resolution where the two roots (in the case where there are two distinct real roots) are given by the intersection of the parabola with the $x$-axis (of course, if the equation has no solution, there are no intersections...):
 
@@ -132,7 +144,7 @@ And therefore it is obvious thank to this chart representation that the previous
 \texttt{>R:=258000;}\\
 \texttt{>plot(min(max(R/8,S-7/8*R),17/8*R,S=3/4*R..100000);}
 
-Also, graphs are powerful qualitative tools in the field of statistics (\SeeChapter{see section Statistics}) as a starting point for data analysis (histograms, cheese, box plots, radar, scatter plots, etc.). The assumptions and ideas that are generated by graphical analysis can be investigated with advanced statistical tools (for a hundred of examples see the R Software or MATLAB™ companion book).
+	Also, graphs\index{graphs}\index{charts} are as we know powerful qualitative tools in the field of statistics (\SeeChapter{see section Statistics page \pageref{statistics}}) but also of data mining (\SeeChapter{see section Numerical Methods page \pageref{data mining}}) as a starting point for data analysis (histograms, cheese, box plots, radar, scatter plots, etc.). The assumptions and ideas that are generated by graphical analysis can be investigated with advanced statistical tools (for a few hundred of examples see the R  or MATLAB™ softwares companion book).
 
 Below for example, a graph (histogram) taken from the Industrial Engineering section that is very common in the field of statistics and project management in the global industry:
 
@@ -160,15 +172,14 @@ Of course, in the case of a trivalent function (three-dimensional), that is to s
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{img/analysis/quadrants_3d.eps}
-\caption{Quadrants in a 3D orthogonal system (source: Wikipedia)}
+\caption[Quadrants in a 3D orthogonal system]{Quadrants in a 3D orthogonal system (source: Wikipedia)}
 \end{figure}
 
 This 3D method of representation and analysis of a trivalent function was time consuming at the beginning of the 20th century but with the help of computers in the end of the 20th century this time consuming problem was almost solved...
 
 In 3D functional analysis, we will deal with functions of two or three variables (usually  $x, y, z$, respectively). The graph of the arrow of coordinates $(x, y, z)=(x,y,f(x,y))$, lies in Euclidean space. Since Euclidean can be 3-dimensional (and more or less for sure!), we denote it by $\mathbb{R}^3$.
 
-Euclidean space has three mutually perpendicular coordinate axes ($x$, $y$ and $z$), and three
-mutually perpendicular coordinate planes: the $xy$-plane, $yz$-plane and $xz$-plane:
+Euclidean space has three mutually perpendicular coordinate axes ($x$, $y$ and $z$), and three mutually perpendicular coordinate planes: the $xy$-plane, $yz$-plane and $xz$-plane:
 
 \begin{figure}[H]
 \centering
@@ -214,7 +225,7 @@ This will give:
 \caption{Isolines representation of a 3D function with Maple 4.00b}
 \end{figure}
 
-Let us plot now the "\NewTerm{contour lines}", also named "\NewTerm{isoline}", that represents lines of the same height on the function surface\footnote{It is a cross-section of the three-dimensional graph of the function $f(x, y)$ parallel to the $x, y$ plane. In cartography, a contour line (often just named a "contour") joins points of equal elevation (height) above a given level, such as mean sea level. A contour map is a map illustrated with contour lines, for example a topographic map, which thus shows valleys and hills, and the steepness of slopes. The contour interval of a contour map is the difference in elevation between successive contour lines.} (see section of Differential Geometry for a rigorous definition):
+Let us plot now the "\NewTerm{contour lines}\index{contour line}", also named "\NewTerm{isoline}\index{isoline}\label{isoline}" (or "\NewTerm{isoquant}\index{isoquant} in Econometry), that represents lines of the same height on the function surface\footnote{It is a cross-section of the three-dimensional graph of the function $f(x, y)$ parallel to the $x, y$ plane. In cartography, a contour line (often just named a "contour") joins points of equal elevation (height) above a given level, such as mean sea level. A contour map is a map illustrated with contour lines, for example a topographic map, which thus shows valleys and hills, and the steepness of slopes. The contour interval of a contour map is the difference in elevation between successive contour lines.} (see section of Differential Geometry page \pageref{isoline} for a rigorous definition):
 
 \texttt{>plot3d(f,xrange,yrange,style=patchcontour);}
 
@@ -228,7 +239,7 @@ This will give:
 
 It's not very nice so let us improve this a little bit:
 
-\texttt{plot3d(f,xrange,yrange,style=patchcontour,contours=[seq(-7+k/4,k=0..60)],\\
+\texttt{>plot3d(f,xrange,yrange,style=patchcontour,contours=[seq(-7+k/4,k=0..60)],\\
 grid=[80,50],shading=ZHUE,axes=FRAME, tickmarks=[3,3,3],\\ scaling=unconstrained,orientation=[-107,68]);}
 
 This will give:
@@ -246,7 +257,7 @@ With a small rotation to view from above:
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{img/analysis/representation_nice_3d_function_above.eps}
-\caption{Above representation of a 3D function with Maple 4.00b}
+\caption[]{Above representation of a 3D function with Maple 4.00b}
 \end{figure}
 
 And in section view (side view):
@@ -279,7 +290,7 @@ That's all for typical and simple example of standard manipulations of an engine
 \paragraph{2D Vector representations}\mbox{}\\\\
 It is also frequently made use of graphic representations in the context of analytical geometry to simplify analysis or to prove theorems witht the help of visual representations (do not abuse of this method!).
 
-Thus, we can easily introduce the concept of norm (see section Vector Calculus) in a very easy way by plotting the distance between two points (in 2D or in 3D) and applying the Pythagorean theorem that will be assumed to be known (see section Euclidean geometry).
+Thus, we can easily introduce the concept of "norm" (\SeeChapter{see section Vector Calculus page \pageref{vector norm}}) in a very easy way by plotting the distance between two points (in 2D or in 3D) and applying the Pythagorean theorem that will be assumed to be known (\SeeChapter{see section Euclidean geometry page \pageref{pythagorean theorem}}).
 
 The main idea of a planar vector representation in physics and engineering labs is that  a point $P_1$ of coordinates $(x_1,y_1)$ that has some physical properties (typically a velocity) will be after a given time at the point $P_2$ of coordinates $(x_2,y_2)$ supposed to be always in the same plane. In this way, the straight line between $P_1$ and $P_2$ is a visualization of the "intensity" of the velocity (and implicitly of the force). When doing that for many points we get a planar representation of a planar vector field (for more example see the companion book on MATLAB™):
 
@@ -300,16 +311,16 @@ Now let us represent three points $P_1,P_2,P_3$ on a plane graph in which has be
 
 We can consider the straight line $\overline{P_1P_2}$ as a vector but not translated at the origin of the referential (\SeeChapter{Vector Calculus}).
 
-If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2,P_3$ are the vertices of a perpendicular triangle. By applying the Pythagorean theorem (\SeeChapter{see section Euclidean Geometry}) we can easily calculate the metric distance $d$ as:
+If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2,P_3$ are the vertices of a perpendicular triangle. By applying the Pythagorean theorem (\SeeChapter{see section Euclidean Geometry page \pageref{pythagorean theorem}}) we can easily calculate the metric distance $d$ as:
 	
 	On the figure, we see that:
 	
 	Since $\forall x \in \mathbb{R} \; \vert x \vert ^2 =x^2$, we can write:
 	
-	If $x_1=y_1=0$, we end up with a relation named "\NewTerm{norm}", "\NewTerm{module}" or "\NewTerm{distance}" that we have already defined as part of our study of vector calculus when the origin of the vector is translated on the origin of the referential (see section of the corresponding name).
+	If $x_1=y_1=0$, we end up with a relation named "\NewTerm{norm}", "\NewTerm{module}" or "\NewTerm{distance}\index{distance}" that we have already defined as part of our study of Vector Calculus when the origin of the vector is translated on the origin of the referential (see section of the corresponding name page \pageref{vector norm}).
 	
 	\begin{theorem}
-	Obviously, if we consider two points $P_1(x_1,y_1),P_2(x_2,y_2)$, we can determine if a third point $P_3(x_3,y_3)$ is on the mediator (\SeeChapter{see section Euclidean Geometry}) of the first two and for this that it is obviously sufficient that (by definition of the mediator!):
+	Obviously, if we consider two points $P_1(x_1,y_1),P_2(x_2,y_2)$, we can determine if a third point $P_3(x_3,y_3)$ is on the mediator (\SeeChapter{see section Euclidean Geometry page \pageref{mediator}}) of the first two and for this that it is obviously sufficient that (by definition of the mediator!):
 	
 	\end{theorem}
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
@@ -329,9 +340,9 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 	
 	Let us use this example to define some concepts on that we will come back further and do some reminders.
 	
-	\textbf{Definition (\#\mydef):} Any function of the form of a polynomial (\SeeChapter{see section Calculus}) of degree $1$ with constant real coefficients:
+	\textbf{Definition (\#\mydef):} Any function of the form of a polynomial (\SeeChapter{see section Calculus page \pageref{polynomial}}) of degree $1$ with constant real coefficients:
 	
-	is the analytic expression of what we name a "\NewTerm{straight line}" of "\NewTerm{slope}" $a$ and "intercept" $b$ (when $x=0$).
+	is the analytic expression of what we name a "\NewTerm{straight line}\index{straight line}\label{straight line}" "\NewTerm{linear equation}\index{linear equation}" of "\NewTerm{slope}\index{slope}" $a$ and "\NewTerm{intercept}\index{intercept}" $b$ (when $x=0$).
 	
 	Obviously, if:
 	
@@ -474,11 +485,11 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 	
 	The last equation can be solved with respect to $x$ if and only if $a_2-a_2\neq 0$. We have therefore proved that the lines $y_1,y_2$ intersect if and only if $a_1\neq a_2$. Therefore, they do not intersect (are parallel) if and only if $a_1=a_2$.
 	
-	In a quite simple way by applying the Pythagorean theorem, it is not difficult (\SeeChapter{see section Analytical Geometry}) to determine the equation of a circle with center $C (h, k)$ has for equation (it is of use in mathematics not explain $y$ for the equation of the circle therefore the equation of the latter is much more visually aesthetic and speaking):
+	In a quite simple way by applying the Pythagorean theorem, it is not difficult (\SeeChapter{see section Analytical Geometry page \pageref{conics}}) to determine that the equation of a circle with center $C (h, k)$ has for equation (it is of use in mathematics not explain $y$ for the equation of the circle therefore the equation of the latter is much more visually aesthetic and speaking):
 	
 	In these examples the functions are expressed analytically by a single formula (equality between two analytical expressions) which defines at the same time the "natural domain of definition" of the functions.
 	
-	\textbf{Definition (\#\mydef):} The "\NewTerm{natural domain of definition}\index{natural domain of definition}" of a function given by an analytical expression is the set of $x$ values for which the expression on the right-hand side has a definite value.
+	\textbf{Definition (\#\mydef):} The "\NewTerm{natural domain of definition}\index{natural domain of definition}\label{natural domain of definition}" of a function given by an analytical expression is the set of $x$ values for which the expression on the right-hand side has a definite value.
 	
 	For example the function:
 	
@@ -487,7 +498,7 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 	There are an infinite number of functions and we can not expose them all here, however we will meet more than a thousand on this entire book and should amply suffice to get an idea of their study.
 	\end{tcolorbox}
 	
-	And we have the famous following table of variations that is also considered as an analytical tool and also used by some teach to study the basics of the derivative $f'$ of a function $f$ (\SeeChapter{see section Differential and Integral Calculus}). For example with the function $x^3-3x^2+2$ (already seen in the previous mentioned section):
+	And we have the famous following "\NewTerm{table of variations}\index{table of variations}\label{table of variations}" that is also considered as an analytical tool and also used by some teachers to study the basics of the derivative $f'$ of a function $f$ (\SeeChapter{see section Differential and Integral Calculus page \pageref{differential calculus}}). For example with the function $x^3-3x^2+2$ (already seen in the previous mentioned section):
 
 	\begin{minipage}{\linewidth}\centering
     \begin{variations}
@@ -507,7 +518,7 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 	\end{figure}
 	
 	\pagebreak
-	\subsection{Functions}
+	\subsection{Functions}\label{functions}
 	In mathematics, a function is a relation between a set of inputs and a set of permissible outputs with the property that each input is related to exactly one output.
 	
 	Functions of various kinds are the central objects of investigation in most fields of modern mathematics. There are many ways to describe or represent a function. Some functions may be defined by a formula or algorithm that tells how to compute the output for a given input. Others are given by a picture, named the "graph" of the function. In science, functions are sometimes defined by a table that gives the outputs for selected inputs. A function could be described implicitly, for example as the inverse to another function or as a solution of a differential equation.
@@ -570,7 +581,7 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 		
 		which corresponds to a translation along the $x$-axis. The smallest constant satisfying this condition is named the "\NewTerm{period}\index{period}" of the function. It is frequently denoted by the letter $T$ in physics.
 		
-		The most common periodic functions know by students and engineers are the trigonometric functions (see section of the corresponding name):
+		The most common periodic functions know by students and engineers are the trigonometric functions (see section of the corresponding name page \pageref{trigonometry}):
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=0.4]{img/analysis/periodic_function.jpg}
@@ -580,11 +591,11 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 		The sum of two periodic functions with different periods is not necessarily periodic and there is no general formula to get the period of a function that is the sum of $n$ other functions!
 		\end{tcolorbox}
 		
-		\item[D4.] In differential calculus (\SeeChapter{see section Differential and Integral Calculus}), the expression:
+		\item[D4.] In differential calculus (\SeeChapter{see section Differential and Integral Calculus page \pageref{differential calculus}}), the expression:
 		
 		with $h\neq 0$ is of particular interest. We name it a "\NewTerm{growth quotient}\index{growth quotient}" (we discuss this in much more detail in our study of differential and integral calculus).
 		
-		\item[D5.] We use certain properties of functions for easy graphical representation and analysis or mathematical simplifications. In particular, a function $f (x)$ is named "\NewTerm{even function}\index{even function}" if:
+		\item[D5.] We use certain properties of functions for easy graphical representation and analysis or mathematical simplifications. In particular, a function $f (x)$ is named "\NewTerm{even function}\index{even function}\label{even function}" if:
 		
 		for all $x$ in its definition domain.
 		
@@ -594,7 +605,7 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 			\includegraphics{img/analysis/function_property_symetry_y.jpg}
 			\caption{Example of even function}
 		\end{figure}
-		A function $f (x)$ is named "\NewTerm{odd function}\index{odd function}" if:
+		A function $f (x)$ is named "\NewTerm{odd function}\index{odd function}\label{odd function}" if:
 		
 		for all $x$ in its definition domain.
 		
@@ -605,7 +616,7 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 		\end{figure}
 		So, to summarize, an even function is a function that is independent of the sign of the variable and an odd function change of sign when we change the sign of the variable (the spiral of Cornus in the section Civil Engineering is a good practical example of odd function). This concept will be very useful to us to simplify some very useful developments in physics (such as Fourier transforms of odd or even functions for example, or the calculation of certain integrals!).
 		\begin{theorem}
-		Remember that this type theorem linking a general concept to a particular case and its opposite is often found in mathematics. We will see such examples in tensor calculus with the symmetric and anti-symmetric tensor (\SeeChapter{see section Tensor Calculus}) or in quantum physics with the Hermitian or non-Hermitian operators (\SeeChapter{see section Wave Quantum Physics}).
+		Remember that this type theorem linking a general concept to a particular case and its opposite is often found in mathematics. We will see such examples in tensor calculus with the symmetric and antisymmetric tensor (\SeeChapter{see section Tensor Calculus page \pageref{symmetric tensor} and page \pageref{antisymmetric tensor}}) or in quantum physics with the Hermitian or non-Hermitian operators (\SeeChapter{see section Wave Quantum Physics page \pageref{hermitian operator} and page \pageref{non-hermitian operator}}).
 		\end{theorem}
 		\begin{dem}
 		Let us write:
@@ -638,12 +649,26 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 		\end{flushright}
 		\end{dem}
 		\item[D6.] In general, if $f (x)$ and $g (x)$ are arbitrary functions, we use the terminology and notations given in the following table:
-		
+		\begin{table}[H]	
+			\begin{center}
+				\begin{tabular}{|c|c|}
+				\hline
+				  \rowcolor[gray]{0.75}Terminology&Value of the function\\
+				  \hline
+				  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+				  Sum $f+g$ & $(f+g)(x)=f(x)+g(x)$ \\\hline
+				  Difference $f-g$ & $(f-g)(x)=f(x)-g(x)$ \\\hline
+				  Product $f \cdot g$ & $(f \cdot g)(x)=f(x)g(x)$ \\\hline
+				  Quotient $\displaystyle\frac{f}{g}$&$\left(\displaystyle\frac{f}{g}\right)(x)=\displaystyle\frac{f(x)}{g(x)}$ \\\hline
+				\end{tabular}
+			\end{center}
+			\caption{Terminology about functions}
+		\end{table}
 		The definition domains of $f+g,f-g,f\cdot g$ are the intersection $I$ of the definition domain of $f (x)$ and g $(x)$, that is to say, the numbers which are common to both domains of definition. The domain of definition of $g/g$ est meanwhile the subset $I$ of all $x$ such that  $g(x)\neq 0$.
 		
 		\item[D7.] Let $y$ be a function of $f$ of $u$ such that $y=f(u)$ and $u$ a function $g$ of $x$ such that $u=g(x)$, then $y$ depends on $x$ and we have what we name a "\NewTerm{composite function}\index{composite function}" that we denote:
 		
-		The last equality should be read "\NewTerm{$f$ round $g$}" and not confuse with the "round" symbol with the notation of the scalar product that we have seen during our study of the section Vector Calculus.
+		The last equality should be read "\NewTerm{$f$ round $g$}" and not confuse with the "round" symbol with the notation of the scalar product that we have seen during our study of the section Vector Calculus page \pageref{dot product}.
 		
 		The domain of definition of the composite function is either identical to the entire domain of definition of the function $u=g(x)$ or the part of the domain in which the values of $u$ are such that the corresponding values $f (u)$ belong to the domain of definition of this function.
 		
@@ -673,7 +698,7 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 				\caption{Different plots of simple power functions}
 			\end{figure}
 		
-			\item "\NewTerm{Absolute value functions}\index{absolute value function}" (see section Arithmetic Operators for the definition and the study of the "absolute value"):
+			\item "\NewTerm{Absolute value functions}\index{absolute value function}" (see section Arithmetic Operators page \pageref{absolute value} for the definition and the study of the "absolute value"):
 			
 			For example the plots with Maple 4.00b that we get with the command:\\
 			
@@ -711,16 +736,16 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 			\item "\NewTerm{Logarithmic functions}\index{logarithmic function}":
 				
 			with $a\in\mathbb{R}^{+}$ and that by construction of the logarithm (see further below) are of the type $f:\mathbb{R}^{+}\mapsto \mathbb{R}$.
-			We have typically::
+			We have typically:
 			\begin{figure}[H]
 				\centering
 				\includegraphics{img/analysis/logarithm_functions.jpg}
-				\caption{Different plots of logarithm $\ln(x)=\ln_e(x)$ in green and $\log_10(x)$ in red with Maple 4.00b}
+				\caption{Different plots of logarithm $\ln(x)=\ln_e(x)$ in green and $\log_{10}(x)$ in red with Maple 4.00b}
 			\end{figure}
 			
 			\item "\NewTerm{Periodic/Trigonometric functions}\index{period function}\index{trigonometric function}":
 			
-			We already defined previously what is a periodic function. For the trigonometric function the reader can see below a plot of the main one but for more details it is strongly recommended to read the section Trigonometry:
+			We already defined previously what is a periodic function. For the trigonometric functions the reader can see below a plot of the main one but for more details it is strongly recommended to read the section Trigonometry page \pageref{trigonometry}:
 			\begin{figure}[H]
 				\centering
 				\includegraphics[scale=0.9]{img/analysis/trigonometric_functions.jpg}
@@ -738,11 +763,11 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 			\begin{figure}[H]
 				\centering
 				\includegraphics{img/algebra/polynomials.jpg}
-				\caption{Some polynomials plotted with R.3.2.1 (see by book on R)}
+				\caption[Some polynomials plotted with R.3.2.1]{Some polynomials plotted with R.3.2.1 (see R companion book)}
 			\end{figure}
-			We will see and study in this book some famous polynomials as: Legendre polynomials (
+			We will see and study in this book some famous polynomials as: Legendre polynomials (\SeeChapter{see section Quantum Chemistry page \pageref{legendre polynomial}}), Bernoulli polynomials (\SeeChapter{see section Sequences and Series page \pageref{bernoulli polynomials}}), Bernstein polynomials (\SeeChapter{see section Numerical Methods page \pageref{bernstein polynomial}}), Hermite polynomials (\SeeChapter{see section Functional Analysis page \pageref{hermite polynomial}}), ...
 			
-			\item "\NewTerm{Rational fractions}\index{rational fractions}" are polynomials divisions (\SeeChapter{see section Calculus}):
+			\item "\NewTerm{Rational fractions}\index{rational fractions}" are polynomials divisions (\SeeChapter{see section Calculus page \pageref{polynomials division}}):
 			
 			\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 			Obviously two rational fractions are equal, if one is obtained from the other by multiplying the numerator and denominator by the same polynomial.
@@ -753,7 +778,7 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 			\begin{figure}[H]
 				\centering
 				\includegraphics{img/analysis/rational_function.jpg}
-				\caption{Example ration function $f(x) = \frac{x^3-2x}{2(x^2-5)}$}
+				\caption[Example of rational function]{Example of rational function $f(x) = \frac{x^3-2x}{2(x^2-5)}$}
 			\end{figure}
 			The rational function:
 			
@@ -771,21 +796,27 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 			\begin{figure}[H]
 				\centering
 				\includegraphics{img/analysis/step_function.jpg}
-				\caption{Example of step function}
+				\caption{Example of a step function}
 			\end{figure}
 			Such functions can be found in signal processing and also in statistics for survival analysis.
 		\end{itemize}
 		
-		However, there are a very large number of other elementary functions that will meet in the individual sections of this book. Examples include the "Bessel functions" (\SeeChapter{see section Sequences and Series}), the "Lipschitz functions" (\SeeChapter{see section Topology}), the "Dirac functions" (\SeeChapter{see section Differential and Integral Calculus}), the "distribution functions" (\SeeChapter{see section Statistics}), the "Euler gamma function" (\SeeChapter{see section Differential and Integral Calculus}), etc. The reader will notice that the Dirac function also belongs to the family of distribution functions.
+		However, there are a very large number of other elementary functions that will meet in the individual sections of this book. Examples include the "Bessel functions" (\SeeChapter{see section Sequences and Series page \pageref{bessel functions}}), the "Lipschitz functions" (\SeeChapter{see section Topology page \pageref{lipschitz functions}}), the "Dirac functions" (\SeeChapter{see section Differential and Integral Calculus page \pageref{dirac function}}), the "distribution functions" (\SeeChapter{see section Statistics page \pageref{distribution function}}), the "Euler gamma function" (\SeeChapter{see section Differential and Integral Calculus page \pageref{gamma euler function}}), etc. The reader will notice that the Dirac function also belongs to the family of distribution functions.
 	\end{enumerate}
 	
-	\subsubsection{Limits and Continuity of Functions}
+	Here is a quite good summary (non exhaustive but good!):
+	\begin{figure}[H]
+		\centering
+		\includegraphics{img/analysis/functions.jpg}
+		\caption[Visual representation of various functions]{Visual representation of various functions (source: ?)}
+	\end{figure}
+	
+	\subsubsection{Limits and Continuity of Functions}\label{limits}
 	We will now consider ordered variables of a special type, which we define by the relation "the variable tends to a limit." In what will follow, the concept of limit of a variable will play a fundamental role, being intimately related to the basic notions of mathematical analysis, derivatives, integrals, etc.
 	
 	\textbf{Definition (\#\mydef):} The number $a$ is named the "\NewTerm{limit}\index{limit}" of variable magnitude $x$, if for any arbitrarily small positive number $\varepsilon$ we have:
 	
-	If the number $a$ is the limit of the variable $x$, we say that "\NewTerm{
-$x$ tends to the limit $a$}".
+	If the number $a$ is the limit of the variable $x$, we say that "\NewTerm{$x$ tends to the limit $a$}".
 
 	We can also define the concept of limit from geometrical considerations (this can help to better understand ... but not always ...):
 	
@@ -882,7 +913,7 @@ $x$ tends to the limit $a$}".
 	
 	that is sot say the four following possibilities:
 	
-	And once again don't forget as we already mentioned before that some function such as for example $f(x)=\sin(x)$ don't have any finite limit when $x\rightarrow \pm \infty$. Then we say that the function is just "bounded" (\SeeChapter{see section Set Theory}).
+	And once again don't forget as we already mentioned before that some function such as for example $f(x)=\sin(x)$ don't have any finite limit when $x\rightarrow \pm \infty$. Then we say that the function is just "bounded" (\SeeChapter{see section Set Theory page \pageref{closed bounded interval}}).
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/analysis/limite_delucq.jpg}
@@ -998,7 +1029,7 @@ $\pm \infty$ when $x \rightarrow a_{+,-}$, then the graphical representation of 
 			\end{figure}
 			\end{tcolorbox}
 			
-			\item The representative curve of $f(x)$ has an infinite branch (this branch has not close form asymptote) and the only one thing we can say is that $x$-axis is the direction of of this asymptote. Such an asymptote exists when:
+			\item The representative curve of $f(x)$ has an infinite branch (this branch has not close form asymptote) and the only one thing we can say is that $x$-axis is the direction of this asymptote. Such an asymptote exists when:
 			
 			\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 			\textbf{{\Large \ding{45}}Example:}\\\\
@@ -1010,7 +1041,7 @@ $\pm \infty$ when $x \rightarrow a_{+,-}$, then the graphical representation of 
 			\end{figure}
 			\end{tcolorbox}
 			
-			\item The representative curve of $f(x)$ has an infinite branch (this branch has not close form asymptote) and the only one thing we can say is that $y$-axis is the direction of of this asymptote (we then also speak of "parabolic branch"):
+			\item The representative curve of $f(x)$ has an infinite branch (this branch has not close form asymptote) and the only one thing we can say is that $y$-axis is the direction of this asymptote (we then also speak of "parabolic branch"):
 			
 			\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 			\textbf{{\Large \ding{45}}Example:}\\\\
@@ -1043,12 +1074,30 @@ $\pm \infty$ when $x \rightarrow a_{+,-}$, then the graphical representation of 
 	\end{enumerate}
 	
 	\pagebreak
-	\subsection{Logarithms}
+	\subsubsection{Concavity/Convexity of a function}
+	We will define now a property which at first sight may seem of no interest as it is so trivial but which we shall find in the chapter of Statistics for the demonstration of an important relation named "Jensen inequality" and which is of major importance Finance and Insurance for the valuation of options and premiums (\SeeChapter{see section Economy page \pageref{finance convex function}}) and especially for the application of the Jensen's inequality (\SeeChapter{see section Statistics page \pageref{jensen inequality}}).
+
+	Consider the following figure:
+	\begin{figure}[H]
+		\centering
+		\includegraphics{img/analysis/concavity_convexity.jpg}
+		\caption[]{Graphical representation of curvilinear asymptote}
+	\end{figure}
+	\textbf{Definition (\#\mydef):} In mathematics, a real function of a real variable is say to a "\NewTerm{convex function}\index{convex function}\label{convex function}" if, viewed from below, its graph is convex (in bump); we mean that if $A$ and $B$ are two points of the graph of the function, the segment $[AB]$ is entirely situated above the graph. It is the same to say that the "\NewTerm{epigaph}" (the set of points above the graph) is a concave set. Conversely, a function whose graph, as seen from below, is seen as a cave, is say to be a "\NewTerm{concave function}\index{concave function}\label{concave function}". It is the same to say that the "\NewTerm{hypograph}" (the set of points below) is a convex set.
+	
+	By specifying by the values of the function what are the points $A$ and $B$ above, we get often an equivalent definition of the convexity of a function: a function defined on a real interval $I$ is convex when, for any $x$ and $y$ of $I$ and all $t$ in $[0,1]$ we have:
+	
+	When the inequality is strict, then we obviously speak of a "\NewTerm{strictly convex function}".
+
+	By extension (common sense from my point of view), a function $f$ is concave if $-f$ is convex (which is trivial with the pay-off function - see section Economy page \pageref{finance convex function} - profile of options from seller or buyer point of view ).
+			
+	\pagebreak
+	\subsection{Logarithms}\label{logarithms}
 	We hesitated to put the definition of logarithms in the section Calculus. After a moment of reflection, we decided it was better to put it in this section because to understand it well, we must be aware of the concept of limits, of definition domain and of the power function. We hope that our choice will suit you best.
 	
 	Given the power (bijective) function of any base where $a \in \mathbb{R}_{+}^{*}/1$ (we exclude $1$ ontherwise it is not bijective) and denoted for recall by:
 	
-	for which it corresponds to each real number $x$, exactly one positive number $a^x$ (the image set of the function is in $\mathbb{R}$) such as the powers calculation rules are applicable (\SeeChapter{see section Calculus}).
+	for which it corresponds to each real number $x$, exactly one positive number $a^x$ (the image set of the function is in $\mathbb{R}$) such as the powers calculations rules are applicable (\SeeChapter{see section Calculus page \pageref{power rules calculations}}).
 	
 	We know that for such a function that if $a>1$, then $f (x)$ is an increasing and positive (monotone) in $\mathbb{R}$, and if $0<a<1$, then $f(x)$ is positive and decreasing (monotone) in $\mathbb{R}$.
 	
@@ -1067,7 +1116,20 @@ $\pm \infty$ when $x \rightarrow a_{+,-}$, then the graphical representation of 
 	
 	
 	Considering $\log_a(x)$ as an exposant, we have the following properties:	
-	
+	\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			  \hline
+			  \rowcolor[gray]{0.75}Properties & Justification \\ \hline
+			  $\log_a1=0$ & $a^0=1$ \\ \hline
+			  $\log_aa=a$ & $a^1=a$ \\ \hline
+			  $\log_aa^x$ & $a^x=a^x$ \\ \hline
+			  $a^{\log_a(x)}=x$ & $a^{\log_a(x)}=a^y=x$ \\
+			  \hline
+		\end{tabular}
+		\end{center}
+		\caption{Properties of the logarithm in base $a$}
+	\end{table}
 	\begin{tcolorbox}[title=Remarks,colframe=black,arc=10pt]
 	\textbf{R1.} The word "logarithm" means "number of logos", "logos" meaning "reason" or "ratio".\\
 	
@@ -1121,7 +1183,7 @@ $\pm \infty$ when $x \rightarrow a_{+,-}$, then the graphical representation of 
 	\end{figure}
 	For the logarithmic function in Eulerian base $e$ it is necessary to calculate:
 	
-	to ask ourself the following question: at what power $n\in \mathbb{R}$ we must raise the number $e$ to get $x$?
+	to ask ourselves the following question: at what power $n\in \mathbb{R}$ we must raise the number $e$ to get $x$?
 	
 	Formally this consists to solve the equation:
 	
@@ -1135,17 +1197,17 @@ $\pm \infty$ when $x \rightarrow a_{+,-}$, then the graphical representation of 
 		\includegraphics{img/analysis/bijection_ln_x_exp_x.jpg}
 		\caption{Graphical representation of the correspondence between the natural logarithm and the exponential}
 	\end{figure}
-	But what is that "Eulerian" number also named "\NewTerm{Euler number}\index{Euler number}"? Why do we find so often in physics and mathematics? Let us first determine the origin of its value:
+	But what is that "Eulerian" number also named "\NewTerm{Euler number}\index{Euler number}\label{Euler number}"? Why do we find so often in physics and mathematics? Let us first determine the origin of its value:
 	
-	with $\alpha \in \mathbb{N}$ and when $\alpha +\infty$.
+	with $\alpha \in \mathbb{N}$ and when $\alpha \rightarrow +\infty$.
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	The second term of equality is typically the type of expression that we find in compound interest in finance (\SeeChapter{see section Economy}) or in any other type of identical increase factor. And what interests us in this case is when this type of increase tends to infinity.
+	The second term of the equality is typically the type of expression that we find in compound interest in finance (\SeeChapter{see section Economy page \pageref{compound interest}}) or in any other type of identical increase factor. And what interests us in this case is when this type of increase tends to infinity.
 	\end{tcolorbox}
 	The interest we have to pose the problem as in this way is that if we do tend $\alpha \rightarrow +\infty$ the function written above tends to $e$ and this function has the special property of being calculable more or less easily for historical reasons using Newton's binomial.
 	
-	So according to the development of the Newton binomial (\SeeChapter{see section Calculus}) we can write:
+	So according to the development of the Newton binomial (\SeeChapter{see section Calculus page \pageref{binomial coefficient development}}) we can write:
 	
-	This development is similar to the Taylor expansion (\SeeChapter{see section Sequences and Series}) of some given functions for particular cases of development values (hence the reason why we find this eulerian number in many places that we will later).
+	This development is similar to the Taylor expansion (\SeeChapter{see section Sequences and Series page \pageref{taylor series}}) of some given functions for particular cases of development values (hence the reason why we find this eulerian number in many places that we will later).
 	
 	By performing some algebraic transformations that should now be obvious to the reader, we find:
 	
@@ -1159,7 +1221,7 @@ $\pm \infty$ when $x \rightarrow a_{+,-}$, then the graphical representation of 
 	
 	We then can write the inequality:
 	
-	The underlined terms constitute a geometric sequence of reason $q=1/2$ (see section Sequences and Series) and whose first term is $1$. If follows using the result obtained in the section of Sequences ans Series, that we can write:
+	The underlined terms constitute a geometric sequence of reason $q=1/2$ (\SeeChapter{see section Sequences and Series page \pageref{geometric sequence}}) and whose first term is $1$. If follows using the result obtained in the section of Sequences ans Series, that we can write:
 	
 	Therefore, we have:
 	
@@ -1168,6 +1230,8 @@ $\pm \infty$ when $x \rightarrow a_{+,-}$, then the graphical representation of 
 	The limit:
 	
 	tends to this limited value that is the number $e$ whose value is:
+	
+	The prior previous relation is also know in the following form after an obvious change of variable:
 	
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	As we have proved it in the section Numbers, this number is irrational.
@@ -1222,6 +1286,9 @@ $\pm \infty$ when $x \rightarrow a_{+,-}$, then the graphical representation of 
 	\pagebreak
 	\subsection{Transformations}
 	\subsubsection{Fourier Transform}
+	We will continue here what we started in the section Sequences and Series on page \pageref{fourier transform}.
+	\StickyNote[2.5cm]{\LARGE To finish and write before year 2020}[6.5cm]
+	
 	\subsubsection{Laplace Transform}
 	The Laplace transform is used extensively  in order to solve  differential equations that arise in many modeling situations of real life. 
 
@@ -1238,11 +1305,14 @@ For convergence, it is obviously important to have following condition for the a
 	Thus $\ln(x)$ has to be negative for the integral to converge, In this regard, we suppose $\ln(x)=-s$ where $s>0$. Thus, the final integral takes the form:
 	
 	In this way, we can say that Laplace Transform is simply  stretching a discrete (infinite series)  into a continuous (integration) analogue. 
+	
+	\StickyNote[2.5cm]{\LARGE To finish and write before year 2020}[6.5cm]
+	
 	\subsubsection{Hilbert Transform}
+	\StickyNote[2.5cm]{\LARGE To start write and finish before year 2020}[6.5cm]
 	
-	
-	\subsection{Functional dot product (inner product)}
-	The "\NewTerm{functional dot product}\index{function dot product}\index{orthogonality of functions}\index{functions orthogonality}" (very strong analogy with the dot product in seen in the section Vector Calculus) may seem unnecessary when examined for the first time outside of an application context or only as generalization purpose, but in fact it has many practical applications. We will make such direct use in the section of Wave Quantum Physics and Quantum Chemistry, or even more important in the context of trigonometric polynomials through the Fourier series and transforms (\SeeChapter{see section Sequences and Series}) that we find everywhere in contemporary physics and computer science.
+	\subsection{Functional dot product (inner product)}\label{functional dot product}
+	The "\NewTerm{functional dot product}\index{function dot product}\index{orthogonality of functions}\index{functions orthogonality}" (very strong analogy with the dot product in seen in the section Vector Calculus) may seem unnecessary when examined for the first time outside of an application context or only as generalization purpose, but in fact it has many practical applications. We will make such direct use in the section of Wave Quantum Physics and Quantum Chemistry, or even more important in the context of trigonometric polynomials through the Fourier series and transforms (\SeeChapter{see section Sequences and Series page \pageref{fourier series}}) that we find everywhere in contemporary physics and computer science.
 	
 	However, if the reader has not traveled the section of Vector Calculus and the part treating the vector dot product, we would highly recommend reading it otherwise what follows may be a little incomprehensible.
 	
@@ -1260,7 +1330,7 @@ For convergence, it is obviously important to have following condition for the a
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	We will see further below that the definition above is not the most general one as especially physicists and engineers say that functions are orthogonal under a more constraint situation.
 	\end{tcolorbox}
-	The development that will follow will remind us the Gram-Schmidt procedure (\SeeChapter{see section Vector Calculus}) to build an orthogonal family.
+	The development that will follow will remind us the Gram-Schmidt procedure (\SeeChapter{see section Vector Calculus page \pageref{gram-schmidt procedure}}) to build an orthogonal family.
 	
 	\begin{theorem}
 	Given $(p_0,...,p_n,...)$ a family of linearly independent polynomial defined on $[a,b]$ and $V$ the vector space defined by this family. The family $(y_0,...,y_n,...)$ defined by recurrence in the following way:
@@ -1280,7 +1350,7 @@ For convergence, it is obviously important to have following condition for the a
 	Let us see a first example very important is signal processing and statistic that is relatively to frequency analysis:
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 	\textbf{{\Large \ding{45}}Example:}\\\\
-	Let us consider the very important example in modern physics that is the set of continuous $2\pi$-periodic function denoted $P_{2\pi}$ that forms a vector space (\SeeChapter{see section Vector Calculus}).\\
+	Let us consider the very important example in modern physics that is the set of continuous $2\pi$-periodic function denoted $P_{2\pi}$ that forms a vector space (\SeeChapter{see section Set Theory page \pageref{vector space}}).\\
 	
 	We define the scalar product of two functions of this set by:
 	
@@ -1288,15 +1358,15 @@ For convergence, it is obviously important to have following condition for the a
 	
 	The simplest idea is then to use the trigonometric functions sine and cosine:
 	
-	The relations below show that the basis chosen above are orthogonal and therefore form a free family, plus it's a generating family of the vector space $P_{2\pi}$ because as we have seen in our study of Fourier series (\SeeChapter{see section Sequences and Series}), we have the following values:
+	The relations below show that the basis chosen above are orthogonal and therefore form a free family, plus it's a generating family of the vector space $P_{2\pi}$ because as we have seen in our study of Fourier series (\SeeChapter{see section Sequences and Series page \pageref{fourier series}}), we have the following values:
 	
-	where $\delta_{km}$ is the kronecker symbol (\SeeChapter{see section Tensor Calculus}).\\
+	where $\delta_{km}$ is the kronecker symbol (\SeeChapter{see section Tensor Calculus page \pageref{kronecker symbol}}).\\
 	
 	Therefore it is also an orthogonal basis but not orthonormal. If we want to normalized the vectors of the basis we just need obviously to take:
 	
 	\end{tcolorbox}
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	If the reader remembers that for a random variable $X$ defined on $\mathbb{R}$, the mean was calculated as (\SeeChapter{see section Statistics}):
+	If the reader remembers that for a random variable $X$ defined on $\mathbb{R}$, the mean was calculated as (\SeeChapter{see section Statistics page \pageref{expected mean continuous variable}}):
 	
 	The we can assimilate:
 	
@@ -1316,7 +1386,7 @@ For convergence, it is obviously important to have following condition for the a
 	
 	then we have an orthonormal basis (and not just an orthogonal one).
 	\end{tcolorbox}
-	\addcontentsline{toc}{paragraph}{Orthogonality of Bessel functions}
+	\addcontentsline{toc}{paragraph}{Orthogonality of Bessel functions}\label{orthogonality of bessel functions}
 	Another example that will be useful for us in the section of Wave Mechanics for our study of the ideal circular membrane of a drum.
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 	\textbf{{\Large \ding{45}}Example:}\\\\
@@ -1362,7 +1432,7 @@ For convergence, it is obviously important to have following condition for the a
 	A last example that will be useful for us in the section of Wave Quantum Physics during our study of the harmonic oscillator:
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 	\textbf{{\Large \ding{45}}Example:}\\\\
-	We will introduce in the section of Wave Quantum Physics the following "physicist Hermite polynomial\index{Hermite polynomial}":
+	We will introduce in the section of Wave Quantum Physics the following "physicist Hermite polynomial\index{Hermite polynomials}\label{hermite polynomial}":
 	
 	Therefore (see the plot in the section of Wave Quantum Physics):
 	
@@ -1377,7 +1447,7 @@ For convergence, it is obviously important to have following condition for the a
 	\end{tcolorbox}
 	
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
-	Finally, using Kronecker symbol (\SeeChapter{see section Tensor Calculus}):
+	Finally, using Kronecker symbol (\SeeChapter{see section Tensor Calculus page \pageref{kronecker symbol}}):
 	
 	\end{tcolorbox}
 	From what we have seen above we deduce that:
@@ -1418,7 +1488,7 @@ Let $U \subset \mathbb{C}$ be a set and $V \subset \mathbb{C}$ another set. A fu
 	
 is a "\NewTerm{complex function}\index{complex function}":
 	
-What is important is to remember (\SeeChapter{see section Numbers}) that we can identify:
+What is important is to remember (\SeeChapter{see section Numbers page \pageref{complex numbers}}) that we can identify:
 	
 and:
 	
@@ -1478,7 +1548,7 @@ and if we look at the corresponding pre-image complex plane  then we have two he
 		\end{center}	
 		\caption{Pre-image representation of the example function}
 	\end{figure}
-The appearance of these two heads of cats is that this function has 2 possible pre-images for each image point (so it is a surjective function - see section Set Theory).\\
+The appearance of these two heads of cats is that this function has 2 possible pre-images for each image point (so it is a surjective function - see section Set Theory page \pageref{surjective application}).\\
 
 Here is a nice Maple 17.00 script by Carl Ebehart to check this (shame that this can not be done in an easier way in Maple):\\
 
@@ -1535,7 +1605,7 @@ E2. Another interesting feature is the "\NewTerm{Cayley transformation}\index{Ca
 	
 having as domain definition: $\mathbb{C}/\left\lbrace 1\right\rbrace$.\\
 
-We note that this is an involutive function since:
+	We notice that this is an involutive function since:
 	
 and as we have proved in the section of Proofs Theory that any involution function is both injective and surjective, then the Cayley transform is a bijective function.\\
 
@@ -1569,24 +1639,24 @@ Then the image plane will be:
 		\end{center}	
 		\caption{Result of the Joukovski transformation in polar coordinates}
 	\end{figure}
-It thus transforms the circles respectively centered at $0$ and the rays passing through $0$ into a family cofocal ellipses and hyperbole . To prove this fact, we use the complex polar coordinates (Euler formula) seen in the section on Numbers (\SeeChapter{see chapter Arithmetics}):
+It thus transforms the circles respectively centered at $0$ and the rays passing through $0$ into a family cofocal ellipses and hyperbole . To prove this fact, we use the complex polar coordinates (Euler formula) seen in the section on Numbers (\SeeChapter{see chapter Arithmetics page \pageref{euler formula}}):
 	\end{tcolorbox}
 
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
-		
-	and:
-		
+	
+and:
+	
 Then we have:
-		
+	
 therefore:
-		
-and we immediately see that (\SeeChapter{see section Trigonometry}):
-		
-has the form of the equation of an ellipse (\SeeChapter{see section Analytical Geometry}) and we also have:
-		
-which is the equation of a hyperbole (\SeeChapter{see section Analytical Geometry}).\\
+	
+and we immediately see that (\SeeChapter{see section Trigonometry page \pageref{remarkable trigonometric identities}}):
+	
+has the form of the equation of an ellipse (\SeeChapter{see section Analytical Geometry page \pageref{analytical expression ellipse}}) and we also have:
+	
+	which is the equation of a hyperbola (\SeeChapter{see section Analytical Geometry page \pageref{hyperbola}}).\\
 
-This function is useful in case we cleverly place a circle through the point $z=1$ (as in the case of the first figure) the plan represented in polar coordinates with a dotted line might looks like an airplane wing. This allowed a time ago in aerodynamics (but the technique is obsolete today)  to transpose the study of a vector field of an airplane wing profile to the study of a circle profile and to do after the Joukovski transformation.
+	This function is useful in case we cleverly place a circle through the point $z=1$ (as in the case of the first figure) the plan represented in polar coordinates with a dotted line might looks like an airplane wing. This allowed a time ago in aerodynamics (but the technique is obsolete today)  to transpose the study of a vector field of an airplane wing profile to the study of a circle profile and to do after the Joukovski transformation.
 	\end{tcolorbox}
 	
 	\pagebreak
@@ -1616,7 +1686,7 @@ We thus get:
 
 	\end{tcolorbox}
 
-Let us see a last example that shows an electric dipole with its electric field and potential lines (\SeeChapter{see section Electrostatic}) can bee seen as the emergence of the $\mathbb{C}$-linear function $1/z$:
+Let us see a last example that shows an electric dipole with its electric field and potential lines (\SeeChapter{see section Electrostatic page \pageref{equipotentials}}) can bee seen as the emergence of the $\mathbb{C}$-linear function $1/z$:
 
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 \textbf{{\Large \ding{45}}Examples:}\\\\
@@ -1644,7 +1714,7 @@ E4. Always with Maple 4.00b we write:\\
 	\end{figure}
 	\end{tcolorbox}
 	
-	\subsection{Holomorphic Functions}
+	\subsection{Holomorphic Functions}\label{holomorphic functions}
 	The definition of the derivative with respect to a complex variable is naturally formally identical to the derivative with respect to a real variable.
 	
 	We then have, if the function $f(z)$ is differentiable in $z_0$:
@@ -1679,13 +1749,13 @@ E4. Always with Maple 4.00b we write:\\
 	
 	with $x \in \mathbb{R}$ we get:
 	
-	and as $x$ approaches a small value $\mathrm{d}x$, we have (\SeeChapter{see section Differential and Integral Calculus}):
+	and as $x$ approaches a small value $\mathrm{d}x$, we have (\SeeChapter{see section Differential and Integral Calculus page \pageref{differential calculus}}):
 	
 	by choosing:
 	
 	with $y \in \mathrm{R}$, we get:
 	
-	and when $y$ tends to a small value we have (\SeeChapter{see section Differential and Integral Calculus}):
+	and when $y$ tends to a small value we have (\SeeChapter{see section Differential and Integral Calculus page \pageref{differential calculus}}):
 	
 	So now we have:
 	
@@ -1715,23 +1785,23 @@ E4. Always with Maple 4.00b we write:\\
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.6]{img/analysis/gamma_meromorphic.jpg}
-		\caption{Gamma function is meromorphic in the whole complex plane (source: Wikipedia)}
+		\caption[Gamma function is meromorphic in the whole complex plane]{Gamma function is meromorphic in the whole complex plane (source: Wikipedia)}
 	\end{figure}
-	\begin{tcolorbox}[title=Remarks,colframe=black,arc=10pt]
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	Geometrically, we will prove later that a holomorphic function has a possible interpretation in the sense that it is a conformal transformation (angles conservation).
 	\end{tcolorbox}
 	
-	Notice therefore that if $f (z)$ is $\mathbb{C}$-differentiable it can be developed as Taylor series (\SeeChapter{see section Sequences and Series}):
+	Notice therefore that if $f (z)$ is $\mathbb{C}$-differentiable it can be developed as Taylor series (\SeeChapter{see section Sequences and Series page \pageref{taylor series}}):
 	
 	Note an important thing too. If we rewrite:
 	
 	as following:
 	
-	Then we say that $f$ is "\NewTerm{irrotational}\index{irrotational}" (\SeeChapter{see section Vector Calculus}") since the first relation can be seen as:
+	Then we say that $f$ is "\NewTerm{irrotational}\index{irrotational}" (\SeeChapter{see section Vector Calculus page \pageref{irrotational}}) since the first relation can be seen as:
 	
 	which is an important analogy! Finally, the second equation:
 	
-	Also let us say by analogy (but it stops at a simple analogy!) that the function $f$ is non-divergent (\SeeChapter{see section Vector Calculus}) what is good mnemonic way to remember this equation.
+	also let us say by analogy (but it stops at a simple analogy!) that the bivariate function $f$ is non-divergent (\SeeChapter{see section Vector Calculus page \pageref{divergence vector field}}) what is good mnemonic way to remember this equation.
 	
 	Let's also show something else in evidence. If we take the two Cauchy-Riemann equations:
 	
@@ -1741,11 +1811,11 @@ E4. Always with Maple 4.00b we write:\\
 	
 	It is the same with v. Then we have:
 	
-	And we know very well this form of equations (Maxwell-Poisson equation in the section of Electrodynamics and Newton-Poisson equation in the section of Astronomy...). This is a wave equation also named "\NewTerm{Laplace equation}\index{Laplace equation}" (nothing to do with that of the same name seen in our study of the hydrostatic!) and given by the scalar Laplacian (\SeeChapter{see section Vector Calculus}):
+	And we know very well this form of equations (Maxwell-Poisson equation in the section of Electrodynamics and Newton-Poisson equation in the section of Astronomy...). This is a wave equation also named "\NewTerm{Laplace equation}\index{Laplace equation}" (nothing to do with that of the same name seen in our study of the hydrostatic!) and given by the scalar Laplacian (\SeeChapter{see section Vector Calculus page \pageref{scalar laplacian}}):
 	
 	Then it is traditional to say that $u$ is harmonic and of course we can get the same result with $v$! Well obviously ... we knew it, since we have already studied in the section Numbers that the real and imaginary parts of a complex number could be put in trigonometric form.
 
-	Thanks to this discovery, Riemann opened the application of holomorphic functions in many problems of physics, since these equations are satisfied by the gravitational potential (Newton-Poisson equation in the section of Astronomy) by electric and magnetic fields (Maxwell-Poisson equation in the section of Electrodynamics) by heat balance (no examples yet in this book) and by movements without rotational of certain fluids (no examples either in this book yet).
+	Thanks to this discovery, Riemann opened the application of holomorphic functions in many problems of physics, since these equations are satisfied by the gravitational potential (Newton-Poisson equation in the section of Astronomy page \pageref{newton-poisson equation}) by electric and magnetic fields (Maxwell-Poisson equation in the section of Electrodynamics page \pageref{maxwell-poisson equation}) by heat balance (no examples yet in this book) and by movements without rotational of certain fluids (no examples either in this book yet).
 
 	
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
@@ -1777,7 +1847,7 @@ E4. Always with Maple 4.00b we write:\\
 	\begin{theorem}
 	Well he functions satisfying the conditions Cauchy have the simple following geometrical property following: the lines whose real part of the function is constant $\mathcal{R}(f(z))=c^{te}$ and lines whose imaginary part is constant $\mathcal{I}(f(z))=c^{te}$  are orthogonal to each other (think to the trigonometric form of complex numbers it helps to better visualize!).
 	
-	In other words, the analytical complex functions are transformation functions of of an area of the plane into a new plane where the angles are preserved. Then we say that the function is a "\NewTerm{complete transformation}\index{complete transformation}".
+	In other words, the analytical complex functions are transformation functions of an area of the plane into a new plane where the angles are preserved. Then we say that the function is a "\NewTerm{complete transformation}\index{complete transformation}".
 	\end{theorem}
 	
 	\begin{dem}
@@ -1868,7 +1938,7 @@ E4. Always with Maple 4.00b we write:\\
 	\begin{enumerate}
 		\item One is to restrict the domain of the exponential function to a region that does not contain any two numbers differing by an integer multiple of $2\pi \mathrm{i}$: this leads naturally to the definition of "\NewTerm{branches}\index{branches}" of $\text{Log}(w)$, which are certain functions that single out one logarithm of each number in their domains.
 		
-		\item Another way to resolve the indeterminacy is to view the logarithm as a function whose domain is not a region in the complex plane, but a Riemann surface (\SeeChapter{see section Non-Euclidean Geometries}) that covers the punctured complex plane in an infinite-to-1 way.
+		\item Another way to resolve the indeterminacy is to view the logarithm as a function whose domain is not a region in the complex plane, but a "Riemann surface" that covers the punctured complex plane in an infinite-to-$1$ way.
 	\end{enumerate}
 	Branches have the advantage that they can be evaluated at complex numbers. On the other hand, the function on the Riemann surface is elegant in that it packages together all branches of $\text{Log}(w)$ and does not require an arbitrary choice as part of its definition.
 	
@@ -1889,9 +1959,15 @@ E4. Always with Maple 4.00b we write:\\
 	
 	For each nonzero complex number $w = x + i\mathrm{y}$, the principal value $\text{Log}(w)$ is the logarithm whose imaginary part lies in the interval $[-\pi,+\pi]$. The expression $\text{Log}(0)$ is left undefined since there is no complex number $z$ satisfying $e^z = 0$.
 	
-	Then the principal value of the complex logarithm can be defined by (\SeeChapter{see section Trigonometry}):
+	Then the principal value of the complex logarithm can be defined by (\SeeChapter{see section Trigonometry page \pageref{trigonometry}}):
 	
 	We see also obviously that the function $\text{Log}(w)$ is discontinuous at each negative real number (we can see it on the figure above), but continuous everywhere else in $\mathbb{C}^*$.
+	
+	Riemann surfaces\index{riemann surfaces} can be thought of as deformed versions of the complex plane: locally near every point they look like patches of the complex plane, but the global topology can be quite different. For example, they can look like a sphere or a torus or a couple of sheets glued together.
+	
+	The main point of Riemann surfaces is that holomorphic functions may be defined between them. Riemann surfaces are nowadays considered the natural setting for studying the global behavior of these functions, especially multi-valued functions such as the square root and other algebraic functions, or the logarithm.
+	
+	Basically, a Riemann surface is simply just a surface, as far as the shape is concerned. Any normal surface you can think of (for example, plane, sphere, torus, ...) are all Riemann surfaces. We say it's Riemann surface, is due to the context, is that we define the surface using complex functions, and for use in studying complex functions.
 	
 	\subsection{Complex Integral Calculus}
 	We have seen just above how to check if a complex function $f (z)$ was differentiable (it must at least respect the Cauchy-Riemann equations) at any point.
@@ -1910,7 +1986,7 @@ E4. Always with Maple 4.00b we write:\\
 	\end{enumerate}
 	So each term have an integral in the above expression is in fact a line integral on a family of open or closed curves (including a specific case that is straight lines...)!
 	
-	This integral can be evaluated using the Green's theorem in the plane (\SeeChapter{see section Vector Calculus}) if we consider the particular case of a closed curvilinear path such as:
+	This integral can be evaluated using the Green's theorem in the plane (\SeeChapter{see section Vector Calculus page \pageref{green theorem}}) if we consider the particular case of a closed curvilinear path such as:
 	
 	Let us first study the real part:
 	
@@ -1939,7 +2015,7 @@ E4. Always with Maple 4.00b we write:\\
 	\textbf{{\Large \ding{45}}Example:}\\\\
 	Let us calculate:
 	
-	For this purpose, we will use the simplification that consist to remember (\SeeChapter{see section Numbers}) that:
+	For this purpose, we will use the simplification that consist to remember (\SeeChapter{see section Numbers page \pageref{euler formula}}) that:
 	
 	Therefore:
 	
@@ -1969,7 +2045,7 @@ E4. Always with Maple 4.00b we write:\\
 	is differentiable at all points except in on $z_0$ (where the expression is no longer holomorph) is name a "\NewTerm{singularity}\index{singularity}".
 
 	Indeed, take a holomorphic function $f (z)$ satisfying Cauchy-Riemann equation and subtract a constant ($f(z_0)$) does not change the fact that the expression (in this case the numerator in previous relationship) remain holomorphic. Finally, multiply it by a fraction (the denominator of the above equation) which is also holomorph gives a holomorphic function. But singularities can then appear, we then speak of "\NewTerm{meromorphic functions}\index{meromorphic functions}" (this is the ratio of two holomorphic functions).
-	\begin{tcolorbox}[title=Remarks,colframe=black,arc=10pt]
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	A meromorphic function is a function holomorphic in the whole complex plane, except possibly on a set of isolated points each of which is a pole (singularity) for the function (see further below for the concept of pole/singularity). The gamma function (see the plot in the Differential and Integral calculus section) is a famous example of meromorphic function!
 	\end{tcolorbox}	
 	So if we take the path integral on a closed path avoiding $z_0$, the Cauchy theorem gives us immediately (remember the proof above):
@@ -2014,7 +2090,7 @@ E4. Always with Maple 4.00b we write:\\
 	
 	that gives us the formal expression of a complex function in the form of infinite series of integer powers near a point $z_0$ of the complex plane with therefore:
 	
-	Remembering that $d^{n}f(z_0)/\mathrm{d}z^n$ can be written equivalently $f^n(z_0)$, we see that all the two previous relations gives us the Taylor series expansion that we had obtained in real analysis (\SeeChapter{see section Sequences and Series}) and that was:
+	Remembering that $d^{n}f(z_0)/\mathrm{d}z^n$ can be written equivalently $f^n(z_0)$, we see that all the two previous relations gives us the Taylor series expansion that we had obtained in real analysis (\SeeChapter{see section Sequences and Series page \pageref{taylor series}}) and that was:
 	
 	Thus, the Taylor series in $\mathbb{R}$ are a special case of Laurent series that are in $\mathbb{C}$!!!
 	
@@ -2052,12 +2128,11 @@ E4. Always with Maple 4.00b we write:\\
 	
 	We see that there is trivially for $g(x)$ two singularities that are $x=\left\lbrace -1,+1\right\rbrace$ by cons, basically we do not see trivial singularities for $h (x)$ if we reason only in $\mathbb{F}$ so it can be hard for the latter function to understand the origin of the radius of convergence!
 	
-	Indeed, if we trace these two functions in $\mathbb{R}$ with Maple 4.00b we get respectively:
+	Indeed, if we plot these two functions in $\mathbb{R}$ with Maple 4.00b we get respectively:
 	\begin{figure}[H]
 		\begin{center}
 			\includegraphics{img/analysis/g_h_example_functions.jpg}
-		\end{center}	
-		\caption{Complex Logarithm plot with Maple 4.00b}
+		\end{center}
 	\end{figure}
 	hence the problem of why there is still implicitly a radius of convergence $x \in ]-1,+1[$ for $h (x)$???
 	
@@ -2079,7 +2154,7 @@ E4. Always with Maple 4.00b we write:\\
 		\begin{center}
 			\includegraphics{img/analysis/g_function_expansion_inspection.jpg}
 		\end{center}	
-		\caption{Plane representation of the function $g$ to visualize the problem}
+		\caption[]{Plane representation of the function $g$ to visualize the problem}
 	\end{figure}
 	where we see well that the Maclaurin series (or expression in power series) does not converge outside $x \in ]-1,+1[$  which can be intuitive because of both singularities.
 	
@@ -2101,13 +2176,13 @@ E4. Always with Maple 4.00b we write:\\
 		\begin{center}
 			\includegraphics{img/analysis/h_function_expansion_inspection.jpg}
 		\end{center}	
-		\caption{Surprisingly, here the Maclaurin series (in black) does not converge}
+		\caption[Divergent Maclaurin series]{Surprisingly, here the Maclaurin series (in black) does not converge}
 	\end{figure}
 	where we see well that the Maclaurin series (or the expression in power series) does not converge either outside $x \in ]-1,+1[$ which was unsettling and against-intuitive at the beginning of the history of real analysis.
 	
-	Today even a high school student knows that he can also think in $\mathbb{C}$ and that $\mathbb{R} \subset \mathbb{C}$. So the reals analysis is just a special case and restricted of the field of complex analysis.
+	Today even a high school student knows that he can also think in $\mathbb{C}$ and that $\mathbb{R} \subset \mathbb{C}$. So the real analysis is just a special case and restricted of the field of complex analysis. The fact to to extend the domain of a given analytic function is named "\NewTerm{analytic continuation}\index{analytic continuation}". As we will see just now analytic continuation often succeeds in defining further values of a function, for example in a new region where an infinite series representation in terms of which it is initially defined becomes divergent!
 	
-	The singularity for $h (x)$ in $\mathbb{C}$ comes that latter it is written:
+	The singularity for $h (x)$ in $\mathbb{C}$ comes that latter is then  written:
 	
 	and there are therefore two singularities $z=\left\lbrace{-\mathrm{i},+\mathrm{i} }\right\rbrace$ that we see well if we represent:
 	
@@ -2165,7 +2240,7 @@ im=-3..3,view=[-1.5..1.5,-1.5..1.5,0..1.5],orientation=[-130,70]\\
 		\begin{center}
 			\includegraphics{img/analysis/h_divergence.jpg}
 		\end{center}	
-		\caption{This diverges ... (stalactites ???)}
+		\caption[]{This diverges ... (stalactites ???)}
 	\end{figure}
 	There is still something interesting to try ... since we are now on a plane, not a straight line right (axis), it is possible for us to makethe Taylor expansion around a singularity $z_0$ by deforming the disk in a convex crown/ring simply connected as shown below (the crown/ring being the simplest simply convex geometry arising from the deformation of a disk):
 	\begin{figure}[H]
@@ -2232,11 +2307,11 @@ im=-3..3,view=[-1.5..1.5,-1.5..1.5,0..1.5],orientation=[-130,70]\\
 	
 	Then we have:
 	
-	Therefore if $C^-$ and $C$ are the paths of the same function but travel in the opposite direction, we have by taking our conventional notation (Caution! In the second term it is implicit that the parameterization is different from the first one!):
+	Therefore if $C^-$ and $C$ are the paths of the same function but travel in the opposite direction, we have by taking our conventional notation (caution! In the second term it is implicit that the parameterization is different from the first one!):
 	
 	Therefore:
 	
-	this is why we often say that the sign of the value of a line integral will depend on the direction in which its integration path is travel. If the direction is straightforward (that is to say "counterclockwise") its sign will be positive; if on the contrary the direction is clockwise his sign will be negative (\SeeChapter{see section Differential and Integral Calculus}).
+	this is why we often say that the sign of the value of a line integral will depend on the direction in which its integration path is travel. If the direction is straightforward (that is to say "counterclockwise") its sign will be positive; if on the contrary the direction is clockwise its sign will be negative (\SeeChapter{see section Differential and Integral Calculus page \pageref{closed path orientation}}).
 	
 	\pagebreak
 	\subsection{Laurent Series}
@@ -2248,7 +2323,7 @@ im=-3..3,view=[-1.5..1.5,-1.5..1.5,0..1.5],orientation=[-130,70]\\
 		\begin{center}
 			\includegraphics{img/analysis/crown.jpg}
 		\end{center}	
-		\caption{Zoom on our crown from our starting example}
+		\caption[]{Zoom on our crown from our starting example}
 	\end{figure}
 	We therefore have if the function $f$ is analytic and holomorphic in the crown of outer radius $R$ and inside radius $r$, the following path curvilinear in the crown as we proved above (we change notation: $z=z'$ and $z_0=z$):
 	
@@ -2417,7 +2492,7 @@ numpoints=10000);}
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/analysis/sum_of_two_laurent_series.jpg}
-		\caption{Sum of the two Laurent Series of $f(z)$ for both singularities with Maple 4.00b}
+		\caption{Sum of the two Laurent series of $f(z)$ for both singularities with Maple 4.00b}
 	\end{figure}
 	\end{tcolorbox}
 	
@@ -2490,7 +2565,7 @@ numpoints=10000);}
 	
 	\texttt{>sum(-(I*(1/2))\string^n*(-2*I)\string^(n-2), n = 0 .. infinity)}
 	
-	\subsection{Residue Theorem}
+	\subsection{Residue Theorem}\label{residue theorem}
 	Consider a function $f(z)$ whose pole is of order less or equal to $k$.
 	
 	Let us make it  analytic:
@@ -2633,7 +2708,7 @@ numpoints=10000);}
 	\newpage
 	\thispagestyle{empty}
 	\mbox{}
-	\section{Topology}
+	\section{Topology}\label{topology}
 	\lettrine[lines=4]{\color{BrickRed}T}opology is an extremely broad field of mathematics for which it is difficult to define precisely the object so the areas where it applies are varied (real line topology, graphs topology, differential topology, complex topology, symplectic topology, etc.). 
 
 We mainly make a distinction with:
@@ -2641,9 +2716,14 @@ We mainly make a distinction with:
 		\item "\NewTerm{General topology}" that establishes the foundational aspects of topology and investigates properties of topological spaces and investigates concepts inherent to topological spaces. It includes point-set topology, which is the foundational topology used in all other branches (including topics like compactness and connectedness).
 		
 		\item "\NewTerm{Algebraic topology"} tries to measure degrees of connectivity using algebraic constructs such as homology and homotopy groups.
-		\item "\NewTerm{Differential topology"} is the field dealing with differentiable functions on differentiable manifolds. It is closely related to differential geometry (see section of the same name in the chapter about Geometry) and together they make up the geometric theory of differentiable manifolds.
+		\item "\NewTerm{Differential topology"} is the field dealing with differentiable functions on differentiable manifolds. It is closely related to differential geometry (see section of the same name in the chapter about Geometry page \pageref{differential geometry}) and together they make up the geometric theory of differentiable manifolds.
 		\item "\NewTerm{Geometric topology}" primarily studies manifolds and their embeddings (placements) in other manifolds. A particularly active area is low dimensional topology, which studies manifolds of four or fewer dimensions. This includes knot theory, the study of mathematical knots.	
 	\end{itemize}
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	A "\NewTerm{manifold}\index{manifold}" is a higher dimensional analogue of a curve or a surface. A manifold of dimension $n$ is a space, you can think of a collection of points, that locally looks like $\mathbb{R}^{n}$ for some integer $n$. All curves in the two dimensional plane that do not intersect locally look like part of a line. All smooth surfaces in $\mathbb{R}^3$, that is surfaces that do not have sharp kinks, edges (boundaries), or points all locally look like the two dimensional plane. Thus such surfaces are two dimensional manifolds. One should imagine being able to tear any small piece off the smooth surface, then being able to stretch it, push down any "hills" and push up any "valleys" to end up with a flat piece of the $2$-plane. Therefore a manifold is a space that is locally Euclidean\\
+	
+	The picture to have in your mind when thinking about manifolds is the relation between a globe and a map. Small pieces of the globe can always be described by maps (pieces of the 2-plane). Moreover, the entire globe can be covered by a collection of maps: an atlas.
+	\end{tcolorbox}
 	What we can say at first is that in its foundations Topology is very closely related to the set theory, the study of convergence of sequences and series, functional analysis, analysis complex, the differential and integral calculus, vector calculus and the geometry to mention only the most important cases that the reader can already found in this book.
 
 	The origin of Topology comes from the problems that laid to the progress of functional analysis in the rigorous study of continuous functions, their differentiability, their limits at a point (finite or note), the existence of extremums, etc. in higher-dimensional spaces (in fact, implicitly, the goal for topology is to create tools that easily allow to study the properties of functions in all dimensions). All these concepts, needed a rigorous mathematical definition of the intuitive idea of proximity, especially when doing operations on such functions.
@@ -2659,14 +2739,16 @@ General topology is the branch of topology dealing with the basic set-theoretic 
 The fundamental concepts in point-set topology are "\NewTerm{continuity}", "\NewTerm{compactness}", and "\NewTerm{connectedness}".  
 	\begin{itemize}
 		\item Continuous functions take \underline{nearby} points to nearby points.
-		\item Compact sets are those that can be covered by finitely many sets of \underline{arbitrarily small} size. 
+		
+		\item Compact\label{compact} sets are those that can be covered by finitely many sets of \underline{arbitrarily small} size. 
+		
 		\item Connected sets are sets that cannot be divided into two pieces that are \underline{far apart}. 
 	\end{itemize}		
-	The words \underline{nearby}, \underline{arbitrarily small}, and \underline{far apart} can all be made precise by using open sets. If we change the definition of open set, we change what continuous functions, compact sets, and connected sets are. Each choice of definition for open set is named a "\NewTerm{topology}". A set with a topology is named a "\NewTerm{topological space}".
+	The words \underline{nearby}, \underline{arbitrarily small}, and \underline{far apart} can all be made precise by using open sets. If we change the definition of open set, we change what continuous functions, compact sets, and connected sets are. Each choice of definition for open set is named a "\NewTerm{topology}". A set with a topology is named a "\NewTerm{topological space}\index{topological space}\label{topological space}".
 
-	"\NewTerm{Metric spaces}" are an important class of topological spaces where distances can be assigned a number named a "\NewTerm{metric}". Having a metric simplifies many proofs, and many of the most common topological spaces are metric spaces.
+	"\NewTerm{Metric spaces}\index{metric space}\label{metric space}" are an important class of topological spaces where distances can be assigned a number named a "\NewTerm{metric}\label{metric}". Having a metric simplifies many proofs, and many of the most common topological spaces are metric spaces.
 	
-	An "\NewTerm{inner product}" (\SeeChapter{see section Vector Calculus}) induces a "\NewTerm{norm}"  (\SeeChapter{see section Vector Calculus}) and the norm induces a metric space. 
+	An "\NewTerm{inner product}" (\SeeChapter{see section Vector Calculus page \pageref{inner product}}) induces a "\NewTerm{norm}"  (\SeeChapter{see section Vector Calculus page \pageref{vector norm}}) and the norm induces a metric space. 
 	
 	Therefore we understand better what we will study in this section that can be summarized by the following figure:
 	\begin{figure}[H]
@@ -2709,15 +2791,16 @@ The fundamental concepts in point-set topology are "\NewTerm{continuity}", "\New
 	
 	\textbf{Definition (\#\mydef):} 
 	\begin{enumerate}
-		\item[D1.] If we denote by $(X, V)$ a a topological space, $V$ designating the open sets of $X$, a "\NewTerm{base}", in the topological sense, of $(X, V)$ is a part $B$ of $V$ such that any open set of $V$ is a an union of open sets of $B$ (this is the same idea as vector spaces but in fact applied to sets ... nothing bad and difficult! If you want an example see the section of Measure Theory).
+		\item[D1.] If we denote by $(X, V)$ a topological space, $V$ designating the open sets of $X$, a "\NewTerm{base}", in the topological sense, of $(X, V)$ is a part $B$ of $V$ such that any open set of $V$ is a an union of open sets of $B$ (this is the same idea as vector spaces but in fact applied to sets ... nothing bad and difficult! If you want an example see the section of Measure Theory).
 		
-		\item[D2.] In topology a subset $A$ of a topological space $X$ is named "\NewTerm{dense}" (in $X$) if for every point $x$ in $X$ either belongs to $A$ or is a limit point of $A$. Informally, for every point in $X$, the point is either in $A$ or arbitrarily "close" to a member of $A$. For instance, every real number is either a rational number or has one arbitrarily close to it. Therefore $\mathbb{Q}$ is dense in $\mathbb{R}$.
+		\item[D2.] In topology a subset $A$ of a topological space $X$ is named "\NewTerm{dense}\index{dense set}\label{dense set}" (in $X$) if for every point $x$ in $X$ either belongs to $A$ or is a limit point of $A$. Informally, for every point in $X$, the point is either in $A$ or arbitrarily "close" to a member of $A$. For instance, every real number is either a rational number or has one arbitrarily close to it. Therefore $\mathbb{Q}$ is dense in $\mathbb{R}$.
 	\end{enumerate}
 	
-	\subsection{Metric Space and Distance}
-	\textbf{Definition (\#\mydef):} A "\NewTerm{metric space}" denoted by $(X, d)$ or sometimes $X_d$ (or evend sometimes just $X$ if the type of distance $d$ cannot not be confused) is by definition a set $X$ with provided with an application:
+	\pagebreak
+	\subsection{Metric Space and Distance}\label{distance}
+	\textbf{Definition (\#\mydef):} A "\NewTerm{metric space}" denoted by $(X, d)$ or sometimes $X_d$ (or even sometimes just $X$ if the type of distance $d$ cannot not be confused) is by definition a set $X$ with provided with an application:
 	
-	named "\NewTerm{distance}" or "\NewTerm{metric}", which satisfies the following axioms:
+	named "\NewTerm{distance}\index{distance}" or "\NewTerm{metric}", which satisfies the following axioms:
 	\begin{itemize}
 		\item[A1.] Positivity:
 		
@@ -2731,7 +2814,7 @@ The fundamental concepts in point-set topology are "\NewTerm{continuity}", "\New
 		
 	\end{itemize}
 	\begin{tcolorbox}[title=Remarks,colframe=black,arc=10pt]
-		\textbf{R1.} Some readers will probably see immediately that some of these properties have already been seen in other sections of this book during our study of of distances between functional points and during our study of norms (triangle inequality proved in the section of Vector Calculus - the symmetry, positivity, the separation have already been study in the section of Functional Analysis).\\
+		\textbf{R1.} Some readers will probably see immediately that some of these properties have already been seen in other sections of this book during our study of distances between functional points and during our study of norms (triangle inequality proved in the section of Vector Calculus - the symmetry, positivity, the separation have already been study in the section of Functional Analysis).\\
 		
 		\textbf{R2.} Some authors omit the axiom A1 which is strictly correct as it trivially follows from A3.\\
 	\end{tcolorbox}
@@ -2775,19 +2858,19 @@ The fundamental concepts in point-set topology are "\NewTerm{continuity}", "\New
 	in $\mathbb{R}^n$, the distance is then given by (we have already proved this in the sections of Functional Analysis and Vector Calculus):
 	
 	\end{tcolorbox}
-	This latter distance satisfies the five axioms of distance and we name it the "\NewTerm{Euclidean distance}". We can take (it is an interesting property for the general culture), any relation of the form:
+	\label{euclidean topology}This latter distance satisfies the five axioms of distance and we name it the "\NewTerm{Euclidean distance}". We can take (it is an interesting property for the general culture), any relation of the form:
 	
-	is also a distance in $\mathbb{R}^n$ (without proof). In the particular case with $n=1$, we have of course:
+	is also a distance in $\mathbb{R}^n$ (without proof) named " \NewTerm{$p$-norm}". In the particular case with $n=1$, we have of course:
 	
 	This is the usual distance on $\mathbb{R}$.
 	
 	Mathematicians are even stronger by generalizing ever more (the proof has little interest for now in this book) the prior-previous relation (taking into account the definition of the distance) in the form:
 	
 	which is named "\NewTerm{Hölder distance}".
-	\begin{tcolorbox}[title=Remarks,colframe=black,arc=10pt]
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	Following the intervention of a reader we would like to point out that strictly speaking the above inclusion should be noted $[1,+\infty[ \subset \mathbb{\overline{R}}$ where $\mathbb{\overline{R}}$ is the achieved line (also valid for precision for the Minkowski inequality below).
 	\end{tcolorbox}	
-	As for the triangle inequality, then given by (\SeeChapter{see section Vector Calculus}):
+	As for the triangle inequality, then given by (\SeeChapter{see section Vector Calculus page \pageref{triangle inequality}}):
 	
 	The generalization, by the verification of the existence of the Hölder distance, gives us true "\NewTerm{Minkowski inequality}":
 		
@@ -2820,7 +2903,7 @@ The fundamental concepts in point-set topology are "\NewTerm{continuity}", "\New
 	verbatim:
 	
 	
-	\subsubsection{Lipschitz Functions}
+	\subsubsection{Lipschitz Functions}\label{lipschitz functions}
 	With respect to the above definitions, we can now assign some additional properties to functions such as we had define in the section of Set Theory or Functional Analysis and analyzed (in part...) in the section of Differential and Integral Calculus. The idea is also mainly to build a set of tools enabling the study of differential properties of non differentiable functions.
 	
 	Let $(E, d)$ and $(F,\delta)$ be metric spaces, and $f:E \rightarrow E$ a function. We define the following properties:
@@ -2850,7 +2933,7 @@ The fundamental concepts in point-set topology are "\NewTerm{continuity}", "\New
 		
 		E3. The function $f(x)=|x|$ has no derivatives on $x=0$ in the ordinary sense. But its derivative in the Lipschitz sense on $x=0$ is given by the a closed interval denoted $\partial_L f(0)=[-1,1]$ given by the bound of $L$ as the ordinary derivatives is less than or equal to $L$ in absolute value!\\
 		
-		This last example show us that the notion of a local minimum of a function $f(x)$ in the ordinary sense is generalized with Lipschitz condition. As we can now simple defined the condition of local minimum of a non-smooth function $f(x)$ as:
+		This last example show us that the notion of a local minimum of a function $f(x)$ in the ordinary sense is generalized with Lipschitz condition. As we can now simply define the condition of local minimum of a non-smooth function $f(x)$ as:
 		
 		rather than in the ordinary sense (more restrictive):
 		
@@ -2861,12 +2944,12 @@ The fundamental concepts in point-set topology are "\NewTerm{continuity}", "\New
 		\begin{figure}[H]
 			\centering
 			\includegraphics{img/analysis/lipschitz.jpg}
-			\caption{Example of Lipschitz function (source: Wikipedia)}
+			\caption[Example of Lipschitz function]{Example of Lipschitz function (source: Wikipedia)}
 		\end{figure}
 		
 		Intuitively, a Lipschitz continuous function is therefore limited in how fast it can change: there exists a definite real number such that, for every pair of points on the graph of this function, the absolute value of the slope of the line connecting them is not greater than this real number; this bound is named a "Lipschitz constant" of the function (or "modulus of uniform continuity"). For instance, every function that has bounded first derivatives is Lipschitz.
 		
-		\item[P3.] If $L=1$, we say that the function $f(x)$ is a "\NewTerm{short map}". If $-1<L<1$, we say that $f(x)$ is "\NewTerm{strictly contracting}".
+		\item[P3.] If $L=1$, we say that the function $f(x)$ is a "\NewTerm{short map}". If $-1<L<1$, we say that $f(x)$ is "\NewTerm{strictly contracting}\label{strictly contracting}".
 		
 		\item[P4.] We say that two metric spaces are "\NewTerm{isometric spaces}" if there is a surjective isometry of one over the other (which is quite natural in geometry ...).
 	\end{enumerate}
@@ -2879,8 +2962,8 @@ The fundamental concepts in point-set topology are "\NewTerm{continuity}", "\New
 	\end{tcolorbox}
 	
 	\pagebreak
-	\subsubsection{Continuity and Uniform Continuity}
-	As we already see it in the section of Functional Analysis, a a continuous function is, roughly speaking, a function for which small changes in the input result in small changes in the output and that permits the analysis of limits. Otherwise, a function is said to be a discontinuous function. Formally it was defined by:
+	\subsubsection{Continuity and Uniform Continuity}\label{continuity and uniform continuity}
+	As we already see it in the section of Functional Analysis, a continuous function is, roughly speaking, a function for which small changes in the input result in small changes in the output and that permits the analysis of limits. Otherwise, a function is said to be a discontinuous function. Formally it was defined by:
 	
 	In other words remember that this mean that a function is continuous if for every point $x_0$ in the domain $E$, we can make the images of that point ($f(x_0)$) and another point ($f(x)$) arbitrarily close (of a distance $\varepsilon$) if we move the other point ($x$) close enough (distance $\delta$) to our given point.
 	
@@ -3124,7 +3207,7 @@ on the interval $E = [0,+\infty[$.\\
 	\end{enumerate}
 	
 	\subsubsection{Diameter}
-	\textbf{Definition}: Given $(E, d)$ a metric space and $A$ a non-empty part (subset) of $E$. We denote $\text{diam}(A)$ and name "\NewTerm{diameter}" of $A$, the positive nonzero real number:
+	\textbf{Definition (\#\mydef)}: Given $(E, d)$ a metric space and $A$ a non-empty part (subset) of $E$. We denote $\text{diam}(A)$ and name "\NewTerm{diameter}" of $A$, the positive nonzero real number:
 	
 	Every non-empty part (subset) $A$ of a metric space satisfying $\text{diam}<+\infty$ will also be say "bounded".
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
@@ -3161,7 +3244,7 @@ on the interval $E = [0,+\infty[$.\\
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/analysis/hausdorff_distance.jpg}
-		\caption{Components of the calculation of $d_H$ between $X$ and $Y$ (source: Wikipedia)}
+		\caption[]{Components of the calculation of $d_H$ between $X$ and $Y$ (source: Wikipedia)}
 	\end{figure}
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 	\textbf{{\Large \ding{45}}Example:}\\\\
@@ -3178,13 +3261,13 @@ on the interval $E = [0,+\infty[$.\\
 	We have generally $e(X,Y)\neq e(Y,X)$ and these quantities may not be finite.
 	\end{tcolorbox}
 	
-	\subsection{Varieties}
-	We now introduce the "varieties". These are topological spaces that are "locally as $\mathbb{R}^2$" (our space for example ...).
+	\subsection{Varieties}\label{varieties}
+	We now introduce the "varieties". These are topological spaces that are "locally as $\mathbb{R}^2$" (our space for example ...), that is locally euclidean.
 	
 	\textbf{Definitions (\#\mydef):}
 	\begin{enumerate}
 		\item[D1.] A "\NewTerm{topological variety of dimension $n$}" is a Hausdorff space $M$ such that for every $p\in M$ there exists an open neighborhood $U\subset M$ with $p\in U$, an open neighborhood $U' \subset \mathbb{R}^n$ and a homeomorphism such that:
-
+		
 		\item[D2.] A "\NewTerm{homeomorphism}" between two spaces is a continuous bijection whose inverse is also continuous.
 
 		\item[D3.] The pairs $(U,\varphi)$ are named "\NewTerm{maps}", $U$ being the "\NewTerm{domain of the map}" and $\varphi$ the "\NewTerm{coordinate application}". Instead of "map" sometimes we say also "coordinate system".
@@ -3201,9 +3284,30 @@ on the interval $E = [0,+\infty[$.\\
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/analysis/homeomorphism_of_maps.jpg}
+		\caption{Maps homeomorphism}
 	\end{figure}
-	is obviously also a homeomorphism.
+	is obviously also a homeomorphism. More "geometrically" it looks like this:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.6]{img/analysis/maps_homeomorphism.jpg}
+		\caption{Intuitive maps homeomorphism (source: ?)}
+	\end{figure}
+	
+	\pagebreak
+	\subsubsection{Subvariety}
+	\textbf{Definition (\#\mydef):}A subset of a variety is itself a variety named a "\NewTerm{subvariety}\index{subvariety}\label{subvariety}". 
 
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\textbf{{\Large \ding{45}}Example:}\\\\
+	A sphere of the three-dimensional Euclidean space $\mathbb{R}^3$ is an (algebraic) variety since it is defined by a polynomial equation. For example and is obviously smooth and locally euclidean:
+	
+	defines the sphere of radius $1$ centered at the origin. Its intersection with the $xy$-plane is a circle given by the system of polynomial equations:
+	
+	Hence the circle is itself an algebraic variety, and a subvariety of the sphere, and of the plane as well.
+	\end{tcolorbox}
+	
+
+	\pagebreak
 	\subsubsection{Surfaces Homeomorphism}
 	\textbf{Definition (\#\mydef):} In the mathematical field of topology, a "\NewTerm{homeomorphism} or "\NewTerm{topological isomorphism}" is a continuous function between topological spaces that has a continuous inverse function. Roughly speaking, a topological space is a geometric object, and the homeomorphism is a continuous stretching and bending of the object into a new shape. Thus, a square and a circle are homeomorphic to each other, but a sphere and a torus are not. 
 	
@@ -3244,7 +3348,7 @@ on the interval $E = [0,+\infty[$.\\
 	\end{figure}
 	In analogy to the circular continuum of the unit disc, one can write the square region $[-1,1] \times [-1,1]$ as the set:
 	
-	In other words, the square can be considered as a continuum of concentric shrunken FG-squircles (\SeeChapter{see section Analytical Geometry}).
+	In other words, the square can be considered as a continuum of concentric shrunken FG-squircles (\SeeChapter{see section Analytical Geometry page \pageref{fg squircle}}).
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/analysis/continnum_square.jpg}
@@ -3265,7 +3369,7 @@ on the interval $E = [0,+\infty[$.\\
 	
 	That we can also write:
 	
-	Using radial to cartesian coordinates (\SeeChapter{see section Vector Calculus}):
+	Using radial to cartesian coordinates (\SeeChapter{see section Vector Calculus page \pageref{polar coordinates}}):
 	
 	Therefore by equivalence we get:
 	
@@ -3277,11 +3381,11 @@ on the interval $E = [0,+\infty[$.\\
 	We shall now derive the inverse equations for the FG-Squircular mapping. But as it is boring to write in in \LaTeX{} and it is not used to much in practice we will omit the latter for the moment.
 	
 	\subsubsection{Differential Varieties}
-	\textbf{Definitions}:
+	\textbf{Definitions (\#\mydef)}:
 	\begin{enumerate}
 		\item[D1.] A "\NewTerm{differentiable variety}" is a topological space $M$ where the applications $\varphi$ are of class $\mathcal{C}^{+\infty}$.
 
-		\item[D2.] A "\NewTerm{diffeomorphism}" is an application where $\varphi: U\mapsto U' $ where $U,U'$ are open domains of $\mathbb{R}^n$ and if $\varphi$ is a homeomorphism and furthermor $U,U'$ are differentiable.
+		\item[D2.] A "\NewTerm{diffeomorphism}" is an application where $\varphi: U\mapsto U' $ where $U,U'$ are open domains of $\mathbb{R}^n$ and if $\varphi$ is a homeomorphism and furthermore $U,U'$ are differentiable!
 		\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 		"Differentiable" in this context will always mean of class $\mathcal{C}^{+\infty}$.
 		\end{tcolorbox}
@@ -3308,11 +3412,11 @@ on the interval $E = [0,+\infty[$.\\
 	\newpage
 	\thispagestyle{empty}
 	\mbox{}
-	\section{Measure Theory}
+	\section{Measure Theory}\label{measure theory}
 	\begin{tcolorbox}[colback=red!5,borderline={1mm}{2mm}{red!5},arc=0mm,boxrule=0pt]
 	\bcbombe Caution! The level of abstraction and of motivation required for reading and understanding this section is quite high for engineers (target audience of this book for recall). The reader should be comfortable with the concepts seen in the section Set Theory as well as the one one Topology. We also apologize for the actual lack of figures. 
 	\end{tcolorbox}
-	\lettrine[lines=4]{\color{BrickRed}T}he measure, in the topological sense, will allow us to generalize the elementary notion of measure of a segment or area (in the Riemann sense, for example) and is inseparable from the new theory of integration that will build Lebesgue from the years to 1901-1902 and we will address here to build mathematical tools much more powerful than the simple Riemann integral (\SeeChapter{see section Differential and Integral Calculus}) with practical and numerical example in MATLAB\textsuperscript{TM}.
+	\lettrine[lines=4]{\color{BrickRed}T}he measure, in the topological sense, will allow us to generalize the elementary notion of measure of a segment or area (in the Riemann sense, for example) and is inseparable from the new theory of integration that will build Lebesgue from the years to 1901-1902 and we will address here to build mathematical tools much more powerful than the simple Riemann integral (\SeeChapter{see section Differential and Integral Calculus page \pageref{riemann integral}}) with practical and numerical example in MATLAB\textsuperscript{TM}.
 	
 	The philosophers of science who developed measurement theory were largely concerned with epistemic questions like: we can't observe correlations between physical objects and real numbers, so how can the use of real numbers be justified in terms of things we can observe? Indeed, privileges a single unit of mass, involves real numbers in the facts of
 mass. Why is the latter bad?: 
@@ -3324,7 +3428,7 @@ mass. Why is the latter bad?:
 		\item Real numbers are constructed entities, and constructed entities can't be involved  in fundamental facts
 	\end{enumerate}
 
-	The Measure Theory will also allow us to rigorously define the concept of measurement (no matter what is the measure) and so return to the important results of the study of probabilities (\NewTerm{see section Probabilities}). Indeed, we will see (we will define the vocabulary that follows just now further below) why $(U, A, P)$ is a "\NewTerm{probability space}" where $A$ is in fact a "\NewTerm{tribe}" on $U$ and $P$ a measure on the measurable space $(U , A)$.
+	The Measure Theory will also allow us to rigorously define the concept of measurement (no matter what is the measure) and so return to the important results of the study of probabilities (\SeeChapter{see section Probabilities page \pageref{probabilities}}). Indeed, we will see (we will define the vocabulary that follows just now further below) why $(U, A, P)$ is a "\NewTerm{probability space}" where $A$ is in fact a "\NewTerm{tribe}" on $U$ and $P$ a measure on the measurable space $(U , A)$.
 	
 	\subsection{Measurable Spaces}
 	When in mathematics we calculate derivatives, primitives or simply count stuff, we carry implicitly a measure of an object or set of objects. Rigorously, mathematicians want to define how the measured thing can be structured, how to make a measurement of it and the properties resulting!
@@ -3352,7 +3456,7 @@ mass. Why is the latter bad?:
 	
 	\item[D2.] The pair $(E,\mathcal{A})$ is named "\NewTerm{measurable space}" and we say that the elements of $\mathcal{A}$ are "\NewTerm{measurable sets}".
 	
-	\item[D3.] If in the third axiom we require that $\mathcal{A}$ is stable under finite (uncountable) union then we impose the more general notion of "\NewTerm{$\sigma$-algebra}". Thus, a tribe is necessarily contained in an $\sigma$-algebra (but the opposite is not true just because the axiom is stronger) such that we can write:
+	\item[D3.] If in the third axiom we require that $\mathcal{A}$ is stable under finite (uncountable) union then we impose the more general notion of "\NewTerm{$\sigma$-algebra}\label{sigma algebra}". Thus, a tribe is necessarily contained in an $\sigma$-algebra (but the opposite is not true just because the axiom is stronger) such that we can write:
 	
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	In the field of probabilities, $E$ is assmiliated to the Universe of events and $\mathcal{A}$ to a family of events and we speak then of "\NewTerm{probabilistic space}" or simply of... "\NewTerm{measurable space}".
@@ -3372,7 +3476,7 @@ mass. Why is the latter bad?:
 	
 	A tribe is also "\NewTerm{stable by finite intersection}", that is to say (trivial also by taking the previous first example):
 	
-	which brings to the property that a tribe is stable by finite unions and intersections. Especially, if we take two elements of a tribe $A,B\in \mathcal{A}$, then $A\setminus B\in \mathcal{A}$ with for recall (\SeeChapter{see section Set Theory}):
+	which brings to the property that a tribe is stable by finite unions and intersections. Especially, if we take two elements of a tribe $A,B\in \mathcal{A}$, then $A\setminus B\in \mathcal{A}$ with for recall (\SeeChapter{see section Set Theory page \pageref{symmetric difference}}):
 	
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	Most readers should probably easily see with the previous first example that if $(\mathcal{A}_i)_I$ is a family of tribes on $E$ the $\bigcap_I \mathcal{A}_i$ is also a tribe (the verification is almost immediate).
@@ -3406,7 +3510,7 @@ mass. Why is the latter bad?:
 	
 	following the axiom A3.
 	\end{tcolorbox}
-	\textbf{Definition}: Let $E$ be a topological space (\SeeChapter{see section Topology}). We denote by $\mathcal{B}(E)$ the tribe generated by the open sets of $E$. $\mathcal{B}(E)$ is named the "\NewTerm{borelian tribe}" of $E$. The elements of $\mathcal{B}(E)$ are named the "\NewTerm{borelians}" of $E$. 
+	\textbf{Definition (\#\mydef)}: Let $E$ be a topological space (\SeeChapter{see section Topology page \pageref{topological space}}). We denote by $\mathcal{B}(E)$ the tribe generated by the open sets of $E$. $\mathcal{B}(E)$ is named the "\NewTerm{borelian tribe}" of $E$. The elements of $\mathcal{B}(E)$ are named the "\NewTerm{borelians}" of $E$. 
 	
 	\begin{tcolorbox}[title=Remarks,colframe=black,arc=10pt]
 	\textbf{R1.} The notion of borelian tribe is especially interesting because it is necessary for the definition of "Lebesgue tribe" and afterwards to the "Lebesgue measure" that will lead us to define the  famous "Lebesgue integral"!\\
@@ -3417,10 +3521,10 @@ mass. Why is the latter bad?:
 	\end{tcolorbox}	
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 	\textbf{{\Large \ding{45}}Example:}\\\\
-	If $\mathbb{R}$ designates the space provided of real numbers with the Euclidean topology (\SeeChapter{see section Topology}), the family of open intervals with rational bounds is a "\NewTerm{countable base}" (given the bounds...) of $\mathbb{R}$ and therefore generates $\mathcal{B}(\mathbb{R})$ . Same thing for $\mathbb{R}^d$ with for countable basis the family of open spaces with rational bounds.
+	If $\mathbb{R}$ designates the space provided of real numbers with the Euclidean topology (\SeeChapter{see section Topology page \pageref{euclidean topology}}), the family of open intervals with rational bounds is a "\NewTerm{countable base}" (given the bounds...) of $\mathbb{R}$ and therefore generates $\mathcal{B}(\mathbb{R})$ . Same thing for $\mathbb{R}^d$ with for countable basis the family of open spaces with rational bounds.
 	\end{tcolorbox}
 	\begin{theorem}
-	Let us now consider a dense set (\SeeChapter{see section Topology}) in $\mathbb{R}$. The following families generate $\mathcal{B}(\mathbb{R})$:
+	Let us now consider a dense set (\SeeChapter{see section Topology page \pageref{dense set}}) in $\mathbb{R}$. The following families generate $\mathcal{B}(\mathbb{R})$:
 	
 	\end{theorem}
 	\begin{dem}
@@ -3487,7 +3591,7 @@ mass. Why is the latter bad?:
 		\item[P2.] Must be stable by the complementary
 		\item[P3.] Must be stable by finite (uncountable) union or intersection
 	\end{enumerate}
-	Let us recall (\SeeChapter{see section Set Theory}) that if we have $E$ that is a set, then for every $A,B\subseteq E$ we define the symmetric difference $A\Delta B$ between $A$ and $B$ by:
+	Let us recall (\SeeChapter{see section Set Theory page \pageref{symmetric difference}}) that if we have $E$ that is a set, then for every $A,B\subseteq E$ we define the symmetric difference $A\Delta B$ between $A$ and $B$ by:
 	
 	Trivial properties are as follows:
 	\begin{enumerate}
@@ -3502,7 +3606,7 @@ mass. Why is the latter bad?:
 	If $\mathcal{B}$ is a $\sigma$-algebra over $E$, then $(\mathcal{B},\Delta,\cap)$ is a "\NewTerm{Boolean ring}" (or "Boolean algebra" but be careful with the term "algebra" here which can cause confusion with the corresponding structure in Set theory) with $\varnothing$ and $E$ as neutral "additive" element ($\Delta$) and respectively" multiplicative" ($\cap$).
 	\end{theorem}
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	For reminders on the items listed in the preceding paragraph, the reader can refer to the section of Set Theory and the subsection of Boolean Algebra (\SeeChapter{see section Formal Logic Systems}).
+	For reminders on the items listed in the preceding paragraph, the reader can refer to the section of Set Theory page \pageref{set theory} and the subsection of Boolean Algebra (\SeeChapter{see section Formal Logic Systems page \pageref{boolean algebra}}).
 	\end{tcolorbox}	
 	\begin{dem}
 	The "addition" $\Delta$ is associative because developing we get (this can verified by an arrow diagram if needed - the "potatoes"):
@@ -3523,7 +3627,7 @@ mass. Why is the latter bad?:
 
 	\pagebreak
 	\subsubsection{Monotone Classes}
-	\textbf{Definition}: Let $E$ be a set. A "\NewTerm{monotone class}" on $E$ is a family $\mathcal{C}$ of subsets of $E$ satisfying the following axioms:
+	\textbf{Definition (\#\mydef)}: Let $E$ be a set. A "\NewTerm{monotone class}" on $E$ is a family $\mathcal{C}$ of subsets of $E$ satisfying the following axioms:
 	\begin{enumerate}
 		\item[A1.] $E\in \mathcal{C}$
 		\item[A2.] $A,B\in \mathcal{C}$ and $A\subseteq B \Rightarrow \setminus A\in \mathcal{C}$
@@ -3584,7 +3688,7 @@ mass. Why is the latter bad?:
 	
 	Therefore:
 	
-	Therefore $\mathcal{M}(\mathcal{C}$ is stable by countable union and finally $\mathcal{M}(\mathcal{C})$ is a tribe. But as $\mathcal{C}\subseteq \mathcal{M}(\mathcal{C})$ this brings us to $\mathcal{M}(\mathcal{C})=\sigma(\mathcal{C})$.
+	Therefore $\mathcal{M}(\mathcal{C})$ is stable by countable union and finally $\mathcal{M}(\mathcal{C})$ is a tribe. But as $\mathcal{C}\subseteq \mathcal{M}(\mathcal{C})$ this brings us to $\mathcal{M}(\mathcal{C})=\sigma(\mathcal{C})$.
 	\begin{flushright}
 		$\square$  Q.E.D.
 	\end{flushright}

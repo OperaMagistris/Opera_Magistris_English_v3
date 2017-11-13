@@ -2,7 +2,8 @@
 %Author: Vincent ISOZ
 %Last Update: 2017-06-11
 %Contact: info@sciences.ch
-%Compiled on: TeXMaker 4.5/MiKTeX 2.9/Win10 CreatorUpdate x64/PC 16GB RAM (recommanded otherwise the document could not compiled correctly or not at all without deactivating the LOF and LOT!)
+%Compiled on: TeXMaker 5.0 x64/MiKTeX 2.9 / Package Update 2017-07-23/Microsoft Windows 10 CreatorUpdate x64/PC 16GB RAM (recommanded otherwise the document could not compiled correctly or not at all without deactivating the LOF and LOT!)
+
 %Remarks: 
 
 %R1. The tkz-tab and etex packages must be installed manually from the MikTeX Package Manager!!!
@@ -27,7 +28,7 @@
 %that's it!!!!
 
 %R6. To remove all equation in Notepad++ with a RegEx, use:
-% (?s)\\begin\{gather\}.*?\\end\{gather\}
+% 
 %don't forget to activate the field ". match newlines"
 %---------------------------------
 \documentclass[12pt,a4paper,twoside,openright]{report}
@@ -102,6 +103,8 @@
 }
 \colorlet{basecol}{purple}
 \colorlet{othercol}{purple!25}
+%end of definition of progress circles
+
 %some colors for the title page
 \definecolor{titlepagecolor}{cmyk}{0.3,0.3,0.3,0.3}
 \definecolor{namecolor}{cmyk}{1,.50,0,.10}
@@ -186,6 +189,27 @@
 \renewcommand{\boxed}[1]{\textcolor{\boxcolor}{%
 \tikz[baseline={([yshift=-1ex]current bounding box.center)}] \node [rectangle, minimum width=1ex,rounded corners,draw] {\normalcolor\m@th$\displaystyle#1$};}}
  \makeatother
+%end for equation boxes style
+
+%post-it definition
+\definecolor{myyellow}{RGB}{242,226,149}
+\usetikzlibrary{shadows}
+\NewDocumentCommand\StickyNote{O{6cm}mO{6cm}}{%
+\begin{tikzpicture}
+\node[
+drop shadow={
+  shadow xshift=2pt,
+  shadow yshift=-4pt
+},
+inner xsep=7pt,
+fill=myyellow,
+xslant=-0.1,
+yslant=0.1,
+inner ysep=10pt
+] {\parbox[t][#1][c]{#3}{#2}};
+\end{tikzpicture}%
+}
+%end of post-it definition
 
 
 %package for flowchart/workflows and definitions of some items
@@ -194,6 +218,9 @@
 \usetikzlibrary{decorations.pathreplacing,decorations.markings,patterns}
 \usetikzlibrary{shapes.geometric,shapes.gates.logic.US,trees,positioning,arrows}
 \usepackage{tkz-tab} %to draw tikz tables
+%tikzlibrary for the standard model particle figure
+\usetikzlibrary{calc,positioning,shadows,shadows.blur,decorations.pathreplacing}
+
 %for circle numbers (in section Automata Theory)
 \newcommand*\circledtext[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
@@ -270,9 +297,15 @@
 %load americal mathematical society packages for equations
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \DeclareMathOperator{\sgn}{sgn} %must be after package ams!
+\usepackage{gauss} %package for gauss elimination in linear algebra
 \usepackage{xfrac} %package for small fractions like spin 1/2
 \usepackage{gensymb} %for degree symbole
 \usepackage{empheq} %for multiple equations box
+\usepackage{etoolbox} %to create matrices with outbounds legends using bbordermatrix
+\let\bbordermatrix\bordermatrix
+\patchcmd{\bbordermatrix}{8.75}{4.75}{}{}
+\patchcmd{\bbordermatrix}{\left(}{\left[}{}{}
+\patchcmd{\bbordermatrix}{\right)}{\right]}{}{}
 \AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 %\package to automatically resize equation to page width
 \usepackage{resizegather}
@@ -464,6 +497,8 @@
 \definecolor{wine-stain}{rgb}{0.5,0,0}
 \hypersetup{colorlinks,linkcolor=wine-stain,linktoc=all}
 
+%\usepackage[author={Opera Magistris}]{pdfcomment}
+
 \renewcommand{\dateseparator}{--}
 %package to control globally space between items
 \usepackage{enumitem}
@@ -537,7 +572,9 @@
         anchor= base east,
         rounded rectangle,
         minimum height=3.5ex] at (4.5cm,0) {
-        \textbf{\arabic{chapter}.\thesection.}
+        \textbf{\thesection.}
+        %before is it was (but the compiler don't managed same anymore)
+        %\textbf{\arabic{chapter}.\thesection.}
     };
 }%
 }
@@ -553,7 +590,7 @@
 
 \begin{document}
 	\sloppy %to force texts and equations to respects pages margins
-	\pageref{LastPage}
+	\pageref*{LastPage} %the star is to avoid the page number to be a link
 	\raggedbottom
 	\pagenumbering{roman}
 	\newgeometry{margin=2.5cm}
@@ -576,7 +613,8 @@
 	{\huge \textsf{3rd Edition}}
 	\vskip\baselineskip
 	\noindent
-	\textsf{\{ISBN 978-2-8399-0932-7\} October 2014}
+	\textsf{\{ISBN 978-2-8399-0932-7\} January 2014}
+	%DOI: 10.13140/RG.2.2.31296.02562
 	\vskip\baselineskip
 	Compiled with {\huge \LaTeXe} on \TeX maker
 	\vskip\baselineskip
@@ -657,18 +695,24 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 
 {\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
 
+\vspace{80px}
+\begin{center}
+\textit{Scientific method for a better world and re-inform the people!}
+\end{center}
+
 %----------------------------------------------------------------------------------------
 %	LOGO SECTION
 %----------------------------------------------------------------------------------------
 
-%\BackImage[scale=1.75]{img/god.jpg}
+\BackImage[scale=1.75]{img/god.jpg}
 %----------------------------------------------------------------------------------------
 
 \vfill % Fill the rest of the page with whitespace
 
 \end{titlepage}
 	\begin{versionhistory}
-		\vhEntry{3.8}{2018-01-01}{VI}{Some minor updates and corrections (see change log)}
+		\vhEntry{3.9}{2017-11-13}{VI}{Some minor updates for the free version of the book (see change log)}
+		\vhEntry{3.8}{2017-08-01}{VI}{Some major and critical updates and corrections (see change log)}
 		\vhEntry{3.7}{2017-06-01}{VI}{French 3rd Edition translation into English finished!}
 		\vhEntry{3.6}{2017-05-01}{VI}{French 3rd Edition translation into English. Translation progress $\sim 99\%$}
 		\vhEntry{3.5}{2017-04-01}{VI}{French 3rd Edition translation into English. Translation progress $\sim 96\%$}
@@ -690,10 +734,11 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	\clearpage %eliminate headers and footer of table of contents page
 	\pagestyle{fancy} %du package fancyhdr!!!
 	\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\space#1}{}}
-	\fancyhead[LE,RO]{\nouppercase\leftmark} %LE=Left Even,RO=Right Odd
-	\fancyhead[LO,RE]{EAME v3.8-2013}
+	\renewcommand{\sectionmark}[1]{\markright{#1}}
+	\fancyhead[LE,RO]{\nouppercase\leftmark~(\nouppercase\rightmark)} %LE=Left Even,RO=Right Odd
+	\fancyhead[LO,RE]{EAME v3.9-2014}
 	\renewcommand{\footrulewidth}{1pt}
-	\fancyfoot[LE,RO]{{\thepage}/\pageref{LastPage} (\Acrobatmenu{GoBack}{Go back})}
+	\fancyfoot[LE,RO]{{\thepage}/\pageref*{LastPage} (\Acrobatmenu{GoBack}{Go back})}
 	\fancyfoot[LO,RE]{\href{mailto:info@sciences.ch}{info@sciences.ch}}
 	\fancyfoot[C]{}
 	\let\cleardoublepage\clearpage
@@ -714,17 +759,19 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	This book and its companion website would not have been possible without the valuable support of the people mentioned below. They find here the expression of my gratitude (and for sure if some errors remains in this book this is obviously their fault...):
 	
 	\begin{itemize}		
-		\item \textbf{Harmel Léon }(†2012), graduate electrical engineer with a specialization in electronics and automation, responsible in the physical research laboratory at ACEC in Charleroi (BEL), for the provision of documentation that was used in the sections of Corpuscular Quantum Physics, Wave Quantum Physics,  Quantum Field Theory, Spinor calculus and General Relativity.
+		\item \textbf{HARMEL Léon }(†2012), graduate electrical engineer with a specialization in electronics and automation, responsible in the physical research laboratory at ACEC in Charleroi (BEL), for the provision of documentation that was used in the sections of Corpuscular Quantum Physics, Wave Quantum Physics,  Quantum Field Theory, Spinor calculus and General Relativity.
 		
-		\item \textbf{Legrand Mathias}, Ph.D. École Centrale de Nantes (FRA) for his help on the redaction of the first $550$ pages of the \LaTeX{} Book version of the website.
+		\item \textbf{KOLANI Daname}, Ph.D. student in portfolio management at UM5-Rabat (MAR) for his help on the redaction of the R and MATLAB™ companion books, proofreading and complements of the section in this book about data mining and machine learning and translation of a few hundred pages of the original french website into this \LaTeX{} book.
 		
-		\item \textbf{Ricchiuto Ruben}, engineer degree in Physics HES (B.Sc.) from the Engineering School of Geneva (CHE) and mathematician from the University of Geneva for his valuable help in plasma physics, electromagnetism, quantum physics, statistics, topology, quantum chemistry, fractals theory, analysis and many other areas affecting pure mathematics and computing.
+		\item \textbf{LEGRAND Mathias}, Ph.D. of the École Centrale de Nantes (FRA) for his help on the translation of the first $550$  pages of the original french website into this \LaTeX{} book.
+		
+		\item \textbf{RICCHIUTO Ruben}, engineer degree in physics HES (B.Sc.) from the Engineering School of Geneva (CHE) and mathematician from the University of Geneva for his valuable help in plasma physics, electromagnetism, quantum physics, statistics, topology, quantum chemistry, fractals theory, analysis and many other areas affecting pure mathematics and computing.
 		
 		\item Regulars users of \href{http://www.les-mathematiques.net}{{\color{blue} Les Mathematiques.net}} and \href{http://www.futura-sciences.com}{{\color{blue} Futura-Sciences.com}} forum, for their valuable assistance in many areas of mathematics and physics. The debates and discussions that took place on the forums helps to constantly improve the educational aspect of this book.
 		
 		\item The \href{http://www.wikipedia.com}{{\color{blue} Wikipedia}} and \href{http://www.planetmath.com}{{\color{blue} PlanetMath}} websites to whom I am indebted to many borrow almost word by word (and this is mutual...).
 		
-		\item The professors Gabriel Nagy of Michigan State University , Liam Revell of Massachusetts Boston University, Jorge Cham (of PhD Comics) and the OpenStax team that have received \underline{and} read my multiple e-mails inquiries about images credits and texts credits but that never answered to me (not quite good examples of what should be the "scientific collaboration and spirit"...)
+		\item The professors Gabriel Nagy of Michigan State University, Liam Revell of Massachusetts Boston University, Jorge Cham (of PhD Comics) and the OpenStax team that have received \underline{and} read my multiple e-mails inquiries about images credits and texts credits but that never answered to me (not quite good examples of what should be the "scientific collaboration and spirit"...)
 	\end{itemize}
 	
 	And thanks to all readers, webmasters and teachers for their websites and quality documents available for free and anonymously on the Internet and regular forum stakeholders. I sometimes verbatim recovered their explanations that do not require additions or corrections. It's probably needless to say that you should not assume that these people are in total agreement with the scientific purposes views expressed in this book; and are not responsible for any errors or obscurities that you might accidentally find in it.
@@ -755,14 +802,14 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	\input{Chapter_Arithmetic.tex}
 	
 	
-\chapter{Algebra}
+  \chapter{Algebra}
 
 	\textit{\textbf{Algebra is the science of calculating the quantities or structures represented by letters.}} (Larousse)
 	\minitoc
 	\input{Chapter_Algebra.tex}
 	
 		
-\chapter{Analysis}
+ \chapter{Analysis}
 
 	\textit{\textbf{The analysis is the rigorous formulation of calculus.}}(Wikipedia)
 	\minitoc
@@ -776,7 +823,7 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	\pagebreak
 	\input{Chapter_Geometry.tex}
 	
-\chapter{Mechanics}
+   \chapter{Mechanics}
 
 	\textit{\textbf{Mechanics is the branch of physics that relates to the study of forces and their actions in abstract form}}. (Larousse)
 	\minitoc
@@ -857,8 +904,7 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	
 	I have enjoyed writing this book in the same way that I enjoy writing my training books, and pretty much for the same reason: It has been like solving an intriguing puzzle that no one else has figured out in quite the same way a particular way to see and explain finance. Of course, writing it has taken me quite a long times (20 years, without translation: 15 years!).
 	
-	But it will all have been worth it if you have learned from it. If you have studied the book, you should now know about $99\%$ of what I know about engineering. Interestingly, there were a number of topics that I thought I had understood, but had not - and it was only my having to explain them to you that clarified them for me, too. And this brings me to a key point that I want to leave you with - never be afraid to ask questions, even about first principles. To do so is not a sign of stupidity on the
-contrary, it is often a sign of deepening awareness and understanding.
+	But it will all have been worth it if you have learned from it. If you have studied the book, you should now know about $99\%$ of what I know about engineering. Interestingly, there were a number of topics that I thought I had understood, but had not - and it was only my having to explain them to you that clarified them for me, too. And this brings me to a key point that I want to leave you with - never be afraid to ask questions, even about first principles. To do so is not a sign of stupidity on the contrary, it is often a sign of deepening awareness and understanding.
 
 	I have no illusions: You will not remember all the fine details in this book as time passes - I know I won't. But more than the details, I hope that I will have left you with an appreciation for the big ideas, an arsenal of tools, a method for approaching novel problems, and a new perspective. You can now think like an Engineer. 
 	\begin{figure}[H]
@@ -886,7 +932,9 @@ contrary, it is often a sign of deepening awareness and understanding.
 		\centering
 		\includegraphics{img/be_greater_than_average.jpg}	
 	\end{figure}
-	
+	\begin{fquote}[John Aubrey]Without faith, God is nothing. Without science, man is nothing.
+ 	\end{fquote}
+ 	
 	\begin{fquote}[Leonardo da Vinci]He who loves practice without theory is like the sailor who boards ship without a rudder and compass and never knows where he may cast.
  	\end{fquote}
  	
@@ -902,10 +950,28 @@ contrary, it is often a sign of deepening awareness and understanding.
  	\begin{fquote}[Kiyoshi Ito]In precisely built mathematical structures, mathematicians find the same sort of beauty others find in enchanting pieces of music, or in magnificent architecture. There is however, one great difference between the beauty of mathematical structures and that of great art. Music by Mozart, for instance, impress greatly even those who do not know musical theory; the cathedral in Cologne overwhelms spectators even if they know nothing about Christianity. The beauty in mathematical structures, however, cannot be appreciated without understanding of a group of numerical formulae that express laws of logic. Only mathematicians can read "musical scores" containing many numerical formulae, and play that "music" in their hearts.
  	\end{fquote}
  	
+ 	\begin{fquote}[Ray Bradbury]You don't have to burn books to destroy a culture. Just get people to stop reading them.
+ 	\end{fquote}
+ 	
+ 	 \begin{fquote}[Edward Teller]The science of today is the technology of tomorrow.
+ 	\end{fquote}
+ 	
+ 	 \begin{fquote}[Brian Cox]Science is different to all the other systems of thought... because you don't need faith in it, you can check that it works!
+ 	\end{fquote}
+ 	
+ 	\begin{fquote}[George Bernard Shaw]The fact that a believer is happier than a skeptic is no more to the point than the fact that a drunken man is happier than a sober one.
+ 	\end{fquote}
+ 	
+ 	\begin{fquote}[Carl Sagan]I don't want to believe, I want to know.
+ 	\end{fquote}
+ 	
  	 \begin{fquote}[Richard Feynman]Science is just imagination in straitjacket.
  	\end{fquote}
  	
  	 \begin{fquote}[Stephen Hawking]The greatest enemy of knowledge is not ignorance, is the illusion of knowledge.
+ 	\end{fquote}
+ 	
+ 	 \begin{fquote}[?]Without data you are juste another person without opinions, but without mathematics you are just a data collector.
  	\end{fquote}
  	
  	\begin{fquote}[Albert Einstein]I have no special talents, I am only passionately curious.
@@ -913,7 +979,9 @@ contrary, it is often a sign of deepening awareness and understanding.
 
 	\begin{fquote}[Dara Briain]People keep saying "Science doesn't know everything!". Well, science know it doesn't know everything; otherwise it would stop.
  	\end{fquote}
-
+ 	
+ 	\begin{fquote}[?]Without faith, God is nothing. Without science, man is nothing!
+ 	\end{fquote}
 
  	 \begin{fquote}[Stephen Hawking]One can't prove that God doesn't exists, but Science makes God unnecessary.
  	\end{fquote}
@@ -940,6 +1008,12 @@ contrary, it is often a sign of deepening awareness and understanding.
  	\end{fquote}
  	
  	\begin{fquote}[Richard Feynman]It doesn't matter how beautiful your theory is, it doesn't matter how smart you are. If it doesn't agree with experiment, it's wrong.
+ 	\end{fquote}
+ 	
+ 	\begin{fquote}[Ronald Fisher]To call in the statistician after the experiment is done may be no more than asking him to perform a post-mortem - he may be able to say what the experiment died of.
+ 	\end{fquote}
+ 	
+ 	\begin{fquote}[Charles Babbage]Errors using inadequate data are much less than those using no data at all
  	\end{fquote}
  	
  	\begin{fquote}[Leonardo da Vinci]Details make perfection, and perfection is not a detail.
@@ -1040,8 +1114,7 @@ contrary, it is often a sign of deepening awareness and understanding.
 
 \chapter{Change Log}
 
-This is a detailed change log of the book for people interested to see how this book has evolved:
-
+This is a detailed change log of the book for people interested to see how this book has evolved (to keep in touch with new releases send us an e-mail to subscribe to the newsletter):
 	\begin{itemize}
 		\item \textbf{May 2002}
 		\begin{itemize}[noitemsep]
@@ -1784,6 +1857,61 @@ Christoffel symbols (first and second type).
 				\item A mathematical approach of "Divide and rule?" in management
 				\item Three new jokes in the Humor section
 			\end{itemize}
+		\item \textbf{July 2017} (v3.7 $\rightarrow$ v3.8)
+			\begin{itemize}[noitemsep]
+				\item Correction of many typing errors (almost 50)
+				\item Relation 11.3.221 had a integral symbol  (that should not be there)
+				\item Relation 7.1.72 had a wrong variable for the angle
+				\item Relation 7.5.56 there was a $|a|$ instead of a $|b|$ in the second equality
+				\item Relation 11.1.35 had a $4$ that has nothing to do there at the numerator
+				\item Relation 15.7.905 there was an alignement issue
+				\item Relation 15.7.888 had a $\Lambda$ instead of a $\Gamma$ at the denominator
+				\item Relation 11.1.20 had a missing $T$
+				\item Relations 11.3.169 must be $r_E$ instead of $r-E$ (LaTeX typing error...)
+				\item Table 8.10 and 8.11 had wrong units in the header row
+				\item New photo about a quasi vertical circular rainbow and a photo a nuclear magnetic resonance machine
+				\item There was a typing error in the period (T) relation of the simple pendulum
+				\item Details of the backpropagation method for neural network
+				\item New mathematical details on the simple linear regression leverage
+				\item Numerical applications of some General Relativity experimental tests
+				\item Derivation of the geodesic of the sphere (as example in the section of Analytical Mechanics)
+				\item ZeroR classification method
+				\item K nearest neighbors classification method
+				\item Definition of Convexity/Concavity of a function (for Jensen inequality proof)
+				\item Proof of  Hermite polynomial Orthogonality
+				\item Derivation of the Bachelier Option Pricing Model
+				\item Derivation Forward/Future Cox-Ross-Ingersoll Equality
+				\item Derivation of the Stress-Energy tensor for a non-relativistic perfect fluid
+				\item Derivation of the orthodromic distance
+				\item Derivation of the area of a section of an ellipse
+				\item There was twice a "Invariance by translation in space" Noether theorem... one of them was obviously "Invariance by translation in time"
+				\item Schwarzschild innermost stable orbit
+				\item Hafele–Keating experiment with General Relativity treatment
+				\item Introducing hyperparameters in Machine Learning
+				\item Kernel smoothing
+				\item Credit Default risk
+				\item We added a lot of new entries in the Chronology section
+			\end{itemize}
+		\item \textbf{November 2017} (v3.8 $\rightarrow$ v3.9)
+			\begin{itemize}[noitemsep]
+				\item Section numbering was not correct anymore because of a MiKTeX update.
+				\item We created all cross references
+				\item Multiple errors in PPI (proton-proton Sun chain fuction reaction) in relations 11.2.27, 11.2.29 and 11.2.30
+				\item We added one point to the scientific publication rules (cite equivalent studies for meta-analysis)
+				\item Correction of a few hundred minor typing errors
+				\item Typing error in the relation 5.4.231, the first line should be a $\cos(x)$ and not a $\sin(x)$
+				\item Read "multiplication" instead of "addition" in the remark below the relation 4.2.164.
+				\item A square was missing on the $2$ in 4.4.13.
+				\item A square was missing on the $r$ in 12.1.57
+				\item There was a "$+$" instead of a $\cdot$ in 10.2.21
+				\item Square was missing in relation 4.7.1479, 4.7.1480, 4.7.1481, 4.7.1482. 4.7.1484
+				\item There was a $c^3$ instead of a $c^2$ in the relation 11.1.212
+				\item At 8.3.450 three paragraphs and two equations were duplicates
+				\item Proof of the derivative of $f(g)^{g(x)}$
+				\item OneR (One Rule) in Data Mining with confusion matrix rule selection
+				\item Apriori Association Rule
+				\item Kurtosis and Skewness
+			\end{itemize}
 	\end{itemize}
 
 \chapter{Nomenclature}
@@ -1797,7 +1925,7 @@ This chapter contains a summary with simple description of all symbols used in t
 	$\beta$ \verb?beta? &$\vartheta$ \verb?vartheta? &$\pi$ \verb?pi?         &$\upsilon$ \verb?upsilon? \\
 	$\gamma$ \verb?upsilon? &$\xi$ \verb?xi?  &$\varpi$ \verb?varpi? &$\phi$ \verb?phi?  \\
 	$\delta$ \verb?delta? &$\kappa$ \verb?kappa? &$\rho$ \verb?rho? &$\varphi$ \verb?varphi? \\
-	$\epsilon$ \verb?epsilon? &$\lambda$ \verb?lambda? &$\varrho$ \verb?varrho? &$\chi$ \verb?chi?  \\
+	$\varepsilon$ \verb?epsilon? &$\lambda$ \verb?lambda? &$\varrho$ \verb?varrho? &$\chi$ \verb?chi?  \\
 	$\varepsilon$ \verb?varepsilon? &$\mu$ \verb?mu? &$\sigma$ \verb?sigma? &$\psi$ \verb?psi? \\
 	$\zeta$ \verb?zeta? &$\nu$ \verb?nu? &$\varsigma$ \verb?varsigma? &$\omega$ \verb?omega? \\
 	$\eta$ \verb?eta?\\
@@ -1929,7 +2057,7 @@ And here is the complete list:}
 	The writing of this book took until now $15$ years of time and huge effort and sacrifices, so if you find this book useful all donations are greatly appreciated and for this purpose you can use the below link depending on your preferences:
 	
 	\begin{center}
-	\href{http://www.sciences.ch/htmlfr/donate.php}{\includegraphics[scale=0.14]{img/paypal.jpg}} $\qquad$ \href{https://www.patreon.com/sciences}{\includegraphics[scale=0.20]{img/patreon.jpg}} $\qquad$ \href{https://www.tipeee.com/elements-of-applied-mathematics}{\includegraphics[scale=0.022]{img/tipeee.jpg}}
+	\href{http://www.sciences.ch/htmlfr/donate.php}{\includegraphics[scale=0.14]{img/paypal.jpg}} $\qquad$ \href{https://www.patreon.com/sciences}{\includegraphics[scale=0.20]{img/patreon.jpg}} $\qquad$ \href{https://www.tipeee.com/elements-of-applied-mathematics}{\includegraphics[scale=0.023]{img/tipeee.jpg}} $\qquad$ \href{http://ko-fi.com/operamagistris}{\includegraphics[scale=0.34]{img/kofi.jpg}}
 	\end{center}
 	\begin{center}
 		{\large \faBitcoin} 4248d58b-90f0-493e-8114-8dc9f8e5b492
@@ -1942,7 +2070,7 @@ And here is the complete list:}
 		\item Hire \LaTeX{} professionals to improve all tables and headers design
 		\item Hire photographs to make photo of technical installations
 		\item Have more time to write the remaining $2,400$ pages and do continuous improvements
-		\item To keep the book freely accessible worldwide and translate it in $66$ other languages
+		\item To keep the book freely accessible worldwide and translate it in other languages
 		\item Give \LaTeX{} sources for free
 		\item Redistribute $1\%$ to OpenStax, $5\%$ to Wikipedia, and $10\%$ to TeXMaker developer
 	\end{itemize}

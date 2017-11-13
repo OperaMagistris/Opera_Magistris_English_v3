@@ -3,7 +3,15 @@
 	\thispagestyle{empty}
 	\mbox{}
 	\section{Quantum Chemistry}
-	\lettrine[lines=4]{\color{BrickRed}B}efore the reader to go further in reading this chapter of the book, we want to remind that the site deals mainly with Applied Mathematics and theoretical physics. Thus, we will address in this section only of theoretical chemistry (theoretical quantum  chemistry, theoretical thermochemistry, theoretical kinetic chemistry, etc).
+	\lettrine[lines=4]{\color{BrickRed}T}hroughout human history, people have tried to convert matter into more useful forms. Our Stone Age ancestors chipped pieces of flint into useful tools and carved wood into statues and toys. These endeavors involved changing the shape of a substance without changing the substance itself. But as our knowledge increased, humans began to change the composition of the substances as well—clay was converted into pottery, hides were cured to make garments, copper ores were transformed into copper tools and weapons, and grain was made into bread.
+
+	Humans began to practice chemistry when they learned to control fire and use it to cook, make pottery, and smelt metals. Subsequently, they began to separate and use specific components of matter. A variety of drugs such as aloe, myrrh, and opium were isolated from plants. Dyes, such as indigo and Tyrian purple, were extracted from plant and animal matter. Metals were combined to form alloys - for example, copper and tin were mixed together to make bronze - and more elaborate smelting techniques produced iron. Alkalis were extracted from ashes, and soaps were prepared by combining these alkalis with fats. Alcohol was produced by fermentation and purified by distillation.
+
+	Attempts to understand the behavior of matter extend back for more than $2500$ years. As early as the sixth century BC, Greek philosophers discussed a system in which water was the basis of all things. You may have heard of the Greek postulate that matter consists of four elements: earth, air, fire, and water. Subsequently, an amalgamation of chemical technologies and philosophical speculations were spread from Egypt, China, and the eastern Mediterranean by alchemists, who endeavored to transform “base metals” such as lead into "noble metals" like gold, and to create elixirs to cure disease and extend life.
+
+	From alchemy came the historical progressions that led to modern chemistry: the isolation of drugs from natural sources, metallurgy, and the dye industry. Today, chemistry continues to deepen our understanding and improve our ability to harness and control the behavior of matter. This effort has been so successful that many people do not realize either the central position of chemistry among the sciences or the importance and universality of chemistry in daily life as every other scientific field presented in this book do!
+	
+	Before the reader to go further in reading this chapter of the book, we want to remind that the site deals mainly with applied mathematics and theoretical physics. Thus, we will address in this section only of theoretical chemistry (theoretical quantum  chemistry, theoretical thermochemistry, theoretical kinetic chemistry, etc).
 	
 	This choice follows the changes of chemistry since the years 1980: form a largely descriptive science descriptive, it tends to become deductive. That is to say that in addition to experience, calculation methods are constantly growing and particularly since the development of modern computing that greatly helps chemists to numerical modeling.	
 	
@@ -26,14 +34,14 @@
 		\caption[]{Three dimensional imaginary box in which the particle moves}
 	\end{figure}
 
-	The potential energy of the system is given by:	
+	The potential electric energy of the system is given by:	
 
 	
-	As in the one-dimensional case (\SeeChapter{see section Wave Quantumn Physics}), the walls of infinite potential prevent the particle from leaving the box, and the wave function is nonzero only for position vector $\vec{r}$ being inside the box. It  necessarily vanish when one of the walls is touched. The Schrödinger equation we have to solve is (\SeeChapter{see section Wave Quantumn Physics}):
+	As in the one-dimensional case (\SeeChapter{see section Wave Quantum Physics page \pageref{quantum potential well}}), the walls of infinite potential prevent the particle from leaving the box, and the wave function is nonzero only for position vector $\vec{r}$ being inside the box. It  necessarily vanish when one of the walls is touched. The Schrödinger equation we have to solve is (\SeeChapter{see section Wave Quantum Physics page \pageref{schrodinger wave equation}}):
 	
 	and boundary conditions are:
 	
-	Note that the Hamiltonian can be written as the sum of the Hamiltonian in each axis (we speak of the hamiltonian operators of course!). So we have:
+	Notice that the Hamiltonian can be written as the sum of the Hamiltonian in each axis (we speak of the hamiltonian operators of course!). So we have:
 	
 	where
 	
@@ -41,7 +49,7 @@
 	
 	Such a form is named a "\NewTerm{separable form}\index{chemical separable form}": the Hamiltonian is the sum of individual operators $H_i$ each depending only on one variable or degree of freedom $q_i$. This form reflects the independent nature of the movements described by the variables $q_i$.
 	
-	Remember that the joint probability of two independent events is the product of the individual probabilities of the two events separately (\SeeChapter{see section Probabilities}). We therefore expect that the presence probability density in space (\SeeChapter{see section Wave Quantum Physics}) with multidimensional configuration is, if the Hamiltonian of separable form, a simple individual probability density product. In fact, the separable form of the Hamiltonian permits the separation of variables on the wave function itself.
+	Remember that the joint probability of two independent events is the product of the individual probabilities of the two events separately (\SeeChapter{see section Probabilities page \pageref{joint probability}}). We therefore expect that the presence probability density in space (\SeeChapter{see section Wave Quantum Physics page \pageref{first postulate wave quantum physics}}) with multidimensional configuration is, if the Hamiltonian of separable form, a simple individual probability density product. In fact, the separable form of the Hamiltonian permits the separation of variables on the wave function itself.
 
 	Let us write the solutions of the Schrödinger equation under the form:
 	
@@ -59,7 +67,7 @@
 	
 	Similarly, we get:
 	
-	Note that each of the separate equations that we have just obtained, for the movement of the particle in the three spatial directions, is a Schrödinger equation in a one-dimensional box. Thus, the three relations previously obtained independently describe each movement in the respective $x, y, z$ directions, limited to the respective ranges:
+	Notice that each of the separate equations that we have just obtained, for the movement of the particle in the three spatial directions, is a Schrödinger equation in a one-dimensional box. Thus, the three relations previously obtained independently describe each movement in the respective $x, y, z$ directions, limited to the respective ranges:
 	
 	and must be respectively  solved with boundary conditions:
 	
@@ -69,10 +77,10 @@
 	
 	and its respective energies (eigenvalues):
 	
-	The variable separation technique detailed above, is applicable only because the Hamiltonian is in separable form. It comes automatically therefore the three-dimensional probability density $\vert \Psi(x,y,z) \vert^2$ is the product of probability density $\vert \xi_\lambda(x)\vert^2,\vert \vartheta_\mu(y)\vert^2,\vert \zeta_\nu(z)\vert^2$, as we had anticipated it. We also note that the energy of movement in three dimensional space is the sum of energy movements in all three spatial directions: the independence of these three directions or degrees of freedom, implies the additivity of their energy.
+	The variable separation technique detailed above, is applicable only because the Hamiltonian is in separable form. It comes automatically therefore the three-dimensional probability density $\vert \Psi(x,y,z) \vert^2$ is the product of probability density $\vert \xi_\lambda(x)\vert^2,\vert \vartheta_\mu(y)\vert^2,\vert \zeta_\nu(z)\vert^2$, as we had anticipated it. We also notice that the energy of movement in three dimensional space is the sum of energy movements in all three spatial directions: the independence of these three directions or degrees of freedom, implies the additivity of their energy.
 	
 	\subsection{Molecular Vibrations}
-	We studied in the Wave Quantum Physics section the harmonic oscillator. Now it in is chemistry that we will use all the power of the results obtained during the study of this system.
+	We studied in the Wave Quantum Physics section the harmonic oscillator. Now it is molecular chemistry that we will use all the power of the results obtained during the study of this system.
 	
 	The harmonic oscillator is a model of molecular vibrations, and is represented by a type of parabolic potential as:
 	
@@ -101,7 +109,7 @@
 	\end{figure}
 	Above the first energy levels of a one-dimensional oscillator with \texttt{\textbf{(a)}} their associated eigenfunction, \texttt{\textbf{(b)}} the  associated probability distribution of presence.
 	
-	In the limit of very large values of $n$, the probability distribution approximates more and more of that predicted by classical mechanics, the oscillator lies for the most of the time in the vicinity of the turning points defined by the intersection of potential $E_{\text{pot}}$ with the level of $n$. This trend is illustrated below:
+	In the limit of very large values of $n$, the probability distribution approximates more and more of that predicted by classical mechanics, the oscillator lies for the most of the time in the vicinity of the turning points defined by the intersection of potential $E_{p}$ with the level of $n$. This trend is illustrated below:
 	\begin{figure}[H]
 		\begin{center}
 		\includegraphics{img/chemistry/one_dimensionnal_oscillator_limit.jpg}
@@ -132,19 +140,19 @@
 	
 	and remember also that $\vec{r}_e$ and $\vec{R}_n$ are respectively the position vectors of the electron and nucleus in the prior-previous relation.
 	
-	The potential energy being given by (\SeeChapter{see section Electrostatic}):
+	The potential electric energy being given by (\SeeChapter{see section Electrostatic page \pageref{electrostatic potential energy}}):
 	
 	The movements of the two particles are correlated because the two charges interact through their mutual electrical field. We can not make a separation between variables $\vec{r}_e$ and $\vec{R}_N$. By cons, a separation of variables is possible with the coordinate of the center of mass (see the definition of the center of mass in the section of Classical Mechanics):
 	
 	and the relative coordinate of the electron relative to the nucleus:
 	
-	We obtain therefore:
+	We get therefore:
 	
 	and:
 	
 	The Hamiltonian in the center of mass repository will therefore be written:
 	
-	where $M_{tot}=m_e+M$ is the total mass of the system and:
+	where $M_{\text{tot}}=m_e+M$ is the total mass of the system and:
 	
 	is its reduced mass.
 	
@@ -159,7 +167,7 @@
 	with:
 	
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	This approach of separating the wave function into the composition of a wave function of the center of mass and the relative movement is also used in the context of the study of poly-electronic atoms, but with one difference: as the nucleus is much more massive than the processing electrons (in approximation ...), the center of mass is assimilated to the nucleus of the atom and the relative motion to the entire electron cloud. This approximate approach is well known under the designation "\NewTerm{Born-Oppenheimer approximation}\index{Born-Oppenheimer approximation}".
+	This approach of separating the wave function into the composition of a wave function of the center of mass and the relative movement is also used in the context of the study of poly-electronic atoms, but with one difference: as the nucleus is much more massive than the processing electrons (in approximation ...), the center of mass is assimilated to the nucleus of the atom and the relative motion to the entire electron cloud\index{electron cloud}\footnote{The electron cloud is the region of negative charge surrounding an atomic nucleus that is associated with an atomic orbital. The region is defined mathematically, describing a region with a high probability of containing electrons. As we know it, the electron cloud model differs from the more simplistic Bohr model, in which electrons orbit the nucleus in much the same way as planets orbit the Sun. In the cloud model, there are regions where an electron may likely be found, but it's theoretically possible for it to be located anywhere, including inside the nucleus.}. This approximate approach is well known under the designation "\NewTerm{Born-Oppenheimer approximation}\index{Born-Oppenheimer approximation}".
 	\end{tcolorbox}
 	Where the Hamiltonian appearing in the first of these relations has been defined above as being:
 	
@@ -172,7 +180,7 @@
 	
 	or written differently:
 	
-	Note that in the case where the potential energy $E_{\text{pot}}$ is a centrosymmetric source, that is to say it depends only on the length of the position vector $\vec{r}$, and not its orientation, the previous equation, written in Cartesian coordinates, is inseparable. Indeed, in Cartesian coordinates, the length $\vec{r}$ is given by:
+	Notice that in the case where the potential energy $E_{p}$ is a centrosymmetric source, that is to say it depends only on the length of the position vector $\vec{r}$, and not its orientation, the previous equation, written in Cartesian coordinates, is inseparable. Indeed, in Cartesian coordinates, the length $\vec{r}$ is given by:
 	
 	and the potential energy can not be separated into three components, each depending only one of the three variables $x, y, z$. The Hamiltonian is therefore still not a separable form and so we did not meet our target. However, the above equation is separable at the moment we make a change of coordinates to spherical coordinates. Indeed, in this coordinate system, the potential depends on only on one of the three spherical variables: the radius $r$. It is independent of the two angles $\theta$ and $\phi$.
 	
@@ -188,7 +196,7 @@
 	
 	The term:
 	
-	is therefore an energy associated with the angular momentum $J$ (\SeeChapter{see section Classical Mechanics}).
+	where $J=\mu r^2$ is therefore an energy associated with the angular momentum $L$ (\SeeChapter{see section Classical Mechanics page \pageref{moment of inertia} and page \pageref{angular momentum}}).
 	
 	To understand the nature of this operator $L^2$ a detour by the notion of rigid rotor will help.
 	
@@ -200,7 +208,7 @@
 	and in view of the constraints on the potential, it is normally quite easy to understand why the rotator is said to be "rigid". In the above case, the Hamiltonian is reduced to:
 	
 	
-	For the rest, we associate the operator $L^2$ to an angular momentum, for the simple reason that he has the units... Indeed, let us recall that we have prove in the section of Wave Quantum Physics that when the spin is zero (so as part of our study of the hydrogenoid  atom here, the spin will not be taken into account in the first instance) and that we are dealing with a single particle then the angular momentum (which we will denote by $L$ instead of $b$) is given by:
+	For the rest, we associate the operator $L^2$ to the square of an angular momentum, for the simple reason that he has the units of it... Indeed, let us recall that we have prove in the section of Wave Quantum Physics that when the spin is zero (so as part of our study of the hydrogenoid atom here, the spin will not be taken into account in the first instance) and that we are dealing with a single particle then the angular momentum (which we will denote by $L$ instead of $b$) is given by:
 	
 	where the components of the vector $\vec{l}$ are also natural numbers. By doing this similarity, we can then write the Schrödinger equation in the form:
 	
@@ -208,7 +216,7 @@
 	
 	by the vector product.
 	
-	We go now to rectangular coordinates $x, y, z$ coordinates to spherical coordinates $r,\theta,\phi$. Remember for this (\SeeChapter{see section Vector Calculus}) that:
+	We go now to rectangular coordinates $x, y, z$ coordinates to spherical coordinates $r,\theta,\phi$. Remember for this (\SeeChapter{see section Vector Calculus page \pageref{spherical coordinates}}) that:
 	
 	and that:
 	
@@ -252,13 +260,13 @@
 	
 	where $L_z$ is obviously the eigenvalue of $\hat{L}_z$. A simple solution to this differential would be:
 	
-	with for uniformity condition, depending on the properties of complex number (\SeeChapter{see section Numbers}):
+	with for uniformity condition, depending on the properties of complex number (\SeeChapter{see section Numbers page \pageref{complex numbers}}):
 	
 	This mathematical condition imposes the obvious and remarkable following quantification:
 	
 	where (recall) $m_l$ is the magnetic quantum number.
 
-	Knowing that (\SeeChapter{see section Corpuscular Quantum Physics}):
+	Knowing that (\SeeChapter{see section Corpuscular Quantum Physics page \pageref{quantum number of orbital angular momentum interval}}):
 	
 	We can write:
 	
@@ -289,7 +297,7 @@
 	
 	So that we often find the previous differential equation in the following form in the books after elementary algebra factorization of some terms:
 	
-	A nontrivial solution being, knowing the Fuchs of differential equations, that it is customary to name the "\NewTerm{associated Legendre polynomials}\index{associated Legendre polynomials}" (although this is not strictly speaking a polynomial ....) because containing partly Legendre polynomials (\SeeChapter{see section Calculus}):
+	A nontrivial solution being, knowing the Fuchs of differential equations, that it is customary to name the "\NewTerm{associated Legendre polynomials}\index{associated Legendre polynomials}\label{legendre polynomial}" (although this is not strictly speaking a polynomial ....) because containing partly Legendre polynomials (\SeeChapter{see section Calculus page \pageref{legendre polynomials}}):
 	
 	that you can check by injecting this solution in prior-previous differential equation.
 	
@@ -314,11 +322,522 @@
 	by distributing:
 	
 	Which is indeed equal to zero!!!
-
+ 	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{img/chemistry/image_spherical_harmonics.jpg}	
+		\caption{Legendre spherical harmonics plot}
+	\end{figure}
+	With the corresponding MATLAB™ 2013a script\footnote{It is a bit long but we really thinks it helps for a better understanding} (we give the script here as it is not given in the MATLAB™ companion book) provided on Internet by Sanjay Sekaran (big thanks!):
+	\begin{lstlisting}[language=MATLAB]
+		theta = 0:pi/40:pi;                   % polar angle
+		phi = 0:pi/20:2*pi;                   % azimuth angle
+		
+		[phi,theta] = meshgrid(phi,theta);    % define the grid
+		
+		degree = 0;
+		order = 0;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,1)
+		surf(x,y,z, rho);
+		title('$\ell=0, m=0$')
+		
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		degree = 1;
+		order = 0;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,6)
+		surf(x,y,z, rho);
+		title('$\ell=1, m=0$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 1;
+		order = 1;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,7)
+		surf(x,y,z, rho);
+		title('$\ell=1, m=\pm 1$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 2;
+		order = 0;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,11)
+		surf(x,y,z, rho);
+		title('$\ell=2, m=0$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 2;
+		order = 1;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,12)
+		surf(x,y,z, rho);
+		title('$\ell=2, m=\pm 1$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 2;
+		order = 2;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,13)
+		surf(x,y,z, rho);
+		title('$\ell=2, m=\pm 2$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 3;
+		order = 0;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,16)
+		surf(x,y,z, rho);
+		title('$\ell=3, m=0$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 3;
+		order = 1;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,17)
+		surf(x,y,z, rho);
+		title('$\ell=3, m=\pm 1$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 3;
+		order = 2;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,18)
+		surf(x,y,z, rho);
+		title('$\ell=3, m=\pm 2$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 3;
+		order = 3;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,19)
+		surf(x,y,z, rho);
+		title('$\ell=3, m=\pm 3$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 4;
+		order = 0;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,21)
+		surf(x,y,z, rho);
+		title('$\ell=4, m=0$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 4;
+		order = 1;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,22)
+		surf(x,y,z, rho);
+		title('$\ell=4, m=\pm 1$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 4;
+		order = 2;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,23)
+		surf(x,y,z, rho);
+		title('$\ell=4, m=\pm 2$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 4;
+		order = 3;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,24)
+		surf(x,y,z, rho);
+		title('$\ell=4, m=\pm 3$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		degree = 4;
+		order = 4;
+		amplitude = 0.5;
+		radius = 5;
+		
+		Ymn = legendre(degree,cos(theta(:,1)));
+		Ymn = Ymn(order+1,:)';
+		yy = Ymn;
+		
+		for kk = 2: size(theta,1)
+		    yy = [yy Ymn];
+		end
+		
+		yy = yy.*cos(order*phi);
+		
+		order = max(max(abs(yy)));
+		rho = radius + amplitude*yy/order;
+		
+		r = radius.*sin(theta);    % convert to Cartesian coordinates
+		x = r.*cos(phi);
+		y = r.*sin(phi);
+		z = radius.*cos(theta);
+		
+		subplot(5,5,25)
+		surf(x,y,z, rho);
+		title('$\ell=4, m=\pm 4$')
+		shading interp
+		
+		axis equal off      % set axis equal and remove axis
+		view(0,30)         % set viewpoint
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		map = makeColorMap([0.2 0.2 0.6],[1.0 0.99 0.72],[0.8 0.25 0.33],80);
+		colormap(map);
+		cd(Figures)
+	\end{lstlisting}
+	
 	So finally, we have common eigen functions (because remember that the Legendre polynomials are orthogonal to each other) that will be:
 	 
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	It is not necessary to make complicated calculations to calculate the normalizaton factor of the exponential, as in the context of an integration over all space, the three factors of $Y_{m_l,l}(\theta,\phi)$ are independent of each other. Thus the integral is the product of the integrals (\SeeChapter{see section of Differential and Integral Calculus}).
+	It is not necessary to make complicated calculations to calculate the normalizaton factor of the exponential, as in the context of an integration over all space, the three factors of $Y_{m_l,l}(\theta,\phi)$ are independent of each other. Thus the integral is the product of the integrals (\SeeChapter{see section of Differential and Integral Calculus page \pageref{integral calculus}}).
 	\end{tcolorbox}
 	Finally, we must find $N_{m_l,l}$ such that:
 	
@@ -373,7 +892,7 @@ Let us check now the framed previous boxed relation (warning this is a bit long 
 	
 	Indeed, the first factor is of degree $2m$ and the $m_l$th derivative of $P(x)$" is of degree $P-m_l$, therefore:
 	
-	So $\dfrac{\mathrm{d}^{m_l}}{\mathrm{d}x^{m_l}}h(x)$ is a polynomial of degree $\deg(P)\leq l-1$ and knowing that $\dfrac{\mathrm{d}^l}{\mathrm{d}x^l}(1-x^2)^l$ is to a given constant equal to the $l$-th Legendre polynomial (\SeeChapter{see section Calculus}) we then have:
+	So $\dfrac{\mathrm{d}^{m_l}}{\mathrm{d}x^{m_l}}h(x)$ is a polynomial of degree $\deg(P)\leq l-1$ and knowing that $\dfrac{\mathrm{d}^l}{\mathrm{d}x^l}(1-x^2)^l$ is to a given constant equal to the $l$-th Legendre polynomial (\SeeChapter{see section Calculus page \pageref{legendre polynomials}}) we then have:
 	
 	So we have just proved that $\dfrac{\mathrm{d}m_l}{\mathrm{d}x^{m}_l}$ is orthogonal to any polynomial of degree $\leq l-1$.
 	\begin{flushright}
@@ -411,7 +930,7 @@ Let us check now the framed previous boxed relation (warning this is a bit long 
 	
 	where $P_l$ is the $n$-th Legendre polynomial (hence the origin of the name of "associated  Legendre polynomial" ...).
 	\begin{dem}
-	First, we have proved that the Legendre polynomials satisfy the following recurrence relation (\SeeChapter{see section Calculus}):
+	First, we have proved that the Legendre polynomials satisfy the following recurrence relation (\SeeChapter{see section Calculus page \pageref{legendre polynomials}}):
 	
 	for $n\geq 1$.
 	Multiplying the above equation by $x^{n-1}$ and integrating, we get:
@@ -427,7 +946,6 @@ Let us check now the framed previous boxed relation (warning this is a bit long 
 	The previous expression becomes (remember $P_0(x)=1$):
 	
 	Thus by induction:
-	
 	
 	Furthermore as:
 	
@@ -453,7 +971,7 @@ Let us check now the framed previous boxed relation (warning this is a bit long 
 	where:
 	
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	Let us recall that the Jacobian in spherical coordinates is $r^2\sin(\theta)$ (\SeeChapter{see section of Differential and Integral Calculus}) and as the integrated function above is not dependent on $r$, we have take out the term $r^2\mathrm{d}r$ of this integral (by cons we will meet again the same term in the function $R(r)$ present in the Schrödinger equation).
+	Let us recall that the Jacobian in spherical coordinates is $r^2\sin(\theta)$ (\SeeChapter{see section of Differential and Integral Calculus page \pageref{jacobian spherical coordinates}}) and as the integrated function above is not dependent on $r$, we have take out the term $r^2\mathrm{d}r$ of this integral (by cons we will meet again the same term in the function $R(r)$ present in the Schrödinger equation).
 	\end{tcolorbox}
 	And with:
 	
@@ -581,7 +1099,7 @@ Let us check now the framed previous boxed relation (warning this is a bit long 
 	
 	which we see in the general case of the isolated atom that energy levels are no longer dependent of $m_l$ (due to the spherical symmetry of the potential). Then we say that the levels corresponding to the same values of $n$ and of $l$ are all merged whatever the values of $m_l$.
 	
-	In the case where $E_\text{pot}$ derived from the $1 / r$ Coulomb potential , this radial equation leads us to a normalizing solution of $R (r)$ (different from zero then...) only for values of the energy corresponding to the following quantization law (well ... what a coincidence, we fall back on the expression proved in the old models of Corpuscular Quantum Physics!):
+	In the case where $E_p$ derived from the $1 / r$ Coulomb potential , this radial equation leads us to a normalizing solution of $R (r)$ (different from zero then...) only for values of the energy corresponding to the following quantization law (well ... what a coincidence, we fall back on the expression proved in the old models of Corpuscular Quantum Physics!):
 	
 	where $R_H$ is the Rydberg constant as we determined in the section of Corpuscular Quantum Physics. Thus, in this case the energy levels corresponding to the same values of $n$ are all merged regardless of the value of $l$.
 
@@ -605,7 +1123,7 @@ Let us check now the framed previous boxed relation (warning this is a bit long 
 
 	In the case of the atomic orbital $1s$ (!special case but we could do the same calculations as the following with all other orbital!) so we have for the hydrogen atom:
 	
-	So it is well a decreasing exponential function as shown in the graphic above. Before continuing let us recall that (\SeeChapter{see section Wave Quantum Physics}) :
+	So it is well a decreasing exponential function as shown in the graphic above. Before continuing let us recall that (\SeeChapter{see section Wave Quantum Physics page \pageref{first postulate wave quantum physics}}) :
 	
 	But, in spherical coordinates (see the beginning of this section):
 	
@@ -625,12 +1143,41 @@ Let us check now the framed previous boxed relation (warning this is a bit long 
 	
 	Therefore:
 	
-	Which is remarkable, because we find the result of the Bohr model (\SeeChapter{see section Corpuscular Physics})!!!
+	Which is remarkable, because we find the result of the Bohr model (\SeeChapter{see section Corpuscular Physics page \pageref{bohr model}})!!!
 
 	To summarize a little all this, the stationary states of the hydrogen atom are specified by three quantum numbers $n\in\mathbb{N}^{*},l\leq n-1,|m_l|\leq l$ and the Schrödinger wave function given finally by:
 	
 	We then the following traditional nomenclature in the case of the hydrogen atom:
-	
+	\begin{table}[H]
+	\begin{center}
+		\definecolor{gris}{gray}{0.85}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				\multicolumn{1}{c}{\cellcolor{black!30}\textbf{$n$}} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}\textbf{$l$}} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}\textbf{$m_l$}}  & 
+  \multicolumn{1}{c}{\cellcolor{black!30}Function} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}Nomenclature}\\ \hline
+				1 & 0 & 0 & $\Psi_{1,0,0}$ & $1s$\\ \hline
+				   &  &  &  & \\ \hline
+				2 & 0 & 0 & $\Psi_{2,0,0}$ & $2s$\\ \hline
+				   & 1 & 1 & $\Psi_{2,1,1}$ & $2p_1$\\ \hline
+				   &   & 0 & $\Psi_{2,1,0}$ & $2p_0$\\ \hline
+				   &   & -1 & $\Psi_{2,1,-1}$ & $2p_{-1}$\\ \hline
+				   &  &  &  & \\ \hline
+				3 & 0 & 0 & $\Psi_{3,0,0}$ & $3s$\\ \hline
+				   & 1 & 1 & $\Psi_{3,1,1}$ & $3p_1$\\ \hline
+				   &   & -1 & $\Psi_{3,1,-1}$ & $3p_{-1}$\\ \hline
+				   &  2 & 2 & $\Psi_{3,2,2}$ & $3d_2$\\ \hline
+				   &     & 1 & $\Psi_{3,2,1}$ & $3d_1$\\ \hline
+				   &     & 0 & $\Psi_{3,2,0}$ & $3d_0$\\ \hline
+				   &     & -1 & $\Psi_{3,2,-1}$ & $3d_{-1}$\\ \hline
+				   &     & -2 & $\Psi_{3,2,-2}$ & $3d_{-2}$\\ \hline
+
+		\end{tabular}
+	\end{center}
+	\caption{Nomenclature of layers and sub-layers of the hydrogen atom}
+	\end{table}
 	We can include the spin of the electron in the description of the electronic structure of the atom. If we treat the spin as an additional degree of freedom then the lack of interaction term between conventional degrees of freedom (positions in real space) and the spin interaction named "\NewTerm{spin-orbit coupling}\index{spin-orbit coupling}" in the previous Hamiltonian implies that we can write the total wave function, spin included, in the form of a product:
 	
 	
@@ -640,7 +1187,7 @@ Let us check now the framed previous boxed relation (warning this is a bit long 
 		\includegraphics[scale=0.8]{img/chemistry/hydrogen_full_wave_function.jpg}	
 	\end{figure}
 	
-	where we added the spin quantum number $m_s=\pm 1/2$ (\SeeChapter{see section Corpuscular Quantum Physics}).
+	where we added the spin quantum number $m_s=\pm 1/2$ (\SeeChapter{see section Corpuscular Quantum Physics page \pageref{spin}}).
 
 	The same remark we made in the section of Corpuscular Quantum Physics then applies: the levels remain $2n^2$ times degenerated.
 
@@ -648,7 +1195,7 @@ Let us check now the framed previous boxed relation (warning this is a bit long 
 	
 	Thus for $1$ proton:
 	
-	Now let us apply the 5th postulate of wave quantum physics (see section of the same name) for unlike earlier, not calculate the modal radius (most likely one), but the average radius! Then, as the operator position is the position itself (\SeeChapter{see section of Wave Quantum Physics}), the average value of the radius will be given by (do not forget that we are in spherical coordinates!):
+	Now let us apply the 5th postulate of wave quantum physics (see section of the same name page \pageref{fifth postulate of wave quantum physics}) for unlike earlier, not calculate the modal radius (most likely one), but the average radius! Then, as the operator position is the position itself (\SeeChapter{see section of Wave Quantum Physics page \pageref{observables and operators}}), the average value of the radius will be given by (do not forget that we are in spherical coordinates!):
 	
 	Using the Fubini theorem proved in the section of Differential and Integral Calculus we can write (well in this case it's even trivial that we have the right to write this... we should not even have to mention Fubini theorem normally...):
 	
@@ -700,7 +1247,7 @@ Let us check now the framed previous boxed relation (warning this is a bit long 
 	
 	It is customary in practice to consider that:
 	
-	is to a given factor (electric charge factor) an "\NewTerm{effective electrical potential}\index{effective electrical potential}" or "\NewTerm{electric screened potential}\index{electric screened potential}". Indeed by defining the electric potential (\SeeChapter{see section Electrostatics}), there are only an electri charge factor ratio between the electric potential energy and the electric potential. So we have:
+	is to a given factor (electric charge factor) an "\NewTerm{effective electrical potential}\index{effective electrical potential}" or "\NewTerm{electric screened potential}\index{electric screened potential}". Indeed by defining the electric potential (\SeeChapter{see section Electrostatics page \pageref{electric potential}}), there are only an electri charge factor ratio between the electric potential energy and the electric potential. So we have:
 	
 	
 	\begin{flushright}
@@ -713,7 +1260,7 @@ Let us check now the framed previous boxed relation (warning this is a bit long 
 	\newpage
 	\thispagestyle{empty}
 	\mbox{}
-	\section{Molecular Chemistry}
+	\section{Molecular Chemistry}\label{molecular chemistry}
 	\lettrine[lines=4]{\color{BrickRed}B}olecular chemistry is the central area that interconnects thanks to the study of molecules many promising advanced technologies of the early 21st century which are to name only the best known: molecular biology, molecular materials, molecular electronics, polymers, etc.
 Orbital approximation
 
@@ -721,7 +1268,7 @@ Orbital approximation
 	
 	We are in the beginning of the 21st century at the infancy of the discovery of what nature has done with plenty of time and chance (probabilities): that is to say complex molecules working as nanomachines capable locally (active site) to filter, oxidize, to make catalysis ... and many other manipulations (there is just to observe your own body!).
 	
-	A molecule is often treated in school classes with the Schrödinger equation (so no relativistic case and no consideration of the spins) in the usual form (\SeeChapter{see section Wave Quantum Physics}):
+	A molecule is often treated in school classes with the Schrödinger equation (so no relativistic case and no consideration of the spins) in the usual form (\SeeChapter{see section Wave Quantum Physics page \pageref{schrödinger hamiltonian}}):
 	
 	or also in a stationary from (time-independent) where as a reminder $\Psi$ is a eigenfunctions and $E$ an eigenvalue of the application $H$.
 	
@@ -742,7 +1289,7 @@ Orbital approximation
 	
 	We propose here to show two common models (and the most simplest):
 	
-	\subsubsection{Orbital Approximations}
+	\subsection{Orbital Approximations}
 	A molecule is obviously an extremely complex problem: $N$ nuclei, $n$ electrons and everything is moving!
 	\begin{figure}[H]
 		\begin{center}
@@ -750,7 +1297,7 @@ Orbital approximation
 		\end{center}	
 		\caption{Example of molecule where a almost everything is moving}
 	\end{figure}
-	The Hamiltonian (\SeeChapter{see section Wave Quantum Physics}):
+	The Hamiltonian (\SeeChapter{see section Wave Quantum Physics page \pageref{hamiltonian operator wave quantum physics}}):
 	
 	is then a nightmare but in the intuitive form (the subscript $G$ of the Hamiltonian means "General") below:
 	
@@ -770,15 +1317,15 @@ Orbital approximation
 
 	Often we find these terms in the following form of the Schrödinger equation in the literature:
 	
-	A first approximation we might try is to decouple the movement of the nuclei of the electrons. Indeed, as the nucleus is much more massive (about 2,000 times) than the cloud of electrons, the center of mass is assimilated to the nucleus of the atom and all the motion to the entire electron cloud. This approximate approach is well known under the name "\NewTerm{Born-Oppenheimer approximation}\index{Born-Oppenheimer approximation}":
+	A first approximation we might try is to decouple the movement of the nuclei of the electrons. Indeed, as the nucleus is much more massive (about $2,000$ times) than the cloud of electrons, the center of mass is assimilated to the nucleus of the atom and all the motion to the entire electron cloud. This approximate approach is well known under the name "\NewTerm{Born-Oppenheimer approximation}\index{Born-Oppenheimer approximation}":
 	
 	which then allows us to study the molecular orbitals. But unfortunately this approximation is not sufficient because of the repulsion interelectronic term (the double sum) that prevents using the separation of variables technique as we did in the section of Quantum Chemistry with the hydrogenoid-atom.
 	
 	Moreover, this latter equation is also written as the first line of the couple of equation below (Schrödinger equation of electrons and nuclei):
 	\begin{subequations}
 		\begin{align}
-		&\underbrace{(T_e+V_{ee}+V_{en})}_{H_{\text{el.}}}\Psi_{el}=E\Psi_{el}\\
-		&\underbrace{(T_n+V_{nn})}_{H_{\text{nuclei}}}\Psi_n\Psi_{el}=E\Psi_n\Psi_{el}
+		&\underbrace{(T_e+V_{ee}+V_{en})}_{H_{\text{el}}}\Psi_{\text{el}}=E\Psi_{\text{el}}\\
+		&\underbrace{(T_n+V_{nn})}_{H_{\text{nuclei}}}\Psi_n\Psi_{\text{el}}=E\Psi_n\Psi_{\text{el}}
 		\end{align}
 	\end{subequations}
 	This system of equations is what some name the "\NewTerm{adiabatic approximation}\index{adiabatic approximation}" (???).
@@ -797,7 +1344,7 @@ Orbital approximation
 			$\square$  Q.E.D.
 		\end{flushright}
 	\end{dem}
-	And that's what we will use to break the $n$-electronic Hamiltonian $H_{el}$ into a sum of independent-electron Hamiltonian knowing of the above that if we find the eigenfunction for each (which is relatively easier) if will bu sufficient to simply multiply them to get the overall eigenfunction.
+	And that's what we will use to break the $n$-electronic Hamiltonian $H_{\text{el}}$ into a sum of independent-electron Hamiltonian knowing of the above that if we find the eigenfunction for each (which is relatively easier) if will bu sufficient to simply multiply them to get the overall eigenfunction.
 
 	Thus, we write:
 	
@@ -828,7 +1375,15 @@ Orbital approximation
 	For a peripheral electron, we will need to consider its screen constant is due to all electrons placed on orbits equal or below its own. The tradition (or rather the "trick") is that the calculation is done by combining atomic orbitals in several groups $1s/2s, 2p/3s, 3p/3d/4s, 4p/4d/4f/5s, 5p/$ etc.
 	
 	Then the calculation is simple because it is based on an array of predefined values and we simply have to add the screening contributions of all the electrons following the table below:
-	
+	\begin{table}[h!]\centering
+		\begin{tabular}{ccccc}\hline
+		& $n'<n-1$ & $n'=n-1$ & $n'=n$ & $n'>n$ \\\hline
+		1$s$ & & & $0.30$ & $0$ \\
+		n$s$, n$p$ & $1$ & $0.85$ & $0.35$ & $0$ \\
+		n$d$, n$f$ & $1$ & $1$ & $0.35$ & $0$\\ \hline
+		\end{tabular}
+		\caption{Screening contributions of electrons}
+	\end{table}
 	This table deserves some explanation of course !:
 	
 	The index indicates the number of the group that contributes to the screening constant while $n$ is the number of the group of electron that we consider.
@@ -846,7 +1401,7 @@ Orbital approximation
 	\subsection{LCAO Method}
 	A linear combination of atomic orbitals or LCAO is a quantum superposition of atomic orbitals and a technique for calculating molecular orbitals in quantum chemistry. In quantum mechanics, electron configurations of atoms are described as wave functions. In mathematical sense, these wave functions are the basis set of functions, the basis functions, which describe the electrons of a given atom. In chemical reactions, orbital wave functions are modified, i.e. the electron cloud shape is changed, according to the type of atoms participating in the chemical bond.
 	
-	So as already mention, this method, rather qualitative, considers that the molecular wave function is a "\NewTerm{Linear Combination of Atomic Orbitals LCAO}\index{Linear Combination of Atomic Orbitals}" unlike the previous method where we multiply the effective Hamiltonian.
+	So as already mention, this method, rather qualitative, considers that the molecular wave function is a "\NewTerm{Linear Combination of Atomic Orbitals LCAO}\index{linear combination of atomic orbitals}" unlike the previous method where we multiply the effective Hamiltonian.
 	
 	This method is important because it is the basis of much of the current vocabulary of chemists when the chemistry done is cutting edge one!
 	
@@ -937,7 +1492,7 @@ Orbital approximation
 	
 	We therefore conclude that the electronic stabilization due to the two identical orbital interaction is proportional to their recovery. More the recovery is big, the more the stabilization is important.
 	
-	There is a more technical approach using Dirac notation (\SeeChapter{see section Wave Quantum Physics}) and that has the advantage of allowing the determination of the eigenvalues of energy.
+	There is a more technical approach using Dirac notation (\SeeChapter{see section Wave Quantum Physics page \pageref{dirac formalism}}) and that has the advantage of allowing the determination of the eigenvalues of energy.
 
 	First we write the general expression of the time independant Schrödinger equation with the Bra-Ket notation for one molecular orbital, superposition of two atomic orbitals:
 	
@@ -955,7 +1510,7 @@ Orbital approximation
 
 	We also have:
 	
-	which are named "\NewTerm{Coulomb integrals}\index{Coulomb integrals}" because they correspond according to the fifth postulate of Wave Quantum Physics (see section of the same name) to the average value of the total energy of the electron.
+	which are named "\NewTerm{Coulomb integrals}\index{Coulomb integrals}" because they correspond according to the fifth postulate of Wave Quantum Physics (see section of the same name page \pageref{fifth postulate of wave quantum physics}) to the average value of the total energy of the electron.
 
 	We have obviously:
 	
@@ -967,7 +1522,7 @@ Orbital approximation
 	
 	These two equations are named "\NewTerm{secular equations}\index{secular equations}". The trivial solution is a priori not physical because it would mean that the electron has a zero probability density at any point in the space corresponding at $a=b=0$.
 
-	There is a nontrivial solution and unique solution if and only if the following determinant (\SeeChapter{see section Linear Algebra}), known in molecular chemistry under the name "\NewTerm{secular determinant}\index{secular determinant}", is equal to zero:
+	There is a nontrivial solution and unique solution if and only if the following determinant (\SeeChapter{see section Linear Algebra page \pageref{determinant}}), known in molecular chemistry under the name "\NewTerm{secular determinant}\index{secular determinant}", is equal to zero:
 	
 	As we have by symmetry in our particular case:
 	
@@ -1095,7 +1650,7 @@ Orbital approximation
 	Let $C$ be the center of mass of the molecule. Let $r_1$ and $r_2$ be the distances of the two atoms of respective masses $m_1$, $m_2$ from the center of mass $C$ of the molecule:
 	We see that:
 	
-	and we have (\SeeChapter{see section Classical Mechancics}):
+	and we have (\SeeChapter{see section Classical Mechanics page \pageref{center of mass}}):
 	
 	Therefore:
 	
@@ -1147,24 +1702,27 @@ Orbital approximation
 	\end{tcolorbox}
 
 	\pagebreak
-	\subsection{Molecular Vibrational Energy Levels}
-	Let us consider the simple case of a vibrating diatomic molecule, where restoring force is proportional to displacement such that (\SeeChapter{see section Mechanical Engineering}):
+	\subsection{Molecular Vibrational Energy Levels}\label{molecular vibrations}
+	Let us consider the simple case of a vibrating diatomic molecule, where restoring force is proportional to displacement such that (\SeeChapter{see section Mechanics page \pageref{spring tension}}):
 	
 	The potential energy is a we proved it in the previously mentioned section, but with the notation of Quantum Physics:
 	
-	Now remember that we have proved in the section of Wave Quantique Physique the Schrödinger equation was:
+	Now remember that we have proved in the section of Wave Quantique Physique page \pageref{schrodinger wave equation}, that the Schrödinger equation was given by:
 	
 	After rearrangement:
 	
 	And using the conventional notations in chemistry and quantum physics:
 	
-	As we consider a linear vibration mode, the know that we can use the reduced mass to analyze the system (\SeeChapter{see section Classical Mechanics}). Therefore we:
+	As we consider a linear vibration mode, the know that we can use the reduced mass to analyze the system (\SeeChapter{see section Classical Mechanics page \pageref{center of mass}}). Therefore we have:
 	
 	Hence:
 	
 	And as we have prove it in the section of Wave Quantum Physique we have:
 	
 	with for recall $n\in \mathbb{N}$.
+	
+	So we can combine the previous results to get the "\NewTerm{vibrational-rotational energies level}\index{vibrational-rotational energies level}":
+	
 	
 	\begin{flushright}
 	\begin{tabular}{l c}
@@ -1176,11 +1734,10 @@ Orbital approximation
 	\newpage
 	\thispagestyle{empty}
 	\mbox{}
-	\section{Analytical Chemistry}
+	\section{Analytical Chemistry}\label{analytical chemistry}
 	\lettrine[lines=4]{\color{BrickRed}C}hemistry is a very complex $n$-body science that mathematics can not explained without the input of numerical computer simulations or approximations regarding the use of quantum theory (\SeeChapter{see Atomistic section}). Until these tools are powerful enough and accessible to everyone, chemistry remains a primarily experimental science based on the observation of different properties of matter and we would like here give some very important definitions (which we find also elsewhere in other fields as chemistry).
 	
-	Analytical chemistry is concerned with the chemical characterization of matter and the answer to two important questions: what is it (qualitative analysis) and how much is it (quantitative analysis). Chemicals make up everything we use or consume, and knowledge of the chemical composition of many substances is important in our daily lives. Analytical chemistry plays an important role in nearly all aspects of chemistry, for example, agricultural, clinical, environmental, forensic, manufacturing, metallurgical, and pharmaceutical chemistry. The nitrogen content of a fertilizer determines its value. Foods must be analyzed for contaminants (e.g., pesticide residues) and for essential nutrients (e.g., vitamin content). The air we breathe must be analyzed for toxic gases (e.g., carbon monoxide). Blood glucose must be monitored in diabetics (and, in fact,
-most diseases are diagnosed by chemical analysis). The presence of trace elements from gun powder on a perpetrator’s hand will prove a gun was fired by that hand. The quality of manufactured products often depends on proper chemical proportions, and measurement of the constituents is a necessary part of quality assurance. The carbon content of steel will influence its quality. The purity of drugs will influence their efficacy.
+	Analytical chemistry is concerned with the chemical characterization of matter and the answer to two important questions: what is it (qualitative analysis) and how much is it (quantitative analysis). Chemicals make up everything we use or consume, and knowledge of the chemical composition of many substances is important in our daily lives. Analytical chemistry plays an important role in nearly all aspects of chemistry, for example, agricultural, clinical, environmental, forensic, manufacturing, metallurgical, and pharmaceutical chemistry. The nitrogen content of a fertilizer determines its value. Foods must be analyzed for contaminants (e.g., pesticide residues) and for essential nutrients (e.g., vitamin content). The air we breathe must be analyzed for toxic gases (e.g., carbon monoxide). Blood glucose must be monitored in diabetics (and, in fact, most diseases are diagnosed by chemical analysis). The presence of trace elements from gun powder on a perpetrator's hand will prove a gun was fired by that hand. The quality of manufactured products often depends on proper chemical proportions, and measurement of the constituents is a necessary part of quality assurance. The carbon content of steel will influence its quality. The purity of drugs will influence their efficacy.
 
 	In this section, we will focus only on the mathematical tools and techniques for performing these different types of analyses.
 
@@ -1208,7 +1765,14 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 		
 		\item[D9.] The smallest part of a chemical combination yet having all of the properties thereof is the "\NewTerm{molecule}\index{molecule}" of this combination. The smallest part of an element or simple body is the "\NewTerm{atom}\index{atom}" of that element.
 	\end{enumerate}
-	Some general reminders first:
+	Although there are just over $100$ elements, tens of millions of chemical compounds result from different combinations of these elements. Each compound has a specific composition and possesses definite chemical and physical properties by which we can distinguish it from all other compounds. And, of course, there are innumerable ways to combine elements and compounds to form different mixtures. A summary of how to distinguish between the various major classifications of matter is shown in the figure below:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.42]{img/chemistry/chemical_mixtures_and_substances.jpg}
+		\caption[Homogeneous mixture, heterogeneous mixture, compound or element]{Depending on its properties, a given substance can be classified as a homogeneous mixture, a heterogeneous mixture, a compound, or an element (source: OpenStax)}
+	\end{figure}
+
+	Let us also give some reminders of what we saw at the very start of the Mechanics chapter:
 	\begin{enumerate}
 		\item A mixture is named "\NewTerm{heterogeneous}\index{heterogeneous}" in chemistry if the components are immediately discernible to the naked eye or through the microscope.
 		
@@ -1217,6 +1781,14 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 		\item A system or body is said to be "\NewTerm{isotropic}\index{isotropic}" if it has identical values of a property in all directions otherwise it is said "\NewTerm{anisotropic}\index{anisotropic}".
 	\end{enumerate}
 	
+	\subsection{Analytical chemistry process}
+	The general analytical process is shown in the figure below. The analytical chemist should be involved in every step. The chemical analyst is like the physicist, mathematician and engineer a problem solver, a critical part of the team deciding what, why, and how. The unit operations of analytical chemistry that are common to most types of analyses are considered in more detail below that should in part belongs to process to other science jobs.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.91]{img/chemistry/analytical_chemistry_process.jpg}
+		\caption[Steps in Analytical Chemistry]{Steps in Analytical Chemistry (source: \cite{christian2013analytical})}
+	\end{figure}	
+
 	\subsection{Simple Mixtures}
 	Before going into more or less complicated equations, the simplest case of application of mathematics to chemistry by which we can start is the management of mixtures for analysis and control operations of simple chemical reactions with two mixtures.
 	
@@ -1254,15 +1826,33 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 	\end{enumerate}
 	In short this is for all mixtures in this book until now. We can go much further and do much more complicated with more unknowns but we'll stop there for now.
 	
-	\subsection{Reactions}
+	\subsection{Reactions}\label{chemical reactions}
 	Since the main study in chemistry is to observe the results of pure substances mixtures and/or of compounds mixtures, it is first necessary to deal with  the basic rules governing these mixtures under normal conditions of pressure and temperature (N.C.P.T).
 	
 	We should first clarify that we are not going to study in this section what creates the connections between the elements, as this is the role of quantum and molecular chemistry (see previous sections). Furthermore, we insist on the fact that every theoretical element will be illustrated with a practical example which can be useful sometimes to better understand.
 	
+	But before, for prevention reason, let us introduce a symbol shown in the figure below and that we can see on containers of chemicals in a laboratory or workplace. Sometimes named a "\NewTerm{fire diamond}\index{fire diamond}" or "\NewTerm{hazard diamond}\index{hazard diamond}", this chemical hazard diamond provides valuable information that briefly summarizes the various dangers of which to be aware when working with a particular
+substance:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.55]{img/chemistry/fire_diamond.jpg}
+		\caption[National Fire Protection Agency (NFPA) hazard diamond]{National Fire Protection Agency (NFPA) hazard diamond summarizes the major hazards of a chemical substance (source: OpenStax)}
+	\end{figure}
+	
 	Let us now consider a closed chemical system (without mass transfer therefore!). We translate the change in the composition (if applicable and if have there is one) of the chemical system with a reaction equation of the form (the system does not always go both ways!):
 	
-	named "\NewTerm{balance equation}\index{balance equation}" where the coefficients $v_i \in \mathbb{N}^*$ are named  "\NewTerm{stoichiometric coefficients}\index{stoichiometric coefficients}" in the sense that they indicate the "golden proportions", strictly named "\NewTerm{stoichiometric ratio}\index{stoichiometric ratio}" necessary such that under normal conditions the reaction can take place and where the $A_i$ are the reactants (pure or compounds) and the ${A'}_i$ the formed products.
+	but most of time written as:
 	
+	named "\NewTerm{reaction equation}\index{reaction equation}" where the coefficients $v_i \in \mathbb{N}^*$ are named  "\NewTerm{stoichiometric coefficients}\index{stoichiometric coefficients}" in the sense that they indicate the "golden proportions", strictly named "\NewTerm{stoichiometric ratio}\index{stoichiometric ratio}" necessary such that under normal conditions the reaction can take place and where the $A_i$ are the reactants (pure or compounds) and the ${A'}_i$ the formed products.
+	
+	The sum of the coefficients of the reactants minus the sum of the coefficients of the products is the "\NewTerm{stoichiometric sum}\index{stoichiometric sum}\label{stoichiometric sum}". If this is zero, the equation is say to be a "\NewTerm{balanced chemical reaction}\index{balanced chemical reaction}". In this case the reaction can be written:
+	
+	where the convention is that stoichiometric coefficients are positive for reactants and negative for products. The stoichiometric sum is $\sum v_i$.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.55]{img/chemistry/chemical_reactions.jpg}
+		\caption{Some typical chemical reactions (source: ?)}
+	\end{figure}
 	Caution! In the writing of the above equation, we require that all the $A_i$ without exception react to the chemical reaction and that therefore all the $v_i$ are dependents.
 	
 	If the "golden proportions" are respected (such that the coefficients are well stoichiometric) and exist when writing of the reaction equation, then for any $\alpha \in \mathbb{N}$ we have:
@@ -1299,8 +1889,12 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 
 	Well the answer to that is in fact quite simple: The maximum progress value of a reaction having the stoichiometric proportions and such that it occurs when the reactants will have all disappear and therefore it is necessarily given by:
 	
-	for what we name the "\NewTerm{limiting reactant}\index{limiting reactant}", that is to say, the reactant that disappears (has always the smallest value of molarity) first and stops the expected reaction! If there is no limiting reactant, that is that at the end of the reaction all reactants have been transformed: then we say that all reactants were in stoichiometric proportion.
-	
+	for what we name the "\NewTerm{limiting reactant}\index{limiting reactant}", that is to say, the reactant that disappears (has always the smallest value of molarity) first and stops the expected reaction (the other one bieng named the "\NewTerm{excess reactant}\index{excess reactant}")! If there is no limiting reactant, that is that at the end of the reaction all reactants have been transformed: then we say that all reactants were in stoichiometric proportion.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.6]{img/chemistry/limiting_reactant.jpg}
+		\caption[Limiting reactant illustration]{When $\mathrm{H}_2$ and $\mathrm{C}_{l2}$ are combined in nonstoichiometric amounts, one of these reactants will limit the amount of $\mathrm{HCl}$ that can be produced. This illustration shows a reaction in which hydrogen is present in excess and chlorine is the limiting reactant.}
+	\end{figure}
 	It may be helpful to define the "\NewTerm{percentage of completion}\index{percentage of completion (chemistry)}" $A_i$ given by the intensive quantity:
 	
 	
@@ -1339,7 +1933,20 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 	Chemists also often use what they name a "\NewTerm{reaction progress table}\index{reaction progress table}".
 	
 	Let us take our previous example to introduce this table. We have:
-	
+	\begin{table}[H]
+		\begin{center}
+		\definecolor{gris}{gray}{0.85}
+		\begin{tabular}{|l|l|c|c|r|}
+		\hline 
+		{\cellcolor{black!30}} & {\cellcolor{black!30}Equation} & {\cellcolor{black!30}$ \boldsymbol{\mathrm{N}_2}$} & {\cellcolor{black!30}$\boldsymbol{+3\mathrm{H}_2}$} & {\cellcolor{black!30}$\boldsymbol{+2\mathrm{NH}_3}$}\\ 
+		\hline 
+		{\cellcolor{black!30}Initial State} & $n_{i,0}$ & $1$ & $3$ & $0$ \\  \hline
+		{\cellcolor{black!30}Intermediate State} & $n_i=n_{i,0}+v_i\xi$ & $1-1\cdot\xi$ & $3-3\cdot \xi$ & $0+2\cdot\xi$ \\  \hline
+		{\cellcolor{black!30}Final State} & $\xi_{\max}$ & $1-1\cdot \xi_{\max}$ & $3-3\cdot\xi_{\max}$ & $0+2\cdot\xi_{\max}$\\  \hline
+		\end{tabular} 
+		\end{center}
+		\caption{Table progress of a chemical reaction}
+	\end{table}
 	Let us seek $\xi_{\max}$ from this table. The limiting reactant is either $\mathrm{N}_2$ or $3\mathrm{H}_2$.
 
 	So for $\mathrm{N}_2$:
@@ -1365,12 +1972,16 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 	
 	Moreover, it is strongly recommended to read this chapter in parallel to that of Analytical Chemistry (this can be a boring but you must do with...).
 	
-	\subsubsection{Chemical transformations}
-	Given the closed system closed of the chemical reaction (\SeeChapter{see section Analytical Chemistry}):
+	\subsection{Chemical transformations}
+	Chemical reactions, such as those that occur when you light a match, involve changes in energy as well as matter. Societies at all levels of development could not function without the energy released by chemical reactions. In 2012, about $85\%$ of US energy consumption came from the combustion of petroleum products, coal, wood, and garbage. We use this energy to produce electricity ($38\%$); to transport food, raw materials, manufactured goods, and people ($27\%$); for industrial production ($21\%$); and to heat and power our homes and businesses ($10\%$). While these combustion reactions help us meet our essential energy needs, they are also recognized by the majority of the scientific community as a major contributor to global climate change.
+
+	Useful forms of energy are also available from a variety of chemical reactions other than combustion. For example, the energy produced by the batteries in a cell phone, car, or flashlight results from chemical reactions. This chapter introduces many of the basic ideas necessary to explore the relationships between chemical changes and energy, with a focus on thermal energy.
+
+	Given the closed system of the following chemical reaction (\SeeChapter{see section Analytical Chemistry page \pageref{chemical reactions}}):
 	
 	We will consider for simplicity that the chemical reaction is complete and that the reactants are used in stoichiometric amounts (state 1: $\Sigma_1$) to give the products formed, also in stoichiometric quantities (state 2: $\Sigma_2$).
 	
-	If the transformation is done in (quasi-)steady volume steady, work on the surrounding atmosphere is zero because (\SeeChapter{see section Thermodynamics}):
+	If the transformation is done in (quasi-)steady volume steady, work on the surrounding atmosphere is zero because (\SeeChapter{see section Thermodynamics page \pageref{work of mechanical forces}}):
 	
 	The application of the first law of thermodynamics is reduced and allows then us to write:
 	
@@ -1401,11 +2012,11 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 	
 	Using the definition of enthalpy, we can write the last relation in the form:
 	
-	If we work with the molar volumes, those of condensed phases (therefore solid and liquid) is negligible compared to the gas molar volume, only the gas components have a very different enthalpy of their internal energy (see the example in the section of Thermodynamics) . We would therefore have under the ideal gas approximation (\SeeChapter{see section Thermodynamics}):
+	If we work with the molar volumes, those of condensed phases (therefore solid and liquid) is negligible compared to the gas molar volume, only the gas components have a very different enthalpy of their internal energy (see the example in the section of Thermodynamics) . We would therefore have under the ideal gas approximation (\SeeChapter{see section Thermodynamics page \pageref{enthalpy}}):
 	
 	In the context of the ideal gas, the prior-previous relation can be written:
 	
-	But, as (\SeeChapter{see section Continuum Mechanics}) $U_2$ and $U_3$ are both the same final states of a single complete reaction and that for a monatomic gas:
+	But, as (\SeeChapter{see section Continuum Mechanics page \pageref{virial theorem}}) $U_2$ and $U_3$ are both the same final states of a single complete reaction and that we know for a monatomic gas we have:
 	
 	therefore the internal energy $U_2$ and $U_3$ only depends on the number of components but ... they are equal since they are the same final state of the same reaction!
 	
@@ -1413,30 +2024,34 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 	
 	By putting $\Delta n=n_2-n_1$ (the difference between the number of moles of gas of formed products and those of reacting products), we can write for a chemical reaction:
 	
-	that gives the possibility to differentiates the energy involved between isobaric and isochoric reaction and look for the best choice in terms of industrial objectives. It is interesting to note that if the $\Delta$ of moles is zero. Isobaric or isochoric heat variations are equal and there is no a priori reason to prefer one or the other transformations.
+	that gives the possibility to differentiates the energy involved between isobaric and isochoric reaction and look for the best choice in terms of industrial objectives. It is interesting to notice that if the $\Delta$ of moles is zero. Isobaric or isochoric heat variations are equal and there is no a priori reason to prefer one or the other transformations.
 	
 	Obviously in practice the problem is to know the values of the different variables of the latter relation. These values can be found on huge databases that chemists have access to... This relationship is only very rarely used in practice and in any case it is based on too simplifying and restrictive assumptions to be of real practical interest.
 	
 	\subsection{Molar Quantities}
 	\textbf{Definitions (\#\mydef):}
 	\begin{enumerate}
-		\item[D1.] By convention, the "\NewTerm{mole}\index{mole}" is the quantity of substance of a system which contains as many chemical species as there are Carbon atoms in $12$ [g] of carbon $12$ (\SeeChapter{see section Nuclear Physics}).
+		\item[D1.] By convention, the "\NewTerm{mole}\index{mole}" is the quantity of substance of a system which contains as many chemical species as there are Carbon atoms in $12$ [g] of Carbon $12$ (\SeeChapter{see section Nuclear Physics page \pageref{atomic mass unit}}).
 		
-		The number of carbon atoms contained in $12$ [g] is equal to the Avogadro's \underline{number} given approximately by:
+		The number of carbon atoms contained in $12$ [g] is equal to the Avogadro's \underline{number} given approximately by (notice that this number if by far bigger than the number of humans that are on earth!):
 		
 		This means verbatim and by construction that a mole of water, of iron, of electron, respectively always contains a number of atoms equal to the Avogadro's number.
 		
 		Most of time the mole is simply denoted $n$ and has its value in $\mathbb{R}^{+}$.
 		
-		Note that with a mixed system it is a mathematical nonsense to do the sum of the molar masses of the constituents for the total molar mass. The molar mass is an intensive quantity!
+		Notice that with a mixed system it is a mathematical nonsense to do the sum of the molar masses of the constituents for the total molar mass. The molar mass is an intensive quantity!
 		\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 		\textbf{R1.} Hydrogen-1 was once used as a standard but given the inaccuracy that can occur because of its low mass, it was later disregarded. Once mass spectrometry was made available, physicists were using Carbon-12 for it's stability and abundance, and basically to stop everybody from fighting. Carbon-12 also more accurately defines a mass for hydrogen, and it is unbound in it's ground state and also is the most common and readily available isotope to have exactly the same number of protons and neutrons, 6 of each, and thus provides a perfect average when divided by the total number of protons and neutrons (electron is so small as to be considered negligible). \\
 		
 		\textbf{R2.} The "Avogadro project" aims to redefine Avogadro's constant (currently defined by the kilogram: the number of atoms in 12 g of Carbon-12) and reverse the relationship so that the kilogram is precisely specified by Avogadro's constant. This method required creating the most perfect sphere on Earth. It is made out of a single crystal of silicon 28 atoms. By carefully measuring the diameter, the volume can be precisely specified. Since the atom spacing of silicon is well known, the number of atoms in a sphere can be accurately calculated. This allows for a very precise determination of Avogadro's constant.
 		\end{tcolorbox}	
 		
-		\item[D2.] The "\NewTerm{molar mass (MM)}\index{molar mass}" is the mass of one mole of atoms of the chemical elements involved. Therefore by definition the molar mass of $\mathrm{C}_{12}$ is equal to $12$ grams (yes historically we use the gram to express molar mass because for application purposes is is obviously more convenient...
-		
+		\item[D2.] The "\NewTerm{molar mass (MM)}\index{molar mass}\label{molar mass}" is the mass of one mole of atoms of the chemical elements involved. Therefore by definition the molar mass of $\mathrm{C}_{12}$ is equal to $12$ grams (yes historically we use the gram to express molar mass because for application purposes is is obviously more convenient...
+		\begin{figure}[H]
+			\centering
+			\includegraphics{img/chemistry/moles.jpg}
+			\caption[]{Each sample contains one mole of atoms. From left to right (top row): $65.4$ [g] zinc, $12.0$ [g] carbon, $24.3$ [g] magnesium, and $63.5$ [g] copper. From left to right (bottom row): $32.1$ [g] sulfur, $28.1$ [g] silicon, $207$ [g] lead, and $118.7$ [g] tin (source: Mark Ott)}
+		\end{figure}
 		\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 		We find these atomic molar masses in the periodic classification. But above all it must be known that those that are indicated take into account the natural isotopes (which is normal since they are chemically indistinguishable excepted for the nuclear chemist or nuclear physicist). So the value indicated in the tables is calculated as the sum of the respective proportions of the molar masses of the different corresponding isotopes (the validity of this method of calculation is obviously relative...).
 		\end{tcolorbox}	
@@ -1499,7 +2114,7 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 		\item[D8.] We say that a (perfect) gas is in the "\NewTerm{standard state}\index{standard state}" if its pressure is equal to the standard pressure:
 		
 		
-		\item[D9.] We call "\NewTerm{standard molar quantity}\index{standard molar quantity}" of a constituent $X_m^\circ$ the value of the molar quantity of this same component taken in the standard state, that is to say under the pressure $P^\circ$.
+		\item[D9.] We name "\NewTerm{standard molar quantity}\index{standard molar quantity}" of a constituent $X_m^\circ$ the value of the molar quantity of this same component taken in the standard state, that is to say under the pressure $P^\circ$.
 		\begin{tcolorbox}[title=Remarks,colframe=black,arc=10pt]
 		\textbf{R1.} Any standard molar quantity is obviously intensive: the pressure being set by the standard state , it depends only on the temperature.\\
 		
@@ -1524,6 +2139,27 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 		\item The "\NewTerm{standard molar enthalpy}\index{standard molar enthalpy}" (intensive quantity as expressed by molar unit) with:
 		
 		It is important that the reader notice that the enthalpy depends only on the temperature (and the internal energy).
+		
+		Enthalpies of combustion for many substances have been measured. A few of these are listed in the table below. Many readily available substances with large enthalpies of combustion are used as fuels, including hydrogen, carbon (as coal or charcoal), and hydrocarbons (compounds containing only hydrogen and carbon), such as methane, propane, and the major components of gasoline.
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|c|c|}
+			\hline
+			\rowcolor[HTML]{C0C0C0} 
+			\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Substance}} & \multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Combustion Reaction}} & \textbf{\parbox{5.4cm}{Combustion Molar Enthalpy \\ $\Delta H_{c,m}^\circ$ in $[\text{kJ}\cdot\text{mole}^{-1}]$ at $25^\circ$}} \\ \hline
+			carbon & $\mathrm{C}\text{(s)}+\mathrm{O}_2\text{(g)}\rightarrow \mathrm{CO}_2\text{(g)}$ & $-393.5$ \\ \hline
+			hydrogen & $\mathrm{H}_2\text{(g)}+\dfrac{1}{2}\mathrm{O}_2\text{(g)}\rightarrow \mathrm{H}_2\mathrm{O}\text{(l)}$ & $-285.8$ \\ \hline
+			magnesium & $\mathrm{Mg}\text{(s)}+\dfrac{1}{2}\mathrm{O}_2\text{(g)}\rightarrow \mathrm{MgO}\text{(s)}$ & $-601.6$ \\ \hline
+			sulfur & $\mathrm{S}\text{(s)}+\mathrm{O}_2\text{(g)}\rightarrow \mathrm{SO}_2\text{(g)}$ & $-296.8$ \\ \hline
+			carbon monoxide & $\mathrm{CO}\text{(g)}+\dfrac{1}{2}\mathrm{O}_2\text{(g)}\rightarrow \mathrm{CO}_2\text{(g)}$ & $-283.0$ \\ \hline
+			methane & $\mathrm{CH}_4\text{(g)}+2\mathrm{O}_2\text{(g)}\rightarrow \mathrm{CO}_2\text{(g)}+2\mathrm{H}_2\mathrm{O}\text{l}$ & $-890.8$ \\ \hline
+			acetylene & $\mathrm{C}_2\mathrm{H}_2\text{(g)}+\dfrac{5}{2}\mathrm{O}_2\text{(g)}\rightarrow 2\mathrm{CO}_2\text{(g)}+\mathrm{H}_2\mathrm{O}\text{(l)}$ & $-1301.1$ \\ \hline
+			ethanol & $\mathrm{C}_2\mathrm{H}_5\mathrm{OH}\text{(l)}+3\mathrm{O}_2\text{(g)}\rightarrow 2\mathrm{CO}_2\text{(g)}+3\mathrm{H}_2\mathrm{O}\text{(l)}$ & $-1366.8$ \\ \hline
+			methanol & $\mathrm{CH}_3\mathrm{OH}\text{(l)}+\dfrac{3}{2}\mathrm{O}_2\text{(g)}\rightarrow \mathrm{CO}_2\text{(g)}+2\mathrm{H}_2\mathrm{O}\text{(l)}$ & $-726.1$ \\ \hline
+			isooctane & $\mathrm{C}_8\mathrm{H}_{18}\text{(l)}+\dfrac{25}{2}\mathrm{O}_2\text{(g)}\rightarrow 8\mathrm{CO}_2\text{(g)}+9\mathrm{H}_2\mathrm{O}\text{(l)}$ & $-5461$ \\ \hline
+			\end{tabular}
+			\caption[Different molar enthalpy of combustion]{Different molar enthalpy of combustion (source: OpenStax)}
+		\end{table}
 	\end{enumerate}
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	For condensed states the standard volume is very low in S.I. units so that $H_m^\circ\cong U_m^\circ$. However, it is very difficult to speak of pressure for so condensed states so this approximation has to be used with caution.
@@ -1534,7 +2170,7 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 	
 	where the pressure is no longer involved as attached to its standard value. The gas is then described by its temperature and the quantity of its constituents!
 	
-	However, if we consider an infinitesimal evolution of the system at constant temperature and pressure (because assume a very slow transformation) the different quantities of materials vary therefore following the exact total differential (\SeeChapter{see section of Differential Calculus and Integral}):
+	However, if we consider an infinitesimal evolution of the system at constant temperature and pressure (because assume a very slow transformation) the different quantities of materials vary therefore following the exact total differential (\SeeChapter{see section of Differential Calculus and Integral page \pageref{total exact differential}}):
 	
 	where obviously are taken into account, as $T$ and $P$ are are supposed constant, only the quantity of materials that could vary (yes don't forget we are doing chemistry!!!).
 
@@ -1556,7 +2192,7 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	The symbol $\Delta_r$ appears with the letter $r$ in subscript to show that this is a relative reaction quantity. In other words, it is the standard variation of the molecular quantity during the concerned reaction for a given reaction progress of one mole at a pressure of $1$ bar for a perfect gas.
 	\end{tcolorbox}
-	We must also not forget that the stoichiometric coefficients of the reactants are positive and those of the resulting products are negative (\SeeChapter{see section of Analytical Chemistry}).
+	We must also not forget that the stoichiometric coefficients of the reactants are positive and those of the resulting products are negative (\SeeChapter{see section of Analytical Chemistry page \pageref{stoichiometric sum}}).
 
 	There are two reaction quantities that play important roles in chemistry:
 	\begin{enumerate}
@@ -1568,7 +2204,7 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 	\end{enumerate}
 	
 	\subsubsection{Standard enthalpy of reaction}
-	Therefore we can consider the following two cases after knowing the relation (\SeeChapter{see section Thermodynamics}):
+	Therefore we can consider the following two cases after knowing the relation (\SeeChapter{see section Thermodynamics page \pageref{enthalpy}}):
 	
 	\begin{enumerate}
 		\item If the $A_i$ are in a condensed state, since the internal pressure does not apply we have:
@@ -1586,7 +2222,7 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 	
 	(Which is in fact an unfortunate notation... for the algebraic sum of the stoichiometric ratio that would equal to zero) for a given temperature then we have:
 	
-	where it must be remembered that the stochiometric coefficients of the products are counted as positive, while those of the reactants are counted as negative (\SeeChapter{see section Analytical Chemistry}).
+	where it must be remembered that the stochiometric coefficients of the products are counted as positive, while those of the reactants are counted as negative (\SeeChapter{see section Analytical Chemistry page \pageref{stoichiometric sum}}).
 	
 	Thus, the variation of the enthalpy function corresponds to the variation of the quantity of heat absorbed or emitted in an isobaric transformation at a given temperature $T$. This is why it is sometimes denoted $\Delta_r H_{T,P^\circ}$.
 
@@ -1704,7 +2340,7 @@ most diseases are diagnosed by chemical analysis). The presence of trace element
 	\end{tcolorbox}
 	We can also conclude that some exothermic reactions and having a enthalpy of reaction that decreases rapidly with temperature can blow up!
 	
-	Finally, let us indicate that in practice we often use the term "\NewTerm{calorific power}\index{calorific power}" or "\NewTerm{Heat of combustion}\index{Heat of combustion}" ,which is simply the fact ... the enthalpy  of reaction per unit mass of fuel or the energy obtained by combusting a kilogram of fuel.
+	Finally, let us indicate that in practice we often use the term "\NewTerm{calorific power}\index{calorific power}" or "\NewTerm{heat of combustion}\index{heat of combustion}" ,which is simply the fact ... the enthalpy  of reaction per unit mass of fuel or the energy obtained by combusting a kilogram of fuel.
 
 	Thus,  for Gasoline, we have following what give tables (under the assumption that this number is correct):
 	
