@@ -123,12 +123,23 @@ Basically there a is minimum steps to follow when developing an algorithm and it
 		
 		\item An $n$-bit binary number $X=x_{n-1}x_{n-2}\cdots x_1 x_0$ can represent  any integer value in the range $0 \le X \le 2^n-1$ (e.g., if $n=3$,  then $0 \le X \le 7$). Note that $n+1$ bits are needed to represent the value $X=2^n$.
 		
-		\item The highest (left-most) bit $x_{n-1}$ of an $n$-bit number is named the \NewTerm{most significant bit MSB}\index{most significant bit} and the lowest bit (right-most) $x_0$ the \NewTerm{least significant bit LSB}\index{least significant bit}".
+		\item The highest (left-most) bit $x_{n-1}$ of an $n$-bit number is named the "\NewTerm{most significant bit MSB}\index{most significant bit} and the lowest bit (right-most) $x_0$ the "\NewTerm{least significant bit LSB}\index{least significant bit}".
 	\end{itemize}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=1]{img/arithmetics/binary_joke.jpg}
 	\end{figure}
+	It should be obvious at this level for the reader that:
+	\begin{itemize}
+		\item $1000$ has $10$ bits because $512\leq 1000\leq 1024$, or $2^9\leq 1000\leq 2^{10}-1$
+		\item $1344$ has $11$ bits because $1024\leq 1344 \leq 2047$, or $2^{10}\leq 1344\leq 2^{11}-1$
+		\item $2527$ has $12$ bits because $2048\leq 2527\leq 4095$, or $2^{11}\leq 2527\leq 2^{12}-1$
+		\item $5019$ has $13$ bits because $4096\leq 5019\leq 8191$, or $2^{12}\leq 5019\leq 2^{13}-1$
+		\item $9999$ has $14$ bits because $8192\leq 9999\leq 16383$, or $2^{13}\leq 9999\leq 2^{14}-1$
+	\end{itemize}
+	Hence the minimum number of bit required $b_\mathrm{min}$ for a $d$ digit integer is computed simply by using the specific number formula on the minimum $d$ digit value:
+	
+	So for example, in 2018 the biggest prime number (important in cryptography) discovered had $23,249,425$ digits, thus corresponding using the above relation to $b_\mathrm{min}=25$.
 	
 	\paragraph{Binary arithmetic}\mbox{}\\\\\
 	Here are the addition facts that you need when adding numbers in binary notation:
@@ -905,37 +916,53 @@ It is taken to $a_{11}$ by permutation of first lines and $j$-th lines. Removal 
 	
 	Let us give a list of the most used regressions techniques used in business and administrations (whose mathematical models are not all shown in this section yet but will be when we will have more time):
 	\begin{enumerate}
-		\item Simple Linear regression (SLR) model to one or more variables based on the method of least squares with binary or continuous variables with response variable belonging to $\mathbb{R}$. Presented in detail in this section of the book (implicitly this model contains the interactions between variables and also some non-linear models).
+		\item \textbf{Simple Linear regression (SLR) model}\footnote{Also named \textbf{Classical Linear Regression (CLR)}} with one (\textbf{Univariate Linear Regression (CLR)}) or more variables (\textbf{Multiple Linear Regression (MLR)}) based on the method of least squares with binary or continuous variables with response variable belonging to $\mathbb{R}$. Presented in detail in this section of the book (implicitly this model contains the interactions between variables and also some non-linear models).
 		
-		\item Gaussian linear regression model (statistical approach of linear regression based on the method of least squares) with binary or  continuous variables with response variable also belonging to $\mathbb{R}$. Presented in detail in this section of the book.
+		\item \textbf{Gaussian linear regression model} (statistical approach of linear regression based on the method of least squares) with binary or  continuous variables with response variable also belonging to $\mathbb{R}$. Presented in detail in this section of the book.
 		
-		\item Nonlinear regression models with binary or continuous variables with response variable in $\mathbb{R}$. Presented in detail in this section of the if they can be reduced to linear case or not but then no interactions of explanatory variables. Otherwise based on quasi-Newton techniques type or Gauss-Newton presented also this section.
+		\item \textbf{Nonlinear regression models} with binary or continuous variables with response variable in $\mathbb{R}$. Presented in detail in this section of the if they can be reduced to linear case or not but then no interactions of explanatory variables. Otherwise based on quasi-Newton techniques type or Gauss-Newton presented also this section.
 		
-		\item Polynomial regression model by the method of B-spline or of the collocation polynomial with response variable in $\mathbb{R}$. Presented in detail in this section of the book.
+		\item \textbf{Polynomial regression model by the method of B-spline} or of the collocation polynomial with response variable in $\mathbb{R}$. Presented in detail in this section of the book.
 		
-		\item Logistic regression model (binomial regression) with binary, nominal variables (categorical) or ordinal or continuous with response variable bounded between $0$ and $1$. Presented summarily and naively in this section of the book.
+		\item \textbf{Logistic regression model} (binomial regression) with binary, nominal variables (categorical) or ordinal or continuous with response variable bounded between $0$ and $1$. Presented summarily and naively in this section of the book.
 		
-		\item Logic regression model is a (generalized) regression methodology that is primarily applied when most of the covariates in the data to be analyzed are binary. The goal of logic regression is to find predictors that are Boolean (logical) combinations of the original predictors. 
+		\item \textbf{Logic regression} model is a (generalized) regression methodology that is primarily applied when most of the covariates in the data to be analyzed are binary. The goal of logic regression is to find predictors that are Boolean (logical) combinations of the original predictors. 
 		
-		\item Counting Poisson regression (Poisson MLE, PMLE, GLM) or negative binomial (binomial MLE and QGPMLE) model with binary, nominal (categorical) or ordinal or continuous variables with positive integer answer in $\mathbb{N}$.
+		\item \textbf{PCA regression model} is just a simple linear regression but based on a previous dimensional reduction of the exogenous variables based on a principal component analysis (PCA). That means the final model used the most explaining variance principal component as exogenous variables.
 		
-		\item Orthogonal linear regression model (or Deming regression) that is used as complement to the paired $t$-test to check the stability of the measuring instruments in laboratories. This is a case where the explanatory and dependent variables are tainted with uncertainty.
+		\item \textbf{Principal component regression (PCR)} instead of regressing the dependent variable on the explanatory variables directly, the principal components of the explanatory variables are used as regressors. Therefore PLS can reduces the number of predictors (dimensional reduction) to a smaller set of uncorrelated components and performs least squares regression on these components.
 		
-		\item Quantile regression model (very useful in the medical and economic fields) based on the same idea as the regression by the method of least squares, but where we do not minimizes the sum of squared errors from the average, but the sum of absolute errors from a given quantile (median or other). It's also used sometimes to get rid of extreme values.
+		\item \textbf{Partial least squares regression (PLR)} is a statistical method that bears some relation to principal components regression.  They differ in the methods used in extracting factor scores. In short, principal components regression produces like weight matrix reflecting the covariance structure between the predictor variables, while partial least squares regression produces like a weight matrix reflecting the covariance structure between the predictor and response variables.
 		
-		\item The Theil–Sen estimator method\index{Theil–Sen estimator method} also named Sen's slope estimator\index{Sen's slope estimator} or Slope selection method\index{slope selection method} or Single median method\index{single median method} or Kendall robust line-fit method\index{Kendall robust line-fit method} or Kendall–Theil robust line\index{Kendall–Theil robust line}... is a very simple method for robustly fitting a line to a set of points (simple linear regression) that chooses the median $a_M$ of the slopes of all lines through pairs of two-dimensional sample points. For the estimate of the intercepts the USGS recommends the following calculation $b=y_M-a_Mx_M$. That's all... it's quite simple in fact.
+		\item \textbf{Counting Poisson regression} (Poisson MLE, PMLE, GLM) or negative binomial (binomial MLE and QGPMLE) model with binary, nominal (categorical) or ordinal or continuous variables with positive integer answer in $\mathbb{N}$.
 		
-		\item LAD (Least Absolute Deviation) regression model that use absolute values rather than square errors.  But absolute values are difficult to work with in mathematics (especially Calculus) as absolute values results in discontinuous derivatives that cannot be treated analytically
+		\item \textbf{Orthogonal linear regression model} (or Deming regression) that is used as complement to the paired $t$-test to check the stability of the measuring instruments in laboratories. This is a case where the explanatory and dependent variables are tainted with uncertainty.
 		
-		\item LOESS (LOcal regrESSion) and LOWESS (locally weighted scatterplot smoothing) are two strongly related non-parametric regression methods. These methods are purely numerical (does therefore not provide any unique formula) and are performed by fitting simple models to localized subsets (we speak then of "segmented regression"). In fact, one of the chief attractions of this method is that is is not required to specify a global function of any form to fit a model to the data, only to fit segments of the data.
+		\item \textbf{Quantile regression model} (very useful in the medical and economic fields) based on the same idea as the regression by the method of least squares, but where we do not minimizes the sum of squared errors from the average, but the sum of absolute errors from a given quantile (median or other). It's also used sometimes to get rid of extreme values.
 		
-		\item Multivariate adaptive regression splines (MARS) (The term "MARS" is trademarked and licensed to Salford Systems. In order to avoid trademark infringements, many open source implementations of MARS are named "Earth"...) and as it names describes it well... is uses splines to interpolate and also extrapolate know data.
+		\item \textbf{Theil–Sen estimator metho}d\index{Theil–Sen estimator method} also named Sen's slope estimator\index{Sen's slope estimator} or Slope selection method\index{slope selection method} or Single median method\index{single median method} or Kendall robust line-fit method\index{Kendall robust line-fit method} or Kendall–Theil robust line\index{Kendall–Theil robust line}... that is a very simple method for robustly fitting a line to a set of points (simple linear regression) that chooses the median $a_M$ of the slopes of all lines through pairs of two-dimensional sample points. For the estimate of the intercepts the USGS recommends the following calculation $b=y_M-a_Mx_M$. That's all... it's quite simple in fact.
 		
-		\item Bayesian linear regression model is an approach to linear regression in which the statistical analysis is undertaken within the context of Bayesian inference, that means we have some prior knowledge about the regression coefficients and the error term.
+		\item \textbf{Least Absolute Deviation (LAD) regression model} that use absolute values rather than square errors.  But absolute values are difficult to work with in mathematics (especially Calculus) as absolute values results in discontinuous derivatives that cannot be treated analytically
 		
-		\item Ridge regression model that us a trick on the information matrix $X^TX$ (see further below) by adding a constant in it. But the constraints of usage are quite boring (no intercept and coefficients normalized) that make it quite difficult to interpret.
+		\item \textbf{LOESS (LOcal regrESSion) and LOWESS (locally weighted scatterplot smoothing)} are two strongly related nonparametric regression methods. These methods are purely numerical (does therefore not provide any unique formula) and are performed by fitting simple models to localized subsets (we speak then of "segmented regression"). In fact, one of the chief attractions of this method is that is is not required to specify a global function of any form to fit a model to the data, only to fit segments of the data.
 		
-		\item Bootstrap or Jacknife regression model using all previous models and the by resampling techniques (see further below) gives the possibility to have robust estimators that could in some situations hard to get analytically. 
+		\item \textbf{Multivariate adaptive regression splines (MARS)} (the term "MARS" is trademarked and licensed to Salford Systems. In order to avoid trademark infringements, many open source implementations of MARS are named "Earth"...) and as it names describes it well... is uses splines to interpolate and also extrapolate know data.
+		
+		\item \textbf{Bayesian linear regression model} is an approach to linear regression in which the statistical analysis is undertaken within the context of Bayesian inference, that means we have some prior knowledge about the regression coefficients and the error term.
+		
+		\item \textbf{Ridge regression model} that use a trick on the information matrix $X^TX$ (see further below) by adding a constant in it. But the constraints of usage are quite boring (no intercept and coefficients normalized) that make it quite difficult to interpret. In fact it is a special case of a regression family named \textbf{Regularized Linear Regression models}.
+		
+		\item \textbf{Least Absolute Shrinkage and Selection Operator model (LASSO)} that is based on the same ideas as that of the Ridge regression model and therefore also a special case of the Regularized Linear Regression models family (the only point that differs with the Ridge is that the theoretical model has somewhere a exponent equal to $1$ for LASSO when for it is equal to $2$ for Ridge).
+		
+		\item \textbf{Elastic net regression model} is only a mathematical mixture of the LASSO and Ridge regression. This model therefore also belongs to the family of Regularized Linear Regression models.
+		
+		\item \textbf{Two-Stage Least Squares (2SLS) Regression } is used when the dependent variable’s error terms are correlated with the independent variables. Additionally, it is useful when there are feedback loops in the model. In a first stage this regression builds instrumental variables that are uncorrelated with the error terms to compute estimated values of the problematic predictor(s), and then in a second stage uses those computed values to estimate a linear regression model of the dependent variable.
+		
+		\item \textbf{Independent component regression (ICR)} is just a simple linear regression but based on a previous dimensional reduction of the exogenous variables based on an independent component analysis (ICA). That means the final model used the most explaining variance independent component as exogenous variables. Indeed, the reader must remember that PCA creates uncorrelated components but "uncorrelated" doesn't mean "independent" (!!!) as we have proved it in the section Statistics.
+		
+		\item \textbf{Support Vector Machine regression (SVMr)} use the concept of Support Vector Machine classification technique to evaluate existing values and interpolate new one.
+		
+		\item \textbf{Bootstrap or Jacknife regression model} using all previous models and the by resampling techniques (see further below) gives the possibility to have robust estimators that could in some situations hard to get analytically. 
 	\end{enumerate}
 	... and ... in a given number of these approaches we differentiate mathematical models taking into account the censored data and uncensored data. This makes a bunch of theories/models to study in final and this is why this subsection if one of the biggest of the whole book and that some models are given in some other sections of the book (especially the Statistics section).
 	
@@ -1107,14 +1134,14 @@ We must keep in mind that the line of least squares, which can best summarize th
 	
 	Can be written:
 	
-	where the sum after the equality is often named "\NewTerm{lack of fit}\index{lack of fit}". More explicitly:
+	More explicitly:
 	
 	This last relation can be represented graphically as follows:
-\begin{figure}[H]
-\centering
-\includegraphics{img/arithmetics/sst_sse_ssr.jpg}
-\caption{Graphical representation of respectively SST, SSE, SSR}
-\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/computing/sst_sse_ssr_detailed.jpg}
+		\caption{Graphical representation of respectively SST, SSE, SSR}
+	\end{figure}
 
 The last relation is sometimes denoted also in the literature in a most educational way as follows:
 
@@ -1127,7 +1154,7 @@ The last relation is sometimes denoted also in the literature in a most educatio
 	
 	It is also important to note that in this particularly variance decomposition we have:
 	
-	Remember now that we have proved in the section Statistics, we found that the correlation coefficient was given (defined) by:
+	Remember now that we have proved in the section Statistics, we found that the correlation coefficient was given (defined) by\label{correlation coefficient numerical methods}:
 	
 	Or else since we have shown above that (remember that the indicated variance is an estimated variance in practice!):
 	
@@ -1144,11 +1171,11 @@ The last relation is sometimes denoted also in the literature in a most educatio
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 This formulation of the correlation coefficient is extremely useful because, unlike the statistical formulation, the latter generalizes immediately to the multiple linear regression we will see a further below.
 	\end{tcolorbox}
-	and in the context of regression models here are some typical cases of the value of the linear correlation coefficient with the first two lines and non-linear for the third line:
+	and in the framework of regression models here are some typical cases of the value of the linear correlation coefficient with the first two lines and non-linear for the third line:
 \begin{figure}[H]
-\centering
-\includegraphics{img/arithmetics/correlation_coefficients.jpg}
-\caption[Some values of the linear correlation coefficient]{Some values of the linear correlation coefficient (source: Wikipedia)}
+	\centering
+	\includegraphics[scale=0.6]{img/arithmetics/correlation_coefficients.jpg}
+	\caption[Some values of the linear correlation coefficient]{Some values of the linear correlation coefficient (source: Wikipedia)}
 \end{figure}
 	Finally let us indicate that we also find very often the linear correlation coefficient as follows in softwares and literature:
 	
@@ -1157,9 +1184,9 @@ This formulation of the correlation coefficient is extremely useful because, unl
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	Some softwares communicates the "\NewTerm{predicted R-squared}\index{predicted R-squared}" defined as:
 	
-	 where PRESS is the "\NewTerm{predicted residual sum of squares}\index{predicted residual sum of squares}" is a form of cross-validation used in regression analysis to provide a summary measure of the fit of a model to a sample of observations that were not themselves used to estimate the model. It is calculated as the sums of squares of the prediction residuals for those observations:
+	 where PRESS, the "\NewTerm{predicted residual sum of squares}\index{predicted residual sum of squares}", is a form of cross-validation used in regression analysis to provide a summary measure of the fit of a model to a sample of observations that were not themselves used to estimate the model. It is calculated as the sums of squares of the prediction residuals for those observations:
 	 
-	Therefore PRESS differs from the sum of squares of the residual error in that each fitted value, $\hat{y}_k$, for PRESS is obtained from the remaining $n – 1$ observations.
+	Therefore PRESS differs from the sum of squares of the residual error in that each fitted value, $\hat{y}_k$, for PRESS is obtained from the remaining $n-1$ observations.\\
 	
 	Given this procedure, the PRESS statistic can be calculated for a number of candidate model structures for the same dataset, with the lowest values of PRESS indicating the best structures. Models that are over-parameterised (over-fitted) would tend to give small residuals for observations included in the model-fitting but large residuals for observations that are excluded.
 	\end{tcolorbox}
@@ -1173,9 +1200,9 @@ This formulation of the correlation coefficient is extremely useful because, unl
 	
 	If your graduate statistical training was anything like mine, you learned ANOVA in one class and Linear Regression in another. My professors would often say things like "\textit{ANOVA is just a special case of Regression}" but give vague answers when pressed. Let us see why!
 	
-	Let us recall that in the section of Statistics we proved that for the one controlled factor ANOVA , the test of equality of means (through the use of the variances) was written (we just change the letter $x$ to $y$ to avoid confusion for the developments that will follow) is given by:
+	Let us recall that in the section of Statistics we proved that for the one controlled factor ANOVA, the test of equality of means (through the use of the variances) was written (we just change the letter $x$ to $y$ to avoid confusion for the developments that will follow) is given by:
 	
-	which is used to compare, for example, the means of the cash-flows of two supposed independant chosen months (ie with $k=2$) over $10$ years (obviously in the case $k=2$ we could use a Student test if the conditions are of course satisfied!) supposing that for every year for the given month the values are normally distributed:
+	which is used to compare, for example, the means of the cash-flows of two supposed independent chosen months (ie with $k=2$) over $10$ years (obviously in the case $k=2$ we could use a Student test if the conditions are of course satisfied!) supposing that for every year for the given month the values are normally distributed:
 	\begin{table}[H]
 	\centering
 		\definecolor{gris}{gray}{0.85}
@@ -1194,11 +1221,25 @@ This formulation of the correlation coefficient is extremely useful because, unl
 				$301$ & $325$ \\ \hline
 		\end{tabular}
 	\end{table}
-	Therefore a simple ANOVA with one controlled factor will give according to the calculations proven in the section of Statistics and using a spreadsheet software like Microsoft Excel 14.0.7106 the following results:
+	Therefore a simple ANOVA with one controlled factor will give according to the calculations proven in the section of Statistics (see page \pageref{anova one way fixed factor}) and using a spreadsheet software like Microsoft Excel 14.0.7106 the following results:
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/arithmetics/anova_one_factor_for_comparison_with_regression_anova_excel.jpg}
 	\end{figure}
+	With for recall:
+	\begin{table}[H]\small
+		\renewcommand{\arraystretch}{1.2}
+		\centering
+		\begin{tabular}{llcccc}\hline
+		\textbf{Source} & \textbf{Sum of squares (SSE)} & $\chi^2$ \textbf{df} & \textbf{Mean squares} & $F$ & \textbf{Critical} $F$\\ \hline
+		Inter-Class & $Q_A=\displaystyle\sum_{i}n_i\left(\bar{x}_{i}-\bar{\bar{x}}\right)^2$ & $k-1$ & $\text{MSk}=\displaystyle\dfrac{Q_A}{k-1}$ &
+		$\displaystyle\dfrac{\text{MSk}}{\text{MSE}}$ & $P(F> F_{k-1,N-k})$ \\
+		Intra-Class & $Q_R=\displaystyle\sum_{ij}\left(x_{ij}-\bar{x}_i\right)^2$ & $N-k$ & $ \text{MSE}=\displaystyle\dfrac{Q_R}{N-k}$  & & \\
+		Total & $Q_T=\displaystyle\sum_{ij}\left(x_{ij}-\bar{\bar{x}}\right)^2$ & $N-1$ & & &\\ \hline
+		\end{tabular}
+		\caption[]{One way fixed factor ANOVA table}
+	\end{table}
+	
 	But you might think: Why we go back on such an example ????
 
 	Well simply because we can very well build a linear regression model of the cash-flows of these two months, which we had not mentioned in the Statistics section! Thus, when we have an ANOVA with a controlled factor, nothing avoid us from making a linear regression of the data with binary explanatory variables (and vice versa)! To do this, it is enough that we rewrite the table above in the following form (dummy coding):
@@ -1245,6 +1286,12 @@ This formulation of the correlation coefficient is extremely useful because, unl
 	\end{table}
 	Therefore the regression model associated with this ANOVA with $1$ control factor at $2$ levels can therefore be written:
 	
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Notice that this last relation can also be written:
+	
+	And here maybe you recognize something well know to us when we have studies all the ANOVA!!! So as we then see, checking that the means are $\hat{\mu}_i$ all equal or not in the ANOVA such that $\mu_1=\mu_2=\ldots=\mu$ is in the case of the regression equivalent to check that $\beta_1=\beta_2=0$. So under this form, the hypotheses are then:
+	
+	\end{tcolorbox}
 	But, with the preceding relation and the table summarized above, we have a system of two equations with three unknowns ... which is obviously insoluble for a least squares approach. Therefore, the idea consists in sacrificing one of the explanatory variables as(generalizable to more than two variables obviously):
 	
 	and therefore (special choice):
@@ -1366,10 +1413,10 @@ This formulation of the correlation coefficient is extremely useful because, unl
 	that is to say:
 	
 	We then have:
-		\begin{table}[H]
+	\begin{table}[H]
 		\centering
 		\definecolor{gris}{gray}{0.85}
-		\begin{tabular}{|c|c|c|c|c|c|}
+		\resizebox{\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|}
 		\hline
 		\cellcolor{black!30}\textbf{Observation} & \cellcolor{black!30}\textbf{Cash flow $\pmb{y_i}$} & \cellcolor{black!30}\textbf{Cash flow $\pmb{\hat{y}_i}$} & \cellcolor{black!30}\textbf{SSR $\pmb{(y_i-\hat{y}_i)^2}$} & \cellcolor{black!30}\textbf{SST $\pmb{(y_i-\bar{y})^2}$} & \cellcolor{black!30}\textbf{SSE $\pmb{(\hat{y}_i-\bar{y})^2}$}  \\ \hline
 		$1$ & $304$ & $299.6$ & $19.36$ & $67.24$ & $14.44$ \\ \hline
@@ -1393,7 +1440,7 @@ This formulation of the correlation coefficient is extremely useful because, unl
 		$19$ & $260$ & $292$ & $1024$ & $1281.64$ & $14.44$ \\ \hline
 		$20$ & $325$ & $292$ & $1048$ & $852.64$ & $14.44$ \\ \hhline{|=|=|=|=|=|=|}
 		&  & \textbf{Total} & $\mathbf{5976.4}$ & $\mathbf{6265.2}$ & $ \mathbf{288.8}$\\ \hline
-		\end{tabular}
+		\end{tabular}}
 	\end{table}
 	with obviously:
 	
@@ -1402,16 +1449,71 @@ This formulation of the correlation coefficient is extremely useful because, unl
 		\centering
 		\includegraphics{img/computing/anova_for_regression_in_ms_excel.jpg}
 	\end{figure}
-	and running the one-fixed factor ANOVA we had already introduced a little earlier above we have for comparison:
+	Or more explicitly:
+	\begin{table}[H]\small
+		\renewcommand{\arraystretch}{1.2}
+		\centering
+		\begin{tabular}{llcccc}\hline
+		\textbf{Source} & \textbf{Sum of squares (SSE)} & $\chi^2$ \textbf{df} & \textbf{Mean squares} & $F$ & \textbf{Critical} $F$\\ \hline
+		Inter-Class & $Q_A=\displaystyle\sum_{i}\left(\hat{y}_{i}-\bar{y}\right)^2$ & $k-1$ & $\text{MSk}=\displaystyle\dfrac{Q_A}{k-1}$ &
+		$\displaystyle\dfrac{\text{MSk}}{\text{MSE}}$ & $P(F> F_{k-1,N-k})$ \\
+		Intra-Class & $Q_R=\displaystyle\sum_{i}\left(y_i-\hat{y}_i\right)^2$ & $N-k$ & $ \text{MSE}=\displaystyle\dfrac{Q_R}{N-k}$  & & \\
+		Total & $Q_T=\displaystyle\sum_{i}\left(y_i-\bar{y}\right)^2$ & $N-1$ & & &\\ \hline
+		\end{tabular}
+		\caption{ANOVA table for regression}
+	\end{table}
+	\begin{tcolorbox}[title=Remarks,colframe=black,arc=10pt]
+	Notice that in the above ANOVA table we recognize something known to us:
+	
+	That is... the $\text{SEE}^2$, where for recall SEE is named the "standard error of estimate" or "standard regression error" (see page \pageref{standard error of estimate})! This is why in all statistical softwares you can simply rely the standard error of estimate of the regression with the intra-class mean sum of square (ie mean residuals errors) just be taking the square root of that latter such that: $SSE=\sqrt{MSE}$.
+	\end{tcolorbox}
+	And running the one-fixed factor ANOVA we had already introduced a little earlier above we have for comparison:
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/arithmetics/anova_one_factor_for_comparison_with_regression_anova_excel.jpg}
 	\end{figure}
-	We see then the obvious similarity that there  arewith the two approaches!!! This is whey some people say sometimes: "\textit{running a regression or an ANOVA are two equivalent thinks (assumed under some given conditions)}" as in the ANOVA, the categorical variable is effect coded, which means that each category's mean is compared to the grand mean. In the regression, the categorical variable is dummy coded, which means that each category intercept is compared to the reference group intercept! Since the intercept is defined as the mean value when all other predictors $= 0$, and there are no other predictors, the three intercepts are just means.
+	With for recal (again!) its general table:
+	\begin{table}[H]\small
+		\renewcommand{\arraystretch}{1.2}
+		\centering
+		\begin{tabular}{llcccc}\hline
+		\textbf{Source} & \textbf{Sum of squares (SSE)} & $\chi^2$ \textbf{df} & \textbf{Mean squares} & $F$ & \textbf{Critical} $F$\\ \hline
+		Inter-Class & $Q_A=\displaystyle\sum_{i}n_i\left(\bar{x}_{i}-\bar{\bar{x}}\right)^2$ & $k-1$ & $\text{MSk}=\displaystyle\dfrac{Q_A}{k-1}$ &
+		$\displaystyle\dfrac{\text{MSk}}{\text{MSE}}$ & $P(F> F_{k-1,N-k})$ \\
+		Intra-Class & $Q_R=\displaystyle\sum_{ij}\left(x_{ij}-\bar{x}_i\right)^2$ & $N-k$ & $ \text{MSE}=\displaystyle\dfrac{Q_R}{N-k}$  & & \\
+		Total & $Q_T=\displaystyle\sum_{ij}\left(x_{ij}-\bar{\bar{x}}\right)^2$ & $N-1$ & & &\\ \hline
+		\end{tabular}
+		\caption[]{One way fixed factor ANOVA table}
+	\end{table}
+	We see then the obvious similarity that there  arewith the two approaches!!! This is where some people say sometimes: "\textit{running a regression or an ANOVA are two equivalent thinks (assumed under some given conditions)}" as in the ANOVA, the categorical variable is effect coded, which means that each category's mean is compared to the grand mean. In the regression, the categorical variable is dummy coded, which means that each category intercept is compared to the reference group intercept! Since the intercept is defined as the mean value when all other predictors $= 0$, and there are no other predictors, the three intercepts are just means.
 	
 	Indeed, we have:
 	
 	and:
+	
+	
+	\subparagraph{Test for Lack of Fit}\label{test for lack of fit}\mbox{}\\\\\
+	The "\NewTerm{test for lack-of-fit}\index{test for lack of fit}\index{lack of fit}" compares the variation around the model with "pure" variation within replicated observations. This measures the adequacy of the quadratic response surface model. In particular, if there are ni replicated observations $y_{i1}, ... ,y_{in_i}$ of the response all at the same values $\vec{x}_i$ of the factors, then we can predict the true response at $\vec{x}_i$ either by using the predicted value $\hat{Y}_i$ based on the model or by using the mean $\bar{Y}_i$ of the replicated values. The test for lack-of-fit decomposes the residual error into a component due to the variation of the replications around their mean value (the "\NewTerm{pure error}\index{pure error}"), and a component due to the variation of the mean values around the model prediction (the "\NewTerm{lack of fit}" also named the "\NewTerm{bias error}\index{bias error}"):
+	
+	and if the $n_i$ are all equals:
+	
+	or written differently:
+	
+	If the model is adequate, then both components estimate the nominal level of error; however, if the bias component of error is much larger than the pure error, then this constitutes evidence that there is significant lack of fit.
+	
+	\begin{itemize}
+		\item As before, the degrees of freedom associated with SSE (ie $Q_R$) is as we know very well given by $n(k-1)=N-k$ (keep in mind that the $k$ comes from the fact that you estimate $k$ parameters - the slopes plus the intercept - whenever you fit a line to a set of data.)
+	
+		\item The degrees of freedom associated with SSLF is $c-k$, where $c$ denotes the number of distinct $x$ values we have.
+	
+		\item The degrees of freedom associated with SSPE is $nk-c=N-c$, where again $c$ denotes the number of distinct $x$ values we have.
+	\end{itemize}
+	Therefore the degrees of freedom breakdown as:
+	
+	It then follows that the statistic:
+	
+	has an $F$-distribution with the corresponding number of degrees of freedom in the numerator and the denominator, provided that the model is correct. One uses this $F$-statistic to test the null hypothesis that there is no lack of linear fit.
+	
 	
 	
 	\pagebreak
@@ -1550,7 +1652,7 @@ This formulation of the correlation coefficient is extremely useful because, unl
 	
 	Let us also indicate that in practice we frequently note the last result by mixing the notations of the random and deterministic appearance (hence noting everything with lower case):
 	
-	where SEE means "\NewTerm{Standard Error of Estimate}\index{standard error of estimate}" or sometimes also named  the "\NewTerm{standard regression error}\index{standard regression error}" which is obtained with the English version of Microsoft Excel trough square of the function \texttt{STEYX( )}.
+	where SEE\footnote{Sadly sometimes (like in Minitab outputs) just denoted by the letter "S"...} means "\NewTerm{Standard Error of Estimate}\index{standard error of estimate}\label{standard error of estimate}" or sometimes also named  the "\NewTerm{standard regression error}\index{standard regression error}" which is obtained with the English version of Microsoft Excel trough square of the function \texttt{STEYX( )}.
 	
 	So we have to summarize the unbiased estimators variances of $A$ and $B$:
 	
@@ -1630,6 +1732,7 @@ This formulation of the correlation coefficient is extremely useful because, unl
 	In this case we also sadly can't reject the null hypothesis as what the Pearson correlation coefficient is equal to zero at a threshold of 5%.
 	\end{tcolorbox}
 	This small trap makes that finally we take the absolute value of the Pearson correlation coefficient and we therefore use the always the same calculation method.
+	
 	
 	\paragraph{Confidence interval of predicted values}\mbox{}\\\\\
 	We wish for each measured value of the dependent variable, know the confidence interval. In other words, we would like to know the statistical variance estimator of $Y$ (we do not write the subscripts anymore to save time):
@@ -1762,10 +1865,14 @@ This formulation of the correlation coefficient is extremely useful because, unl
 	
 	\pagebreak
 	\subsubsection{Deming regression (orthogonal regression)}
-	As we have already mention it, the "\NewTerm{orthogonal linear regression model}" \index{orthogonal linear regression} or "\NewTerm{Deming regression}"\index{Deming regression}  is used as complement to the paired $t$-test to check the stability of the measuring instruments in laboratories. This is a case where the explanatory and dependent variables are tainted with uncertainty.
-	
-	We will see now the derivation of the maximum likelihood estimates related to the Deming regression model. It is based on the book \textit{Models in regression and related topics} (chapter three), from 1969 by Peter Sprent, but with more detailed calculations included (big thanks to Anders Jensen for the \LaTeX code of the proof!).
+	As we have already mention it, the "\NewTerm{orthogonal linear regression model}" \index{orthogonal linear regression} or "\NewTerm{Deming regression}"\index{Deming regression}  is used as complement to the paired $t$-test to check the stability of the measuring instruments in laboratories. This is a case where the explanatory and dependent variables are tainted with uncertainty. In other words, this regression is used when working in a situation where it is desired to compare two linearly increasing or decreasing variables and where each is tainted with measurement errors including error values (of the two variables! ) are independent.
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Chemists do this analysis sometimes in qualitative form using the "Bland-Altman plots".
+	\end{tcolorbox}	
 
+	We will see now the derivation of the maximum likelihood estimates related to the Deming regression model. It is based on the book \textit{Models in regression and related topics} (chapter three), from 1969 by Peter Sprent, but with more detailed calculations included (big thanks to Anders Jensen for the \LaTeX code of the proof!)
+	.
+	\paragraph{Deming orthogonal regression log-likelihood derivation}\mbox{}\\\\
 	The mathematical model $\eta=\alpha+\beta\xi$ describes a linear
 	relationship between two variables $\xi$ and $\eta$. Observations $x$
 	and $y$ of two variables are usually described by a regression of $y$
@@ -2030,7 +2137,7 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 	
 	By definition, the influence of the observation $i$ in the regression and named the  "\NewTerm{leverage}\index{leverage}" (or "\NewTerm{leverage score}\index{leverage score}") is defined by:
 	
-	It is a qualitative method (available in many statistical softwares) to judge the influence of points that could be considered as outliers. The idea is to compare the values of leverage between them.
+	$H_i$ is therefore the influence of $y_i$ on its own fitted value! It is a qualitative method (available in many statistical softwares) to judge the influence of points that could be considered as outliers. The idea is to compare the values of leverage between them.
 	
 	Let us now give the famous explicit expression of the leverage of the simple linear regression.
 
@@ -2056,10 +2163,84 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 	
 	A rule of thumb is to consider leverage values to be large if they are more than double their average size (which is $2/n$ according to the previous relations). So leverages larger than $4/n$ are suspect. Another rule of thumb is to say that values bigger than $0.5$ indicate high leverage, while values between $0.3$ and $0.5$ indicate moderate leverage.
 	
-	\paragraph{Variance Inflation Factor (multicolinearity)}\mbox{}\\\\
-	In statistics, the "\NewTerm{variance inflation factor (VIF)} quantifies the severity of multicollinearity in an ordinary least squares regression analysis. It provides an index that measures how much the variance (the square of the estimate's standard deviation) of an estimated regression coefficient is increased because of collinearity.
+	\paragraph{Influential points}\mbox{}\\\\
+	An "outlier\index{outlier}" as we already know is a data point which is very far, somehow, from the rest of a group of the data. They are often worrisome, but not always a problem. When we are doing regression modeling, in fact, we don't really care about whether some data point is far from a group of data, but whether it breaks a pattern the rest of
+the data seems to follow and this is what we name an "\NewTerm{influential point}\index{influential point}". We will look here some empirical ways of quantifying how much in infuence particular data points have on the model. 
 
-	To start, the reader must know that during our study of Principal Component Analyses (PCA) further below we will proved in a trivial way that the variance-covariance matrix is given by (yes ... the present text on the VIF is more recent than the one drafted on the PCA then not to rewrite the same ... we refer to reader to it):
+	The points marked in red and blue in the figure below are clearly not like the main cloud of the data points, even though their $x$ and $y$ coordinates are quite typical of the data as a whole: the $x$ coordinates of those points aren't related to the $y$ coordinates in the right way, they break a pattern. On the other hand, the point marked in green, while its coordinates are very weird on both axes, does not break that pattern - it was positioned to fall right on the regression line.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.7]{img/computing/outliers_vs_influentials.jpg}
+		\caption{Outliers vs Influential points}
+	\end{figure}
+	
+	We have seen just earlier the "leverage". But let us introduce other influential indicators that are very common in the 20th century and beginning of 21st century in many statistical softwares and textooks!
+	
+	The "\NewTerm{semistudentized residuals}\index{semistudentized residuals}" are defined as:
+	
+	But... Let us recall that we have proved just earlier that:
+	
+	Hence:
+	
+	Let us rewrite this in term of noise:
+	
+	Since $\text{E}(\vec{\varepsilon})=\vec{0}$ and $\text{V}(\vec{\varepsilon})=\sigma^2_\varepsilon\vec{\mathds{1}}$, we have:
+	
+	and:
+	
+	What does this imply for the residual at the $i$th data point? First, and obviously, it has expectation of $0$:
+	
+	and it has variance which depends on $i$ through the hat matrix:
+	and it has a variance which depends on $i$ through the hat matrix:
+	
+	In other words, the bigger the leverage of $i$, the smaller the variance of the residual is. This is yet another sense in which points with high leverage are points which the model tries very hard to fit.
+	
+	Previously, when we looked at the residuals, we expected them to all be of roughly the same magnitude. This rests on the leverages $H_{ii}$ being all about the same! If there are substantial variations in leverage across the data points, it's better to scale the residuals by their expected size.
+
+	The usual way to do this is through the "\NewTerm{standardized residuals}" or "\NewTerm{internally studentized residuals}\index{internally studentized residuals}" or just simply "\NewTerm{studentized residuals}\index{studentized residuals}":
+	
+	Why "studentized"? Because we're dividing by an estimate of the standard error, just like in Student's $t$-test for differences in means.
+	
+	However the single $e_i$ and $\hat{\sigma}_\varepsilon$ are non independent, so $r_i$ can't have a $T$ distribution.
+	
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Indeed, let us recall that in the section Statistics we have seen that given $Z$ a random variable of Normal law centered and reduced $\mathcal{N}(0,1)$ and $U$ a variable independent of $Z$ and distributed according to the law of $\chi^2$ at $k$ degrees of freedom. By definition, the variable:
+	
+	follows a Student law of $k$ degrees of freedom.
+	\end{tcolorbox}
+	 The procedure is then to delete the $i$th observation, fit the regression function to the remaining $n-1$ observations, and get new $\hat{y}$'s which can be denoted by $\hat{y}_{i(i)}$. The difference:
+	
+	and named "\NewTerm{deleted residual}\index{deleted residual}". 
+	
+	Then we define the "\NewTerm{studentized deleted residuals}\index{studentized deleted residuals}" or "\NewTerm{externally studentized residuals}\index{externally studentized residuals}":
+	
+	Then if the errors are independent and normally distributed with expected value $0$ and variance $\sigma^2_\varepsilon$, then the probability distribution of the $i$ externally studentized residual is a Student's $t$-distribution with $N-k-1$ degrees of freedom:
+	
+	
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	In some statistical softwares we can found a influential indicator named DFIT that is the acronym of "\NewTerm{DiFference In fiTS}\index{difference in fits (DFIT)}" and defined by:
+	
+	DFITS is very similar to the externally studentized residual, and is in obviously equal to the latter times $\sqrt{H_{ii}/(1-H_{ii})}$.
+	\end{tcolorbox}
+	Probably one of the most famous influential indicator is the "\NewTerm{Cook's distance}\index{Cook's distance}". Omitting point $i$ will generally change all of the fitted values, not just the fitted value at that point. Hence the idea to measure the total change and to define this distance as the sum of all the changes in the regression model when observation $i$ is removed from it:
+	
+	To make this more comparable across data sets, it's conventional to divide this by $(p + 1)^2$, since there are really only $k$ independent coordinates here, each of which might contribute something on the order of $\hat{\sigma}_{\varepsilon}$:
+	
+	There are different opinions regarding what cut-off values to use for spotting highly influential points. A simple operational guideline of $D_{i}>1$ has been suggested. Others have indicated that $D_i>4/n$ where $N$ is the number of observations, might be used.
+	
+	\paragraph{Variance Inflation Factor (multicollinearity detection)}\mbox{}\\\\
+	In statistics, the "\NewTerm{variance inflation factor}\index{variance inflation factor}\label{variance inflation factor}" (VIF) quantifies the severity of multicollinearity in an ordinary least squares regression analysis. It provides an index that measures how much the variance (the square of the estimate's standard deviation) of an estimated regression coefficient is increased because of collinearity.
+
+	To start, the reader must know that during our study of Principal Component Analyses (\SeeChapter{see section Statistics page \pageref{principal component analysis}}) we have proved in a trivial way that the variance-covariance matrix is given by:
+	
+	with for recall (for a regression model with $p$ terms, and hence $p-1$ variables):
+	
+	Therefore for example (and for recall again) for a $2\times 2$ design matrix:
+	
+	Hence:
+	
+	And for a $3\times 3$ matrix:
 	
 	And as the matrix of correlations is given by (\SeeChapter{see section Statistics page \pageref{correlation matrix}}):
 	
@@ -2071,7 +2252,12 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 	
 	So for now, we have two relations (out of three ... waiting for the proof of the third one) that will be very useful to us (attention the components of the vectors of the explanatory variables are always centered henceforth what implies a forced linear regression by the origin!):
 	
-	Now let's start from:
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Because $X_c^TX_c$ has the first row and column only with zeros (due to recall by the constant of the model) that generates issues when inverting the matrix (ie $(X_c^TX_c)^{-1}$), we then eliminate this column and row. To highlight this choice, a few textbooks write instead:
+	
+	where the $(-1)$ is here to indicate that the first row and first column were removed. For what will follow we did not make this choice of notation, so keep in mind now that when you see $X_c$, it is the "design matrix" but without the first column, or said differently: $X_c^TX_c$ without the first column \underline{and} without the first row.
+	\end{tcolorbox}
+	Now let's start from (don't forget that starting from now $\vec{\beta}$ does not contain $\beta_0$ anymore!!!):
 	
  	and let us rewrite this in a somewhat more explicit form:
 	
@@ -2079,7 +2265,7 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 	
 	We understand now better why $(X_c^TX_c)^{-1}$ is often named "\NewTerm{dispersion matrix}\index{dispersion matrix}" as we already mentioned above.
 
-	Let us now take the matrix of the covariance-variances matrix of the coefficients:
+	Let us now take the matrix of the covariance-variances matrix of the coefficients (measurement of multicollinearity):
 	
  	Using the following property of the transposed matrices proved in the section Linear Algebra:
 	
@@ -2099,9 +2285,9 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 	
 	And by taking out the elements which are not random variables of the expected mean, it comes:
 	
-	It is often traditional (in spite of the confusion) possible to write this last result in the following form which we will see (and use) in the section of Industrial Engineering during our study of the Box-Behnken experimental designs:
+	It is sadly often traditional (in spite of the confusion) to write this last result in the following form which we will see (and use) in the section of Industrial Engineering during our study of the Box-Behnken experimental designs:
 	
-	This last matrix contains in the diagonal the general expression in the general case of multilinear regression the "\NewTerm{Standard Error of Estimate (SSE)}\index{standard error of estimate}" or more commonly named the "\NewTerm{standard error of the regression}\index{standard error of the regression}" (relation that uses among other the spreadsheet software Microsoft Excel in the case of the multilinear regression for the column "Standard error" of the coefficients ... except that it takes the square root to have the standard deviation and not the variance!) . If the linear regression is not forced at the origin, it will obviously be necessary to use obviously:
+	This last matrix $\text{V}\left(\vec{\hat{\beta}}\right)$ contains in the diagonal the general expression in the general case of multilinear regression the "\NewTerm{standard error of the regression coefficients}\index{standard error of the regression coefficients}" (relation that uses among other the spreadsheet software Microsoft Excel in the case of the multilinear regression for the column "Standard error" of the coefficients ... except that it takes the square root to have the standard deviation and not the variance!) . If the linear regression is not forced at the origin, it will be necessary to use obviously:
 	
 	with for recall:
 	
@@ -2111,18 +2297,19 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 	
 	Let us take up the first relation and manipulate it a little bit:
 	
-	It comes when:
-	
- 	And using the property proved in the section Linear Algebra:
+	It comes then:
 	
 	Then we have:
 	
 	By substituting the right-hand term for equality in the third of the equalities, we then have:
 	
-	If we denote by $\text{V}\left(\vec{\hat{\beta}}\right)$ the $j$-th diagonal element of the covariance-variance matrix of the $\vec{\hat{\beta}}$ and $\text{VIF}_j$, ,the "\NewTerm{Variance Inflation Factor (VIF)}\index{variance inflation factor}", the $j$-th diagonal element of the matrix $R^{-1}$ then it trivially follows that:
+	If we denote by $\text{V}\left(\vec{\hat{\beta}}\right)_j$ the $j$-th diagonal element of the covariance-variance matrix of the $\vec{\hat{\beta}}$ and $\text{VIF}_j$, the "\NewTerm{Variance Inflation Factor (VIF)}\index{variance inflation factor}", the $j$-th diagonal element of the matrix $R^{-1}$ then it trivially follows that:
 	
-	However, normally the components of the covariance-variance matrix are estimators and not the true values. So we have instead in practice:
-	
+	The "\NewTerm{scaled Variance Inflation Factor}" is sometimes used instead and defined by
+	 
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Remember that if the variances are all equal to the unit ($\text{V}_i=1$) then the covariance matrix is equal to the correlation matrix, ie $R=\Sigma$. Hence if we work with the $\text{VIF}_{js}$, all the information is then also contained in the inverse of the covariance matrix, ie $\Sigma^{-1}=\Theta$ named the "\NewTerm{precision matrix}\index{precision matrix}".
+	\end{tcolorbox}
 	However, we must find the explicit formulation of the $\text{VIF}_j$. For this, let us recall that $R$ is a positive definite symmetric matrix (\SeeChapter{see section Linear Algebra page \pageref{positive definite matrix}}). Let us, for example, calculate the inverse of such a matrix of dimension $2\times 2$ explicitly by using the relation proved in the section Linear Algebra that is for recall:
 	
 	In the special case that interests us, we have then:
@@ -2131,13 +2318,17 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 	
 	It comes then that if we focus on the elements of the diagonal:
 	
+	Repeating the job with a $3\times 3$ matrix, we have:
+	
 	And the reader can check that regardless of the size of the matrix, the $\text{VIF}_j$ will always be of the form:
 	
 	In the case of $2\times 2$ correlation matrix there is therefore only one coefficient $\text{VIF}_j$ for the simple and good reason that the associated linear regression has only one coefficient ... Caution! Too many textbooks give the following relation for the general case:
 	
 	But this is false as far as I know because the actual expression is much more complex. 
 
-	Most statistical software simply uses the following relation:
+	Most statistical softwares simply use the following relation:
+	
+	So we understand (how the name suggests...) why the variance inflation factor (VIF) quantifies how much the variance of the coefficients is inflated when multicollinearity exists.
 	
 	Therefore:
 	
@@ -2146,15 +2337,16 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 	Therefore the version I prefer to use and to teach (especially for customers and students having only a spreadsheet software at their disposition is):
 	
  	and as all terms are known to us in practice, the calculation of the $\text{VIF}_j$ doesn't make us problems anymore!
-	A rule of thumb is that if $\text{VIF}_j>10$ then multicollinearity is high.
+	A rule of thumb is that if $\text{VIF}_j>10$ then multicollinearity is high. Obviously a VIF of $1$ means that there is no correlation among the $k$th predictor and the remaining predictor variables, and hence the variance of $\beta_k$ is not inflated at all. VIFs exceeding $4$ should warrant further investigation.
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	Some software instead calculates the tolerance which is just the reciprocal of the VIF. The choice of which to use is a matter of personal preference.
+	Some softwares instead calculates the tolerance which is just the reciprocal of the VIF. The choice of which to use is a matter of personal preference.
 	\end{tcolorbox}
 	The square root of the variance inflation factor finally indicates how much larger the standard error is, compared with what it would be if that variable were uncorrelated with the other predictor variables in the model.
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 	\textbf{{\Large \ding{45}}Example:}\\\\
 	If the variance inflation factor of a predictor variable were $5.27$ ($\sqrt{5.27} = 2.3$) this means that the standard error for the coefficient of that predictor variable is $2.3$ times as large as it would be if that predictor variable were uncorrelated with the other predictor variables.
 	\end{tcolorbox}
+	Regardless of your criterion for what constitutes a high VIF, there are situations in which a high VIF is not a problem and can be safely ignored. For example, if you specify a regression model with both $x$ and $x^2$, there is a good chance that those two variables will be highly correlated. 
 	
 	\subsubsection{Polynomial regression}
 	We will now see how to determine the for example of the best second degree polynomial that passes by any number of points, but without transforming the function contrary to what we have just done just before! As we like physics in this book, we'll take a classic case of the cinematic to join business with pleasure...
@@ -2286,7 +2478,7 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 	
 	\pagebreak
 		To introduce this tool let us suppose a bank wants to make a scoring of its debtors. As it has several subsidiaries it (the bank) built the following data tables for some of them (all subsidiaries are then not presented):
-	\begin{enumerate}
+	\begin{itemize}
     	\item 1st Subsidiary:
 		\begin{table}[H]
 		\begin{center}
@@ -2338,7 +2530,7 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 			\end{center}
 			\caption[]{Debtors Scoring by credit amount of subsidiary 3}
 		\end{table}
-	\end{enumerate}
+	\end{itemize}
 	We can see that the total proportion of good debtors in the three subsidiaries is of $91/136 \cong 0.67$.
 	
 	When the credit is less than $27,500$, the percentage of good debtors is of $2/27\cong 0.07$. When the amount of credit is less than $28,000$ the proportion of good debtors is of $19/51\cong 0.37$.
@@ -2454,6 +2646,139 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 	As far as we know... we can not solve this analytically:
 	
 	so we will have to approach the solution by a numerical method anyway... (gradient descent again)!
+	
+	\paragraph{Odds Ratio Confidence Interval}\mbox{}\\\\
+	We have seen during our study of the logistic regression that the odds ratio was defined by:
+	
+	What we can also write as:
+	
+	But that many practitioners write as following:
+	
+	Since the ratio of proportions is equivalent to the ratio of the size of the concerned populations, it is customary to write the estimator of the odds ratio as being:
+	
+	Which then relates to a table typically of the following kind in the medical field (and other fields obviously!):
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|c|c|c|}
+		\hline
+		 & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Sick}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Non-Sick}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Odds}} \\ \hline
+		\cellcolor[HTML]{9B9B9B}\textbf{Treated} & $n_1$ & $n_2$ & $n_1/n_2$ \\ \hline
+		\cellcolor[HTML]{9B9B9B}\textbf{Non-Treated Group} & $n_3$ & $n_4$ & $n_3/n_4$\\ \hline
+		\cellcolor[HTML]{9B9B9B}\textbf{Totals} & $n_1+n_3$ & $n_2+n_4$ & $\widehat{\text{O.R.}}=\dfrac{\frac{n_1}{n_2}}{\frac{n_3}{n_4}}$\\ \hline
+		\end{tabular}
+	\end{table}
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	 An O.R. of $1.00$ means that the two groups were equally likely to remain sick. An O.R. higher than $1.00$ means that a group is more likely to experience the event than the second group. An O.R. of less than $1.00$ means that a group was less likely to experience the event. However, an O.R. value below $1.00$ is not directly interpretable. It is important to put the group expected to have higher odds of the event in the first row.
+	\end{tcolorbox}
+	Now, let us consider that the $n_i$ follow an asymptotically Normal law such as according to what we had seen in our study of the construction of the Normal Law:
+	
+	Now the idea will be to make an additional approximation ... otherwise we will not find anything simple. We will put that:
+	
+	It is very very approximate as approach .... since rigorously:
+	
+	Simulations show that we have a Normal law beyond $n$ equaling $30$, but although it is a Normal centered law ... it is hardly reduced (therefore not of unit variance...).
+	
+	Regarding the last choice established, we have:
+	
+	This last approximation then allows us to write (we detail a maximum following the request of a reader):
+	
+	Now let us take the logarithm (it is customary to take the natural logarithm):
+	
+	The second term can be developed in Taylor series of the first order (\SeeChapter{see section Sequences and Series  page \pageref{usual maclaurin developments}}):
+	
+	It comes then after many approximations ...:
+	
+	We then have:
+	
+	However, we observe that (do not forget that the variance of a random variable multiplied by a constant puts the constant squared):
+	
+	We then first consider that the variance part of the random variables as independent (we will take into account the covariance just after):
+	
+	We now have to take into account the following six covariances (refer to the section Statistics for the proof that when we sum $n$ random variables there are as many covariances to compute as possible pairs of possible variables):
+	
+	Recall that during our study of the multinomial law and as part of an application for the McNemar test (page \pageref{mcnemar test}), we proved that:
+	
+	which in our context with a more general notation is written:
+	
+	If we center these two random variables (as is the case in our developments so far), the covariance does not change:
+	
+	If we reduce the random variables by $\sqrt{n}$, then we have:
+	
+	and therefore:
+	
+	Among the six covariances that we need to calculate we have therefore:
+	
+	So the sum is worth $-2$. It is necessary to multiply by $2$ the whole (reminder of the proof of the general case which makes a factor $2$ appear before each term of the covariance) to obtain the global value of the covariance terms. So in the end we have a value of $-4$ for the sum of the pure covariances.
+	
+	The total variance is ultimately given by:
+	
+	And finally we have the approximation sometimes named "\NewTerm{Woolf method}\index{Woolf method}":
+	
+	More explicitly:
+	
+	Relationship that is often written as:
+	
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\textbf{{\Large \ding{45}}Example:}\\\\
+	Let us consider the following data:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|c|c|}
+		\hline
+		 Group / Heart Attack & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Yes}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{No}} \\ \hline
+		\cellcolor[HTML]{9B9B9B}\textbf{Placebo} & $53$ & $58$ \\ \hline
+		\cellcolor[HTML]{9B9B9B}\textbf{Treated Group} & $11$ & $40$ \\ \hline
+		\end{tabular}
+	\end{table}
+	The odds ratio is then:
+	
+	So the Placebo group is almost three times more likely to experience the event of interest (Heart Attack).\\
+	
+	The confidence interval of $\ln(\text{O.R.})$ at a confidence level of $95\%$ is then
+approximately given by:
+	
+	Thus:
+	
+	Hence:
+	
+	and so taking the exponential we finally have the interval that interests us:
+	
+	\end{tcolorbox}
+	Warning!!! While the estimator of the natural logarithm of the odds ratio is in the middle of the confidence interval, this is obviously not the case with the standard odds ratio!
+	
+	\subparagraph{Fourfold plot}\mbox{}\\\\
+	The "\NewTerm{fourfold plot}\index{fourfold plot}" is a graphic designed to display the frequencies in a $2\times 2$ contingency table. In this display the frequency in each cell is shown by a quarter circle, whose area is proportional to the cell count in a given $2\times 2$ layer, in a way that depicts the odds ratios for $1$ strata. Confidence rings for the odds ratio can be superimposed to provide a visual test of the hypothesis of no association in each stratum.
+	
+	Before we deal with the maths let us look with the R 3.4.2 software how to generate a fourfold plot for the previous example:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/computing/fourfold_plot.jpg}
+		\caption{Fourfold plot with R 3.4.2}
+	\end{figure}
+	In this display the frequency $n_i$ in each cell of a fourfold table is shown by a quarter circle (on an vertical and horizontal axis of range $[-1,+1]$ with major ticks each $0.2$ and minor ticks each $0.1$), whose radius is proportional to $\sqrt{n_i}$ so the are is proportional to the cell count (otherwise it would be proportional to the square of the cell count as $S=\pi R^2$).
+	
+	The fourfold display is constructed so that the four quadrants will align vertically and horizontally when the odds ratio is $1$. Confidence rings for the observed odds ratio provide a visual test of the hypothesis of no association. They have the property that rings for adjacent quadrants overlap if and only if the observed counts are consistent with this null hypothesis. In the above figure the confidence intervals in do not overlap, indicating a significant association between \textit{Heart attack} and \textit{Group}. 
+	
+	The radius of the circles are given by:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|c|c|}
+		\hline
+		 Group / Heart Attack & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Yes}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{No}} \\ \hline
+		\cellcolor[HTML]{9B9B9B}\textbf{Placebo} & $\sqrt{\dfrac{n_1}{\max n_i}}$ & $\sqrt{\dfrac{n_2}{\max n_i}}$ \\ \hline
+		\cellcolor[HTML]{9B9B9B}\textbf{Treated Group} & $\sqrt{\dfrac{n_3}{\max n_i}}$ & $\sqrt{\dfrac{n_4}{\max n_i}}$ \\ \hline
+		\end{tabular}
+	\end{table}
+	Explicitly:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|c|c|}
+		\hline
+		 Group / Heart Attack & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Yes}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{No}} \\ \hline
+		\cellcolor[HTML]{9B9B9B}\textbf{Placebo} & $\sqrt{\dfrac{53}{58}}=0.955$ & $\sqrt{\dfrac{58}{58}}=1.000$ \\ \hline
+		\cellcolor[HTML]{9B9B9B}\textbf{Treated Group} & $\sqrt{\dfrac{11}{58}}=0.435$ & $\sqrt{\dfrac{40}{58}}=0.830$ \\ \hline
+		\end{tabular}
+	\end{table}
 	
 	\paragraph{ROC and Lift curves}\mbox{}\\\\
 	The "\NewTerm{ROC curve}\index{ROC curve}" for "\NewTerm{Receiver Operating Characteristic curve}\index{ROC curve}") is a measure of the performance of a binary classifier, that is to say a system that aims to categorize entities in two distinct groups on the basis of one or more of their characteristics. 
@@ -2581,8 +2906,8 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 		\cline{3-4}
 		 &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Patients with bowel cancer\\ (as confirmed by endoscopy)\end{tabular}} &  \\ \cline{3-4}
 		 &  & \cellcolor[HTML]{EFEFEF}\textbf{Positive} & \cellcolor[HTML]{EFEFEF}\textbf{Negative} &  \\ \hline
-		\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Positive}} & \cellcolor[HTML]{9AFF99}TP$=2$ & \cellcolor[HTML]{FFCCC9}FP$=18$ & \multicolumn{1}{l|}{\parbox{1.9cm}{$\dfrac{\text{TP}}{\text{TP}+\text{FP}}\\=\dfrac{2}{2+18}\\=10\%$}} \\ \cline{2-5} 
-		\multicolumn{1}{|l|}{\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Disease Test}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Negative}} & \cellcolor[HTML]{FFCCC9}FN$=1$ & \cellcolor[HTML]{9AFF99}TN$=182$ & \multicolumn{1}{l|}{\parbox{1.9cm}{$\dfrac{\text{TN}}{\text{TN}+\text{FN}}\\=\dfrac{182}{1+182}\\=99.5\%$}} \\ \hline
+		\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Positive}} & \cellcolor[HTML]{9AFF99}TP$=2$ & \cellcolor[HTML]{FFCCC9}FP$=18$ & \multicolumn{1}{l|}{\parbox{1.9cm}{$\dfrac{\text{TP}}{\text{TP}+\text{FP}}\\=\dfrac{2}{2+18}\\=10\%$}} \\ \cline{2-5} 
+		\multicolumn{1}{|l|}{\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Disease Test}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Negative}} & \cellcolor[HTML]{FFCCC9}FN$=1$ & \cellcolor[HTML]{9AFF99}TN$=182$ & \multicolumn{1}{l|}{\parbox{1.9cm}{$\dfrac{\text{TN}}{\text{TN}+\text{FN}}\\=\dfrac{182}{1+182}\\=99.5\%$}} \\ \hline
 		 &  & \multicolumn{1}{l|}{\parbox{3.6cm}{Sensitivity\\$=\dfrac{\text{TP}}{\text{TP}+\text{FN}}\\=\dfrac{2}{2+1}=66.\bar{6}\%$}} & \multicolumn{1}{l|}{\parbox{3.6cm}{Specificity\\$=\dfrac{\text{TN}}{\text{FP}+\text{TN}}\\=\dfrac{182}{18+182}=91\%$}} &  \\ \cline{3-4}
 		\end{tabular}
 		\caption{Example of sensibility and specificity analysis}
@@ -4094,7 +4419,7 @@ degrees of freedom are $2n-(n+2)=n-2$. Therefore:
 	\paragraph{Gauss-Newton method's (Tangent Newton)}\mbox{}\\\\
 	The Gauss-Newton's method is a powerful approximation without the derivatives of the second order of the Newton-Raphson method that in the prior versions of Microsoft Excel 2007 was activated in the solver by selecting the option \textit{Newton} and \textit{Tangent}.
 
-	To study this method, let us do use a companion concrete example. Suppose we obtained the following data:
+	To study this method, let us do use a companion concrete example! Suppose we obtained the following data:
 	\begin{table}[H]
 		\begin{center}
 			\definecolor{gris}{gray}{0.85}
@@ -4584,9 +4909,9 @@ Expressed differently, given a continuous uniform variable $\mathcal{U})$ in $[0
 	
 	We distinguish generally two types of bootstrap:
 	\begin{enumerate}
-		\item The bootstraps which make no assumptions about the probability distribution of the data analyzed. We then speak then as in statistics of "\NewTerm{non-parametric bootstrap}\index{non-parametric bootstrap}".
+		\item The bootstraps which make no assumptions about the probability distribution of the data analyzed. We then speak then as in statistics of "\NewTerm{nonparametric bootstrap}\index{nonparametric bootstrap}".
 
-		\item The bootstraps replacing each data measured by those corresponding to the analytical expression of the law of probability distribution assumed. We speak then of "\NewTerm{parametric bootstrap}\index{parametric bootstrap}". Once all the original values replaced, the process is exactly that of the non-parametric bootstrap.
+		\item The bootstraps replacing each data measured by those corresponding to the analytical expression of the law of probability distribution assumed. We speak then of "\NewTerm{parametric bootstrap}\index{parametric bootstrap}". Once all the original values replaced, the process is exactly that of the nonparametric bootstrap.
 	\end{enumerate}
 	We will illustrate the principle of the bootstrap on the example of the confidence interval of the mean $\mu$ of a random variable. For this example, the confidence interval for the mean of a random variable is completely determined from the mean and the variance calculated on the sample (\SeeChapter{see section Statistics page \pageref{likelihood estimators}}).
 
@@ -4614,7 +4939,7 @@ Expressed differently, given a continuous uniform variable $\mathcal{U})$ in $[0
 		
 		\item For each simulated sample, an average\footnote{in fact the process is the same for any estimate of any statistical indicator $\hat{\theta}$} is calculated (so we will have several thousand of averages!). 
 	
-		\item The $95\%$ confidence interval is the calculate on this set of averages (or any other estimator) by typically using the percentile calculation (through the functions of a spreadsheet software or a programming/scripting language). This grouping is named the "\NewTerm{bagging}\index{bagging}" that is the abbreviation for "\NewTerm{Bootstrap Aggregating}\index{bootstrap aggregating}".
+		\item The $95\%$ confidence interval is then calculated on this set of averages (or any other estimator) by typically using the percentile calculation (through the functions of a spreadsheet software or a programming/scripting language). This grouping is named the "\NewTerm{bagging}\index{bagging}" that stands for the abbreviation of "\NewTerm{Bootstrap Aggregating}\index{bootstrap aggregating}".
 	\end{enumerate}
 	Obviously for each set of bootstrap, the percentiles themselves will not be the same so it is even possible to create a confidence interval for the percentiles themselves!
 	
@@ -4622,7 +4947,7 @@ Expressed differently, given a continuous uniform variable $\mathcal{U})$ in $[0
 
 	The most common field of application of bootstrapping in "direct" business (I don't mind about Data Mining for Marketing that is not what I mean about "direct business") that I know is in project management during meetings where a dozen people estimates the duration of a project task or project phase.
 	
-	Bootstrapping can therefore be applied to any estimator other than the average, as the median, the correlation coefficient between two random variables or the principal eigenvalue of a variance-covariance matrix (for principal component analysis), or the slope and intercept of a regression and this is its great strength!!! Indeed, for these estimators, there is no general mathematical relations that defines the standard error or confidence interval. The only methods applicable are resampling methods to which bootstrapping belongs to and this is intensively used since almost any home or office computer at the beginning of the 21st century is powerful enough to bootstrap small databases.
+	Bootstrapping can therefore be applied to any estimator other than the average, as the median, the correlation coefficient between two random variables or the principal eigenvalue of a variance-covariance matrix (for principal component analysis for example!), or the slope and intercept of a regression and this is its great strength!!! Indeed, for these estimators, there is no general mathematical relations that defines the standard error or confidence interval. The only methods applicable are resampling methods to which bootstrapping belongs to and this is intensively used since almost any home or office computer at the beginning of the 21st century is powerful enough to bootstrap small databases.
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 	\textbf{{\Large \ding{45}}Example:}\\\\
 	As example let us first use a spreadsheet software like Microsoft Excel table 14.0.6123 and taking the theoretical companion example above as practical software example (we prohibit ourselves of doing VBA programming). We then build a small table with the previous sample:
@@ -4674,13 +4999,13 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 	Obviously, this chart will look different every time you restart the simulation in Microsoft Excel 14.0.6123 by pressing the F9 key.
 	\end{tcolorbox}
 	
-	Finally let us indicate that after having study earlier above many linear regression models this does avoid the fact that in many cases no theoretical model is adapted either to interpolate or verbatim to extrapolate some data. Therefore, if we have for each abscissa point (exogenous variable) a given quantity of values  of the output (endogenous) variable, we can therefore use the bootstrapping method which will give us the bootstrapped regression coefficients and also bootstrapped interpolated or extrapolated values! This is an extremely interesting technique  in practice of non-parametric regression! We can do such bootstrap regressions in softwares like SPSS (with additional module) or SAS but also in the free R software with the right packages (see the companion book on R).
+	Finally let us indicate that after having study earlier above many linear regression models this does avoid the fact that in many cases no theoretical model is adapted either to interpolate or verbatim to extrapolate some data. Therefore, if we have for each abscissa point (exogenous variable) a given quantity of values  of the output (endogenous) variable, we can therefore use the bootstrapping method which will give us the bootstrapped regression coefficients and also bootstrapped interpolated or extrapolated values! This is an extremely interesting technique  in practice of nonparametric regression! We can do such bootstrap regressions in softwares like SPSS (with additional module) or SAS but also in the free R software with the right packages (see the companion book on R).
 	
 	\pagebreak
-	\subsubsection{Jackknifing (jacknife resampling)}\label{jacknife resampling}
-	The Jackknife was proposed by M.H. Quenouille in 1949 and later refined and given its current name by John Tukey in 1956 (it predates other common resampling methods such as the bootstrap). M.H. Quenouille originally developed the method as a procedure for correcting bias. Later, Tukey described its use in constructing confidence limits for a large class of estimators. It is similar to the bootstrap in that it involves resampling, but instead of sampling with replacement, the method samples without replacement.
+	\subsubsection{Jackknife Resampling}\label{jacknife resampling}
+	The jackknife was proposed by M.H. Quenouille in 1949 and later refined and given its current name by John Tukey in 1956 (it predates other common resampling methods such as the bootstrap). M.H. Quenouille originally developed the method as a procedure for correcting bias. Later, Tukey described its use in constructing confidence limits for a large class of estimators. It is similar to the bootstrap in that it involves resampling, but instead of sampling with replacement, the method samples without replacement.
 
-	So in statistics, the jackknife is a resampling technique especially useful for variance and bias estimation these estimator converge quick enough (the number of resampling is much more limited with jacknifing than with bootstrapping). The jackknife estimator of a parameter is found by systematically leaving out each observation from a dataset and calculating the estimate and then finding the average of these calculations. Given a sample of size $N$, the jackknife estimate is found by aggregating the estimates of each $N-1$ estimate in the sample.
+	So in statistics, the "\NewTerm{jackknife}\index{jackknife}" is a resampling technique especially useful for variance and bias estimation these estimator converge quick enough (the number of resampling is much more limited with jacknifing than with bootstrapping). The jackknife estimator of a parameter is found by systematically leaving out each observation from a dataset and calculating the estimate and then finding the average of these calculations. Given a sample of size $N$, the jackknife estimate is found by aggregating the estimates of each $N-1$ estimate in the sample.
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/computing/jacknife_permutation.jpg}
@@ -4696,7 +5021,7 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 
 	The $i$th Jackknife replicate is defined as the value of the estimator $s(\cdot)$ evaluated at the $i$th Jackknife sample.
 	
-	As we will prove it further below, the jacknife standard error of the estimator is (given typically by the bootstrap package of R as you can see it in the corresponding companion book):
+	As we will prove it further below, the jackknife standard error of the estimator is (given typically by the bootstrap package of R as you can see it in the corresponding companion book):
 	
 	where $\hat{\theta}_{(\cdot)}$ is the empirical average of the Jackknife replicates:
 	
@@ -4712,16 +5037,59 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
    
    Once the term is squared, the equation is complete, and is identically equal to the right hand term above. Thus, in the case of the sample mean, the Jackknife estimate of the standard error reduces to the regular, unbiased estimator commonly used.\\
    
-   	We say sometimes then that $n-1$ is the "\NewTerm{standard error jacknife bias inflation factor}\index{standard error jacknife bias inflation factor}".
+   	We say sometimes then that $n-1$ is the "\NewTerm{standard error jackknife bias inflation factor}\index{standard error jackknife bias inflation factor}".
 	\begin{flushright}
 		$\square$  Q.E.D.
 	\end{flushright}
 	\end{dem}
 	As practical business oriented example of the use of Jackknife let me give the example of a customer (Fortune 500 company) that has to analyze worldwide counterfeiting of its products by sampling and controlling completely each year a given area of a given city chosen randomly in various countries and calculating the sum by country of counterfact products as it has a major influence on the strategy of the company, national politics and borders controls (the counterfacting being manly done by the mafia). As the geographical sampling error cannot be calculated as it is not guarantee that the chosen city has the same heterogeneity overall cities of the country it is as far as we know impossible to calculate with a closed form equation a tolerance interval for the real total counterfact. So an easy way to get a tolerance interval is to make a Jackknife resampling as it is easily acceptable for the board committee to make an analysis of what will have be the sum if for example we remove $50\%$ of the sampling (at the condition that the a posteriori power of the test is still big enough!).
 	
+	\subsubsection{Permutation Tests}
+	A permutation test (also called a randomization test, re-randomization test, or an exact test) is a type of statistical significance test in which the distribution of the test statistic under the null hypothesis is obtained by calculating all possible values of the test statistic under rearrangements of the labels on the observed data points. 
+	
+	To illustrate the basic idea of a permutation test, suppose we have two groups (we take the special case where the size of the groups are equal!):
+	 whose sample means are $\bar{x}_{A}$ and $\bar{x}_{B}$, and that we want to test, at $5\%$ significance level, whether they come from the same distribution. Let $n$ be the sample size corresponding to each group. The permutation test is designed to determine whether the observed difference between the sample means is large enough to reject the null hypothesis:
+	
+	that the two groups have identical probability distributions (ie identical mean).
+	
+	The test proceeds as follows:
+	\begin{enumerate}
+		\item the difference in means between the two samples is calculated as we do normally. This lead to the observed value of the test statistic $T_n^{\text{(obs)}}$.
+		
+		\item Then the observations of groups $\vec{A}$ and $\vec{B}$ are pooled and mixed formally using a "\NewTerm{random sampling operator}\index{random sampling operator}" $\vec{\delta}_n^R$ defined by:
+		
+		where $r_i$ is a binary random variable defined by $r_i\in\mathbb{Z}_2$, where $\mathbb{Z}_2=\{0,1\}$ and we also define its binary negation by:
+		
+		Then we create a permutation of $\vec{A}$ denoted $\vec{A}'$ (same respectively for $\vec{B}$) by applying the random sampling operator:
+		
+		
+		\item Next, the difference in sample means is calculated and recorded for this new groups $\vec{A}'$ and $\vec{B}'$ and we get a new $T_{n}^{'\text{(obs)}}$.
+		
+		\item We repeat the above procedure for every possible way of combining the samples (in practice we do that completely randomly then some cases - pairs of samples - may repeat).
+		
+		The number of ways in which $m\cdot n$ different items can be divided equally into $m$ groups ($m=2$ in our example) each containing $n$ objects and the order of the groups is important is:
+		
+		and the number of ways in which $m\cdot n$ different items can be divided equally into $m$ groups, each containing $n$ objects and the order of the grouops is NOT important is:
+		
+		
+		\item Finally the one-sided $p$-value of the test is calculated as the proportion of sampled permutations where the difference in means was greater than or equal to $T_{n}^{\text{(obs)}}$. The two-sided $p$-value of the test is calculated as the proportion of sampled permutations where the absolute difference was greater than or equal to $|T_{n}^{'\text{(obs)}}|$.
+	\end{enumerate}
+	
+	The major down-side to permutation tests are that they:
+	\begin{itemize}
+		\item Can be computationally intensive and may require "custom" code for difficult-to-calculate statistics. This must be rewritten for every case.
+		\item Are primarily used to provide a $p$-value. The inversion of the test to get confidence regions/intervals requires even more computation.
+	\end{itemize}
+	Hopefully it is quite easy to do that with modern software. You can see the R companion book for an example of a Student-$T$ permutation test.
+	
+	Keep in mind that as the assumption behind a permutation test is that the observations are exchangeable under the null hypothesis, an important consequence of this assumption is that tests of difference in location (like a permutation t-test) require equal variance. 
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Permutation tests are a subset of nonparametric statistics as the basic premise is to use only the assumption that it is possible that all of the treatment groups are equivalent, and that every member of them is the same before sampling began (i.e. the slot that they fill is not differentiable from other slots before the slots are filled).
+	\end{tcolorbox}
+	
 	\pagebreak
 	\subsection{Finite difference method (F.D.M.)}
-	The finite element method (FEM) is a numerical technique for finding approximate solutions to boundary value problems for partial differential equations. It is also referred to as finite element analysis (FEA). FEM subdivides a large problem into smaller, simpler, parts, named "finite elements". The simple equations that model these finite elements are then assembled into a larger system of equations that models the entire problem. FEM then uses variational methods from the calculus of variations to approximate a solution by minimizing an associated error function.
+	The "\NewTerm{finite element method}\index{finite element method}" (FEM) is a numerical technique for finding approximate solutions to boundary value problems for partial differential equations. It is also referred to as finite element analysis (FEA). FEM subdivides a large problem into smaller, simpler, parts, named "finite elements". The simple equations that model these finite elements are then assembled into a larger system of equations that models the entire problem. FEM then uses variational methods from the calculus of variations to approximate a solution by minimizing an associated error function.
 	
 	\subsubsection{One space dimension F.D.M.}\label{one space dimension fdm}
 	Let us recall that we have proved in the section of Thermodynamics the following heat diffusion equation (we present here the equation reduced to only one spatial dimension):
@@ -4989,8 +5357,10 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 			\item Oracle Minimum Description Length (MDL)
 			\item PCA (Principal Component Analysis)
 			\item SVD (Singular Value Decomposition)
+			\item Parallel Factor Analysis (PARAFAC)
+			\item Tucker Decomposition (PARAFAC generalization)
 			\item Sammon mapping
-			\item ICA (Independant Component Analysis)/Kernel ICA
+			\item ICA (Independent Component Analysis)/Kernel ICA
 			\item Kernel PCA / SVD
 			\item Projection Pursuit (PP) 
 			\item Mixture Discriminant Analysis (MDA)
@@ -5004,6 +5374,8 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 			\item Adaptive Synthetic Sampling Approach (ADASYN)
 			\item Autoencoder
 			\item t-SNE (t-distributed stochastic neighbor embedding) 
+			\item Generalized Low Rank Models (GLRM)
+			\item Multivariate (Soft) Self Modeling Curve Resolution (MCR)
 			\item ...
 		\end{enumerate}
 		\end{multicols}
@@ -5046,11 +5418,12 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 			\item Log-loss
 			\item Jensen–Shannon divergence
 			\item Kullback–Leibler divergence
+			\item Aggregation indices (econometric)
 			\item ...
 		\end{enumerate}
 		\end{multicols}
 		
-		\item \textbf{Statistical tests\footnote{some of these tests are proved in the section Statistics} (parametric and non-parametric):}
+		\item \textbf{Statistical tests\footnote{some of these tests are proved in the section Statistics} (parametric and nonparametric):}
 		\begin{multicols}{3}
 		\begin{enumerate}
 			\item (Brown)-Mood's test
@@ -5082,7 +5455,7 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 			\item Breusch-Godfrey autocorrelation test
 			\item Brown–Forsythe's test
 			\item Brunner-Munzel generalized Wilcoxon test
-			\item Chi-squared
+			\item Chi-squared test for association / independence or homogeneity
 			\item Chi-squared test for outlier
 			\item Chow's test
 			\item Clark-Evans' test
@@ -5148,8 +5521,8 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 			\item Jonckheere's k-sample test
 			\item Kaiser-Meyer-Olkin test
 			\item Kendall rank correlation test
-			\item Kendall's Tau-b
-			\item Kendall's Tau-c
+			\item Kendall's tau-b
+			\item Kendall's tau-c
 			\item Kendall's concordance W
 			\item Kendall's tau
 			\item Kenward-Roger tests
@@ -5169,7 +5542,7 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 			\item Ljung-Box test
 			\item Log-rank test
 			\item Mack–Wolfe's test
-			\item Mann-Withney's test
+			\item Mann-Whitney's test
 			\item Mantel-Haenszel log-rank test
 			\item Mardia's test of multivariate normality
 			\item Mardia–Watson–Wheeler's test
@@ -5183,7 +5556,7 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 			\item Mood's scale test
 			\item Mojena's test
 			\item Moses test
-			\item Newman–Keuls test (contreversé, non-parametric)
+			\item Newman–Keuls test (contreversé, nonparametric)
 			\item O'Brien's test
 			\item O'Brien's two-sample tests
 			\item Orthogonal t-test 
@@ -5192,6 +5565,7 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 			\item Partial Theil U
 			\item Pearson correlation t-test
 			\item Pearson's chi-squared test
+			\item Permutation tests
 			\item Peto and Peto test
 			\item Phillips-Perront test
 			\item Phillips-Ouliaris test
@@ -5248,6 +5622,7 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 			\item Z-test for mean
 			\item Z-test for the difference between independent correlations
 			\item Zivot and Andrews test
+			\item Durbin-Wu-Hausman test
 			\item ...
 		\end{enumerate}
 		\end{multicols}
@@ -5325,6 +5700,7 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 			\item VARHCA (clustering variables using Hierarchical Cluster Analysis)
 			\item VARKMeans (clustering variable using $K$-Means)
 			\item Density-based spatial clustering of applications with noise (DBSCAN)
+			\item Soft independent modeling of class analogies (SIMCA)
 			\item ...
 		\end{enumerate}
 		
@@ -5429,7 +5805,7 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 			\item Cochran C test
 			\item Dixon's test
 			\item Grubb test
-			\item Distance de Cook
+			\item Cook's distance
 			\item Peirce's criterion
 			\item Studentized residual
 			\item Control Charts\footnote{see section Industrial Engineering for the details on control charts page \pageref{quality control charts}} (P, NP, C, U, R-R, X-R, etc.)
@@ -5566,9 +5942,52 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 		\includegraphics[scale=0.6]{img/computing/overfitting.jpg}
 		\caption{Underfitting and overfitting errors}
 	\end{figure}
+	In statistics and machine learning, the "\NewTerm{bias–variance tradeoff}\index{bias–variance tradeoff}" (or dilemma) is the problem of simultaneously minimizing two sources of error that prevent supervised learning algorithms from generalizing beyond their training set:
+	 \begin{itemize}
+	 	\item The bias is an error from erroneous assumptions in the learning algorithm. High bias can cause an algorithm to miss the relevant relations between features and target outputs (underfitting).
+
+		\item The variance is an error from sensitivity to small fluctuations in the training set. High variance can cause an algorithm to model the random noise in the training data, rather than the intended outputs (overfitting).
+	\end{itemize}
+	This tradeoff applies to all forms of supervised learning: classification, regression (function fitting), and structured output learning. It may has also been invoked to explain the effectiveness of heuristics in human learning.
+	
+	The bias-variance tradeoff is a central problem in supervised learning. Ideally, one wants to choose a model that both accurately capture the regularities in its training data, but also generalizes well to unseen data. Unfortunately, it is typically impossible to do both simultaneously. High-variance learning methods may be able to represent their training set well but are at risk of overfitting to noisy or unrepresentative training data. In contrast, algorithms with high bias typically produce simpler models that don't tend to overfit but may underfit their training data, failing to capture important regularities.
+	
+	Models with low bias are usually more complex (e.g. higher-order regression polynomials), enabling them to represent the training set more accurately. In the process, however, they may also represent a large noise component in the training set, making their predictions less accurate - despite their added complexity. In contrast, models with higher bias tend to be relatively simple (low-order or even linear regression polynomials) but may produce lower variance predictions when applied beyond the training set.
+	
+	Suppose that we have a training set consisting of a set of points $x_{1},\dots ,x_{n}$ and real values $y_{i}$ associated with each point $x_{i}$. We assume that there is a function with noise $y=f(x)+\varepsilon$, where the noise, $\varepsilon$, has zero mean and variance $\sigma^{2}_\varepsilon$.
+	
+	We want to find a function $\hat{f}$, that approximates the true function $f(x)$ as well as possible, by means of some learning algorithm. We make "as well as possible" precise by measuring the mean squared error between $y$ and $\hat{f}(x)$: we want $(y-{\hat {f}}(x))^{2}$ to be minimal, both for $x_{1},\dots ,x_{n}$ and for points outside of our sample. Of course, we cannot hope to do so perfectly, since the $y_{i}$ contain noise $\varepsilon$; this means we must be prepared to accept an irreducible error in any function we come up with.
+	
+	\begin{theorem}
+	Finding an $\hat{f}$ that generalizes to points outside of the training set can be done with any of the countless algorithms used for supervised learning. It turns out that whichever function $\hat{f}$ we select, we can decompose its expected error on an unseen sample $x$ as follows:
+	
+	named "\NewTerm{Bias–variance tradeoff}\index{bias–variance tradeoff}", where:
+	
+	and:
+	
+	\end{theorem}
+	\begin{dem}
+	The derivation of the bias–variance decomposition for squared error proceeds as follows. For notational convenience, abbreviate $f = f(x)$ and $\hat{f}=\hat{f}(x)$. First, recall that, by definition, for any random variable $X$, we have:
+	
+	Rearranging, we get:
+	
+	If we assume a model where $f$ is deterministic:
+	
+	This, given $y=f+\varepsilon$ and $\text{E}(\varepsilon)=0$, implies:
+	
+	Also, since $\text{V}(\varepsilon)=\sigma_\varepsilon^2$:
+	
+	Thus, since $\varepsilon$ and $\hat{f}$ are independent, we can write:
+	
+	So we have indeed:
+	
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
 	One case, the machine learning algorithm has different parameters and we want to tune these parameters to achieve the best performance (the parameters of the machine learning algorithm are named "\NewTerm{hyperparameters}" as we will see further below\footnote{The double problem in Data Mining to found the best algorithm + its better hyperparameters is named the "CASH problem", where CASH stands for "Combined Algorithm Selection and Hyperparameters"}). Another case, sometimes we want to try out different algorithms and choose the best performing one. Here is a typical technique:
 	
-	We simply split the data into training and testing datasets.  Then, the training data is further split into training and validation sets.
+	We simply split the data into training and testing datasets. Then, the training data is further split into training and validation sets.
 	
 	The training data is used to train different models. Then the validation data is used to compute performance of each of them and we select the best one. Finally, the model is then used for the test set to evaluate performance. The next figure illustrates this idea:
 	\begin{figure}[H]
@@ -5608,6 +6027,55 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 		\includegraphics[scale=0.63]{img/computing/hyperparameters.jpg}
 		\caption{Parameters vs Hyperparameters}
 	\end{figure}
+	"\NewTerm{Bagging}\index{bagging}" and "\NewTerm{Boosting}\index{boosting}" are both ensemble methods in Machine Learning that also use hyperparameters (number of iterations/trees, sampling with or without replacement, minimum leaf size, minim parent size, maximum number of decision splits, learning rate for shrinkage, etc).
+	
+	Bagging and Boosting are similar in that they are both ensemble techniques, where a set of weak learners are combined to create a strong learner that obtains better performance than a single one. So, let's start from the beginning\footnote{The whole text introducing the difference between bagging and boosting in this book is taken form the QuantDare blog article \url{https://quantdare.com/what-is-the-difference-between-bagging-and-boosting/} written by Ana Porras Garrido who works for the company ETS Asset Management Factory (\url{https://www.etsfactory.com/})}.
+	
+	"\NewTerm{Ensemble learning}\index{Ensemble learning}" is a Machine Learning concept in which the idea is to train multiple models using the same learning algorithm. The ensembles take part in a bigger group of methods, named "\NewTerm{multiclassifiers}\index{multiclassifiers}", where a set of hundreds or thousands of learners with a common objective are fused together to solve the problem.
+
+	The second group of multiclassifiers contain the "\NewTerm{hybrid methods}\index{hybrid methods}
+". They use a set of learners too, but they can be trained using different learning techniques. 
+
+	The main causes of error in learning are due to noise, bias and variance. Ensemble helps to minimize these factors. These methods are designed to improve the stability and the accuracy of Machine Learning algorithms. Combinations of multiple classifiers decrease variance, especially in the case of unstable classifiers, and may produce a more reliable classification than a single classifier.
+
+	To use Bagging or Boosting you must select a base learner algorithm. For example, if we choose a classification tree, Bagging and Boosting would consist of a pool of trees as big as we want. 
+	
+	Bagging and Boosting get $N$ learners by generating additional data in the training stage. $N$ new training data sets are produced by random sampling with replacement from the original set. By sampling with replacement some observations may be repeated in each new training data set.
+	
+	In the case of Bagging, any element has the same probability to appear in a new data set. However, for Boosting the observations are weighted and therefore some of them will take part in the new sets more often: 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/computing/bagging_and_boosting_01.jpg}
+	\end{figure}
+	These multiple sets are used to train the same learner algorithm and therefore different classifiers are produced.
+	
+	At this point, we begin to deal with the main difference between the two methods. While the training stage is parallel for Bagging (i.e., each model is built independently), Boosting builds the new learner in a sequential way:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/computing/bagging_and_boosting_02.jpg}
+	\end{figure}
+	To predict the class of new data we only need to apply the N learners to the new observations. In Bagging the result is obtained by averaging the responses of the $N$ learners (or majority vote). However, Boosting assigns a second set of weights, this time for the $N$ classifiers, in order to take a weighted average of their estimates.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/computing/bagging_and_boosting_03.jpg}
+	\end{figure}
+	In the Boosting training stage, the algorithm allocates weights to each resulting model. A learner with good a classification result on the training data will be assigned a higher weight than a poor one. So when evaluating a new learner, Boosting needs to keep track of learners’ errors, too. Let’s see the differences in the procedures:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/computing/bagging_and_boosting_04.jpg}
+	\end{figure}
+	Some of the Boosting techniques include an extra-condition (hyperparamater) to keep or discard a single learner. For example, in AdaBoost, the most renowned, an error less than $50\%$ is required to maintain the model; otherwise, the iteration is repeated until achieving a learner better than a random guess.
+
+	The previous image shows the general process of a Boosting method, but several alternatives exist with different ways to determine the weights to use in the next training step and in the classification stage (AdaBoost, LPBoost, XGBoost, GradientBoost, BrownBoost).
+	
+	We may ask ourselves what is the best, Bagging or Boosting?
+	
+	There's not an outright winner; it depends on the data, the simulation and the circumstances.
+Bagging and Boosting decrease the variance of your single estimate as they combine several estimates from different models. So the result may be a model with higher stability.
+
+	If the problem is that the single model gets a very low performance, Bagging will rarely get a better bias. However, Boosting could generate a combined model with lower errors as it optimises the advantages and reduces pitfalls of the single model.
+
+	By contrast, if the difficulty of the single model is over-fitting, then Bagging is the best option. Boosting for its part doesn’t help to avoid over-fitting; in fact, this technique is faced with this problem itself. For this reason, Bagging is effective more often than Boosting.
 	
 	\pagebreak
 	\subsubsection{Association Rules}
@@ -5878,7 +6346,7 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 		\texttt{IF Outlook = Rainy THEN Play Golf = No}\\
 		\end{tabular}
 	\end{table}
-	\StickyNote[2.5cm]{\LARGE Create the confusion matrices for the other attributes}[6.5cm]
+	\StickyNote[2.5cm]{\LARGE ToDo: Create the confusion matrices for the other attributes}[6.5cm]
 	
 	\paragraph{Apriori}\mbox{}\\\\
 	Before introducing the Apriori algorithm  which is the second most popular algorithm of the Association Rules, it is important to define some key concepts specific to these particular methods of learning.
@@ -6116,6 +6584,197 @@ INDEX($A$5:$A$14,RANDBETWEEN(1,10),1))
 	\end{tcolorbox}	
 	We will see here some trivial techniques that we will complete with time ...
 	
+	\paragraph{Naive Bayes classifiers}\mbox{}\\\\
+	In machine learning, "\NewTerm{naive Bayes classifiers}\index{naive Bayes classifiers}" are a family of simple probabilistic classifiers based on applying Bayes' theorem with strong (naive) independence assumptions between the features (properties).
+
+	Naive Bayes has been studied extensively since the 1950s. It was introduced under a different name into the text retrieval community in the early 1960s, and remains a popular (baseline) method for text categorization, the problem of judging documents as belonging to one category or the other (such as spam or legitimate, sports or politics, etc.) with word frequencies as the features. With appropriate pre-processing, it is competitive in this domain with more advanced methods including support vector machines. It also finds application in automatic medical diagnosis.
+	
+	\subparagraph{Binomial Naive Bayes classifier}\mbox{}\\\\
+	The "\NewTerm{binomial naive Bayes classifier}\index{binomial naive Bayes classifier}" consiste by using Bayes probabilities to classify an item in two possible outcomes.
+	
+	For example, the table below consisting of $4$ e-mail, having $2$ attributes and two possible classification outcomes that are $\{\mathrm{No-Spam},\mathrm{Spam}\}$:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		\rowcolor[HTML]{9B9B9B} 
+		\multicolumn{1}{|l|}{\cellcolor[HTML]{9B9B9B}\textbf{Email}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{$100\%$ Guaranteed}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Meeting}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Classification}} \\ \hline
+		$1$ & $\mathrm{No}$ & $\mathrm{Yes}$ & $\mathrm{No-Spam}$ \\ \hline
+		$2$ & $\mathrm{No}$ & $\mathrm{Yes}$ & $\mathrm{No-Spam}$ \\ \hline
+		$3$ & $\mathrm{Yes}$ & $\mathrm{Yes}$ & $\mathrm{Spam}$ \\ \hline
+		$4$ & $\mathrm{Yes}$ & $\mathrm{No}$ & $\mathrm{No-Spam}$ \\ \hline
+		\end{tabular}
+		\caption{Naive Bayes spam-email companion example}
+	\end{table}
+	Abstractly, as already mentioned naive Bayes is a conditional probability model: given a problem instance to be classified, represented by a vector $\vec{x} =(x_{1},\dots ,x_{n})$ representing some $n$ features (independent variables), it assigns a posteriori with probabilities $P(C_k/x_1,\ldots,x_n)$ to the instance $C_k$, or also written $P(C_k/\vec{x})$, for each of $k$ possible outcomes or classes $C_k$.
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Don't forget as we have seen in the section Probabilities (\SeeChapter{see section Probabilities page \pageref{chain rule}}) that $P(C_k/x_1,\ldots,x_n)$ is just a convenient notation to write $P(C_k/x_1\cap\ldots\cap x_n)$. And therefore $P(\vec{x})$ is also a convenient notation for $P(x_1\cap\ldots\cap x_n)$.
+	\end{tcolorbox}
+	With the example above it would look like this for the first e-mail (thus $n=2$):
+	
+	The problem with the above formulation is that if the number of features $n$ is large or if a feature can take on a large number of values, then basing such a model on probability tables is very hard. We therefore reformulate the model to make it more tractable. Using Bayes' theorem (\SeeChapter{see section Probabilities page \pageref{bayes formula}}), the conditional probability can be decomposed as:
+	
+	With for recall:
+	\begin{itemize}
+		\item $P(C_k/\vec{x})$ is the a posteriori probability to belong the class $C_k$ knowing the features $x_i$ (probability of the hypothetical class given the evidence ie. the features)
+		\item $P(C_k)$ is the a priori probability (or "marginal probability") of the class $C_k$
+		\item $P(\vec{x})$, the a priori probability of the feature (it is also a marginal probability)
+		\item $P(\vec{x}/C_k)$, the a posteriori probability of the features $x_i$ knowing the class $C_k$, it is also the likelihood of $Y_k$ for $\vec{x}_i$ known (probability of evidence, ie. the feature, given that the hypothetical class holds).
+	\end{itemize}
+	In plain English, using Bayesian probability terminology, the above relation can be written for recall as:
+	
+	In practice, there is interest only in the numerator of that fraction (equivalent to the joint probability), because the denominator does not depend on $C_k$ and the values of the features $x_i$ are given, so that the denominator is effectively constant whatever the $k$.
+
+	Hence the fact that we often can see in textbooks the following relation:	
+	
+	\begin{theorem}
+	A key idea in the NB model is the following assumption:
+	
+	\end{theorem}
+	\begin{dem}
+	This equality is derived using iteratively (don't forget that we don't care about the numerator!) the relation proved in the section of Probabilities but without the denominator (\SeeChapter{see section Probabilities page \pageref{bayes formula}}):
+	
+	Indeed, let us rewrite this relation more explicitly:
+	
+	Next we rewrite the second product term using the assumption of conditional independence:
+	
+	Hence reinjecting in the prior-previous relation:
+	
+	In a condensed form the posterior probability of belonging to $C_k$ knowing $\vec{x}$ is then given by:
+	
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	The idea now, when we have a training set of size $N$, is just to take for estimators:
+	
+	where obviously we define $C=C_k$ to be $1$ if $C=C_k$, $0$ otherwise. This estimator is simple the number of times that the label $C_k$ is seen in the training set!
+	
+	Similarly:
+	
+	This is a very natural estimate: we simply count the number of times label $C_k$ is seen in conjunction with $\vec{x}_i$ taking value $\vec{x}$ that we divide by the number of times the label $C_k$ is seen in total.
+	
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\textbf{{\Large \ding{45}}Example:}\\\\
+	We consider the following training set:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		\rowcolor[HTML]{9B9B9B} 
+		\multicolumn{1}{|l|}{\cellcolor[HTML]{9B9B9B}\textbf{Email}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{$100\%$ Guaranteed}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Meeting}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Classification}} \\ \hline
+		$1$ & $\mathrm{No}$ & $\mathrm{Yes}$ & $\mathrm{No-Spam}$ \\ \hline
+		$2$ & $\mathrm{No}$ & $\mathrm{Yes}$ & $\mathrm{No-Spam}$ \\ \hline
+		$3$ & $\mathrm{Yes}$ & $\mathrm{Yes}$ & $\mathrm{Spam}$ \\ \hline
+		$4$ & $\mathrm{Yes}$ & $\mathrm{No}$ & $\mathrm{No-Spam}$ \\ \hline
+		\end{tabular}
+	\end{table}
+	A new e-mail arrives and contains the expression "$100\%$ \textit{Guaranteed}" and the expression "\textit{Meeting}". We want to predict if it is a Spam or not?
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		\rowcolor[HTML]{9B9B9B} 
+		\multicolumn{1}{|l|}{\cellcolor[HTML]{9B9B9B}\textbf{Email}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{$100\%$ Guaranteed}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Meeting}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Classification}} \\ \hline
+		$5$ & $\mathrm{Yes}$ & $\mathrm{Yes}$ & ? \\ \hline
+		\end{tabular}
+	\end{table}
+	For this purpose we will first simplify the notation by denoting the expression "$100\%$ \textit{Guaranteed}" by the letter $G$ and the expression "\textit{Meeting}" by the letter $M$.\\
+	
+	The posertior probabilities are in this simple case given by Bayes theorem:
+	
+	Hence the ratio, that eliminates (as we know) the denominator that is then useless, that must be greater that $1$ if the e-mail is a Spam:
+	
+	According to the assumption of the independence of conditional probabilities we can write for the first factor of the numerator and respectively for that of the denominator:
+	
+	So we can rewrite the ratio as:
+	
+	And as we have in our training set:
+	\end{tcolorbox}
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	
+	Injecting in the previous ratio, we get:
+	
+	That's all for this naive Bayesian example for document classification problem.
+	\end{tcolorbox}
+	Statisticians are somewhat disturbed by use of the NBC (which they dub Idiot's Bayes) because the naive assumption of independence is almost always invalid in the real world.
+	
+	However, the method has been shown to perform surprisingly well in a wide variety of contexts.
+	
+	\subparagraph{Gaussian naive Bayes}\mbox{}\\\\
+	When dealing with continuous data, a typical assumption is that the continuous values associated with each class are distributed according to a Gaussian distribution. For example, suppose the training data contains a continuous attribute, $x$. We first segment the data by the class, and then compute the mean $\hat{\mu}$ and standard deviation $\hat{\sigma}$ of $x$ for each class.
+	
+	 Let $\hat{\mu} _{k}$ be the mean of the values in $x$ associated with class $C_k$, and let $\hat{\sigma}_{k}$ be the standard deviation of the values in $x$ associated with class $C_k$.
+	 
+	 Suppose we have collected some new observation value $x'$. Then, the probability density of $x'$ given a class $C_{k}$, $P(x=x'/C_{k})$ , can be computed by plugging $x'$ into the equation for a Normal distribution parameterized by $\hat{\mu}_{k}$ and $\hat{\sigma}_{k}^{2}$. That is:
+	 
+	 And after we apply again:
+	 
+	 
+	 \begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\textbf{{\Large \ding{45}}Example:}\\\\
+	We consider the following training set:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		\rowcolor[HTML]{9B9B9B} 
+		\multicolumn{1}{|l|}{\cellcolor[HTML]{9B9B9B}\textbf{Person}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Height [cm]}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Weight [kg]}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Foot size [cm]}} \\ \hline
+		male & $182.88$ & $81.64$ & $30.48$ \\ \hline
+		male & $180.44$ & $86.18$ & $27.94$ \\ \hline
+		male & $170.07$ & $77.11$ & $30.48$ \\ \hline
+		male & $180.44$ & $74.84$ & $25.4$ \\ \hline
+		female & $152.4$ & $45.35$ & $15.24$ \\ \hline
+		female & $167.64$ & $68.03$ & $20.32$ \\ \hline
+		female & $165.20$ & $58.96$ & $17.78$ \\ \hline
+		female & $175.26$ & $68.03$ & $22.86$ \\ \hline
+		\end{tabular}
+	\end{table}
+	The classifier created from the training set using a Gaussian distribution assumption would be (given variances are unbiased sample variances):
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		\rowcolor[HTML]{9B9B9B} 
+		\multicolumn{1}{|l|}{\cellcolor[HTML]{9B9B9B}\textbf{Person}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\parbox{1cm}{\textbf{Mean \\Height}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\parbox{1.2cm}{\textbf{Variance \\Height}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\parbox{1cm}{\textbf{Mean\\ Weight}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\parbox{1.2cm}{\textbf{Variance Weight}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\parbox{1.3cm}{\textbf{Mean\\ Foot size}}} &\multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\parbox{1.3cm}{\textbf{Variance\\ Foot size}}} \\ \hline
+		male & $178.45$ & $32.59$ & $79.94$ & $25.28$ & $28.58$ & $5.91$ \\ \hline
+		female & $165.13$ & $90.32$ & $60.09$ & $114.88$ & $19.05$ & $10.75$ \\ \hline
+		\end{tabular}
+	\end{table}
+	We also know from the training set that we have equiprobable classes so:
+	
+	Now consider a new sample to be classified as male or female:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		\rowcolor[HTML]{9B9B9B} 
+		\multicolumn{1}{|l|}{\cellcolor[HTML]{9B9B9B}\textbf{Person}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Height [cm]}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Weight [kg]}} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Foot size [cm]}} \\ \hline
+		? & $182.88$ & $58.96$ & $20.32$ \\ \hline
+		\end{tabular}
+	\end{table}
+	We wish to determine which posterior is greater, male or female. For the classification as male the posterior is given according to our boxed relation above:
+	
+	For the classification as female the posterior is given by:
+	
+	\end{tcolorbox}
+	
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	 We now determine the probabilities distribution for the sex of the sample:
+	 \begin{itemize}
+	 	\item $P(\mathrm{male})=0.5$
+	 	\item $P(\mathrm{female})=0.5$
+	 	\item $P(\mathrm{height}/ {\mathrm{male}})={\dfrac {1}{\sqrt {2\pi \hat{\sigma}_{H,M}^{2}}}}\exp \left({\frac {-(182.88-\hat{\mu}_{H,M} )^{2}}{2 \hat{\sigma}^{2}_{H,M}}}\right)\cong 0.0517$
+	 	\item $P(\mathrm{height}/ {\mathrm{female}})={\dfrac {1}{\sqrt {2\pi \hat{\sigma}_{H,F}^{2}}}}\exp \left({\frac {-(182.88-\hat{\mu}_{H,F} )^{2}}{2 \hat{\sigma}^{2}_{H,F}}}\right)\cong 0.0073$
+	 	\item $P(\mathrm{weight}/ {\mathrm{male}})={\dfrac {1}{\sqrt {2\pi \hat{\sigma}_{W,M}^{2}}}}\exp \left({\frac {-(58.96-\hat{\mu}_{W,M} )^{2}}{2 \hat{\sigma}^{2}_{W,M}}}\right)\cong 1.3142\cdot 10^{-05}$
+		\item $P(\mathrm{weight}/ {\mathrm{female}})={\dfrac {1}{\sqrt {2\pi \hat{\sigma}_{W,M}^{2}}}}\exp \left({\frac {-(58.96-\hat{\mu}_{W,M} )^{2}}{2 \hat{\sigma}^{2}_{W,M}}}\right)\cong 0.0370$
+		\item $P(\mathrm{foot\,size}/ {\mathrm{male}})={\dfrac {1}{\sqrt {2\pi \hat{\sigma}_{FS,M}^{2}}}}\exp \left({\frac {-(20.32-\hat{\mu}_{FS,M} )^{2}}{2 \hat{\sigma}^{2}_{FS,M}}}\right)\cong 0.0005$
+		\item $P(\mathrm{foot\,size}/ {\mathrm{female}})={\dfrac {1}{\sqrt {2\pi \hat{\sigma}_{FS,F}^{2}}}}\exp \left({\frac {-(20.32-\hat{\mu}_{FS,F} )^{2}}{2 \hat{\sigma}^{2}_{FS,F}}}\right)\cong 0.1128$
+	 \end{itemize}
+	 Hence:
+	 
+	Since posterior numerator is greater in the female case, we predict the new individual is female.
+	\end{tcolorbox}
 	
 	
 	\paragraph{$k$-nearest neighbors ($k$-nn)}\mbox{}\\\\
@@ -6170,7 +6829,11 @@ For example, in a classification problem, we will retain the class most represen
 		\includegraphics[scale=0.7]{img/computing/knn_02.jpg}
 		\caption[]{Classification of a new observation with $k-nn$: $2$ of the $3$ nearest neighbors belong to class $1$}
 	\end{figure}
-	The distance to the $k$th nearest neighbor can also be seen as a local density estimate and thus is also a popular outlier score in anomaly detection. The larger the distance to the $k$-NN, the lower the local density, the more likely the query point is an outlier. Although quite simple, this outlier model, along with another classic data mining method, local outlier factor, works quite well also in comparison to more recent and more complex approaches, according to a large scale experimental analysis.
+	The distance to the $k$th nearest neighbor can also be seen as a local density estimate and thus is also a popular outlier score in anomaly detection. The larger the distance to the $k$-nn, the lower the local density, the more likely the query point is an outlier. Although quite simple, this outlier model, along with another classic data mining method, local outlier factor, works quite well also in comparison to more recent and more complex approaches, according to a large scale experimental analysis.
+	
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Obviously we may run the $k$-nn on the factorial space obtained after having run a PCA (Principal Component Analysis as seen on page \pageref{principal component analysis}) on our data. We can also even reduce the dimensions using that latter if necessary!
+	\end{tcolorbox}
 	
 	\paragraph{Regression and classification trees}\mbox{}\\\\
 	Regression and classification trees (CART: Classification and Regression Tree) are a set of heuristic algorithms  introduced in 1984 by Leo Breiman, Jerome Friedman, Richard Olshen and Charles Stone as an umbrella term to refer to the following types of decision trees: 
@@ -6331,6 +6994,38 @@ For example, in a classification problem, we will retain the class most represen
 	\end{figure}
 	And as mentioned above, we will stop here about our study of CART because the study of the corresponding empirical variations techniques are a full time job as they are numerous (and almost none gives the same results...).
 	
+	\subparagraph{Random Forests}\mbox{}\\\\
+	The random forest (see figure below) takes the notion of binary decision tree to the next level by combining trees with the notion of an ensemble. Thus, in ensemble terms, the standard decision trees are weak learners and the random forest is a strong learner (in the sense of a statistical crows sourcing).
+	
+	In other words "\NewTerm{random forests}\index{random forests}" or "\NewTerm{random decision forests}\index{random decision forests}" are an ensemble learning method for classification, regression and other tasks, that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees. Random decision forests correct for decision trees' habit of overfitting to their training set.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/computing/random_forest.jpg}
+		\caption[Random forster illustration]{Random forster illustration (author: ?)}
+	\end{figure}
+	Here is how such a system is trained; for some number of trees:
+	\begin{enumerate}
+		\item Sample $N$ cases at random with replacement to create a subset of the data (see top layer of figure above). The subset should be about $66\%$ of the total set.
+	
+		\item At each node:
+		\begin{enumerate}
+			\item For some number $m$, $m$ predictor variables are selected at random from all the predictor variables.
+	
+			\item The predictor variable that provides the best split, according to some objective function, is used to do a binary split on that node.
+	
+			\item At the next node, choose another $m$ variables at random from all predictor variables and do the same.
+		\end{enumerate}
+	\end{enumerate}
+	For prediction with a new entered input into the system, it is run down all of the trees. The result may either be an average or weighted average of all of the terminal nodes that are reached, or, in the case of categorical variables, a voting majority.
+	
+	Note that:
+	\begin{itemize}
+		\item With a large number of predictors, the eligible predictor set will be quite different from node to node.
+		\item The greater the inter-tree correlation, the greater the random forest error rate, so one pressure on the model is to have the trees as uncorrelated as possible.
+		\item As $m$ goes down, both inter-tree correlation and the strength of individual trees go down. So some optimal value of $m$ must be discovered.
+	\end{itemize}
+	Random forest runtimes are quite fast, and they are able to deal with unbalanced and missing data. Random Forest weaknesses are that when used for regression they cannot predict beyond the range in the training data, and that they may over-fit data sets that are particularly noisy. Of course, the best test of any algorithm is how well it works upon your own data set.
+
 	\paragraph{$K$-Means}\mbox{}\\\\
 	The "\NewTerm{$K$-means}\index{$K$-means}" algorithm or "\NewTerm{mobile centers}" , also sometimes named "\NewTerm{classification method with dynamic clouds}" is in statistics and machine learning (specifically unsupervised learning), a data partitioning algorithm, ie a method that aims to divide observations in $K$ clusters in which each observation belongs to the partition with the nearest average (mean).
 
@@ -6533,13 +7228,15 @@ For example, in a classification problem, we will retain the class most represen
 	\end{itemize}
 	Using the properties of the barycenter (\SeeChapter{see section Geometry page \pageref{barycenter}}), we can then write the total sum of squares:
 	
-	So in practice, the K-means method is fully encompassed based on the above fundamental relation.
+	That latter relations is also often written as:
+	
+	with the following companion illustration:
 	\begin{figure}[H]
 		\centering
-		\includegraphics{img/computing/kmean_wss_bss.jpg}
+		\includegraphics[width=1.0\textwidth]{img/computing/kmean_wss_bss_v2.jpg}
 		\caption[]{$K$-means BSS and WSS}
 	\end{figure}
-	It is then quite easy to understand that if Intra-cluster inertia decreases the inter-cluster inertia increases and vice versa.
+	So in practice, the K-means method is fully encompassed based on the above fundamental relation. It is then quite easy to understand that if Intra-cluster inertia decreases the inter-cluster inertia increases and vice versa.
 	
 	Therefore with Tanagra 1.4.44 we get for example:
 	\begin{figure}[H]
@@ -6569,8 +7266,10 @@ For example, in a classification problem, we will retain the class most represen
 		\includegraphics[scale=0.7]{img/computing/kmeans_clusters_dependance_wss.jpg}
 	\end{figure}
 	In the case of our first $K$-means clustering, the partition in $K=2$ is more interesting, because not only does it induce a considerable gain in information (according to the figure above), thus a significant loss or reduction of WSS, but also it offers clusters having more than $2$ individuals. Beyond this, for example, for $K=3$, the gain in information is no longer significant and we will obtain a cluster with only $1$ individual (not very relevant for a group analysis...).
-	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	In some applications we want each center to be one of the point itself. This is where "\NewTerm{$K$-medoids}\index{$K$-medoids}" (Partition around medoids) comes in an algorithm similar to the $K$-means algorithm, except when fitting the centers $c_1,\ldots,c_K$, we restrict our attention to the point themselves. Generally $K$-medoids obvious return a higher value of $K_{\text{means}}$. There is also on example in our R companion book.
+	\begin{tcolorbox}[title=Remarks,colframe=black,arc=10pt]
+	\textbf{R1.} In some applications we want each center to be one of the point itself. This is where "\NewTerm{$K$-medoids}\index{$K$-medoids}" (Partition around medoids) comes in an algorithm similar to the $K$-means algorithm, except when fitting the centers $c_1,\ldots,c_K$, we restrict our attention to the point themselves. Generally $K$-medoids obvious return a higher value of $K_{\text{means}}$. There is also on example in our R companion book.\\
+	
+	\textbf{R2.} Obviously as for the $k$-nn, we may run the $K$-means on the factorial space obtained after having run a PCA (Principal Component Analysis as seen on page \pageref{principal component analysis}) on our data. We can also even reduce the dimensions using that latter if necessary!
 	\end{tcolorbox}
 
 	
@@ -6671,7 +7370,7 @@ For example, in a classification problem, we will retain the class most represen
 		\includegraphics[scale=0.65]{img/computing/dendrogram_r_plot_tsa.jpg}
 		\caption{Dendrograms TSA microarray plot in R 3.0.2}
 	\end{figure}
-	Let's go now for a detailed step by step example:
+	Let's go now for a detailed step by step example! For this consider the following table:
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{|c|c|c|}
@@ -6778,6 +7477,18 @@ For example, in a classification problem, we will retain the class most represen
 		\includegraphics[scale=1]{img/computing/cluster_dendrogram.jpg}
 	\end{figure}
 	Hierarchical clustering offers the advantage of presenting hierarchical groups so that the resulting ramifications are easy to read. In contrast to the $K$-means, it does not require the definition of the number of clusters in advance and it is reproducible in the sense that the choice of the initial cluster centers is not random. But in return it is more expensive in time when it comes to implementing it for a large database.
+	
+	This is why in practice, when dealing with huge databases, before doing a HAC, we first run a $K$-Means and after we do a HAC on the resulting $K$-Means (therefore the bottom of the dendrogram tree will be obtain with a $K$-mean and the upper part with the HAC).
+	
+	 Obviously as for the $k$-nn and the $K$-means, we may run the HAC on the factorial space obtained after having run a PCA (Principal Component Analysis as seen on page \pageref{principal component analysis}) on our data (see our R companion book for an application example). We can also even reduce the dimensions using that latter if necessary!
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{img/computing/hac_factormap.jpg}
+		\caption[HAC on a factor map]{HAC on a factor map with R}
+	\end{figure}
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	To do a classification on qualitative data we will use typically a Multiple Correspondence Analysis (MCA).
+	\end{tcolorbox}
 	
 	\pagebreak
 	\subsubsection{Neural networks}\label{neural network}
@@ -11693,7 +12404,7 @@ Both degrees of truth and probabilities range between 0 and 1 and hence may seem
 	\subsection{Linguistic algorithms}
 	Let us put into practice what has already been seen so far in order to support us a little on "useful" concrete stuff!
 	
-	\subsubsection{Huffmann algorithm}
+	\subsubsection{Huffmann algorithm}\label{huffman algorithm}
 	Let us first recall that in computing, we decide to encode an integer that has a value between $0$ and $255$ by a sequence of $8$ binary digits (or "bits" in English, valued $0$ or $1$), also called byte (whose maximum value is equal to $2^8$).
 	
 	Even if there is a mathematical logic in the way of associating an $8$-bit binary number to an integer between $0$ and $255$ (\SeeChapter{see section Theoretical Computing page \pageref{computer representation of numbers}}) we can imagine any coding of the type:
@@ -11845,7 +12556,7 @@ Both degrees of truth and probabilities range between 0 and 1 and hence may seem
 	\end{center}
 	which makes $81$ bits, instead of $200$ at the beginning! This corresponds to a compression ratio of almost $60\%$.
 	
-	The fact of having generated code using a binary tree ensures that no code can be the prefix of another one. You can verify that using the encoding table, there is no ambiguity possible to decode our compressed word!
+	The fact of having generated code using a binary tree ensures that no code can be the prefix of another one. You can verify that using the encoding table, there is no ambiguity possible to decode our compressed word! This is why the Huffman algorithm is in many compressed formats (for example the famous MP3 for audio encoding).
 	
 	\subsubsection{Sardinas and Patterson algorithm}
 	When we have to deal with long codes, the difficulity is to check whether the code is really one... In order to do this, we can use the Sardinas and Patterson algorithm (the proof of this algorithm will be done during the next update of this section of the book).
@@ -11895,7 +12606,7 @@ Both degrees of truth and probabilities range between 0 and 1 and hence may seem
 	\newpage
 	\thispagestyle{empty}
 	\mbox{}
-	\section{Cryptography}
+	\section{Cryptography}\label{cryptography}
 	\lettrine[lines=4]{\color{BrickRed}C}ryptography is one of the disciplines of cryptology endeavoring to protect messages (ensuring confidentiality and / or authenticity) that two people wish to share through an insecure channel often thanks to secrets or keys.\\
 	
 	The history of cryptography is already long and exciting (since it is a kind of "game"). We report its first use in Egypt 4,000 years ago. However, for centuries, the methods used were often remained very primitive. Moreover, its implementation was limited to the needs of the army and diplomacy. Thus, encryption methods and cryptanalysis (code breaking) experienced an important development during the Second World War and had a profound influence on the course of it.
@@ -12321,7 +13032,7 @@ Both degrees of truth and probabilities range between 0 and 1 and hence may seem
 	Its concept is based on a famous theorem named "\NewTerm{Euler's theorem}\index{Euler's theorem}" (nothing to do with the theorem of the same name seen in the section of Graph Theory or in the section of Geometric Shapes). Let's see what it is (be careful it is relatively long!).
 	
 	\paragraph{Euler's theorem}\mbox{}\\\\
-	Before we see what Euler's theorem consists of, we must define two elements that are included in it. Apart the concept of congruence which we have already studied in the section of Number Theory, there remains a special function named the "\NewTerm{Euler indicator}\index{Euler indicator}" or also named "\NewTerm{totient function}\index{totient function}" and defined in general by:
+	Before we see what Euler's theorem consists of, we must define two elements that are included in it. Apart the concept of congruence which we have already studied in the section of Number Theory, there remains a special function named the "\NewTerm{Euler indicator}\index{Euler indicator}\label{euler indicator function cryptography}" or also named "\NewTerm{totient function}\index{totient function}" and defined in general by:
 	
 	In other words, the function $\phi$ of the integer $m$ results in a number $n$ strictly less than $m$, given by the number of elements between $1$ and $m$ whose greatest common divisor (\SeeChapter{see section Number Theory page \pageref{greatest common divisor}}) with $m$ is $1$. We have already given a practical example of the utility of this indicator function in the section of Number Theory in the framework of the reduced systems of residues and which are at the center of the proof of Euler's theorem.
 	

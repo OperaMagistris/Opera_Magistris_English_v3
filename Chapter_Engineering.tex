@@ -9,7 +9,7 @@
 		\includegraphics[scale=0.6]{img/engineering/earth_inclination.jpg}
 		\caption[Earth's inclination]{Earth's inclination (source: Wikipedia)}
 	\end{figure}
-	And the reader must be careful about the statement that at the periapsis people say it's winter because in fact... it depends where you live!!! Indeed, if you live in the northern hemisphere ti will be winter, but at the southern hemisphere it will be summer (people that have the money to travel during holidays know this fact very well) as illustrated in the figure below:
+	And the reader must be careful about the statement that at the periapsis people say it's winter because in fact... it depends where you live!!! Indeed, if you live in the northern hemisphere it will be winter, but at the southern hemisphere it will be summer (people that have the money to travel during holidays know this fact very well) as illustrated in the figure below:
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.6]{img/engineering/earth_seasons.jpg}
@@ -1853,7 +1853,7 @@ This term contains no variable, it is constant and therefore its gradient is zer
 	
 	\end{tcolorbox}
 
-	\subsubsection{Gears association}
+	\subsubsection{Gears association}\label{gears association}
 	For reasons of geometrical or mechanical constraints, it is sometimes necessary to build gear stages as shown for example with the gear train of 4 wheels below:
 	\begin{figure}[H]
 		\begin{center}
@@ -4151,7 +4151,7 @@ Their construction-material is most commonly silicon (their marking has the lett
 	
 	
 	\pagebreak
-	\subsection{Steady State linear circuits}
+	\subsection{Steady State Linear Circuits}
 	We will see here circuits composed of simple elements such as resistance, capacitance and impedance. These circuits, whose representative equation is a linear differential equation, are named "\NewTerm{linear circuits}\index{linear circuits}". Moreover, they are an excellent example to see the cumbersome developments using classical mathematical tools as opposed to other more flexible and powerful techniques (representation by phasors and Laplace transforms).
 	
 	\subsubsection{RC series circuit}\label{rc series circuit}
@@ -4456,7 +4456,7 @@ Their construction-material is most commonly silicon (their marking has the lett
 	\end{tcolorbox}
 	
 	\pagebreak
-	\subsection{Linear circuit in forced regime}
+	\subsection{Linear Circuit in Forced Regime}
 	he objective here will be to study the behavior of a series linear RLC circuit excited by a sinusoidal voltage generator since it is a generalization of the $RL$ or $RC$ circuits  (it is enough to cancel $L$ or $C$ respectively to back on the solutions of an $RC$ or $RL$ circuit).
 
 	We then have:
@@ -4601,6 +4601,206 @@ Their construction-material is most commonly silicon (their marking has the lett
 	The circuit is then what we name logically enough ... a "\NewTerm{derivativator}".
 
 	The utility of an integrating circuit is, for example, to transform a periodic signal into a constant (since the time average of a periodic signal having an offset will never be zero).
+	
+	\pagebreak
+	\subsection{Signal Processing}
+	Signal processing concerns the analysis, synthesis, and modification of signals, which are broadly defined as functions conveying, "information about the behavior or attributes of some phenomenon", such as sound, images, and biological measurements. For example, signal processing techniques are used to improve signal transmission fidelity, storage efficiency, and subjective quality, and to emphasize or detect components of interest in a measured signal.
+	
+	It may seem curious to the reader that we deal with signal processing in the section Electrical Engineering as it also apply to Numerical Methods. But in my point of view, the most concerned application and tools related to signal processing is electronics and explained just in the paragraph before.
+	
+	\subsubsection{Nyquist-Shannon Theorem (Nyquist sampling theorem)}
+	The "\NewTerm{Nyquist sampling theorem}\index{Nyquist sampling theorem}", or "\NewTerm{Nyquist-Shannon theorem}\index{Nyquist-Shannon theorem}", provides a prescription for the sampling frequency required for a "good enough" sampling for a perfectly periodic signal into a digital (square pulse) transformation. It is stated simply, and wrongly (as Nyquist never said this!!!!!), as follows (and should not bear the name "theorem" as it is only an engineering practice and not a general perfect theorem!!!!!):
+	\begin{theorem}
+	The sampling frequency of a signal $s(t)$ should equal to twice the highest frequency contained in the signal. Or in mathematical terms:
+	
+	where $f_s$ is the sampling frequency (how often samples are taken per unit of time or space), in this special case named "\NewTerm{Nyquist rate}\index{Nyquist rate}", and $f_\mathrm{max}$ is the highest frequency contained in the signal. Under the assumption that the signal must not contain a sinusoidal component at exactly frequency $f_\mathrm{max}$ (see further below the example to understand why this assumption...)!
+	\end{theorem}
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	In reality, even if ideal sampling could be achieved, for a lot of manipulations and analyses, the original signal needs to be reconstructed at a higher sample frequency. So what sampling frequency should we use? Well, the answer is application dependent and my require careful statistical analysis of error rates between the original signal and the rebuild one based on the sampling. A rule of thumb in practice seems to consider $2$ samples per period (Nyquist criteria) for very repetitive signals, $800$ samples per period for non-repetitive signals where extreme precision is required.
+	\end{tcolorbox}
+	The first explanation that we can found in many textbooks is the following (even if it's wrong, it is a first approach that helps to understand the real explanation we will see later further below):
+	
+	Let us consider for example a signal composed of a single cosine wave at a frequency of $1$ [Hz]:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/engineering/nyquist_01.jpg}
+	\end{figure}
+	If we sample this waveform at $2$ [Hz] (as dictated by the Nyquist theorem), this is sufficient to capture each peak of the signal\footnote{Obviously if the signal was a sine instead of a cosine, we see that it would be wrong as we would have a $0$ sampling everywhere, hence the precision about the sine component in the theorem...}:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/engineering/nyquist_02.jpg}
+	\end{figure}
+	If we sample at a frequency higher than this, for example $3$ [Hz], then there are more than enough samples to capture the variations in the signal:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/engineering/nyquist_03.jpg}
+	\end{figure}
+	If however we sample at a frequency lower than $2$ [Hz], for example at $1.5$ [Hz], then there are now not enough samples to capture all the peaks and troughs in the signal:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/engineering/nyquist_04.jpg}
+	\end{figure}
+	Note here that we are not only losing information, but we are getting the wrong information about the signal. The person receiving these samples, without any previous knowledge of the original signal, may well be mislead into thinking that the signal has quite a different form:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/engineering/nyquist_05.jpg}
+	\end{figure}
+	From this example, we can see the reason for the term "\NewTerm{signal aliasing}\index{signal aliasing}". That is, the signal now takes on a different "persona" or a false presentation, due to being sampled at an insufficiently high frequency.
+
+	Now we are ready to think about the sampling of little bit more perfectly periodic complex signal composed of some frequency components. By Fourier's theorem, we know that any continuous signal may be decomposed in terms of a sum of sines and cosines at different frequencies. For example, the following waveform was composed by adding together sinewaves at frequencies of $1$ [Hz], $2$ [Hz], and $3$ [Hz]:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/engineering/nyquist_06.jpg}
+	\end{figure}
+	According to the Nyquist sampling "theorem", the signal must be sampled at twice the highest frequency contained in the signal. In this case, we have $f_c=3$ [Hz], and so the Nyquist theorem tells us that the sampling frequency, $f_s$, must be at least $6$ [Hz]. And sure enough, this appears to be sufficient (keep in mind that the example below is still a perfect periodic signal!):
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/engineering/nyquist_07.jpg}
+	\end{figure}
+	Thus, when a signal contains not just one but many different frequencies added together, the minimal sampling rate recommended to avoid aliasing at least that of the highest frequency, irrespective of how many other frequency components there are.
+	
+	The human ear capabilities is between $20$ [Hz] to $20,050$ [Hz] (\SeeChapter{see section Music Mathematics page \pageref{basic frequency spectrum human ear}}) hence the fact that many standard sampling rate are at satisfactory sampling rate of\footnote{The rate $44.1$ [kHz] was chosen in fact following debate between manufacturers, notably Sony and Philips, and its implementation by Sony, yielding a de facto standard.}:
+	
+	But for telephony the usable voice range is for example $300$ [Hz] to $3,400$ [Hz], so a sampling frequency of $8$ [kHz] should be satisfactory enough in such a case.
+	
+	By the way, on a computer operating system like Microsoft Windows, and for most microphone, the user can choose the sampling rate as illustrated below:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{img/engineering/sampling_microsoft_windows.jpg}
+		\caption[]{Microsoft Windows 10 Microphone Array Properties}
+	\end{figure}
+	Obviously the choices may depend on your material (computer/microphone).
+	
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\textbf{{\Large \ding{45}}Example:}\\\\
+	An audiostream sampled at $44.1$ [kHz] with an amplitude coded on $16$ bits in stereo ($2$ channels) will have a bitrate of:
+	
+	This is the typical CD quality (for those who know what is Compact Disc).\\
+	
+	Most DAB+ broadcast (Digital Audio Broadcasting) emitter have much lower bitrate! The recommended one being $192$ [kbps] (but the reader must keep in mind that this include the fact it is MPEG compressed (using at least a Huffman algorithm as seen at page \pageref{huffman algorithm}) and also have additional error correcting code bits). Furthermore, best DAB+ methods seems to implements a technique named "VBR" for "Variational Bitrate" where the simple idea is that that the bitrate change dynamically depending on the complexity of the signal.
+	\end{tcolorbox}
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Digital signal encoding based on uniformly distributed samples seems to be named "\NewTerm{Linear Pulse Code Modulation}\index{Linear Pulse Code Modulation}" (abbreviated LPCM or simply PCM). It is used for example by CD (with a sample rate of $44.1$ [Khz] and an amplitude binary coded on $16$ bits) and also by some broadcasting techniques. For sounds like jazz, classic music, acoustic that have a lot of dynamics (variations) an amplitude of $24$ bits is recommended... it is also used by movies theaters! 
+	\end{tcolorbox}
+	But if the reader was attentive reading this first "pseudo explanation" maybe see that the argumentation is a little bit weak.
+	
+	So here is the original one: In practice, for historical reasons, when we sample a continuous signal, we transform it into series of square pulses in the frequency domain (pulses of different lengths and amplitudes). To get the original signal back, we inverse Fourier transform the pulses and maybe if you remember our study and examples of inverse Fourier transform, the inverse Fourier transform of a square pulse of width $2W$ (this width being named "\NewTerm{Nyquist bandwidth}\index{Nyquist bandwidth}") in the frequency domain gives in the time domain the sinc function (\SeeChapter{see section Sequences and Series page \pageref{inverse fourier transform square pulse}}):
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{img/engineering/sinc_inverse_fourier_transform.jpg}
+	\end{figure}
+	Therefore sinc-shaped pulses possess a rectangular spectrum, enabling data to be encoded in a minimum spectral pulsation (ie frequency) bandwidth of $[-W,+W]$.
+	
+	The final result for a series of square impulses in the frequence space is that we get a series of shifted sinc functions in the time space as illustrated below with a special example, named sometimes a "\NewTerm{Nyquist sinc pulse}\index{Nyquist sinc pulse}":
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{img/engineering/sinc.jpg}
+	\end{figure}
+	The dots show the signal samples, the dashed lines show the component shifted sinc functions, and the solid line shows the unique bandlimited reconstruction from the samples obtained by summing the component sinc functions.
+	
+	Looking to the figure above the reader can't ignore (in a practical point of view!) the fact that if the distance pic-to-pic of each sine cardinal is equal to $1/W$ it will greatly improve DAC (Digital to Analogic Converters) to detect points of interest for the conversion as they are significantly spaced. Keep in mind this information for later!
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	The reader can notice that we have intersymbol interference in the previous figure, this effect is named "\NewTerm{intersymbol interference}\index{intersymbol interference}" or abreviated "ISI". As we will further below, the Nyquist sampling theorem prove in fact that this interferences cancels each other!\\
+	
+	In communications, we name "\NewTerm{Nyquist ISI criterion}\index{Nyquist ISI criterion}" the conditions which, when satisfied by a communication channel (including responses of transmit and receive filters), result in no intersymbol interference!
+	\end{tcolorbox}
+	The idea of the processes is illustrated below (the step with the sine cardinal is not visible):
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/engineering/dac_adc_converter_concept.jpg}
+		\caption{DAC and ADC converts concepts}
+	\end{figure}	
+	And this was the real idea (we should rather speak of "question") of Harry Nyquist and Shannon!!!!!!!!! Is it possible using only sine cardinal as kernels under and under certain conditions to rebuild any given original signal that is perfectly periodic and using a sampling time spaced.
+	
+	So here it comes... the real technical version of the theorem:
+	\begin{theorem}
+	If $s(t)$ and $F(\omega)$, the Fourier transform of $s(t)$, is supported on the interval $[-f_c,+f_c]$ then:
+	
+	In other words, the theorem says that if an absolutely integrable function $s(t)$ contains no frequencies higher than $f_c$ [Hz], then it is completely determined by its samples at a uniform grid spaced at distances $1/(2f_c)$ apart via the relation above where the ideal interpolation kernel is proportional to the $\mathrm{sinc}$ function (at the time the theorem was written, the cardinal sine was considered as a nice symmetrical decreasing function to describe and interpolate a frequency spectrum\footnote{Hence this theorem is more a "communication engineering theorem" than a purely general math theorem!}!).
+	
+	\end{theorem}
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	At the opposite of what most textbooks or Internet websites say, the Nyquist sampling theorem don't say what is the ideal sample frequency but just say that the above relation exist!!!
+	\end{tcolorbox}
+	
+	\begin{dem}
+	The spectral analysis theorems show that any signal can be decomposed into a sum of sinusoids of different frequencies, amplitudes and phases. We consider a signal inscribed between a minimum frequency and a maximum frequency. Experience determines which frequency range is of interest. Even if the frequency coefficients outside this range are not zero, they are neglected since they do not contribute significantly to the total mean square value.
+	
+	Let us recall that the Fourier Transform $F(\omega)$ of a function $f(t)$ is given by:
+	
+	To avoid any notation confusion for what follows we will write it (the $s$ stand for "signal"):
+	
+	The Fourier transform described the signal by its frequencies $f$ that it contains, expressed in these equations by the means of the pulsation $\omega=2\pi f$.
+
+	As we know the inverse Fourier transform gives $s(t)$ in function of $F(\omega)$:
+	
+	The signal of which the theorem deals is limited in frequency (the square pulse as we know). Beyond $f_{\mathrm{max}}$, corresponding to a pulsation $\omega_{\mathrm{max}}=2\pi f_{\mathrm{max}}$, the frequency coefficients are considered as negligible. 
+	
+	Therefore:
+	
+	Let us look for the value of the samples $e_n$ regularly spaced taking the values of $s(t)$ for $t$ multiple of a given fraction of highest frequency component of the signal:
+	
+	Hence:
+	
+	Now let us recall that we have proved that the coefficient of a Fourier series was given by:
+	
+	Let us imagine this latter Fourier coefficient (that is for recall in time space) but in frequency (ie pulsation) space (!!!), then it would be written:
+	
+	In the case of our square pulse that has a frequency domain limited between $[-\omega_\mathrm{max},+\omega_\mathrm{max}]$ (hence a width of $2\omega_\mathrm{max})$, we the rewrite the latter relation with:
+	
+	For recall we divide by $2\omega_\mathrm{max})$ because:
+	\begin{itemize}
+		\item It is the width of our square pulse
+		\item Because we need the average value
+	\end{itemize}
+	Hence:
+	
+	The reconstruction of $F(\omega)$ in Fourier series is given as we know by:
+	
+	Therefore:
+	
+	Now we will focus on the integral only:
+	
+	Therefore:
+	
+	Hence:
+	
+	In technical words we say that: By time-frequency symmetry, we have equally a Fourier series expansion of a band-limited Fourier transform!
+	
+	Let us focus on the $\mathrm{sinc}$ term and plot if in Maple 4.00 for $k=1,k=2,k=3$ and three different pulses (we chooses $f_\mathrm{max}=50$ but the value of the frequency doesn't change at all the conclusion):\\
+	
+	\texttt{>with(plots):\\
+	>k:=1;\\
+	>plot([sin(2*Pi*50*t)/(2*Pi*50*t),sin(2*Pi*50*(t-1/(k*50)))/(2*Pi*50*(t-1/(k*50))),\\
+	sin(2*Pi*50*(t-2/(k*50)))/(2*Pi*50*(t-2/(k*50)))],t=-0.1..0.1);\\
+	>k:=2;\\
+	>plot([sin(2*Pi*50*t)/(2*Pi*50*t),sin(2*Pi*50*(t-1/(k*50)))/(2*Pi*50*(t-1/(k*50))),\\
+	sin(2*Pi*50*(t-2/(k*50)))/(2*Pi*50*(t-2/(k*50)))],t=-0.1..0.1);\\
+	>k:=3;\\
+	>plot([sin(2*Pi*50*t)/(2*Pi*50*t),sin(2*Pi*50*(t-1/(k*50)))/(2*Pi*50*(t-1/(k*50))),\\
+	sin(2*Pi*50*(t-2/(k*50)))/(2*Pi*50*(t-2/(k*50)))],t=-0.1..0.1);}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{img/engineering/nyquist_theorem_frequency_sampling_maple_k_1_2_3.jpg}
+		\caption[]{A Nyquist sinc pulses for $k=1,2,3$ and $f_\mathrm{max}=50$ with Maple 4.00b}
+	\end{figure}
+	We clearly see that it is the middle one ($k=2$) that that satisfy the previously criteria of the Nyquist sine pulse. The sum of the three pulses gives respectively:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{img/engineering/nyquist_theorem_frequency_sampling_maple_sum_k_1_2_3.jpg}
+		\caption{Nyquist sinc pulses sum for $k=1,2,3$ and $f_\mathrm{max}=50$ with Maple 4.00b}
+	\end{figure}
+	So with the plots we see that we need $k=2$ (in other words the sampling frequency must be twice the frequency of the highest frequency term of the Fourier series) to fall back on the Nyquist and Shannon best practice recommendation for perfect periodic signals sent original by square pulse signal in the frequency domain. Hence the final result:
+	
+	
+	
+	Thus after simplification:
+	
+	So the reader must keep in mind that is, in general, the value $k$is not uniquely determined for $s(t)$, however, sufficient smoothness, e.g., continuity, implies its unique definition.
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
 	
 	\pagebreak
 	\subsection{Amplifiers}
@@ -5406,9 +5606,78 @@ from $0$. This is where the chimney might POSSIBLY break.
 	
 
 	\subsubsection{Euler's lift argument}
-	The simultaneous conservation of mass, momentum, and energy of a fluid (while neglecting the effects of air viscosity) use the Euler Equations and we have proved in the section of Continuum Mechanics:
+	Let us recall the Euler equation of the 1st form (still for an incompressible fluid):
 	
-	that was the Bernoulli equation was a special case of Euler's equation (as it is itself a special case of Navier-Stokes equations).
+	If we neglect the gravitational field:
+	
+	Distributing:
+	
+	Let us now recall that in cartesian coordinates:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{img/engineering/bernoulli_streamline_cartesian.jpg}
+	\end{figure}
+	We define the gradient operator in $2$D as:
+	
+	And let us introduce another approach, named "\NewTerm{streamline coordinates}\index{streamline coordinates}", based on using differential geometry considering the following figure:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{img/engineering/bernoulli_streamline_differential.jpg}
+	\end{figure}
+	We define obviously the gradient identically:
+	
+	The advantage of this approach is that the velocity vector is obviously:
+	
+	The disadvantage however is that the unit vectors $\{\vec{e}_s,\vec{e}_n\}$ (Frenet vectors) change along the streamline!
+	
+	Let us now recall the first Frenet formula (\SeeChapter{see section Differential Geometry page \pageref{first Frenet formula}}):
+	
+	Hence in our case above, this will be written (the "$-$" sign is here to make the perpendicular vector to be outside of the osculating circle as in the figure above):
+	
+	where are we know, $R$ is the radius of curvature at that point on the streamline.
+	
+	Now let us go back to the Euler equation of the 1st form:
+	
+	This equation is steady flow state is simplified as:
+	
+	That we will rearrange a bit:
+	
+	Applying the intrinsic definition of $\vec{\nabla}$ and noting that:
+	
+	and remembering that:
+	
+	Then we have successively:
+	
+	Resolving separately in the $\vec{e}_s$ and $\vec{e}_n$ gives (notice that the dimensions are those of an acceleration $[\text{m}^2\cdot \text{s}^{-1}]$!):
+	
+	Where the first relation is say to give the "\NewTerm{streamwise acceleration}\index{streamwise acceleration}", denoted $a_s$, and the second relation is say to give the "\NewTerm{normal acceleration}\index{normal acceleration}", denoted $a_n$.
+	
+	We see that the second relation describes how streamlines are bent by pressure gradients. So the important stuff to focus on is:
+	
+ 	that states that when there is flow and the streamlines curve,
+the pressure $p$  increases in the $\vec{n}$ direction, that is, as one moves away from the local center of curvature.
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Notice that the first relation:
+	
+	can also be rewritten:
+	
+	and rearranging we get:
+	
+	So we fall back on the Bernoulli's theorem that, for recall, states that the sum in the parenthesis remains invariant along a streamline.
+	\end{tcolorbox}
+	Now to illustrate the physical meaning, consider the following illustration:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.4]{img/engineering/bernoulli_streamline_curvaturejpg.jpg}
+	\end{figure}
+	The difference between the pressure at infinity and at the top
+of the wing is given by the integration of:
+	
+	from which we see that:
+	
+	Thus $p_\text{top}<p_{\infty}$ and according to Bernouilli's equation:
+	
+	it then follows that $v_\text{top}>v_{\infty}$.
 	
 	\subsubsection{Coandă lift argument}
 	In its original sense, the Coandă effect refers to the tendency of a fluid jet to stay attached to an adjacent surface that curves away from the flow, and the resultant entrainment of ambient air into the flow.
@@ -5629,6 +5898,12 @@ from $0$. This is where the chimney might POSSIBLY break.
 	So this is the altitude at which the rocket would have a zero vertical speed and begin to fall. As we can see, it is well above the low orbit but well below the geostationary orbit as we will calculate thereafter.
 	\end{tcolorbox}
 	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/engineering/rockets_of_the_world.jpg}
+		\caption[Rockets of the World]{Rockets of the World (author: ?)}
+	\end{figure}
+	
 	\subsection{Geostationary orbit}
 	The geostationary orbit is an orbit at $35'786$ [km] altitude above the equator of the Earth in the equatorial plane and zero orbital eccentricity. This is a particular case of the geosynchronous orbit (otherwise the orbital period is always the period of revolution of the Earth orbit but the orbit then deviates north and south of the equator describing a analemma in the sky when viewed from a fixed point on the surface of the Earth).
 	
@@ -5698,7 +5973,7 @@ on them. Comparing the value of $g$ we just calculated to that on Earth ($9.80\;
 	\subsection{Vis-Viva Equation}
 	 The vis-viva equation, also referred to as "\NewTerm{orbital-energy-invariance law}\index{orbital-energy-invariance law}", is one of the equations that model the motion of orbiting bodies. It is the direct result of the principle of conservation of mechanical energy which applies when the only force acting on an object is its own weight.
 	 \begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	Vis viva (Latin for "live force") is a term from the history of mechanics, and it survives in this sole context. It represents the principle that the difference between the aggregate work of the accelerating forces of a system and that of the retarding forces is equal to one half the vis viva accumulated or lost in the system while the work is being done.
+	Vis-viva (Latin for "live force") is a term from the history of mechanics, and it survives in this sole context. It represents the principle that the difference between the aggregate work of the accelerating forces of a system and that of the retarding forces is equal to one half the vis-viva accumulated or lost in the system while the work is being done.
 	\end{tcolorbox}
 	In the vis-viva equation the mass $m$ of the orbiting body (e.g., a spacecraft) is taken to be negligible in comparison to the mass $M$ of the central body (e.g., the Earth). In the specific cases of an elliptical or circular orbit, the vis-viva equation may be readily derived from conservation of energy and momentum.
 
@@ -5720,7 +5995,13 @@ on them. Comparing the value of $g$ we just calculated to that on Earth ($9.80\;
 	
 	This powerful equation does not depend on orbital eccentricity! For instance, if we observe a new object in the solar system and know its current velocity and distance, we can determine its orbital semi-major axis and thus have some idea where it came from.	
 		
-	Notice that the second cosmic speed (release velocity) can be obtained from the Vis-viva equation by taking the limit as $a$ approaches $+\infty$:
+	Notice that the second cosmic speed (release velocity) can be obtained from the vis-viva equation by taking the limit as $a$ approaches $+\infty$:
+	
+	There is also an interesting application to the above relation if we take $a=r_a+r_p$ and $r=r_p$ to determine the speed of the today's fastest known object in the Solar System:
+	
+	This relation that gives the perihelion speed is often denoted as:
+	
+	And taking the for application the Sun and the Great Comet of 1843 (formally designated C/1843 D1 and 1843 I) that has a perihelion $r_p$ of only $149,597,871$ [km] (this means it came to within less than $121,000$ [km] of the surface of the Sun, and amazingly it survived!) and an aphelion $r_a$ of $23,337,267,876$ [km], we get:
 	
 	
 	\pagebreak
@@ -5733,9 +6014,9 @@ on them. Comparing the value of $g$ we just calculated to that on Earth ($9.80\;
 	\end{figure}
 	The orbital maneuver to perform the Hohmann transfer uses two engine impulses, one to move a spacecraft onto the transfer orbit and a second to move off it.
 	
-	 In the above the transfer orbit meets Earth's orbit at periapse and Mars' orbit at apoapse. The velocities needed at these two points can easily be found using the Vis Viva proved previously.
+	 In the above the transfer orbit meets Earth's orbit at periapse and Mars' orbit at apoapse. The velocities needed at these two points can easily be found using the vis-via equation proved previously.
 	 
-	The figure above show that the initial circular orbit around the Earth and departure (transfer) orbit share a common point. Therefore the satellite must apply a maneuver at this point in order to change its velocity. The initial velocity of the spacecraft is that of an object in circular orbit a given as we know by the first cosmic speed (low-level orbit speed):
+	The figure above show that the initial circular orbit around the Earth and departure (transfer) orbit share a common point. Therefore the satellite must apply a maneuver at this point (tangential acceleration) in order to change its velocity. The initial velocity of the spacecraft is that of an object in circular orbit a given as we know by the first cosmic speed (low-level orbit speed):
 	
 	
 	a numerical application for Earth gives $7.73\;[\text{km}\cdot\text{s}^{-1}]$ when we want to put something at $300$ [km] height. The corresponding kinetic energy is immediate:
@@ -5774,6 +6055,14 @@ on them. Comparing the value of $g$ we just calculated to that on Earth ($9.80\;
 	
 	 
 	The Hohmann transfer for which the above analysis applies is often used because it is a highly efficient transfer. Because the Hohmann travels through $\pi$ of true anomaly, it allows the satellite to apply tangential burns which achieve maximum $\Delta v$ for minimum fuel consumption. However, some missions may wish to consider other transfer variables, such as launch window or transfer time, over $\Delta v$. These missions may consider type I or II trajectories. A type I trajectory travels through less than $\pi$ of true anomaly while a type II trajectory travels through greater than $\pi$.
+	
+	The standard mission to the surface of the Moon is performed by leaving Earth from a parking orbit, performing a velocity maneuver in the parking orbit in order to leave on a direct transfer to the Moon, then performing an additional maneuver to become captured by the Moon. The lowest total burn for this type of direct transfer is a Hohmann transfer from the parking orbit to the Moon's orbit. In order to reduce the total delta-V, the three body problem that creates the Lagrange point solutions also allows for some low energy transfers that reduce the delta-V required to reach the Moon. There are families of low thrust orbits that use small burns to slowly increase an orbit semi major axis until the orbit reaches the Moon. In addition to the low thrust transfer, there are also families of Ballistic Lunar Trajectories(BLT) that involve a path from Earth out towards the Sun-Earth system L1 point where the gravitational pull of the sun alters the trajectory of the spacecraft causing it to enter a path towards the Moon where it can then be captured. The three different families of transfers are shown below:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[]{img/engineering/hohmann_transfer_orbit_type.jpg}
+		\caption{Hohmann Transfer variations}
+	\end{figure}
+
 	
 	\begin{flushright}
 	\begin{tabular}{l c}
@@ -6218,9 +6507,8 @@ on them. Comparing the value of $g$ we just calculated to that on Earth ($9.80\;
 	\tikzstyle{fini}   =[circle,thick,inner sep=0pt,minimum size=6mm,node distance=20mm,draw=black!80,fill=black!30]
 	\tikzstyle{actif}  =[circle,thick,inner sep=0pt,minimum size=6mm,node distance=20mm,draw=black!80!red,fill=red!20!black!30]
 	
-	\StickyNote[2.5cm]{\LARGE To finish translate and write before year 2020}[6.5cm]
 	
-	Now aim of this is to make the Dijkstra algorithm work on a small concrete example.
+	Now aim of this is to make the Dijkstra algorithm work on a small concrete example!
 
 	Let us look for the shortest paths of origin $ A $ in this graph to node $C$:
 	%%%%%%%%%%%%%%%%%%%%% Présentation du graphe %%%%%%%%%%%%%%%%%%%%%
@@ -6497,36 +6785,8 @@ on them. Comparing the value of $g$ we just calculated to that on Earth ($9.80\;
 	\end{tabular}
 	\end{center}
 
+	So we have arrived to our destination! Now we go backward to check if we really have the shortest path. Starting from $C$ we see that by going backward the shortest path is to go through $B$ that itself comes from $E$:
 	%%%%%%%%%%%%%%%%%%%%% Étape 4.2 %%%%%%%%%%%%%%%%%%%%%
-	\begin{center}
-	\begin{tikzpicture}[>=stealth,scale=1]
-	  \node[fini,label={[red]left:A}]      (s)                            {$0$};
-	  \node[encours,label={[red]above:B}]      (t)        [above right of=s]  {$8$};
-	  \node[fini,label={[red]below:E}]      (y)        [below right of=s]  {$5$};
-	  \node[infini,label={[red]above right:C}]      (x)        [right of=t]        {$13$};
-	  \node[actif,label={[red]below right:D}]      (z)        [right of=y]        {$7$};
-	% flèches soulignées.
-	\begin{pgfonlayer}{background}
-	\draw[select] (s) to (y) ;
-	\draw[select,bend right=20] (y) to (t) ;
-	\draw[fl_actif,bend right=20] (z) to (x) ;
-	\draw[select] (y) to (z) ;
-	\end{pgfonlayer}
-	% flèches et numéros
-	\draw[pre] (s) to node[auto] {$10$} (t) ;
-	\draw[pre] (s) to node[auto,swap] {$5$} (y) ;
-	\draw[pre] (t) to node[auto] {$1$} (x) ;
-	\draw[pre] (y) to node[auto,near end] {$9$} (x) ;
-	\draw[pre] (y) to node[auto,swap] {$2$} (z) ;
-	\draw[pre,bend right=20] (y) to node[auto,swap] {$3$} (t) ;
-	\draw[pre,bend right=20] (t) to node[auto,swap] {$2$} (y) ;
-	\draw[pre,bend right=20] (x) to node[auto,swap] {$4$} (z) ;
-	\draw[pre,bend right=20] (z) to node[auto,swap] {$6$} (x) ;
-	\draw[pre,bend left=80] (z) to node[auto] {$7$} (s) ;
-	\end{tikzpicture}
-	\end{center}
-
-
 	\vspace{7mm}
 	\begin{center}
 	\begin{tabular}{|c|c|c|c|c|} \hline
@@ -6540,8 +6800,6 @@ on them. Comparing the value of $g$ we just calculated to that on Earth ($9.80\;
 	\end{tabular}
 	\end{center}
 	
-
-	%%%%%%%%%%%%%%%%%%%%% Étape 5 %%%%%%%%%%%%%%%%%%%%%
 	\begin{center}
 	\begin{tikzpicture}[>=stealth,scale=1]
 	  \node[fini,label={[red]left:A}]      (s)                            {$0$};
@@ -6569,7 +6827,7 @@ on them. Comparing the value of $g$ we just calculated to that on Earth ($9.80\;
 	\draw[pre,bend left=80] (z) to node[auto] {$7$} (s) ;
 	\end{tikzpicture}
 	\end{center}
-	
+	And as $8_E$ joins our initial forward path, we stop here and therefore the shortest path has a weight equal to $9$.
 	\vspace{7mm}
 	\begin{center}
 	\begin{tabular}{|c|c|c|c|c|} \hline
@@ -6582,8 +6840,7 @@ on them. Comparing the value of $g$ we just calculated to that on Earth ($9.80\;
 	$\bullet$  & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ \\ 
 	\end{tabular}
 	\end{center}
-
-	%%%%%%%%%%%%%%%%%%%%% Étape 6 %%%%%%%%%%%%%%%%%%%%%
+	Hence finally the final path:
 	\begin{center}
 	\begin{tikzpicture}[>=stealth,scale=1]
 	  \node[fini,label={[red]left:A}]      (s)                            {$0$};
@@ -6612,20 +6869,8 @@ on them. Comparing the value of $g$ we just calculated to that on Earth ($9.80\;
 	\end{tikzpicture}
 	\end{center}
 
-	\vspace{7mm}
-	\begin{center}
-	\begin{tabular}{|c|c|c|c|c|} \hline
-	A & B & C & D & E \\ \hline
-	$0$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ \\ 
-	$\bullet $ & $10_A$ & $\infty$ & $\infty$ & $5_A$ \\ 
-	$\bullet $ & $8_E$ & $14_E$ & $7_E$ & $\bullet $\\ 
-	$\bullet $ & $8_E$ & $13_D$ & $\bullet$ & $\bullet $\\ 
-	$\bullet$  & $\bullet$ & $9_B$ & $\bullet$ & $\bullet$ \\ 
-	$\bullet$  & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ \\ 
-	\end{tabular}
-	\end{center}
 
-	Here is the corresponding pseudocode:
+	Ok the example may help to understand the human way... but what about the computer implementation that may seem quite not obvious (indeed... it's not obvious!). Here is the corresponding pseudocode for a computer implementation:
 	
 	\begin{verbatim}
 	 1  function Dijkstra(Graph, source):
@@ -6654,7 +6899,7 @@ on them. Comparing the value of $g$ we just calculated to that on Earth ($9.80\;
 	\end{verbatim}
 	As we can see above, this Dijkstra simple algorithm has a complexity of order $\mathcal{O}(v^2)$ as two loops depending on $v$ (the number of vertices) are inside each other. Some algorithms are faster using various empirical techniques (adjacency lists or quantum computing).	
 	
-	\subsection{Google PageRank algorithm}
+	\subsection{Google PageRank algorithm}\label{google pagerank algorithm}
 	At its creation in 1998, Google (search engine currently well know by many Internet users) has dominated in 2011 and still dominates the market for Internet search engines. His initial strength is based on the simple idea to sort the results by relevance, what did not make the other major search engines before him.
 	
 	The main idea behind the initial Google algorithm is interesting to present in this book because it is a practical example of purely mathematical concepts we have presented so far (graph theory and Markov chains in the respective sections of Graph Theory and Probability) and created one of the largest international companies in new technologies in the years 2000's (Google earns billions thanks to linear algebra ...) and even since the beginning of worldwide economy! As it is often the case in a market economy, it is primarily theoretical research (mathematical or physics) that helped to develop new tools!
@@ -6878,7 +7123,7 @@ Whether for one reason or another, ultimately many products will be outside of t
 As we shall see in the texts, a pretty fair possible definition of Six Sigma is: solving problems based on the exploitation of data. Thus it is a scientific method of management!
 
 \pagebreak
-\subsubsection{Quality Control}
+\subsubsection{Quality Control}\label{quality control}
 
 In the situation of quality studies in a business, we often give up a 100\% control because of the price it would generate. We then do a sampling. These must obviously be representative, that is to say, representatives and with equal probabilities (i.e. the mixture is good).
 
@@ -7050,8 +7295,10 @@ Basically, if we imagine ourselves working in a company, in charge of the manufa
 These two scenarios show that we do not then logically perform the same  tests at the beginning of the production and then on the long term. This is why we define in S.P.C. several indices (whose symbols are unique to this book because they change according the used standards) whose two most important are:
 	\begin{enumerate}
 		\item[D1.] We name "\NewTerm{short-term process potential capability}\index{short-term process potential capability}" or "\NewTerm{short-term dispersion index}\index{short-term dispersion index}" the ratio of the range of control $E$  of the distribution of values tolerated by the customer and the Six Sigma quality ($6 \sigma$) when the process is almost under control as:
-			
-		Where USL is the upper control limit or officially the "\NewTerm{Upper Specification Level}\index{upper specification level}" of the distribution and LSL the lower control limit or officially the "\NewTerm{Lower Specification Level}\index{lower specification level}" we often impose (but not always!) in the industry as at equal distances to the desired theoretical mean $\mu$. 
+		
+		More generally given by:
+		
+		Where USL is the "\NewTerm{Upper Specification Level}\index{upper specification level}" of the distribution and LSL the "\NewTerm{Lower Specification Level}\index{lower specification level}" that we often impose (but not always!) in the industry as at equal distances to the desired theoretical mean $\mu$. The term $L$ (often equal to $6$ in the Six Sigma methodology) is named the "\NewTerm{study variation}\index{study variation}".
 		
 		Normally within manufactures, the range of control is fixed (the numerator) and so when the value of the standard deviation is large (more variations, not enough controls) the value of the index is low and when the standard deviation is low (less variation, lot of controls) the value of the index is high as shown by the two examples below:
 		
@@ -7074,7 +7321,7 @@ These two scenarios show that we do not then logically perform the same  tests a
 		\end{figure}
 		
 		\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-In S.P.C., the range $E$ is sometimes denoted TI, meaning "tolerance interval".
+In S.P.C., the range $E$ is sometimes denoted TI, meaning "tolerance interval" (but this is wrong... instead it should be named "fluctuation interval").
 		\end{tcolorbox}
 		
 		The standard deviation in the denominator is simply defined as the average of the variances in the case of $k$ independent random variables:
@@ -7127,7 +7374,7 @@ In manufacture, one must be careful because the measuring instrument adds its ow
 
 As we have proved it in the section on Statistics, the standard error (standard deviation of the mean) is:
 	
-	In the Six Sigma methodology, we then often for long term process and under statistical control:
+	In the Six Sigma methodology, we then often have for long term process and under statistical control:
 	\begin{equation}
   \addtolength{\fboxsep}{5pt}
    \boxed{
@@ -7139,7 +7386,13 @@ As we have proved it in the section on Statistics, the standard error (standard 
    \end{gathered}
    }
 	\end{equation}
-when we analyze control charts (see further below) whose random variables is a sample of $n$ independent and identically Normally distributed random variables and that the limits were not imposed by a customer or an internal policy or technical constraints! Obviously, we must be aware that UCL and LCL are not the same expression in more complex cases and therefore for distributions other than the Normal distribution!
+	when we analyze control charts (see further below) whose random variables is a sample of $n$ independent and identically Normally distributed random variables and that the limits were not imposed by a customer or an internal policy or technical constraints! Obviously, we must be aware that UCL and LCL are not the same mathematical expression in more complex cases and therefore for distributions other than the Normal distribution!
+	
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Keep in mind that UCL is the "\NewTerm{Upper Control Limit}\index{upper control limit}" and LCL "\NewTerm{Lower Control Limit}\index{Lower Control Limit}" and that at the opposite of the USL (Upper Specification Limit) and LSL (Lower Specification Limit) their are calculated by more or less complex mathematical relations.\\
+	
+	Instead of specification limits, a process may have "boundaries". The difference is that when there are boundaries we assume that it is not possible for data to exceed the specification limits and therefore the $C_p$ (among others) has no sens to be calculated (some softwares - like Minitab - ask the user if he wants change his specification limites as boundaries for example...).
+	\end{tcolorbox}
 
 Furthermore, the above expression differs for short-term process because the example given above is for a case of measures over the long term for reminder!
 
@@ -7244,6 +7497,7 @@ Two typical readings of this chart are possible (we will explain the lower left 
 	Then $m_Y$ being not known we take what it should be: that is the target $T$ in the process. Thus, we introduce a new index named "\NewTerm{short term non-centered biased process potential capability}\index{short term non-centered biased process potential capability}":
 	
 	where once again it must be remembered that the standard deviation in the denominator inside the root of the standard deviation short term of the machine!
+	
 	We immediately see that most $C_{pm}$ is close to $C_{p}$ better it is (at least in manufacturing field).
 	
 	We finally have three common centered and non-centered short term capabilities indices (we deliberately chose to standardize the notations and put as much information inside the relations below):
@@ -7297,7 +7551,7 @@ Two typical readings of this chart are possible (we will explain the lower left 
 	For example, if we have a piece with an internal diameter of $36\pm 1\;[\mu \text{m}]$ (tolerance range of $2\; [\mu\text{m}]$ which is already a good level precision because in our time the standard is closer to $3\;[\mu\text{m}]$!), our device will then need to have according the rule cited above range of $0.2\;[\mu\text{m}]$...
 	
 	\pagebreak
-	\subsubsection{Quality Levels}
+	\subsubsection{Quality Levels}\label{quality levels}
 	
 	Some engineers as we already mention it like to know how many elements by million units produced (parts per million: PPM) will be considered as defective.
 	
@@ -7643,6 +7897,9 @@ where, for example, the value of PPM given at the line "Limit" is obtained with 
 		\centering
 		\includegraphics{img/engineering/capability_short_term_standard_deviation_options.jpg}
 	\end{figure}
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Remember, as we have already mention it (!), replacing one of your specification limits with a boundary in a software like Minitab yields a one-sided capability analysis. If you select both specification limits as boundaries, all capability statistics will appear as asterisks (*) in the Six Pack Capability Analysis plot. 
+	\end{tcolorbox}
 	\end{tcolorbox}
 	
 	\pagebreak
@@ -8980,7 +9237,7 @@ where, for example, the value of PPM given at the line "Limit" is obtained with 
 	We thus find the same values as those given for example by Minitab Statistical Software 15.1.1 (for the details see the Minitab companion book).
 	
 	\pagebreak
-	\subsubsection{ABC Method}
+	\subsubsection{ABC Method}\label{abc method}
 	In a company, the tasks are various and the maintenance teams are systematically reduced to a minimum. In addition, the most advanced technologies in maintenance can be very expensive, and should not be applied indiscriminately.
 	
 	It is therefore appropriate to be organized effectively and efficiently. The ABC analysis\footnote{Not to be confused with Activity-based costing (ABC) that is a costing methodology that identifies activities in an organization and assigns the cost of each activity with resources to all products and services according to the actual consumption by each.} (one should say in all rigor "ABC objective"), using implicitly use the cumulated Pareto law (\SeeChapter{see section Statistics page \pageref{pareto distribution}}), allows remedy this relatively well with an empirical approach. Thus, a classification of costs in relation to the types of failure gives priority interventions to carry on (this empirical method is also used in many other areas including one that is very well known: supply chain management).
@@ -9483,7 +9740,7 @@ view=[-10..10,-10..10,-10..10],contours=10,style=PATCHCONTOUR,\\
 
 	\pagebreak
 	\paragraph{Replicated full factorial designs}\mbox{}\\\\
-	Replicated full factorial designs are important as the give (among others that we will see during a companion example for the study of general factorial designs\footnote{especially the calculation of an ANOVA}) is the ability to calculate the confidence intervals of the effects.
+	Replicated full factorial designs are important as they give (among others that we will see during a companion example for the study of general factorial designs\footnote{especially the calculation of an ANOVA}) is the ability to calculate the confidence intervals of the effects.
 	
 	As a companion example let us consider the $2^3$ factorial design below replicated twice:
 	\begin{table}[H]\centering
@@ -9561,7 +9818,7 @@ view=[-10..10,-10..10,-10..10],contours=10,style=PATCHCONTOUR,\\
 	\end{itemize}
 	Let's say we run experiment numerous times. Sample effects, $E_{Gx_i}$ will be supposed to be Normally distributed. We can obviously do a Normal probability plot (Henry plot) of the measurements but here we will focus rather on the calculation of a confidence interval as it is more easy to communicate in corporations.
 
-	So our experiment is replicated, we calculate a sample variance for each run:
+	So our experiment is replicated, we calculate a sample variance for each run $r$:
 	
 	Then we get the following table:
 	\begin{table}[H]\centering
@@ -9570,10 +9827,10 @@ view=[-10..10,-10..10,-10..10],contours=10,style=PATCHCONTOUR,\\
 			\begin{tabular}{|c|c|c|c|c|}
 				\hline
 				\multicolumn{1}{c}{\cellcolor{black!30}\textbf{Trial N${}^\circ$}} & 
-  \multicolumn{1}{c}{\cellcolor{black!30}$y_{i1}$} & 
-  \multicolumn{1}{c}{\cellcolor{black!30}$y_{i2}$} & 
-  \multicolumn{1}{c}{\cellcolor{black!30}$\bar{y}_i$} & 
-  \multicolumn{1}{c}{\cellcolor{black!30}$\hat{\sigma}_{y_i}^2$} \\ \hline
+  \multicolumn{1}{c}{\cellcolor{black!30}$y_{r1}$} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}$y_{r2}$} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}$\bar{y}_r$} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}$\hat{\sigma}_{y_r}^2$} \\ \hline
 				 $1$ & $59$ & $61$ & $60$ & $2$\\ \hline
 				 $2$ & $74$ & $70$ & $72$ & $8$\\ \hline
 				 $3$ & $50$ & $58$ & $54$ & $32$\\ \hline
@@ -9581,10 +9838,15 @@ view=[-10..10,-10..10,-10..10],contours=10,style=PATCHCONTOUR,\\
 				 $5$ & $50$ & $54$ & $52$ & $8$\\ \hline
 				 $6$ & $81$ & $85$ & $83$ & $8$\\ \hline
 				 $7$ & $46$ & $44$ & $45$ & $2$\\ \hline
-				 $9$ & $79$ & $81$ & $80$ & $2$\\ \hline
+				 $8$ & $79$ & $81$ & $80$ & $2$\\ \hline
 		\end{tabular}
 	\end{center}
 	\end{table}	
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	What Minitab denote by the $T$-value is the ratio:
+	
+	Notice that if $n=1$, ie no replication data per run... then we cannot calculate the $\hat{\sigma}_{y_r}^2$ as there is a division by $0$...!
+	\end{tcolorbox}
 	We now assume that the standard deviation is constant for all runs (very strong assumption!) and given by the pooled sample variance:
 	
 	So obviously we can generalize:
@@ -9680,12 +9942,15 @@ view=[-10..10,-10..10,-10..10],contours=10,style=PATCHCONTOUR,\\
 	\textbf{Definitions (\#\mydef):}
 	Thus, we define the matrix whose components are all $+1$ or $-1$ and satisfying the previous relation:
 		
-	as a "\NewTerm{Hadamard matrix}\index{Hadamard matrix}" denoted sometimes $H$. 
+	as a "\NewTerm{Hadamard matrix}\index{Hadamard matrix}" denoted sometimes $H$.  
+	The Hadamard matrices are the $\pm 1$ matrices which maximize the determinant. It has some relevance to optimal design theory in statistics where minimizing the determinant of the information matrix gives the most accurate estimates of unknown parameters (in a certain sense). The information matrix is the inverse of a matrix obtained from the design, whose determinant thus has to be maximized (see page \pageref{optimal designs}).
 	
-	Put in another way, a $(+1,-1)$-matrix is Hadamard if the inner
-product of two distinct rows is 0 and the inner product of a
-row with itself is $n$.
-
+	Now the $\det(H_n)$ is equal to the volume of the $n$-dimensonal parallelepiped spanned by the orthogonal rows of $H_n$ (\SeeChapter{see section Linear Algebra page \pageref{determinant}}). By construction, each row has an Euclidean length at most, so that:
+	
+	and remember that this equality holds if and only if every entry of $H_n$ is $\pm 1$ and the rows of $H$ are orthogonal. A matrix attaining the bound:
+	
+	is a Hadamard matrix (we will prove further below that this bound is attained when $n$ is a multiple of $4$)! Put in another way, a $(+1,-1)$-matrix is Hadamard if the inner product of two distinct rows or columns is $0$ and the inner product of a row or column with itself is $n$.
+	
 	A few examples of Hadamard matrices are:
 	
 	It is quite apparent that if the rows and columns of an Hadamard matrix are permuted, the matrix remains Hadamard. It is also true that if any row or column is multiplied by $-1$, the Hadamard property is retained.
@@ -9702,11 +9967,12 @@ row with itself is $n$.
 	
 	The reader must obviously consider that in the above system we can consider two case in facts:
 	\begin{enumerate}
-		\item It is a system that represents indeed an order $4$ matrix, so $x$, $y$, $z$ and $w$ have to be replaced in its mind by the value $1$
-
-		\item It is a system that can represents only the $4$ first rows of a matrix of order $n$ greater $4$ (as all the other rows are equal to zero base on the same principle we have the habit to not represent them), so $x$ must therefore be in the reader mind replace by a given number of $1$ ($x=1\ldots 1$), same for $y$, $z$ and $w$. More explicitly (for example for $n=8$):
+		\item It is a system that represents indeed an order $4$ matrix, so $x$, $y$, $z$ and $w$ have to be replaced in readers mind by the value $1$:
 		
-		as we can always normalize a Hadamard matrix to get such as system and that the Hadamard properties still remain valids.
+
+		\item It is a system that can represents only the $4$ first rows of a matrix of order $n$ (as all the other rows are equal to zero based on the same principle... we then have the habit to not represent them), so $x$ must therefore be in the reader mind replace by a given number of $1$ ($x=1\ldots 1$), same for $y$, $z$ and $w$. More explicitly (for example for $n=8$):
+		
+		As we can always normalize a Hadamard matrix to get such as system then the Hadamard properties still remain valid.
 	\end{enumerate}
 	Solving the system gives:
 	
@@ -9865,11 +10131,11 @@ row with itself is $n$.
 	
 	to reduce the number of tests from $16$ to $12$, which column should we associate to what? Or going further: for how many $2$-level factors can we associated this type of design having $12$ trials???
 	\begin{enumerate}
-		\item The first one is to say that the Plackett-Burman designs of order $n$ should only be used for the study of main effects (so no interaction is taken into account) of $n-1$ factors. Thus, a Plackett-Burmann design of order $12$ will be reserved for a study of $11$ factors and only of their main effects (purely additive linear model).
+		\item The first one is to say that the Plackett-Burman designs of order $n$ as they ignore all interactions should only be used for the study of main effects of $n-1$ factors. Thus, a Plackett-Burmann design of order $12$ will be reserved for a study of $11$ factors and only of their main effects (purely additive linear model).
 
-		\item The second one is to say that the Plackett- Burman design contain a concept that we will see further and who's named "\NewTerm{aliases}\index{aliases}" (Plackett-Burman designs are all DoE of resolution III of the second order). Therefore, we have to use this type of design when we are ready to consider initially that the interactions with two factors are very significant.
+		\item The second one is to say that the Plackett-Burman design contain a concept that we will see further and who's named "\NewTerm{aliases}\index{aliases}". Then the designs are commonly named "\NewTerm{Plackett-Burman design of resolution III}\index{Plackett-Burman design of resolution III}". Therefore, we have to use this type of designs when we are ready to consider initially that the interactions with two factors (second order interactions) are not significant.
 	\end{enumerate}
-	The complexity of the alias with the Plackett- Burmann design makes that in practice they are rather used in the first religion release... by beginners and in the second by consultants.
+	The complexity of the alias with the Plackett-Burmann design makes that in practice they are rather used in the first religion release... by beginners and in the second by consultants.
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	A software like Minitab 15.1.1 does not display all the aliases used in the implementation of Plackett-Burmann designs.
 	\end{tcolorbox}
@@ -9951,12 +10217,12 @@ row with itself is $n$.
 	\end{table}
 	or in matrix form:
 	
-	where once again it is easy to control that all columns are orthogonales and balanced (same number of $+$ or $-$ in each column, or in other words the sum of each column - excepted the first one - is equal to zero) and that the matrix is a Hadamard matrix.	 Therefore the full factorial design for $3$ factors needs $8$ trials.
+	where once again it is easy to control that all columns are orthogonal and balanced (same number of $+$ or $-$ in each column, or in other words the sum of each column - excepted the first one - is equal to zero) and that the matrix is a Hadamard matrix.	Therefore the full factorial design for $3$ factors needs $8$ trials.
 
-	We can also represent his in the following form:
+	We can also represent this in the following form:
 	\begin{figure}[H]
 		\begin{center}
-		\includegraphics[scale=0.9]{img/engineering/doe_full_factorial_design_scheme_three_factor.jpg}
+		\includegraphics[scale=0.55]{img/engineering/doe_full_factorial_design_scheme_three_factor.jpg}
 		\end{center}	
 		\caption{Traditional representation of a full factorial design with $3$ factors}
 	\end{figure}
@@ -10625,7 +10891,7 @@ zero):
 	\end{figure}
 	We see that by doing a multifactorial ANOVA, that finally the factor \textit{Place} is statistically significant ($p$-value less than $5\%$), the factor \textit{Speed} is not ($p$-value greater than $5\%$), the pressure has a very significant influence (almost zero $p$-value). The interaction \textit{Place * Speed} is significant ($p$-value less than $5\%$). For cons, the interactions \textit{Speed * Pressure} and \textit{Place * Pressure} are not significant ($p$-value greater than $5\%$). The triple interaction \textit{Place * Speed * Pressure} is significant!\\
 	
-	So as we can see it, its not because a single given factor is not significant in the model without interaction that it will remain not significant when we take into account the interactions!!!\\
+	So as we can see it, its not because a single given factor is not significant in the model without interactions that it will remain not significant when we take into account the interactions!!!\\
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	All the results that we have obtained above and also the charts can be obtained with a simple spreadhseet software like Microsoft Excel. So if the reader want we add the corresponding screenshots he must not hesitate, as always, to contact us.
 	\end{tcolorbox}
@@ -10686,7 +10952,7 @@ zero):
 	
 	In the Taguchi OA design, only the main effects and two-factor interactions are considered, and higher-order interactions are assumed to be nonexistent!!!! In addition, designers are asked to identify (based on their knowledge of the subject matter) which interactions might be significant before conducting the design.
 
-	Let us start with an example of table that we know well, the $L_8$ table. By Taguchi this table can be read as the table of a fractional factorial design of $7$ factors (thus without interaction) or  as the table of a full factorial design for $3$ factors. This is why it is denoted $L_8(2^7)$ or $L_8(2^3)$ and represented by:
+	Let us start with an example of table that we know well, the $L_8$ table. By Taguchi this table can be read as the table of a fractional factorial design of $7$ factors (thus without interactions) or  as the table of a full factorial design for $3$ factors (hence with interactions!). This is why it is denoted $L_8(2^7)$ or $L_8(2^3)$ and represented by:
 	\begin{table}[H]\centering
 	\begin{center}
 		\definecolor{gris}{gray}{0.85}
@@ -10797,7 +11063,7 @@ zero):
 	\end{table}
 	and that this also corresponds to the fractional factorial design of a $7$-factor experimental design at $2$ levels (without interactions).
 	
-	The question that will obviously ask the reader to himself is how we have would have identify what factor belonged to which column in the context of a full factorial design with $3$ factors if we did not know the table prepared with the techniques view previously? Well  in fact just by using the following linear graph:
+	The question that will obviously ask the reader to himself is how we would have identify what factor belonged to which column in the context of a full factorial design with $3$ factors if we did not know the table was prepared with the techniques view previously? Well in fact just by using the following linear graph:
 	\begin{figure}[H]
 		\begin{center}
 		\includegraphics{img/engineering/taguchi_L8_linear_graph.jpg}
@@ -10812,10 +11078,24 @@ zero):
 		\includegraphics{img/engineering/taguchi_L8_linear_graph_complement.jpg}
 		\end{center}	
 	\end{figure}
-	That is to say, to make use of it for an analysis of $4$ factors (always with two modality in this case) represented by columns $1$, $2$, $4$, $7$ (the reader can indeed check that these four columns correspond to a fractional factorial design with for generator \textbf{12} for $4$ factors either by hand or with software) with $3$ interactions ($1$ and $2$; $1$ and $4$, $1$ and $7$).
+	That is to say, we make use of it for an analysis of $4$ factors (always with two modality in this case) represented by columns $1$, $2$, $4$, $7$ (the reader can indeed check that these four columns correspond to a fractional factorial design with for generator \textbf{12} for $4$ factors either by hand or with software) with $3$ interactions ($1$ and $2$; $1$ and $4$, $1$ and $7$).
+	
+	And what about the different shapes of the symbols on the linear graph??? There are given here:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{| m{2cm}| m{8cm}|}
+		\hline
+		\rowcolor[HTML]{9B9B9B} 
+		\textbf{Symbol} & \textbf{Description}                                                                \\ \hline
+		 \includegraphics[scale=1]{img/engineering/taguchi_graph_symbol_01.jpg} & Difficult, so the number of level changes in the runs order must be low.            \\ \hline
+		 \includegraphics[scale=1]{img/engineering/taguchi_graph_symbol_02.jpg} & Quite difficult, so the number of changes in the runs order must be also quite low. \\ \hline
+		 \includegraphics[scale=1]{img/engineering/taguchi_graph_symbol_03.jpg} & Quite easy.                                                                         \\ \hline
+		\includegraphics[scale=1]{img/engineering/taguchi_graph_symbol_04.jpg} & Easy, so frequent changes of the level of the factor are not a problem.             \\ \hline
+		\end{tabular}
+	\end{table}
 	
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	The practitioner must be careful because there are therefore two Taguchi tables therefore denoted $L_8$: one that is a full table for $3$ factors to $2$ levels and one for $7$ factors at $2$ levels without interactions as we have just seen (so with $7$ columns), but there also tables $L_8$ for $5$ factors splitten into $4$ factors at $3$ levels and $1$ factor to $4$ levels (without interactions) but only with $5$ columns. This is why books listing the tables Taguchi normally explicitly specify the scope of application of the given tables.
+	The practitioner must be careful because there are therefore two Taguchi tables denoted $L_8$: one that is a full table for $3$ factors to $2$ levels and one for $7$ factors at $2$ levels without interactions as we have just seen (so with $7$ columns), but there also tables $L_8$ for $5$ factors splitten into $4$ factors at $3$ levels and $1$ factor to $4$ levels (without interactions) but only with $5$ columns. This is why books listing the tables Taguchi normally explicitly specify the scope of application of the given tables.
 	\end{tcolorbox}
 	Let's see some other tables (a small part of the complete list):
 	\begin{itemize}
@@ -10873,11 +11153,48 @@ zero):
 			\end{center}	
 		\end{figure}
 		
+		\item $L_{12} (2^{11})$:
+		
+		\begin{table}[H]\centering
+			\begin{center}
+				\definecolor{gris}{gray}{0.85}
+					\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+						\hline
+						\multicolumn{1}{c}{\cellcolor{black!30}\textbf{Trial N${}^\circ$}} & 
+		  \multicolumn{1}{c}{\cellcolor{black!30}$1$} & 
+		  \multicolumn{1}{c}{\cellcolor{black!30}$2$} & 
+		  \multicolumn{1}{c}{\cellcolor{black!30}$3$} & 
+		  \multicolumn{1}{c}{\cellcolor{black!30}$4$} & 
+		  \multicolumn{1}{c}{\cellcolor{black!30}$5$} & 
+		  \multicolumn{1}{c}{\cellcolor{black!30}$6$} & 
+		  \multicolumn{1}{c}{\cellcolor{black!30}$7$}& 
+		  \multicolumn{1}{c}{\cellcolor{black!30}$8$}& 
+		  \multicolumn{1}{c}{\cellcolor{black!30}$9$}& 
+		  \multicolumn{1}{c}{\cellcolor{black!30}$10$}& 
+		  \multicolumn{1}{c}{\cellcolor{black!30}$11$}\\ \hline
+					 $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$\\ \hline
+					 $2$ & $1$ & $1$ & $1$ & $1$ & $1$ & $2$ & $2$ & $2$ & $2$ & $2$ & $2$\\ \hline
+					 $3$ & $1$ & $1$ & $2$ & $2$ & $2$ & $1$ & $1$ & $1$ & $2$ & $2$ & $2$\\ \hline
+					 $4$ & $1$ & $2$ & $1$ & $2$ & $2$ & $1$ & $2$ & $2$ & $1$ & $1$ & $2$\\ \hline
+					 $5$ & $1$ & $2$ & $2$ & $1$ & $2$ & $2$ & $1$ & $2$ & $1$  & $2$ & $1$\\ \hline
+					 $6$ & $1$ & $2$ & $2$ & $2$ & $1$ & $2$ & $2$ & $1$ & $2$ & $1$ & $1$\\ \hline
+					 $7$ & $2$ & $1$ & $2$ & $2$ & $1$ & $1$ & $2$ & $2$ & $1$ & $2$ & $1$\\ \hline
+					 $8$ & $2$ & $1$ & $2$ & $1$ & $2$ & $2$ & $2$ & $1$ & $1$  & $1$ & $2$\\ \hline
+					 $9$ & $2$ & $1$ & $1$ & $2$ & $2$ & $2$ & $1$ & $2$ & $2$ & $1$ & $1$\\ \hline
+					$10$ & $2$ & $2$ & $2$ & $1$ & $1$ & $1$ & $1$ & $2$ & $2$  & $1$ & $2$\\ \hline
+					$11$ & $2$ & $2$ & $1$ & $2$ & $1$ & $2$ & $1$ & $1$ & $1$ & $2$ & $2$\\ \hline
+					$12$ & $2$ & $2$ & $1$ & $1$ & $2$ & $1$ & $2$ & $1$ & $2$ & $2$ & $1$\\ \hline
+		 		\end{tabular}
+			\end{center}
+			\caption{$L_16$ table with common factorial notation by Taguchi and associated graph}
+			\end{table}
+			In this matrix of experiments, the interactions are distributed uniformly in all the columns. It therefore has no triangular table or linear graph, and can not be used to study interactions.
+		
 		\item $L_{16} (2^{15})$:
 		\begin{table}[H]\centering
 			\begin{center}
 			\definecolor{gris}{gray}{0.85}
-			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\resizebox{\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 			\hline
 			\multicolumn{1}{c}{\cellcolor{black!30}\textbf{Trial N${}^\circ$}} & 
 			\multicolumn{1}{c}{\cellcolor{black!30}$F1$} & 
@@ -10911,7 +11228,7 @@ zero):
 			$14$ & $2$ & $2$ & $1$ & $1$ & $2$ & $2$ & $1$ & $2$ & $1$ & $1$ & $2$ & $2$ & $1$ & $1$ & $2$\\ \hline
 			$15$ & $2$ & $2$ & $1$ & $2$ & $1$ & $1$ & $2$ & $1$ & $2$ & $2$ & $1$ & $2$ & $1$ & $1$ & $2$\\ \hline
 			$16$ & $2$ & $2$ & $1$ & $2$ & $1$ & $1$ & $2$ & $2$ & $1$ & $1$ & $2$ & $1$ & $2$ & $2$ & $1$\\ \hline
-		 	\end{tabular}
+		 	\end{tabular}}
 			\end{center}
 			\caption{Taguchi $L_{16}$ table}
 		\end{table}
@@ -10964,15 +11281,33 @@ zero):
 	The Taguchi tables together with their graphs are therefore full or fractional factorial designs with all their advantages. Taguchi's merit is to have tried to simplify the use of factorial designs to make them accessible to a large number of experimenters. 
 	
 	Taguchi's designs are usually highly fractionated, which makes them very attractive to practitioners. Doing a half-fraction, quarter-fraction or eighth-fraction of a full factorial design greatly reduces costs and time needed for a designed experiment. The drawback of a fractionated design is that some interactions may be confounded with other effects. It is important to consider carefully the role of potential confounders and aliases. Failure to take account of such confounded effects can result in erroneous conclusions and misunderstandings.
+	
+	So, some Taguchi designs are primarily intended to study main effects of factors. Occasionally, you might want to study some of the two-way interactions. Some of the Taguchi designs (orthogonal arrays) let you study a limited number of two-way interactions. This usually requires that you leave some columns out of the array by not assigning factors to them. Some of the array columns are confounded with interactions between other array columns\footnote{Most DOE softwares choose automatically how to assign factors to array columns in a way that avoids confounding by default! Or, if you know exactly what design you want and know the columns of the entire array that correspond to the design, you can assign factors to array columns yourself. Assigning factors to columns of the array does not change in most softwares how the design looks in the on the computer screen.}.
+	
+	Taguchi Interaction tables show confounded columns, which can help you assign factors to array columns. The columns and rows represent the column numbers of the Taguchi design (orthogonal array). Each table cell contains the interactions confounded for the two columns of the orthogonal array.
 
+	For example, the entry in cell below $(1, 2)$ is $3$. This means that the interaction between columns $1$ and $2$ is confounded with column $3$. Thus, if you assigned factors $A$, $B$, and $C$ to columns $1$, $2$, and $3$, you could not study the $AB$ interaction independently of factor $C$. If you suspect that there is a substantial interaction between $A$ and $B$, you should not assign any factors to column $3$ (hence you can assign factors $A$, $B$ and $C$ respectively to columns $1$, $2$ and $4$). Similarly, the column $1$ and $3$ interaction is confounded with column $2$, and the column $2$ and $3$ interaction is confounded with column $1$.
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} \\ \hline
+		\cellcolor[HTML]{C0C0C0}\textbf{1} &  & $3$ & $2$ & $5$ & $4$ & $7$ & $6$ \\ \hline
+		\cellcolor[HTML]{C0C0C0}\textbf{2} &  &  & $1$ & $6$ & $7$ & $4$ & $5$ \\ \hline
+		\cellcolor[HTML]{C0C0C0}\textbf{3} &  &  &  & $7$ & $6$ & $5$ & $4$ \\ \hline
+		\cellcolor[HTML]{C0C0C0}\textbf{4} &  &  &  &  & $1$ & $2$ & $3$ \\ \hline
+		\cellcolor[HTML]{C0C0C0}\textbf{5} &  &  &  &  &  & $3$ & $2$ \\ \hline
+		\cellcolor[HTML]{C0C0C0}\textbf{6} &  &  &  &  &  &  & $1$ \\ \hline
+		\end{tabular}
+		\caption{$L_8(2^7)$ Taguchi interaction table}
+	\end{table}
 	When using a Taguchi design, one needs to guess which interactions are most likely to be significant - even before any experiment is performed.
 	
 	The Taguchi methodology is say to have generated considerable debate and controversy. Part of the controversy arose because Taguchi's methodology was advocated in the West initially (and primarily) by entrepreneurs, and the underlying statistical science had not been adequately peer-reviewed. By the late 1980s the results of a very comprehensive peer review indicated that although Taguchi's engineering concepts and the overall objective Taguchi's robust parameter design were well-founded\cite{co2008confirmation}, there were substantial problems with his experimental strategy (maximizing signal to noise does not necessarily minimize variability...) and methods of data analysis\cite{kacker1991taguchi}.
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	For example to see how this is vicious... Taguchi's catalog contains $20$ arrays. However, only $18$ of these arrays are in reality orthogonal arrays...
 	\end{tcolorbox}
-
-	\pagebreak
 	Finally let summarize what we have seen so far with the respective names (this list is to take with precaution as there is a priori no clear international standard to our knowledge regarding these definitions) in the order of mathematical generalization:
 	\begin{itemize}
 		\item Designs that contain only factors at two levels, are referred to as "\NewTerm{factorial design}\index{factorial design}" that they are based on a linear or nonlinear model, additive or not.
@@ -10987,7 +11322,7 @@ zero):
 
 		\item The designs with any number of factors, of interactions of any order and any number of levels are referred to as "\NewTerm{Fisher designs}\index{Fisher designs}" (in honor of to the original creator of the concept of experimental design ).
 
-		\item The designs which contain as many tests  as the number of coefficients to be determined are designated under the name of "\NewTerm{saturated designs}\index{saturated designs}".
+		\item The designs which contain as many tests (runs) as the number of coefficients to be determined are designated under the name of "\NewTerm{saturated designs}\index{saturated designs}".
 
 		\item The designs which contain fewer tests than  the number coefficients to be determined are referred to as "\NewTerm{oversaturated designs}\index{oversaturated designs}".
 	\end{itemize}
@@ -11003,7 +11338,75 @@ zero):
 		\item We use $2$ stage least squares regression techniques (\SeeChapter{see section Theoretical Computing}) and after we optimize the whole with a solver.				
 	\end{enumerate}
 	
+	\paragraph{Signal Factor}\mbox{}\\\\
+	When we add a "\NewTerm{signal factor}\index{signal factor}" to an existing Taguchi design, the Taguchi design without the signal factor is named "\NewTerm{static design}\index{static design}" and that with the signal factor is named "\NewTerm{dynamic design}\index{dynamic design}".
 	
+	For example, if weadd a signal factor with $2$ levels to an existing $L_4(2^3)$ array, $4$ rows ($1$ replicate of $4 $runs) are added to the worksheet. If we add a signal factor with $3$ levels, $8$ rows ($2$ replicates of $4$ runs) are added to the worksheet. A replicate is the entire set of runs from the static design as illustrated below:
+	
+	\begin{table}[H]\centering
+	\begin{center}
+		\definecolor{gris}{gray}{0.85}
+		\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{1}{c}{\cellcolor{black!30}\textbf{Trial N${}^\circ$}} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}$1$} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}$2$} \\ \hline
+		$1$ & $-$ & $-$ \\ \hline
+		$2$ & $-$ & $+$ \\ \hline
+		$3$ & $+$ & $-$ \\ \hline
+		$4$ & $+$ & $+$ \\ \hline
+ 		\end{tabular}
+	\end{center}
+	\caption{$L_4(2^3)$ Taguchi Static design}
+	\end{table}
+	
+	\begin{table}[H]\centering
+	\begin{center}
+		\definecolor{gris}{gray}{0.85}
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		\multicolumn{1}{c}{\cellcolor{black!30}\textbf{Trial N${}^\circ$}} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}$1$} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}$2$}  & 
+  \multicolumn{1}{c}{\cellcolor{black!30}Signal Factor}  \\ \hline
+		$1$ & $-$ & $-$ & $-$ \\ \hline
+		$2$ & $-$ & $+$ & $-$ \\ \hline
+		$3$ & $+$ & $-$ & $-$ \\ \hline
+		$4$ & $+$ & $+$ & $-$ \\ \hline
+		$5$ & $-$ & $-$ & $+$ \\ \hline
+		$6$ & $-$ & $+$ & $+$ \\ \hline
+		$7$ & $+$ & $-$ & $+$ \\ \hline
+		$8$ & $+$ & $+$ & $+$ \\ \hline
+ 		\end{tabular}
+	\end{center}
+	\caption{$L_4(2^3)$ Taguchi Dynamic design with $2$-level signal factor}
+	\end{table}
+	
+	\begin{table}[H]\centering
+	\begin{center}
+		\definecolor{gris}{gray}{0.85}
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		\multicolumn{1}{c}{\cellcolor{black!30}\textbf{Trial N${}^\circ$}} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}$1$} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}$2$}  & 
+  \multicolumn{1}{c}{\cellcolor{black!30}Signal Factor}  \\ \hline
+		$1$ & $-$ & $-$ & $1$ \\ \hline
+		$2$ & $-$ & $+$ & $1$ \\ \hline
+		$3$ & $+$ & $-$ & $1$ \\ \hline
+		$4$ & $+$ & $+$ & $1$ \\ \hline
+		$5$ & $-$ & $-$ & $2$ \\ \hline
+		$6$ & $-$ & $+$ & $2$ \\ \hline
+		$7$ & $+$ & $-$ & $2$ \\ \hline
+		$8$ & $+$ & $+$ & $2$ \\ \hline
+		$5$ & $-$ & $-$ & $3$ \\ \hline
+		$6$ & $-$ & $+$ & $3$ \\ \hline
+		$7$ & $+$ & $-$ & $3$ \\ \hline
+		$8$ & $+$ & $+$ & $3$ \\ \hline
+ 		\end{tabular}
+	\end{center}
+	\caption{$L_4(2^3)$ Taguchi Dynamic design with $3$-level signal factor}
+	\end{table}
 	
 	\pagebreak
 	\subsubsection{Response Surface Methodology (Box Domains)}
@@ -11273,7 +11676,7 @@ view=[-10..10,-10..10,0..50],contours=10,style=PATCHCONTOUR,\\
 	In theory, EVOP can be applied to k process variables. In practice, only two or three variables are usually considered. We will give an example of the procedure for two variables. Box and Draper (1969) give a detailed discussion of the three-variable case, including necessary forms and worksheets. Myers and Montgomery (1995) discuss the computer implementation of EVOP.
 	
 	\pagebreak
-	\subsubsection{Optimal Designs}
+	\subsubsection{Optimal Designs}\label{optimal designs}
 	In the design of experiments, "\NewTerm{optimal designs}\index{optimal designs}" are a class of experimental designs that are optimal with respect to some statistical criterion. The creation of this field of statistics has been credited to Danish statistician Kirstine Smith.
 
 	In the design of experiments for estimating statistical models, optimal designs allow parameters to be estimated without bias and with minimum variance. A non-optimal design requires a greater number of experimental runs to estimate the parameters with the same precision as an optimal design. In practical terms, optimal experiments can reduce the costs of experimentation.
@@ -11867,7 +12270,7 @@ problem.
 	\subsubsection{General DoE diagnostic tools}
 	We have seen so far the almost all DOE use statistical analysis based on ANOVA, ANCOVA and obviously linear regression null hypothesis tests. But most DoE softwares propose a bunch of other more or less empirical diagnostics for the analysis of the designs and this is what we will focus below in details.
 	
-	\paragraph{Lenth's PSE Pareto Margin Error for unreplicated factorial designs}\mbox{}\\\\
+	\paragraph{Lenth's PSE Pareto Margin Error for unreplicated factorial designs}\label{pareto margin error}\mbox{}\\\\
 	G.E.P. Box and R.D. Meyer introduced in 1986 a method for assessing the sizes of contrasts in unreplicated factorial and fractional factorial designs. This is was useful technique, and an associated graphical display popularly known as a "Bayes plot" makes it even more effective but very hard to interpret. Therefore Russell V. Lenth proposed a new method 1989 that is still currently used in many statistical softwares.
 	
 	The "\NewTerm{Lenth's Pseudo Standard Error}\index{Lenth's PSE}" (abreviated Lenth's PSE) is a commonly indicator in DoE softwares Pareto outputs (even if it is not real Pareto charts...) that provides an analytical basis for testing the effects in an unreplicated (single replicate) two-level factorial design\footnote{It should not then be necessary to precise that it therefore not applies to General factorial Designs}. Lenth's method estimates the variance of an effect from the smallest (presumably insignificant) effect estimates.
@@ -11896,7 +12299,7 @@ problem.
 	where $m$ is the total number of effects and the division by $3$ comes from a Monte Carlo study that was conducted by Lenth.
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 	\textbf{{\Large \ding{45}}Example:}\\\\
-	To make an example let us consider the following experiment that we already know (but we have removed the replicaton):
+	To make an example let us consider the following experiment that we already know (but we have removed the replication):
 	\begin{table}[H]\centering
 	\begin{center}
 		\definecolor{gris}{gray}{0.85}
@@ -11986,7 +12389,7 @@ problem.
 		\end{center}	
 		\caption[]{Replicated factorial design effects C.I. with Minitab 17.1.3}
 	\end{figure}
-	It must be remembered to for the constant and all coefficients the $T$-value was respectively of the form:
+	It must be remembered that for the constant and all coefficients the $T$-value above was respectively of the form (and it must also be remembered that $\hat{\hat{\sigma}_\text{eff}}$ can be calculated only if there are replications!):
 	
 	Therefore we see that all Student's $T$ distribution have always the same degrees of freedom!!! That will be written:
 	
@@ -13909,7 +14312,7 @@ the sample of size $n$ are replaced by good ones, the "\NewTerm{average outgoing
 	\end{figure}
 	
 	\paragraph{CUSUM (cumulated sum) control chart with empirical V-mask}\mbox{}\\\
-	A major disadvantage of the control chart of the Shewhart type is to base that analysis on the latest information collected (assumption of independance of measurements). They ignore the information of trends of the process contained in the latest estimates. You should know that many quality standards institutes worldwide (AFNOR or ASQ) consider Shewhart charts as completely obsolete (wrongly or rightly?) and advice the usage of CUSUM control charts because using autocorrelation and the amplification variations.
+	A major disadvantage of the control chart of the Shewhart type is to base that analysis on the latest information collected (assumption of independence of measurements). They ignore the information of trends of the process contained in the latest estimates. You should know that many quality standards institutes worldwide (AFNOR or ASQ) consider Shewhart charts as completely obsolete (wrongly or rightly?) and advice the usage of CUSUM control charts because using autocorrelation and the amplification variations.
 
 	In the years 1950 control charts named "\NewTerm{CUSUM (cumulated sum)}\index{control chart!CUSUM control chart}" or "\NewTerm{Page-Hinkley control chart}\index{control chart!Page-Hinkley control chart}" (in honor of their inventors) were introduced by statisticians to detect small variations. Although they are mathematically more optimal, they are difficult to properly configure and very sensitive to the initial settings.
 

@@ -82,7 +82,13 @@ Thus, there is a correspondence between all numbers and all the points of the ax
 
 \pagebreak
 \paragraph{2D representations}\mbox{}\\\\
-There are besides the one dimensional representations other of higher dimensions (phew!...) like the "\NewTerm{planar representation}\index{planar representation}" that allow us to draw much more than simple points on a one-dimensional straight line but functions of one variable. Let's see what this is and looks like!
+There are besides the one dimensional representations, other of higher dimensions (phew!...) like the "\NewTerm{planar representation}\index{planar representation}" that allow us to draw much more than simple points on a one-dimensional straight line but functions of one variable (but also points!). Let's see what this is and looks like:
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{img/analysis/cartesian_plane.jpg}
+	\caption{Position of a point in a cartesian plane}
+\end{figure}
+In the above figure we have added two graduation that helps us to identify uniquely the position of the point $P$ given by $P(x,y)=P(+4,+3)=P(4,3)$. We then speak of "cartesian coordinates of a point".
 
 In single-variable calculus, the functions that one encounters are functions of a variable (usually $x$ or $t$) that varies over some subset of the real number line (which we denote by $\mathbb{R}$). For such a function, say, $y = f (x)$, the graph of the function $f$ consists of the points 
 	
@@ -93,16 +99,43 @@ Thus we can for each of a variable $x$ on a horizontal axis, named commonly "\Ne
 	
 plotted on a vertical axis, named commonly the "\NewTerm{$y$-axis}\index{$y$-axis}" which passes through the junction defined by the origin $O$ such tat (arbitrary example):
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.75]{img/analysis/representative_2d_planar.eps}
-\caption{Typical example of a planar representation with orthogonal axes, origin O and the $4$ quadrants}
+	\centering
+	\includegraphics[scale=0.75]{img/analysis/representative_2d_planar.eps}
+	\caption{Typical example of a planar representation with orthogonal axes, origin O and the $4$ quadrants}
 \end{figure}
-All points of the plane denoted with the variations $X\text{O}Y$, $XY$ or $x\text{O}y$, $\text{O}xy$, $xy$, whose abscissa is traditionally the values of the independent variable and the ordinates the corresponding values of the function is named "\NewTerm{planar graph}\index{planar graph}" of this function. If there is no confusion, we just say "\NewTerm{graph}\index{graph}".
+All points of the plane (that latter being denoted with the variations $X\text{O}Y$, $XY$ or $x\text{O}y$, $\text{O}xy$, $xy$) have for "\NewTerm{abscissa}\index{abscissa}" traditionally the $x$-values corresponding to the independent variable (horizontal axes by tradition) of the function and for "\NewTerm{ordinate}\index{ordinate}" the corresponding value of the function (vertical axes by tradition). All these generated what is named the "\NewTerm{planar graph}\index{planar graph}" of the function. If there is no confusion, we just say "\NewTerm{graph}\index{graph}".
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{img/analysis/vocabulary_planar_graph.jpg}
+	\caption{Vocabulary planar graph}
+\end{figure}
+An interesting detailed example for middle schools students that may help is the planar representation of the following line equation:
 
-In the case of representation by a rectangular coordinate system (cartesian, polar or logarithmic) as the figure above, we can see that the entire coordinate plane is divided into four areas that by tradition we name "\NewTerm{quadrants}\index{quadrants}".
+That give in the range $x\in [-3.3,+3.3]$ the following graph:
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{img/analysis/line_equation_plan_representation.jpg}
+\end{figure}
+with its equivalent tabular representation for some arbitrary chosen points:
+\begin{table}[H]
+	\begin{center}
+		\definecolor{gris}{gray}{0.85}
+			\begin{tabular}{|p{2cm}|p{3.5cm}|p{2.5cm}|}
+				\hline
+				\multicolumn{1}{c}{\cellcolor{black!30}\textbf{$x$}} & 
+  \multicolumn{1}{c}{\cellcolor{black!30}\textbf{$2x-3$}} &  \multicolumn{1}{c}{\cellcolor{black!30}\textbf{Point $(x,2x-3)$}}\\ \hline
+				\centering\arraybackslash\ $-1$ & \centering\arraybackslash\ $2\cdot(-1)-3=-5$ & \centering\arraybackslash\ $(-1,-5)$ \\ \hline
+				\centering\arraybackslash\ $0$ & \centering\arraybackslash\ $2\cdot (0)-3=-3$ & \centering\arraybackslash\ $(-1,-5)$  \\ \hline
+				\centering\arraybackslash\ $+1$ & \centering\arraybackslash\ $2\cdot(+1)-3=-1$ & \centering\arraybackslash\ $(-1,-5)$  \\ \hline
+				\centering\arraybackslash\ $+3$ & \centering\arraybackslash\ $2\cdot(+3)-3=+3$ & \centering\arraybackslash\ $(-1,-5)$  \\ \hline
+		\end{tabular}
+	\end{center}
+	\caption[]{Values and corresponding transformed variables}
+	\end{table}	
+In the case of representation by a rectangular coordinate system (cartesian, polar or logarithmic) as the figure above, we can see that the entire coordinate plane is divided into four areas that by tradition we name "\NewTerm{quadrants}\index{quadrants}" as already mentioned just earlier.
 
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	When we wish to highlight a particular point on the graph representing the function, we draw most of time a small round as presented above for the point of coordinates $(x_n,y_n)$.
+	When we wish to highlight a particular point on the graph representing the function, we draw most of time a small round as presented in the prior-previous figure for the point of coordinates $(x_n,y_n)$.
 	\end{tcolorbox}	
 
 Another classic case of plane graph representation  known by a large number of students is the plot of polynomials (\SeeChapter{see section Calculus page \pageref{polynomial}}) with real coefficients or trigonometric functions (\SeeChapter{see section Trigonometry page \pageref{trigonometry}}).
@@ -161,10 +194,24 @@ Graphics can also be used to observe changes over time (time series, control cha
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{img/analysis/time_serie.eps}
-\caption{Example of time series with moving averages in financial trading}
+\caption{Example of OHLC time series with moving averages in financial trading}
 \end{figure}
-
-and still many other charts... that we have already seen and other we will see throughout the pages of this book.
+or another type of OHLC (Open-High-Low-Close) trading plot:
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{img/analysis/plot_OHLC.jpg}
+\end{figure}
+There are different rules for the colors of an OHLC plot! We can first define a color depending if the close price is lower than the open price (the open price is always on the left and the closure price always on the right):
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{img/analysis/plot_OHCL_color_first_rule.jpg}
+\end{figure}
+Or with the following rules:
+\begin{figure}[H]
+\centering
+\includegraphics{img/analysis/plot_OHCL_color_second_rule.jpg}
+\end{figure}
+And still many other charts... that we have already seen and other we will see throughout the pages of this book.
 
 \paragraph{3D representations}\mbox{}\\\\
 Of course, in the case of a trivalent function (three-dimensional), that is to say a parameter which depends on two other, the idea is the same as for 2D except that the number of quadrants doubles:
@@ -666,7 +713,7 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 		\end{table}
 		The definition domains of $f+g,f-g,f\cdot g$ are the intersection $I$ of the definition domain of $f (x)$ and g $(x)$, that is to say, the numbers which are common to both domains of definition. The domain of definition of $g/g$ est meanwhile the subset $I$ of all $x$ such that  $g(x)\neq 0$.
 		
-		\item[D7.] Let $y$ be a function of $f$ of $u$ such that $y=f(u)$ and $u$ a function $g$ of $x$ such that $u=g(x)$, then $y$ depends on $x$ and we have what we name a "\NewTerm{composite function}\index{composite function}" that we denote:
+		\item[D7.] Let $y$ be a function of $f$ of $u$ such that $y=f(u)$ and $u$ a function $g$ of $x$ such that $u=g(x)$, then $y$ depends on $x$ and we have what we name a "\NewTerm{composite function}\index{composite function}\label{composite function}" that we denote:
 		
 		The last equality should be read "\NewTerm{$f$ round $g$}" and not confuse with the "round" symbol with the notation of the scalar product that we have seen during our study of the section Vector Calculus page \pageref{dot product}.
 		
@@ -697,8 +744,8 @@ If $x_1\neq x_2$ and $y_1\neq y_2$ (as in the figure above), the points $P_1,P_2
 				\includegraphics{img/analysis/power_function.jpg}
 				\caption{Different plots of simple power functions}
 			\end{figure}
-		
-			\item "\NewTerm{Absolute value functions}\index{absolute value function}" (see section Arithmetic Operators page \pageref{absolute value} for the definition and the study of the "absolute value"):
+			
+			\item "\NewTerm{Absolute value functions}\index{absolute value function}\label{absolute value plot}" (see section Arithmetic Operators page \pageref{absolute value} for the definition and the study of the "absolute value"):
 			
 			For example the plots with Maple 4.00b that we get with the command:\\
 			
@@ -1282,19 +1329,1105 @@ $\pm \infty$ when $x \rightarrow a_{+,-}$, then the graphical representation of 
 		$\square$  Q.E.D.
 	\end{flushright}
 	\end{dem}
+	
+	\pagebreak
+	\subsection{Convolutions}\label{convolution}
+	A convolution is a mathematical operation on two functions to produce a third function, that is typically viewed as a modified version of one of the original functions, giving the integral of the pointwise multiplication of the two functions as a function of the amount that one of the original functions is translated.
+	
+	There are different type of convolutions and as always, we will focus in this book only on the one that are actually used in other sections of this books.
+	\subsubsection{Continuous and Discrete Linear Convolution Product}
+	\textbf{Definition (\#\mydef):} The "\NewTerm{continuous convolution}\index{continuous convolution}" of two continuous signals $x(t)$ and $h(t)$ is defined as:
+	
+	
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	The convolution is also sometimes denoted with different symbols:
+	
+	or:
+	
+	\end{tcolorbox}
+	We will now prove some properties of the convolutions on focusing only on those use in the other sections of this book!
+	\begin{itemize}
+		\item[P1.] Convolution is commutative:
+		
+		\begin{dem}
+		By making the change of variable $\lambda=t-\tau$, in one form of the definition of convolution:
+		
+		it becomes:
+		
+		proving that convolution is commutative.
+		\begin{flushright}
+			$\square$  Q.E.D.
+		\end{flushright}
+		\end{dem}
+		
+		\item[P2.] Convolution is associative:
+		
+		\begin{dem}
+		The proof is easier to understand if we consider a limited integral (but you can change the bounds to the infinity one and you will fall back on the general result):
+		
+		 The proof may not be obvious for many readers. So we recommend to see the equivalent proof for the discrete version further below.
+		\begin{flushright}
+			$\square$  Q.E.D.
+		\end{flushright}
+		\end{dem}
+		
+		\item[P3.] Convolution is distributive:
+		
+		\begin{dem}
+		
+		\begin{flushright}
+			$\square$  Q.E.D.
+		\end{flushright}
+		\end{dem}
+		
+		\item[P4.] Relation with differentiation:
+		
+		\begin{dem}
+		
+		\begin{flushright}
+			$\square$  Q.E.D.
+		\end{flushright}
+		\end{dem}
+	\end{itemize}
+	We will assume as obvious that these properties also apply to the discrete convolution that we will introduce now!
+	
+	Typically, $y(t)$ is the output of a system characterized by its impulse response function $h(t)$ with input $x(t)$.
+	
+	\textbf{Definition (\#\mydef):} The "\NewTerm{discrete convolution}\index{discrete convolution}" of two discrete signals $x[n]$ and $h[n]$ is defined as:
+	
+	If $h[m]$ is finite, e.g.:
+	
+	the convolution becomes
+	
+	If the system in question were a causal system in time domain:
+	
+	the above would become:
+	
+	This is also written:
+	
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\textbf{{\Large \ding{45}}Example:}\\\\
+	E1. Consider:
+	
+	We get visually (it's not obvious!):
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.6]{img/analysis/discrete_convolution.jpg}
+		\caption{Discrete convolution example}
+	\end{figure}
+	The details steps are given by first considering that:
+	
+	and the fact that:
+	And we have for recall:
+	
+	And in tabular form:
+	\begin{table}[H]
+	\centering
+		\begin{tabular}{lccccc}
+		$n$: & $0$ & $1$ & $2$ & $3$ & $4$ \\
+		$m=0$ & ${\color{blue}{2}}\cdot {\color{red}{3}}=6$ & ${\color{blue}{1}}\cdot {\color{red}{3}}=3$ & ${\color{blue}{3}}\cdot {\color{red}{3}}=9$ & $0$ & $0$ \\
+		$m=1$ & $0$ & ${\color{blue}{2}}\cdot {\color{red}{2}}=4$ & ${\color{blue}{1}}\cdot {\color{red}{2}}=2$ & ${\color{blue}{3}}\cdot {\color{red}{2}}=6$ & $0$ \\
+		$m=2$ & $0$ & $0$ & ${\color{blue}{2}}\cdot {\color{red}{1}}=2$ & ${\color{blue}{1}}\cdot {\color{red}{1}}=1$ & ${\color{blue}{3}}\cdot {\color{red}{1}}=3$ \\ \hhline{|=|=|=|=|=|=|}
+		$c[n]$ & $6$ & $7$ & $13$ & $7$ & $3$
+		\end{tabular}
+	\end{table}
+	The $c[n>4]$ being all equal to zero.\\
+	\end{tcolorbox}
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	
+	
+	The final result will then be written:
+	
+	Such a calculations can obviously be done very simply with softwares like R for example (see the corresponding companion book).\\
+	
+	E2. A well known example is the convolution of two gaussian (\SeeChapter{see section Statistics page \pageref{sum of two random normal variables}}) that also result in a... gaussian. And obviously the discrete version of the convolution also give a gaussian as illustrated below below with R (see the corresponding companion book for more details):
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.55]{img/analysis/discrete_convolution_gaussians_R.jpg}
+	\end{figure}
+	where we have as the reader have noticed above, the following convolution $\mathcal{N}(5,20)*\mathcal{N}(10,3)$ and we see obviously that the result gives a gaussian of $\mathcal{N}(5+10=15,\sqrt{20^2+3^2}=15)$.
+	\end{tcolorbox}
+	Let us now prove that the discrete convolution is also associative for the discrete convolution (as promised earlier!):
+	\begin{dem}
+	
+	\end{dem}
+	However, in image processing, we often consider convolution in spatial domain where causality does not apply.
+	
+	If $h[m]=h[-m]$ is symmetric (almost always true in image processing),
+	then replacing $m$ by $-m$ we get:
+	
+	We see that now the convolution is the same as the {\em correlation} of the two functions. 
+	
+	If the input $x[m]$ is finite (always true in reality), i.e.:
+	
+	its index $n+m$ in the convolution has to satisfy the following for $x$ to be in the valid non-zero range:
+		
+	or correspondingly, the index $n$ of the output $y[n]$ has to satisfy:
+	
+	When the variable index $m$ in the convolution is equal to $k$, the 
+	index of output $y[n]$ reaches its lower bound $n=-k$; when $m=-k$, 
+	the index of $y[n]$ reaches its upper bound $n=N+k-1$. In other words,
+	there are $N+2k$ valid (non-zero) elements in the output:
+	
+	
+	Assume the size of the input signal $x[n]$ is $N$ ($n=0,\cdots,n=N-1$) and the size of $h$ is $M=2k+1$ (usually an odd number), then the size of the resulting convolution $y=x*h$ is $N+M-1=N+2k$. However, as it is usually desirable for the output $y$ to have the same size as the input $x$, we can drop $k$ components at each end of $y$. When the size of $h$ is even,we can drop $k$ components at one end and $k-1$ from the other of $y$.
+	
+	The code segment for this $1$D convolution $y=x*h$ is given below. 
+	
+	In particular, if the elements of the kernel are all the same (an average operator or a low-pass filter), the we can speed up the convolution process while sliding the kernel over the input signal by taking care of only the two ends of the kernel. 
+	
+	In image processing, all of the discussions above for one-dimensional	convolution are generalized into two dimensions, and $h$ is called a convolution kernel, or mask:
+	
 
 	\pagebreak
-	\subsection{Transformations}
-	\subsubsection{Fourier Transform}
-	We will continue here what we started in the section Sequences and Series on page \pageref{fourier transform}.
-	\StickyNote[2.5cm]{\LARGE To finish and write before year 2020}[6.5cm]
+	\subsection{Integral Transforms}
+	An "\NewTerm{integral transform}\index{integral transform}" is an operator that maps functions from one space to another. Formally:
 	
+	Now the practical motivation for an integral transform is to reduce the complexity of the problem i.e the the mathematical operations will be much easier to handle in the image space.
+	
+	However, as much as it is fun to do work in the image space, one has to be able to interpret the results in the original space. To do so requires the study of the operator $K$. Usually one knows a priori the nature of the function $f$ by the nature of the problem one is dealing. Hence the study of integral transforms is the study of the operator $\mathcal{T}$. Two properties come very easily:
+	
+	To ensure invertibility, one has to show that the kernel space only contains the null function.
+
+	The Fourier and Laplace transforms are for example continuous (integral) transforms of continuous functions.
+
+	The Laplace transform maps a function $f(t)$ to a function $\mathcal{F}(s)$ of the complex variable $s$, where $s=\sigma+\mathrm{i}\omega$.
+
+	Since the derivative $f'(t)=\frac{\mathrm{d}f(t)}{\mathrm{d}t}$ maps to $s\mathcal{F}(s)$, the Laplace transform $\mathcal{L}$ of a linear differential equation is an algebraic equation. Thus, the Laplace transform is useful for, among other things, solving linear differential equations.
+	
+	If we set the real part of the complex variable $s$ to zero, $\sigma=0$, the result is the Fourier transform $\mathcal{F}(\mathrm{i}\omega)$ which is essentially the frequency domain representation of $f(t)$ (note that this is true only if for that value of $\sigma$ the formula to obtain the Laplace transform of $f(t)$ exists, i.e., it does not go to infinity).
+	
+	The $Z$ transform is essentially a discrete version of the Laplace transform and, thus, can be useful in solving difference equations, the discrete version of differential equations. The $Z $transform maps a sequence $f[n]$ to a continuous function $F(z)$ of the complex variable $z=re^{\mathrm{i}\Omega}$.
+	
+	If we set the magnitude of $z$ to unity, $r=1$, the result is the Discrete Time Fourier Transform (DTFT) $\mathcal{F}(\mathrm{i}\Omega)$ which is essentially the frequency domain representation of $f[n]$.
+	
+	\subsubsection{Fourier Transform}
+	So we have already introduced Fourier Transforms in the section of Sequences and Series (page \pageref{fourier transform}), we will come back here more in details on this topic in (we wish) are more structured way...
+	
+	\paragraph{Continuous Time Fourier Transform}\mbox{}\\\\	
+	The Fourier expansion coefficient $X[k]$ of a periodic  signal $x_T(t)=x_T(t+T)$ is:
+	
+	and the Fourier expansion of the signal is:
+	
+	which can also be written as:
+	
+	where $X(k\omega_0)$ is defined as:
+	
+	
+	When the period of $x_T(t)$ approaches infinity $T \rightarrow \infty $, the 
+	periodic signal $x_T(t)$ becomes a non-periodic signal $x(t)$ and the following 
+	will result:
+	\begin{itemize}
+	
+	\item Interval between two neighboring frequency components becomes zero:
+	
+	
+	\item Discrete frequency becomes continuous frequency:
+	
+	
+	\item Summation of the Fourier expansion in equation (a) becomes an integral:
+	
+	the second equal sign is due to the general fact:
+	
+	
+	\item Time integral over $T$ in equation (b) becomes over the entire time axis:
+	
+	\end{itemize}
+	
+	In summary, when the signal is non-periodic $x(t)=\lim_{T\rightarrow \infty}x_T(t)$, the Fourier expansion becomes Fourier transform. The forward transform (analysis) is:
+	
+	and the inverse transform (synthesis) is:
+	
+	
+	Comparing Fourier coefficient of a periodic signal $x_T(t)$ with with Fourier spectrum of a non-periodic signal $x(t)$:
+	
+		
+	The spectrum of a time signal can be denoted by $X(\omega)$ or $X(f)$ to emphasize the fact that the spectrum represents how the energy contained in the signal is distributed as a function of frequency $\omega$ or $f$. Moreover, if $X(f)$ is used, the factor $1/2\pi$ in front of the inverse transform is dropped so that the transform pair takes a more symmetric form. On the other hand, as Fourier transform can be considered as a special case  of Laplace transform when the real part $\sigma$ of the complex argument $s=\sigma+\mathrm{i}\omega=\mathrm{i}\omega$ is zero:
+	
+	it is also natural to denote the spectrum of $x(t)$ by $X(\mathrm{i}\omega)$.
+	
+	Ok this done let us see now some important example for physics (especially quantum physics) and signal processing!
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\textbf{{\Large \ding{45}}Examples:}\\\\
+	E1. Consider the unit impulse function:
+	
+	Therefore:
+	
+	E2. If the spectrum of a signal $x(t)$ is a delta function in frequency domain $X(\mathrm{i}\omega)=2\pi\;\delta(\omega)$, the signal can be found to be:
+	
+	i.e.:
+	
+	E3. We consider:
+	
+	The spectrum is
+	
+	This is the sinc function with a parameter $a$.\\
+	
+	Note that the height of the main peak is $2a$ and it gets taller and narrower as
+	$a$ gets larger. Also note 
+	
+	When $a$ approaches infinity, $x(t)=1$ for all $t$, and the spectrum becomes
+		
+	\end{tcolorbox}
+	
+	
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	Recall that the Fourier coefficient of $x(t)=1$ is
+	
+	which represents the energy contained in the signal at $k=0$ (DC component at zero frequency), and the spectrum $X(\mathrm{i}\omega)=X[k]/\omega$ is the energy density or distribution which is infinity at zero frequency.\\
+	
+	The integral in the above transform is an important formula to be used frequently later:
+	
+	which can also be written as:
+	
+	Switching $t$ and $f$ in the equation above, we also have:
+	
+	representing a superposition of an infinite number of cosine functions of all
+	frequencies, which cancel each other any where along the time axis except at
+	$t=0$ where they add up to infinity, an impulse. \\
+	
+	E3. Let us now consider:
+	
+	The spectrum of the cosine function is:
+	\begin{eqnarray}
+		X(\mathrm{i}\omega) &=& \int\limits_{-\infty}^{\infty} x(t)e^{-\mathrm{i}\omega t} \mathrm{d}t   
+		=\frac{1}{2}\int\limits_{-\infty}^{\infty}
+		[e^{\mathrm{i}\omega_0t}+e^{-\mathrm{i}\omega_0t}]e^{-\mathrm{i}\omega t} \mathrm{d}t   
+		\nonumber \\
+	 &=& \pi [\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]
+		\nonumber
+	\end{eqnarray}
+	The spectrum of the sine function:
+	
+	can be similarly obtained to be:
+		
+	\end{tcolorbox}
+	
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	Again, these spectra represent the energy density distribution of the sinusoids, while the corresponding Fourier coefficients:
+	
+	and:
+	
+	represent the energy contained at frequency $\omega=\omega_0$.
+	\end{tcolorbox}
+	
+	
+	
+	
+	\subparagraph{Properties of Fourier Transform}\mbox{}\\\\	
+	The properties of the Fourier transform are summarized below. For some of them already proved in the section of Sequences and Series we will not give the poof. But for others we will do it again! 
+	
+	In the following, we assume 
+	$\;\;{\cal F}[x(t)]=X(\mathrm{i}\omega)$ and ${\cal F}[y(t)]=Y(\mathrm{i}\omega)$.
+	
+	\begin{itemize}
+	
+	\item[P1.] Linearity:
+	
+	
+	\item[P2.] Time shift:
+	
+	\begin{dem} Let $t'=t\pm t_0$, i.e., $t = t' \mp t_0$, we have:
+	\begin{eqnarray}
+	{\cal F}[x(t \pm t_0)]&=&\int\limits_{-\infty}^{+\infty} x(t\pm t_0)
+		e^{-\mathrm{i}\omega t} \mathrm{d}t
+		=\int\limits_{-\infty}^{+\infty} x(t')e^{-\mathrm{i}\omega(t'\mp t_0)} \mathrm{d}t'
+		\nonumber \\
+		&=& e^{\pm \mathrm{i}\omega t_0}
+		\int\limits_{-\infty}^{+\infty} x(t')e^{-\mathrm{i}\omega t'} \mathrm{d}t'=X(\mathrm{i}\omega)e^{\pm \mathrm{i}\omega t_0}
+		\nonumber
+	\end{eqnarray}
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	
+	\item[P3.] Frequency shift:
+	
+	\begin{dem} Let $\omega'=\omega\pm \omega_0$, i.e., $\omega = \omega'\mp\omega_0$,
+	we have:
+	\begin{eqnarray}
+	{\cal F}^{-1}[X(\mathrm{i}(\omega \pm \omega_0))]
+	&=&\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} X(\mathrm{i}(\omega\pm \omega_0))
+		e^{\mathrm{i}\omega t} \mathrm{d}\omega
+	=\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} X(\mathrm{i}\omega')e^{\mathrm{i}\omega(\omega'\mp \omega_0)}\mathrm{d}\omega'
+		\nonumber \\
+	&=& e^{\mp \mathrm{i}\omega_0 t}\;\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} X(\mathrm{i}\omega')e^{\mathrm{i}\omega'}\mathrm{d}\omega'
+		=x(t)e^{\mp \mathrm{i}\omega_0 t}
+		\nonumber
+	\end{eqnarray}
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	
+	\item[P4.] Time reversal:
+	
+	\begin{dem}
+	
+	Replacing $t$ by $-t'$, we get:
+	
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	
+	\item[P5.] Even and Odd Signals and Spectra:
+	
+	If the signal $x(t)$ is an even (or odd) function of time, its spectrum $X(\mathrm{i}\omega)$ is an even (or odd) function of frequency:
+	
+	and:
+	
+	\begin{dem} If $x(t)=x(-t)$ is even, then according to the time reversal property, 
+	we have:
+	
+	i.e., the spectrum $X(\mathrm{i}\omega)=X(-\omega)$ is also even. Similarly, if $x(t)=-x(-t)$ is odd, we have:
+	
+	i.e., the spectrum $X(\mathrm{i}\omega)=-X(-\omega)$ is also odd.
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	
+	\item[P6.] Time and frequency scaling:
+	
+	\begin{dem}
+	Let $u=at$, i.e., $t=u/a$, where $a>0$ is a scaling factor, we have:
+	
+	Note that when $a<1$, time function $x(at)$ is stretched, and $X(\mathrm{i}\omega/a)$ is compressed; when $a>1$, $x(at)$ is compressed and $X(\mathrm{i}\omega/a)$ is stretched.	This is a general feature of Fourier transform, i.e., compressing one of the $x(t)$ and $X(\mathrm{i}\omega)$ will stretch the other and vice versa. In particular, when $a\rightarrow 0$, $x(at)$ is stretched to approach a constant, and $X(\mathrm{i}\omega/a)/a$ is compressed with its value increased to approach an impulse; on the other	hand, when $a \rightarrow \infty$, $ax(at)$ is compressed with its value increased to approach an impulse and $X(\mathrm{i}\omega/a)$ is stretched to approach a constant.
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	
+	\item[P7.] Complex Conjugation:
+	
+	
+	\begin{dem} Taking the complex conjugate of the inverse Fourier transform, we get:
+	
+	Replacing $\omega$ by $-\omega'$ we get the desired result:
+	
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	We further consider two special cases:
+	\begin{itemize}
+	\item If $x(t)=x^*(t)$ is real, then 
+	\begin{eqnarray}
+		{\cal F}[x(t)]&=X(\mathrm{i}\omega)=X_r(\mathrm{i}\omega)+\mathrm{i}X_i(\mathrm{i}\omega)	\nonumber \\
+		=&{\cal F}[x^*(t)]=X^*(-\omega)=X_r(-\omega)-\mathrm{i}X_i(-\omega)	\nonumber 
+	\end{eqnarray}
+	i.e., the real part of the spectrum is even (with respect to frequency $\omega$),
+	and the imaginary part is odd:
+	
+	\item If $x(t)=-x^*(t)$ is imaginary, then:
+	\begin{eqnarray}
+	{\cal F}[x(t)]&=X(\mathrm{i}\omega)=X_r(\mathrm{i}\omega)+\mathrm{i}X_i(\mathrm{i}\omega)  \nonumber \\
+	&=&{\cal F}[-x^*(t)]=-X^*(-\mathrm{i}\omega)=-X_r(-\mathrm{i}\omega)+\mathrm{i}X_i(-\mathrm{i}\omega) \nonumber 
+	\end{eqnarray}
+	i.e., the real part of the spectrum is odd, and the imaginary part is even:
+	
+	\end{itemize}
+	
+	If the time signal $x(t)$ is one of the four combinations shown in the table (real even, real odd, imaginary even, and imaginary odd), then its spectrum $X(\mathrm{i}\omega)$ is given in the corresponding table entry:
+	\vskip0.2in
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{c||c|c} \hline
+			& if $x(t)$ is real		& if $x(t)$ is imaginary	\\ 
+			& $X_r$ even, $X_i$ odd	& $X_r$ odd, $X_i$ even \\ \hline \hline
+		if $x(t)$ is Even	&			&		\\
+		$X_r$ and $X_i$ even	& $X_i=0$, $X=X_r$ even & $X_r=0$, $X=X_i$ even	\\ \hline
+		if $x(t)$ is Odd	& 			&		\\
+		$X_r$ and $X_i$ odd	& $X_r=0$, $X=X_i$ odd	& $X_i=0$, $X=X_r$ odd	\\ \hline
+		\end{tabular}
+	\end{table}
+	Note that if a real or imaginary part in the table is required to be both even 
+	and odd at the same time, it has to be zero.
+	
+	These properties are summarized below:
+	\vskip 0.1in
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{l|l|l} \hline
+		  & $x(t)=x_r(t)+\mathrm{i}x_i(t)$	& $X(\mathrm{i}\omega)=X_r(\mathrm{i}\omega)+\mathrm{i}X_i(\mathrm{i}\omega)$	\\ \hline
+		1 & real $x(t)=x_r(t)$ 		& even $X_r(\mathrm{i}\omega)$, odd $X_i(\mathrm{i}\omega)$ \\
+		2 & real and even $x(-t)=x_r(t)$ 	& real and even $X_r(\mathrm{i}\omega)$ \\
+		3 & real and odd $x(-t)=-x_r(t)$ 	& imaginary and odd $X_i(\mathrm{i}\omega)$ \\
+		4 & imaginary $x(t)=x_i(t)$  	& odd $X_r(\mathrm{i}\omega)$, even $X_i(\mathrm{i}\omega)$ \\ 
+		5 & imaginary and even $x(-t)=x_i(t)$ 	& imaginary and even $X_i(\mathrm{i}\omega)$ \\
+		6 & imaginary and odd $x(-t)=-x_i(t)$ 	& real and odd $X_r(\mathrm{i}\omega)$ \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	As any signal can be expressed as the sum of its even and odd components, the 
+	first three items above indicate that the spectrum of the even part of a real
+	signal is real and even, and the spectrum of the odd part of the signal is 
+	imaginary and odd. 
+	
+	\item[P8.] Symmetry (or Duality):
+	
+	
+	Or in a more symmetric form:
+	
+	\begin{dem} As ${\cal F}[x(t)]=X(\mathrm{i}\omega)$, we have:
+	
+	Letting $t'=-t$, we get:
+	
+	Interchanging $t'$ and $\omega$ we get:
+	
+	or:
+	
+	In particular, if the signal is even:
+	
+	then we have:
+	
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	For example, the spectrum of an even square wave is a sinc function, and the
+	spectrum of a sinc function is an even square wave. 
+	
+	\item[P9.] Multiplication theorem:
+	
+	
+	\begin{dem} 
+	\begin{eqnarray}
+	 \int\limits_{-\infty}^{+\infty} x(t)y^*(t) \mathrm{d}t
+	&=\int\limits_{-\infty}^{+\infty} x(t) \left[\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} Y^*(\mathrm{i}\omega)e^{-\mathrm{i}\omega t}\mathrm{d}\omega\right]\mathrm{d}t
+		\nonumber \\
+	=& \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} Y^*(\mathrm{i}\omega)\left[\int\limits_{-\infty}^{+\infty} 
+		x(t)e^{-\mathrm{i}\omega t} \mathrm{d}t\right] \mathrm{d}\omega
+		=\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} X(\mathrm{i}\omega)Y^*(\mathrm{i}\omega) \mathrm{d}\omega
+		\nonumber
+	\end{eqnarray}
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	
+	\item[P10.] Parseval's equation:
+	
+	In the special case when $y(t)=x(t)$, the above becomes the Parseval's equation:
+	
+	where:
+	
+	is the energy density function representing how the signal's energy is
+	distributed along the frequency axes. The total energy contained in the 
+	signal is obtained by integrating $S(\mathrm{i}\omega)$ over the entire frequency axes.
+	
+	The Parseval's equation indicates that the {\em energy} or {\em information}
+	contained in the signal is reserved, i.e., the signal is represented 
+	equivalently in either the time or frequency domain with no energy gained
+	or lost.
+	
+	\item[P11.] Correlation:
+	
+	The "\NewTerm{cross-correlation}\index{cross-correlation}" of two real signals $x(t)$ and $y(t)$ is defined as:
+	
+	Specially, when $x(t)=y(t)$, the above becomes the {\em auto-correlation} of signal $x(t)$:
+	
+	Assuming ${\cal F}[x(t)]=X(\mathrm{i}\omega)$, we have ${\cal F}[x(t-\tau)]=X(\mathrm{i}\omega)e^{-\mathrm{i}\omega\tau}$
+	and according to multiplication theorem, $R_x(\tau)$ can be written as:
+	\begin{eqnarray}
+	R_x(\tau)&=&\int\limits_{-\infty}^{+\infty}	x(t)x(t-\tau)\mathrm{d}t	
+		=\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty}	X(\mathrm{i}\omega)X^*(\mathrm{i}\omega)e^{\mathrm{i}\omega\tau}\mathrm{d}\omega
+		\nonumber \\
+		&=&\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} |X(\mathrm{i}\omega)|^2e^{\mathrm{i}\omega\tau}\mathrm{d}\omega
+		=\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty}	S_X(\mathrm{i}\omega) e^{\mathrm{i}\omega\tau}\mathrm{d}\omega
+		= {\cal F}^{-1}[S_X(\mathrm{i}\omega)]
+		\nonumber 
+	\end{eqnarray}
+	i.e.,
+	
+	that is, the auto-correlation and the energy density function of a signal
+	$x(t)$ are a Fourier transform pair.
+	
+	\item[P12.] Convolution Theorems:
+	
+	The convolution theorem states that convolution in time domain 
+	corresponds to multiplication in frequency domain and vice versa:
+	
+	
+	Let us start with the proof of (a)!
+	
+	\begin{dem}
+	\begin{eqnarray}
+	{\cal F}[x(t)*y(t)]&=&\int\limits_{-\infty}^{+\infty} \left[ \int\limits_{-\infty}^{+\infty} 
+		x(\tau)y(t-\tau)\mathrm{d}\tau\right] e^{-\mathrm{i}\omega t} \mathrm{d}t
+		\nonumber \\
+	&=& \int\limits_{-\infty}^{+\infty} x(\tau) \left[ \int\limits_{-\infty}^{+\infty} 
+		y(t-\tau) e^{-\mathrm{i}\omega t} \mathrm{d}t\right] \mathrm{d}\tau 
+		\nonumber \\
+	&=& \int\limits_{-\infty}^{+\infty} x(\tau) e^{-\mathrm{i}\omega \tau}\left[ \int\limits_{-\infty}^{+\infty} 
+		y(t-\tau) e^{-\mathrm{i}\omega(t-\tau)} d(t-\tau)\right] \mathrm{d}\tau 
+		\nonumber \\
+	&=& X(\mathrm{i}\omega) \; Y(\mathrm{i}\omega)
+		\nonumber
+	\end{eqnarray}
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	And now let us continue with the proof of (b)!
+
+	\begin{dem}
+	\begin{eqnarray}
+	{\cal F}[x(t)\;y(t)]&=&\int\limits_{-\infty}^{+\infty} x(t)\;y(t) e^{-\mathrm{i}\omega t} \mathrm{d}t
+		\nonumber \\
+	&=& \int\limits_{-\infty}^{+\infty} \left[\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} 
+		X(\mathrm{i}\omega') e^{\mathrm{i}\omega't} \mathrm{d}\omega'\right] \; y(t) e^{-\mathrm{i}\omega t} \mathrm{d}t
+		\nonumber \\
+	&=& \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} X(\mathrm{i}\omega') \left[ \int\limits_{-\infty}^{+\infty} 
+		y(t) e^{\mathrm{i}\omega't} e^{-\mathrm{i}\omega t} \mathrm{d}t\right] \mathrm{d}\omega' 
+		\nonumber \\
+	&=& \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} X(\mathrm{i}\omega') \left[\int\limits_{-\infty}^{+\infty} 
+		y(t) e^{-\mathrm{i}(\omega-\omega')t} \mathrm{d}t\right] \mathrm{d}\omega' 
+		\nonumber \\
+	&=& \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} X(\mathrm{i}\omega') Y(\mathrm{i}(\omega-\omega')) \mathrm{d}\omega' 
+		= X(\mathrm{i}\omega) * Y(\mathrm{i}\omega)
+		\nonumber
+	\end{eqnarray}
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	
+	\item[P13.]  Time Derivative:
+	
+	\begin{dem} Differentiating the inverse Fourier transform $X(\mathrm{i}\omega)$ with
+	respect to $t$ we get:
+	\begin{eqnarray}
+	\frac{\mathrm{d}}{\mathrm{d}t} x(t) &=&\frac{\mathrm{d}}{\mathrm{d}t} \left[\frac{1}{2\pi}
+		\int\limits_{-\infty}^{+\infty} X(\mathrm{i}\omega)e^{\mathrm{i}\omega t} \mathrm{d}\omega\right]
+	= \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} X(\mathrm{i}\omega) \frac{\mathrm{d}}{\mathrm{d}t}e^{\mathrm{i}\omega t} \mathrm{d}\omega
+		\nonumber \\
+	&=& \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} [\mathrm{i}\omega X(\mathrm{i}\omega)] e^{\mathrm{i}\omega t} \mathrm{d}\omega 
+	= {\cal F}^{-1} [\mathrm{i}\omega X(\mathrm{i}\omega)]
+		\nonumber
+	\end{eqnarray}
+	Repeating this process we get:
+	
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	
+	\item[P14.] Time Integration:
+	
+	First consider the Fourier transform of the following two signals:
+	
+	
+	According to the time derivative property above:
+	
+	we get:
+	
+	and:
+	
+	Why do the two different functions have the same transform?
+	
+	In general, any two function $f(t)$ and $g(t)=f(t)+c$ with a constant difference $c$ have the same derivative $\mathrm{d}\;f(t)/\mathrm{d}t$, and therefore they have the same transform according the above method. This problem is obviously caused by the fact that the constant difference $c$ is lost in the derivative operation.
+	
+	To recover this constant difference in time domain, a delta function 
+	needs to be added in frequency domain. Specifically, as function $\mathrm{sgn}(t)$ does not have DC component, its transform does not contain a delta:
+	
+	To find the transform of $u(t)$, consider:
+	
+	and:
+	
+	The added impulse term $\pi \delta(\omega)$ directly reflects the constant $c=1/2$ in time domain.
+	
+	Now we show that the Fourier transform of a time integration is:
+	
+	
+	\begin{dem}
+	
+	First consider the convolution of $x(t)$ and $u(t)$:
+	
+	Due to the convolution theorem, we have:
+	
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	
+	\item[P15.] Frequency Derivative:
+	
+	\begin{dem} We differentiate the Fourier transform of $x(t)$ with
+	respect to $\omega$ to get:
+	\begin{eqnarray}
+		\frac{\mathrm{d}}{\mathrm{d}\omega}X(\mathrm{i}\omega)&=&\frac{\mathrm{d}}{\mathrm{d}\omega}\left[\int\limits_{-\infty}^{+\infty} 
+		x(t)e^{-\mathrm{i}\omega t}\mathrm{d}t\right]
+		=\int\limits_{-\infty}^{+\infty} x(t)\frac{\mathrm{d}}{\mathrm{d}\omega}e^{-\mathrm{i}\omega t}\mathrm{d}t
+		\nonumber \\
+	&=& \int\limits_{-\infty}^{+\infty} x(t)(-\mathrm{i}t)e^{-\mathrm{i}\omega t}\mathrm{d}t
+		\nonumber
+	\end{eqnarray}
+	i.e.:
+	
+	Multiplying both sides by $\mathrm{i}$, we get:
+	
+	Repeating this process we get:
+	
+	\begin{flushright}
+		$\square$  Q.E.D.
+	\end{flushright}
+	\end{dem}
+	
+	\end{itemize}
+	
+	\subparagraph{Usual Fourier transforms}\mbox{}\\\\
+	There are in math and physics many Fourier transforms of signals we see quite frequently (but not exclusively). Furthermore, all Fourier transforms proved below will be used in the various chapters on Physics, Engineering, Atomistic, Social Mathematics, etc of this book. So, as in any formula booklet, we propose you the most Fourier transforms but with... the proofs!
+	\begin{enumerate}
+	
+	\item Impulse:
+	
+	As shown above:
+	
+	
+	\item Unit Step:
+	
+	As shown above:
+	
+	
+	\item Constant:
+	
+	As shown above:
+	
+	This is a useful formula.
+	
+	\item Complex exponential:
+	
+	The spectrum of a complex exponential can be found from the above due to the frequency shift property:
+	
+	
+	\item Sinusoids:
+	
+	
+	Therefore:
+	
+	Similarly, we have:
+	
+	
+	\item Exponential decay (right-sided):
+	
+	Therefore:
+	\begin{eqnarray}
+	{\cal F}[e^{-at}u(t)]&=&\int\limits_{-\infty}^{+\infty} x(t)e^{-\mathrm{i}\omega t}\mathrm{d}t=\int\limits_0^{+\infty} 
+		e^{-at}e^{-\mathrm{i}\omega t}\mathrm{d}t
+		\nonumber \\
+	&=& \frac{-1}{a+\mathrm{i}\omega} e^{-(a+\mathrm{i}\omega)t}|_0^{\infty}=\frac{1}{a+\mathrm{i}\omega}
+		\nonumber
+	\end{eqnarray}
+	
+	\item Exponential decay (left-sided):
+	Due to the time reversal property, we also have (for $a>0$):
+	
+	or:
+	
+	
+	\item Exponential decay (two-sided):
+	
+	As the two-sided exponential decay is the sum of the right and left-sided 
+	exponential decays, its spectrum of $x(t)$ is the sum of their spectra due 
+	to linearity:
+	
+	
+	\item Comb function:
+	
+	The comb function is defined as:
+	
+	Its Fourier series coefficient is:
+	
+	and its spectrum is:
+	
+	We see that the spectrum of an impulse train with time interval $T$ is also an impulse train with frequency interval $\omega_0=2\pi/T$. Also, according to the definition of the Fourier transform, we have:
+	\begin{eqnarray}
+		\text{COMB}(\mathrm{i}\omega) &=& \int\limits_{-\infty}^{+\infty} \text{comb}(t)  e^{-\mathrm{i}\omega t} \mathrm{d}t 
+	 = \int\limits_{-\infty}^{+\infty} \left[\sum_{n=-\infty}^{+\infty} \delta(t-nT)\right]\;
+	 e^{-\mathrm{i}\omega t} \mathrm{d}t
+		\nonumber \\
+	 &=& \sum_{n=-\infty}^{+\infty} \int\limits_{-\infty}^{+\infty} \delta(t-nT)
+	 e^{-\mathrm{i}\omega t} \mathrm{d}t
+	 = \sum_{n=-\infty}^{+\infty} e^{-\mathrm{i}\omega nT}
+		\nonumber
+	\end{eqnarray}
+	Therefore we have this equation:
+	
+	which can be compared with the equation in continuous case:
+	
+	
+	
+	\item Square wave:
+	
+	A square wave or rectangular function of width $a$ can be considered as the  difference between two unit step functions:
+	
+	and due to linearity, its Fourier spectrum is the difference between 
+	the two corresponding spectra:
+	\begin{eqnarray}
+	{\cal F}[\text{rect}_a(t)]&=&{\cal F}[u(t+a)]-{\cal F}[u(t-a)]
+		=\frac{1}{\mathrm{i}\omega}e^{\mathrm{i}a\omega}-\frac{1}{\mathrm{i}\omega}e^{-\mathrm{i}a\omega}
+		\nonumber \\
+	 &=& \frac{2}{\omega}\;\;\frac{e^{\mathrm{i}a\omega}-e^{-\mathrm{i}a\omega}}{2\mathrm{i}}=\frac{2}{\omega}\sin(a\omega)=\frac{2a}{\omega}\mathrm{sinc}(a\omega)
+		\nonumber
+	\end{eqnarray}
+	
+	\item Sinc function:
+	
+	The spectrum of an {\em ideal low-pass filter} is:
+	
+	and its impulse response can be found by inverse Fourier transform:
+	
+	
+	\item Triangle function:
+	
+	As $x(t)$ is an even function, its Fourier transform is:
+	\begin{eqnarray}
+	{\cal F}[x(t)]&=&\int\limits_{-\infty}^{+\infty} x(t)e^{-\mathrm{i}\omega t}\mathrm{d}t
+		=2\int\limits_0^1(1-t)\cos(\omega t) \mathrm{d}t
+		\nonumber \\
+	&=&2\left[\int\limits_0^1 \cos(\omega t) \mathrm{d}t-\int\limits_0^1 t\;\cos(\omega t) \mathrm{d}t\right]
+	=\frac{2}{\omega}\left[\sin(\omega)-\int\limits_0^1 t\;d\;\sin(\omega t)\right]
+		\nonumber \\
+	&=&\frac{2}{\omega}\left[\sin(\omega)-(t\;\sin(\omega t)|_0^1-\int\limits_0^1\sin(\omega t)\mathrm{d}t)\right]
+	=\frac{2}{\omega^2}\cos(\omega t)|_1^0
+		\nonumber \\
+	&=&\frac{2}{\omega^2}(1-\cos(\omega))
+	=\left(\frac{2}{\omega}\right)^2\sin^2\left(\frac{\omega}{2}\right)
+	=\frac{\sin^2(\pi f)}{(\pi f)^2}=\mathrm{sinc}^2(\omega)
+		\nonumber
+	\end{eqnarray}
+	Alternatively, as the triangle function is the convolution of two square functions
+	($a=1/2$), its Fourier transform can be more conveniently obtained according to the
+	convolution theorem as: 
+	
+	
+	\item Gaussian function:
+	
+	The Fourier transform of a Gaussian or bell-shaped function $x(t)=e^{-\pi t^2}$ is:
+	\begin{eqnarray}
+	X(\mathrm{i}\omega)&=&{\cal F}[x(t)]=\int\limits_{-\infty}^{+\infty} [e^{-\pi t^2}]e^{-\mathrm{i}\omega t}\mathrm{d}t
+		\nonumber \\
+	 &=& \int\limits_{-\infty}^{+\infty} e^{-\pi(t^2+\mathrm{i}2ft)} \mathrm{d}t
+		=e^{\pi(\mathrm{i}f)^2}\int\limits_{-\infty}^{+\infty} e^{-\pi[t^2+\mathrm{i}2ft+(\mathrm{i}f)^2]} \mathrm{d}t
+		\nonumber \\
+	 &=& e^{-\pi f^2}\int\limits_{-\infty}^{+\infty} e^{-\pi(t+\mathrm{i}f)^2} \mathrm{d}(t+\mathrm{i}f)=e^{-\pi f^2}
+		\nonumber 
+	\end{eqnarray}
+	Here we have used the identity:
+	
+	We see that the Fourier transform of a bell-shaped function is also a bell-shaped function:
+	
+	Note that the area underneath either $x(t)$ or $X(\mathrm{i}\omega)$ is unity. Moreover, due to the property of time and frequency scaling, we have:
+	
+	(Note that if $a=1/\sqrt{2\pi \sigma^2}$, then $a\;x(at)$ above is a normal 	distribution with variance $\sigma^2$ and mean $\mu=0$.) If we let $a \rightarrow \infty$, $x(t)$ becomes narrower and taller and  approaches $\delta(t)$, and its spectrum $e^{-\pi (f/a)^2}$ becomes wider and approaches constant $1$. On the other hand, if we rewrite the above as:
+	
+	and let $a \rightarrow 0$, $x(t)$ approaches 1 and $X(\mathrm{i}\omega)$ approaches 
+	$\delta(\omega)$.
+	
+	\end{enumerate}
+	
+	\paragraph{Discrete Time Fourier Transform}\mbox{}\\\\
+	A discrete-time signal can be considered as a continuous signal $x(t)$ 
+	sampled at a rate $F=1/t_0$ or $\Omega=2\pi/t_0$, where $t_0$ is the 
+	sampling period (time interval between two consecutive samples). The
+	corresponding sampling function (comb function) is:
+	
+	The sampling process can be represented by:
+	
+	where $x[m]=x(mt_0)$ is the value of $x(t)$ at $t=mt_0$. The Fourier transform of this discrete signal (treated as a special case of continuous signal) is:
+	\begin{eqnarray}
+		X(\mathrm{i}\omega) &=& \int\limits_\infty^{+\infty} x_s(t)e^{-\mathrm{i}\omega t} \mathrm{d}t
+		=\int\limits_\infty^{+\infty} \left[\sum_{m=-\infty}^{+\infty} x[m]\delta(t-mt_0)\right]\;e^{-\mathrm{i}\omega t} \mathrm{d}t
+		\nonumber \\
+		&=&\sum_{m=-\infty}^{+\infty} x[m] \int\limits_\infty^{+\infty} \delta(t-mt_0)\;e^{-\mathrm{i}\omega t} \mathrm{d}t
+	=\sum_{m=-\infty}^{+\infty} x[m]\; e^{-\mathrm{i}\omega mt_0} 
+		\nonumber 
+	\end{eqnarray}
+	This is the forward Fourier transform (analysis) of a discrete signal $x_s(t)$. The spectrum $X(\mathrm{i}\omega)$ is periodic with period $\Omega=2\pi F=2\pi/t_0$:
+	
+	as :
+	
+	
+	To get back the time signal $x[m]$ from its spectrum:
+	
+	we multiply the equation by $e^{\mathrm{i}\omega nt_0}/\Omega$ and integrate both sides with respect to $\omega$ over the period $\Omega=2\pi F=2\pi/t_0$	to obtain the inverse Fourier transform (synthesis):
+	\begin{eqnarray}
+	 & & \frac{1}{\Omega}\int\limits_\Omega X(\mathrm{i}\omega)e^{\mathrm{i}\omega nt_0} \mathrm{d}\omega
+	=\frac{1}{\Omega}\int\limits_{\Omega} [\sum_{m=-\infty}^{+\infty} x[m] e^{-\mathrm{i}\omega mt_0}] 
+		e^{\mathrm{i}\omega nt_0} \mathrm{d}\omega
+		\nonumber \\
+	&=&\sum_{m=-\infty}^{+\infty} x[m]\frac{1}{\Omega}\int\limits_\Omega e^{-\mathrm{i}\omega(m-n)t_0}\mathrm{d}\omega
+	=\sum_{m=-\infty}^{+\infty} x[m] \delta[m-n]=x[n]	
+		\nonumber
+	\end{eqnarray}
+	Note that here we used:
+	
+	which can be compared this with:
+	
+	To summarize, the spectrum of a given discrete signal:
+	
+	can be found by forward Fourier transform to be:
+	
+	and the signal can be expressed by inverse Fourier transform:
+	
+	It is interesting to compare this discrete time Fourier transform pair with the Fourier series expansion -- the Fourier transform of a periodic signal: 
+	
+	
+	with discrete spectrum:
+	
+	We see symmetry between these two different forms of Fourier transform. If the  signal $x(t)=x(t+T)$ is periodic, its spectrum $X(\mathrm{i}\omega)$ is discrete, the coefficients of the Fourier series with interval $\omega_0=2\pi/T$. On the other hand, if $x(t)$ is discrete with interval $t_0=2\pi/\Omega$, its spectrum $X(\mathrm{i}\omega)=X(\mathrm{i}\omega+\Omega)$ is periodic.
+	
+	In particular, if the unit of time is so chosen that the sampling period is $t_0=1$, then $\Omega=2\pi/t_0=2\pi$, and the forward Fourier transform of a discrete signal becomes:
+	
+	The inverse transform becomes:
+	
+	The spectrum $X(\mathrm{i}\omega)=X(\mathrm{i}\omega+2\pi)$ is periodic.
+	
+	
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	The spectrum of a time signal (continuous or discrete) can be denoted by $X(\mathrm{i}\omega)$ or $X(f)$ to emphasize the fact that the spectrum represents how the energy contained in the signal is distributed as a function of frequency $\omega$ or $f$. Moreover, if $X(f)$ is used, the factor $1/2\pi$ in front of the inverse transform is dropped so that the transform pair takes a more symmetric form. On the other hand, as Fourier transform of discrete signal can be considered as a special case of Z transform when the real part of $s=\sigma+\mathrm{i}\omega$ is zero, i.e., $z=e^s=e^{\mathrm{i}\omega}$:
+	
+	it is also natural to denote the spectrum of $x[n]$ by $X(e^{\mathrm{i}\omega})$.
+	\end{tcolorbox}
+	
+	
+	\paragraph{Properties of Discrete Fourier Transform}\mbox{}\\\\
+	As a special case of general Fourier transform, the discrete time transform  shares all properties (and their proofs) of the Fourier transform discussed above, except now some of these properties may take different forms. In the following, we always assume ${\cal F}[x[m]]=X(e^{\mathrm{i}\omega})$ and 
+	${\cal F}[y[m]]=Y(e^{\mathrm{i}\omega})$. 
+	
+	\begin{enumerate}
+	\item[P1.] Linearity:
+	
+	
+	\item[P2.] Time Shifting:
+	
+	{\bf Proof:} 
+	
+	If we let $m'=m-m_0$, the above becomes:
+	
+	
+	\item[P3.] Time Reversal:
+	
+	
+	
+	\item[P4.] Frequency Shifting:
+	
+	
+	\item[P5.] Differencing:
+	
+	Differencing is the discrete-time counterpart of differentiation.
+	
+	{\bf Proof:} 
+	\begin{eqnarray}
+	 {\cal F}[x[m]-x[m-1]]&={\cal F}[x[m]]-{\cal F}[x[m-1]]
+		\nonumber \\
+	= X(e^{\mathrm{i}\omega})-X(e^{\mathrm{i}\omega})e^{-\mathrm{i}\omega}=(1-e^{-\mathrm{i}\omega})X(e^{\mathrm{i}\omega})
+		\nonumber 
+	\end{eqnarray}
+	
+	\item[P6.] Differentiation in frequency:
+	
+	{\bf Proof:} 
+	Differentiating the definition of discrete Fourier transform with respect to 
+	$\omega$, we get
+	\begin{eqnarray}
+	\frac{\mathrm{d}}{\mathrm{d}\omega}X(e^{\mathrm{i}\omega})&=&\frac{\mathrm{d}}{\mathrm{d}\omega}\sum_{m=-\infty}^{+\infty} 
+		x[m]e^{-\mathrm{i}\omega m}
+		=\sum_{m=-\infty}^{+\infty} x[m]\frac{\mathrm{d}}{\mathrm{d}\omega}e^{-\mathrm{i}\omega m}
+		\nonumber \\
+	&=&\sum_{m=-\infty}^{+\infty} -\mathrm{i}mx[m]e^{-\mathrm{i}\omega m}
+		\nonumber 
+	\end{eqnarray}
+	
+	\item[P7.] Convolution Theorems:
+	
+	The convolution theorem states that convolution in time domain corresponds to multiplication in frequency domain and vice versa:
+	
+	
+	Recall that the convolution of periodic signals $x_T(t)$ and $y_T(t)$ is:
+	
+	Here the convolution of periodic spectra $X(f)$ and $Y(f)$ is similarly defined as:
+	
+	
+	{\bf Proof of (a):} 
+	\begin{eqnarray}
+	{\cal F}[x[n]*y[n]]&=&\sum_{n=-\infty}^{+\infty} \left[\sum_{m=-\infty}^{+\infty}
+		x[m]y[n-m]\;\right]e^{-\mathrm{i}n\omega}
+		\nonumber \\
+	 &=& \sum_{m=-\infty}^{+\infty} x[m] \left[\sum_{n=-\infty}^{+\infty}
+		y[n-m]e^{-\mathrm{i}(n-m)\omega}\right] e^{-\mathrm{i}m\omega}
+		\nonumber \\
+	 &=& X(\mathrm{i}\omega)\;Y(\mathrm{i}\omega)
+		\nonumber
+	\end{eqnarray}
+	
+	{\bf Proof of (b):}
+	\begin{eqnarray}
+	{\cal F}[x[n]y[n]]&=&\sum_{n=-\infty}^{+\infty} x[n]y[n] e^{-\mathrm{i}n\omega}
+		=\sum_{n=-\infty}^{+\infty} 
+	\left[\frac{1}{2\pi}\int\limits_0^{2\pi}X(\mathrm{i}\omega')e^{\mathrm{i}n\omega'} \mathrm{d}\omega'\right]
+		y[n] e^{-\mathrm{i}n\omega} 
+		\nonumber \\
+	 &=& \frac{1}{2\pi}\int\limits_0^{2\pi}X(\mathrm{i}\omega')\left[\sum_{n=-\infty}^{+\infty} e^{\mathrm{i}n\omega'}  y[n] e^{-\mathrm{i}n\omega}\right] \mathrm{d}\omega'
+	 	\nonumber \\
+	 &=& \frac{1}{2\pi}\int\limits_0^{2\pi}X(\mathrm{i}\omega')\sum_{n=-\infty}^{+\infty} y[n] e^{-\mathrm{i}n(\omega-\omega')} \mathrm{d}\omega'
+		\nonumber \\
+	 &=& \frac{1}{2\pi}\int\limits_0^{2\pi}X(\mathrm{i}\omega')Y(\mathrm{i}(\omega-\omega')) \mathrm{d}\omega' 
+		=X(\mathrm{i}\omega)*Y(\mathrm{i}\omega)
+		\nonumber
+	\end{eqnarray}
+	
+	\item[P8.] Parseval's Relation:
+	
+	\end{enumerate}
+	
+	\paragraph{Examples}\mbox{}\\\\
+	
+	{\bf E1.} 
+	
+	
+	{\bf E2.} The spectrum of:
+	
+	is:
+	
+	If the signal is two-sided:
+	
+	Due to the time reversal property, its spectrum is:
+	
+	
+	{\bf E3.} Consider an LTI system with impulse response:
+	
+	and input:
+	
+	The output $y[n]$ can be found in either time domain by convolution or in frequency domain by multiplication. In time domain, we have:
+	\begin{eqnarray}
+	y[n] &=& h[n]*x[n]=\sum_{m=-\infty}^{+\infty} a^{n-m}u[n-m] b^m u[m]
+		=a^n\sum_{m=0}^n a^{-m} b^m
+		\nonumber \\
+	 &=& a^n \frac{1-(b/a)^{n+1}}{1-(b/a)}u[n]=\frac{1}{a-b}(a^{n+1}-b^{n+1})u[n]
+		\nonumber 
+	\end{eqnarray}
+	When $a=b$, we have:
+	
+	In frequency domain, we first find the spectra of both $x[n]$ and $h[n]$ to be:
+	
+	and the spectrum of the output is:
+	
+	To find $y(n)$ in time domain by inverse transform of $Y(e^{\mathrm{i}\omega})$, we use partial fraction expansion to rewrite the above as:
+	
+	By equating the coefficients of $e^{-\mathrm{i}\omega}$ and the constants, we get:
+	
+	which can be solved to get:
+	
+	In this form, $Y(\mathrm{i}\omega)$ can be easily inverse transformed to yield:
+	
+	same as the result from convolution. Again when $a=b$, we have:
+	
+	But since:
+	
+	by the frequency differentiation property, we have:
+	
+	and the output in time domain is obtained as:
+	\begin{eqnarray}
+	y[n]&=&{\cal F}^{-1}[Y(e^{\mathrm{i}\omega})]
+	={\cal F}^{-1}\left[\frac{e^{\mathrm{i}\omega}}{a}\mathrm{i}\frac{\mathrm{d}}{\mathrm{d}\omega}\left(\frac{1}{1-ae^{-\mathrm{i}\omega}}\right)\right]
+		\nonumber \\
+	 &=& \frac{1}{a} (n+1)a^{n+1} u[n+1]=(n+1)a^n u[n+1]
+		\nonumber \\
+	 &=& (n+1)a^n u[n]	
+		\nonumber
+	\end{eqnarray}
+	Note that the time-shifting property is used due to the factor $e^{\mathrm{i}\omega}$.
+	
+	Also note that $u[n+1]$ (starting at $n=-1$) is replaced by $u[n]$ (starting at $n=0$) as $n+1=0$ when $n=-1$.
+	
+	{\bf E4.} The impulse response of a discrete LTI system is:
+	
+	where $|a|<1$ so that the system is stable. The output $y[m]$ of the system with an input:
+	
+	can be found in three different ways.
+	\begin{itemize}
+	\item {\bf Time domain convolution: } The output is the convolution of
+	$x[m]$ and $h[m]$:
+	\begin{eqnarray}
+	y[m] &=& h[m]*x[m]=\sum_{k=0}^{+\infty} a^k \frac{e^{\mathrm{i}2\pi (m-k)/N}+e^{-\mathrm{i}2\pi (m-k)/N}}{2}
+		\nonumber \\
+	 &=& \frac{1}{2}e^{\mathrm{i}2\pi m/N}\sum_{k=0}^{+\infty} a^k e^{-\mathrm{i}2\pi k/N}
+		+\frac{1}{2}e^{-\mathrm{i}2\pi m/N}\sum_{k=0}^{+\infty} a^k e^{\mathrm{i}2\pi k/N}
+		\nonumber \\
+	 &=& \frac{1}{2}e^{\mathrm{i}2\pi m/N}\frac{1}{1-ae^{-\mathrm{i}2\pi /N}}
+		+\frac{1}{2}e^{-\mathrm{i}2\pi m/N}\frac{1}{1-ae^{\mathrm{i}2\pi /N}}
+		\nonumber
+	\end{eqnarray}
+	
+	\item {\bf The eigenequation method:} We first get the frequency response function from $h[m]$:
+	
+	which is the eigenvalue of the system when the input is a complex exponential $e^{\mathrm{i}n\omega}$. Now the system's response to: 
+	
+	can be found to be:
+	\begin{eqnarray}
+	y[m] &=& \frac{1}{2}\left[H(e^{\mathrm{i}2\pi/N})e^{\mathrm{i}2\pi m/N}+H(e^{-\mathrm{i}2\pi/N})e^{-\mathrm{i}2\pi m/N}\right]
+		\nonumber \\
+	 &=& \frac{1}{2}e^{\mathrm{i}2\pi m/N}\frac{1}{1-ae^{-\mathrm{i}2\pi /N}}
+		+\frac{1}{2}e^{-\mathrm{i}2\pi m/N}\frac{1}{1-ae^{\mathrm{i}2\pi /N}}	
+		\nonumber 
+	\end{eqnarray}
+	
+	\item {\bf Frequency domain multiplication:} If we find the spectra of both $h[m]$ and $x[m]$ in the frequency domain, the spectrum of $y[m]$ can be found by multiplication. We already know:
+	
+	We next find the spectrum of $x[m]$:
+	\begin{eqnarray}
+	X(e^{\mathrm{i}\omega}) &=& {\cal F}[x[m]]=\sum_{m=-\infty}^{+\infty} 
+		\frac{e^{\mathrm{i}2\pi m/N}+e^{-\mathrm{i}2\pi m/N}}{2} e^{-\mathrm{i}m\omega}
+		\nonumber \\
+	 &=& \pi \sum_{k=-\infty}^{+\infty} [\delta(\omega-2k\pi-2\pi/N)+
+			\delta(\omega-2k\pi-2\pi/N)]
+		\nonumber
+	\end{eqnarray}
+	Now the spectrum of the output $y[m]$ can be found:
+	\begin{eqnarray}
+	Y(e^{\mathrm{i}\omega})&=& H(e^{\mathrm{i}\omega})X(e^{\mathrm{i}\omega})
+		\nonumber \\
+	 &=& \frac{\pi}{1-ae^{-\mathrm{i} \omega}}
+		 \sum_{k=-\infty}^{+\infty} [\delta(\omega-2k\pi-2\pi/N)+
+			\delta(\omega-2k\pi-2\pi/N)]
+		\nonumber 
+	\end{eqnarray}
+	and the output $y[m]$ is obtained by inverse Fourier transform:
+	\begin{eqnarray}
+	y[m] &=& \frac{1}{2\pi} \int\limits_0^{2\pi} \left[\frac{\pi}{1-ae^{-\mathrm{i} \omega}}
+	 \sum_{k=-\infty}^{+\infty} \left[\delta(\omega-2k\pi-\frac{2\pi}{N})+\delta(\omega-2k\pi-\frac{2\pi}{N})\right]\right]
+		e^{\mathrm{i}m\omega} \mathrm{d}\omega
+		\nonumber \\
+	 &=& \frac{1}{2}e^{\mathrm{i}2\pi m/N}\frac{1}{1-ae^{-\mathrm{i}2\pi /N}}
+		+\frac{1}{2}e^{-\mathrm{i}2\pi m/N}\frac{1}{1-ae^{\mathrm{i}2\pi /N}}	
+		\nonumber
+	\end{eqnarray}
+	\end{itemize}
+	
+	The physical meaning of this result will be clear if we write $H(2\pi/N)$ in polar form:
+	
+	and the output becomes:
+	
+	That is, the output of the system is also a sinusoidal signal of the same 
+	frequency as the input, but with different magnitude $r$ and a phase angle
+	$\theta$. For example, if $N=4$, we have:
+	
+	and the output is:
+	
+	
+	\StickyNote[2.5cm]{\LARGE To finish before year 2020}[6.5cm]
+	
+	\pagebreak
 	\subsubsection{Laplace Transform}
-	The Laplace transform is used extensively  in order to solve  differential equations that arise in many modeling situations of real life. 
+	The Laplace transform is used extensively in order to solve  differential equations that arise in many modeling situations of real life. 
 
 	A power series about an origin is any series that can be written in the following form:
-
-	where $a_n$ are  numbers and $n$ is a nonnegative integer. One can think of $a_n = a(n)$ as a function of $n$ for each non-negative integer $n = 0, 1, 2, \ldots$. In order to give birth to Laplace transformation technique, we  make some associations. The discrete variable $n$ is converted into a real variable $t$. The coefficient term $a_n$ is written as $f(t)$. The term $x^n$ can equivalently be written as $e^{(\ln x^t)}$. Finally, summation notation can be replaced by its continuous analogue, that is, integration. By doing so, we have following:
+	
+	where $a_n$ are  numbers and $n$ is a non-negative integer. One can think of $a_n = a(n)$ as a function of $n$ for each non-negative integer $n = 0, 1, 2, \ldots$. In order to give birth to Laplace transformation technique, we  make some associations. The discrete variable $n$ is converted into a real variable $t$. The coefficient term $a_n$ is written as $f(t)$. The term $x^n$ can equivalently be written as $e^{(\ln x^t)}$. Finally, summation notation can be replaced by its continuous analogue, that is, integration. By doing so, we have following:
 	 
 For convergence, it is obviously important to have following condition for the above integral (yes think for this about the original sum!):
 	 
@@ -1306,11 +2439,514 @@ For convergence, it is obviously important to have following condition for the a
 	
 	In this way, we can say that Laplace Transform is simply  stretching a discrete (infinite series)  into a continuous (integration) analogue. 
 	
-	\StickyNote[2.5cm]{\LARGE To finish and write before year 2020}[6.5cm]
+	Let us recall that if $s=\mathrm{i}\omega$, Laplace transform becomes Fourier transform. In general, any continuous time signal $x(t)$ can be Laplace transformed to get:
+
+provided the integral converges, i.e., the function $X(s)$ exists. This general form of Laplace transform is related to the Fourier transform:
+
+i.e., Laplace transform of a generic function is Fourier transform of the same function multiplied by $e^{-\sigma t}$. This exponential factor has the effect of forcing the signals to converge. This is why the Laplace transform can be applied to a broader class of signals than the Fourier transform, including exponentially growing signals shown in the following two cases:
+
+\begin{itemize}
+	\item Right sided:
 	
+	The Fourier transform does not exist as the signal grows exponentially when $t\rightarrow \infty$, i.e., the transform integral does not converge (not integrable). However, its Laplace transform exists if $\Re[s]=\sigma>a$ (i.e., $\sigma-a>0$), as the modified signal $x(t)e^{-\sigma t}=e^{-(\sigma-a)t}u(t)$ will converge.
+	
+	\item Left sided:
+	 
+	Again the Fourier transform does not exist as the signal grows exponentially
+	when $t\rightarrow -\infty$, i.e., the transform integral does not converge.
+	But if $\Re[s]=\sigma<a$ (i.e., $\sigma-a<0$), the modified signal
+	$x(t)e^{-\sigma t}=e^{-(\sigma-a)t}u(-t)$ will converge and its Laplace 
+	transform exists.
+\end{itemize}
+
+	In Fourier transform, both the signal $x(t)$ in time domain and its spectrum 
+	$X(\mathrm{i}\omega)$ in frequency domain are a one-dimensional (1D) complex function.
+	However, the Laplace transform $X(s)$ of the 1D signal $x(t)$ is a complex 
+	function defined over a two-dimensional {\em complex plane}, called the s-plane,
+	spanned by the two variables $\sigma$ (for the horizontal real axis) and 
+	$\omega$ (for the vertical imaginary axis). 
+	
+	In particular, if this 2D function $X(s)=X(\sigma+\mathrm{i}\omega)$ is evaluated along
+	the imaginary axis $\Re[s]=\sigma=0$, it becomes a 1D function $X(\mathrm{i}\omega)$, the
+	Fourier transform of $x(t)$. Graphically, the Fourier transform, the spectrum 
+	of the signal, can be found as the cross section of the 2D function 
+	$X(s)=X(\sigma+\mathrm{i}\omega)$ along the line $\Re[s]=\sigma=0$.
+	
+	
+	\paragraph{Inverse Laplace Transform}\mbox{}\\\\
+	
+	The inverse Laplace transform can be obtained from the corresponding Fourier
+	transform:
+	
+	The inverse Fourier transform of the above is:
+	
+	Multiplying both sides by $e^{\sigma t}$, we get the inverse Laplace transform:
+	
+	As we want to represent the inverse transform in terms of s (instead of $\omega$),
+	we realize that:
+	
+	We also realize that the integral in the inverse transform is along a vertical
+	line in the s-plane from $\mathrm{i}\omega=-\mathrm{i}\infty$ to $\mathrm{i}\omega=\mathrm{i}\infty$ while the other
+	variable $\sigma$ is fixed. The inverse Laplace transform above can therefore be
+	written as:
+	
+	Now we have the Laplace transform pair:
+	
+	
+	The forward and inverse Laplace transform pair can also be represented as:
+	
+	
+	
+	\paragraph{Region of Convergence and Examples}\mbox{}\\\\
+	
+	An essential issue of Laplace transform of $x(t)$ is whether the transform $X(s)$
+	even exists, and under what condition it exists. To see this, consider the 
+	following examples.
+	
+	{\bf Example 1:} The Fourier transform of a signal $x(t)=e^{-at}u(t)$ is:
+	
+	This integral does not converge unless $a>0$. In other words, only when the signal $x(t)$ decays (instead of grows) exponentially, will its Fourier transform  $X(\mathrm{i}\omega)$ exist:
+	
+	
+	Now consider Laplace transform of the same signal:
+	
+	Similar to the Fourier transform, for this integral to converge, i.e., for Laplace transform $X(s)$ to exist, it is necessary for $\sigma=\Re[s]$ to satisfy:
+	
+	in which case the Laplace transform is:
+	
+	As a special case where $a=0$, $x(t)=u(t)$ and we have:
+	
+	
+	When $ \Re[s]=\sigma=0$, Laplace transform $X(s)$ becomes Fourier transform $X(\mathrm{i}\omega)$.  
+	
+	\vskip 0.2in
+	{\bf Example 2:} The noncausal version of the signal above is $x(t)=-e^{-at}u(-t)$ and its Laplace transform is:
+	
+	Only when:
+	
+	will this integral converge and Laplace transform $X(s)$ exists
+	
+	Again as a special case when $a=0$, $x(t)=-u(-t)$ we have
+	
+	Comparing the two examples above we see that two different signals can have
+	identical Laplace transform $X(s)$ but $s$ may have to satisfy different 
+	conditions for $X(s)$ to exist. In general, the set of all $s$ values 
+	satisfying the conditions for the integral of Laplace transform to converge 
+	is called the {\em region of convergence (ROC)} in the complex s-plane. In 
+	the first case above, the ROC is $\Re[s]>0$, and in the second case, the ROC
+	is $\Re[s]<0$.
+	
+	{\bf Example 3:} 
+	
+	The Laplace transform of this signal is:
+	\begin{eqnarray}
+	X(s) & = & \int\limits_0^{+\infty} [e^{-2t}+\frac{1}{2}e^{-(1-\mathrm{i}3)t}
+		+\frac{1}{2}e^{-(1+\mathrm{i}3)t}]e^{-st} \mathrm{d}t	\nonumber \\
+	&=& \int\limits_0^{+\infty} e^{-2t}e^{-st} \mathrm{d}t
+		+\frac{1}{2}\int\limits_0^{+\infty} e^{-(1-\mathrm{i}3)t}e^{-st} \mathrm{d}t
+		+\frac{1}{2}\int\limits_0^{+\infty} e^{-(1+\mathrm{i}3)t}e^{-st} \mathrm{d}t
+	\nonumber \\
+	&=& \frac{1}{s+2}+\frac{1/2}{s+(1-\mathrm{i}3)}+\frac{1/2}{s+(1+\mathrm{i}3)}
+	\nonumber
+	\end{eqnarray}
+	Following example 1, we see that the conditions for the three integrals to converge are, respectively:
+	
+	i.e., when $\Re[s]>-1$, $X(s)$ exists and can be written as:
+	
+	
+	{\bf Example 4:}
+	
+	As the Laplace integration converges independent of $s$, the ROC is the 
+	entire s-plane. In particular, when $T=0$, we have:
+	
+	
+	\paragraph{Zeros and Poles of Laplace Transform}\mbox{}\\\\
+	
+	All Laplace transforms in the above examples are rational, i.e., they can 
+	be written as a ratio of polynomials of variable $s$ in the general form
+	
+	where $N(s)$ is the numerator polynomial of order $M$ with roots $s_{z_k}, (k=1,2, 
+	\cdots, M)$, and $D(s)$ is the denominator polynomial of order $N$ with roots 
+	$s_{p_k}, (k=1,2, \cdots, N)$. In general, we assume the order of the numerator
+	polynomial is lower than that of the denominator polynomial, i.e.,  $M < N$. If 
+	this is not the case, we can always expand $X(s)$ into multiple terms so that $M<N$
+	is true for each of terms.
+	
+	{\bf Example:}
+	
+	As the order of the numerator $M=2$ is higher than that of the denominator $N=1$, 
+	we expand it into the following terms
+	
+	and get
+	
+	Equating the coefficients for terms $s^k$ $(k=0, 1, \cdots, M)$ on both sides, we get
+	
+	Solving this equation system, we get coefficients
+	
+	and
+	
+	Alternatively, the same result can be obtained by carrying out a long-hand division
+	$(s^2-3) \div (s+2)$.
+	
+	{\bf Definition: } 
+	\begin{itemize}
+	\item Any complex value $s_z$ of $s$ for which $H(s)|_{s=s_z}=H(s_z)=0$ is a 
+		{\em zero} of $H(s)$;
+	\item Any complex value $s_p$ of $s$ for which $H(s)|_{s=s_p}=H(s_p)=\infty$ is a 
+		{\em pole} of $H(s)$;
+	\end{itemize}
+	
+	Obviously, all roots of the numerator polynomial $N(s)$ are zeros of $H(s)$ and 
+	all roots of the denominator polynomial $D(s)$ are poles of $H(s)$. Moreover, if 
+	the order of $D(s)$ exceeds the order of $N(s)$ (i.e., $N>M$), then $H(\infty)=0$,
+	i.e., there is a zero at infinity. On the other hand, if the order of $N(s)$ exceeds
+	that of $D(s)$ (i.e., $M>N$), then $H(\infty)=\infty$, i.e, there is a pole at
+	infinity. On the s-plane zeros and poles can be indicated by o and x respectively. 
+	Most essential behavior properties of an LTI system can be obtained graphically
+	from the ROC and the zeros and poles of its transfer function $H(s)$ on the s-plane.
+	
+	\paragraph{Properties of region of convergence}\mbox{}\\\\
+	Whether the Laplace transform $X(s)$ of a function $x(t)$ exists depends on whether
+	or not the transform integral converges:
+	
+	which in turn depends on the duration and magnitude of $x(t)$ as well as the real
+	part of $s$ $\Re[s]=\sigma$. When $x(t)$ is right sided (i.e., $x(t)=0$ for $t<t_0$),
+	it may have infinite duration for $t>0$, and the larger $\sigma$ the more quickly
+	$x(t)e^{-\sigma t}$ decays as $t \rightarrow \infty$. On the other hand, if $x(t)$ 
+	is left sided (i.e., $x(t)$ for $t<t_0$), it may have infinite duration for $t<0$,
+	and the smaller $\sigma$ the more quickly $x(t)e^{-\sigma t}$ decays as $t \rightarrow
+	-\infty$. The imaginary part of $s$ $Im[s]=\mathrm{i}\omega$ determines the frequency of a
+	sinusoid which is bounded and has no effect on the convergence of the integral. 
+	Based on these observations, we can get the following properties for the ROC:
+	
+	\begin{itemize}
+	
+	\item If $x(t)$ is absolutely integrable and of finite duration, then the ROC is
+		the entire s-plane (the Laplace transform integral is finite, i.e., $X(s)$ 
+		exists, for any $s$).
+	
+	\item The ROC of $X(s)$ consists of strips parallel to the $\mathrm{i}\omega$-axis in the
+		s-plane.
+	
+	\item If $x(t)$ is right sided and $\Re[s]=\sigma_0$ is in the ROC, then any $s$ to 
+		the right of $\sigma_0$ (i.e., $\Re[s]>\sigma_0$) is also in the ROC, i.e.,
+		ROC is a right sided half plane.
+	
+	\item If $x(t)$ is left sided and $\Re[s]=\sigma_0$ is in the ROC, then any $s$ to 
+		the left of $\sigma_0$ (i.e., $\Re[s]<\sigma_0$) is also in the ROC, i.e.,
+		ROC is a left sided half plane.
+	
+	\item If $x(t)$ is two-sided, then the ROC is the intersection of the two one-sided
+		ROCs corresponding to the two one-sided parts of $x(t)$. This intersection
+		can be either a vertical strip or an empty set.
+	
+	\item If $X(s)$ is rational, then its ROC does not contain any poles (by 
+		definition $X(s)|_{s=s_p}=\infty$ dose not exist). The ROC is bounded by 
+		the poles or extends to infinity.
+	
+	\item If $X(s)$ is a rational Laplace transform of a right sided function $x(t)$, 
+		then the ROC is the half plane to the right of the rightmost pole, and if 
+		$X(s)$ is a rational Laplace transform of a left sided function $x(t)$, 
+		then the ROC is the half plane to the left of the leftmost pole.
+	
+	\item A signal $x(t)$ is absolutely integrable, i.e., its Fourier transform $X(\mathrm{i}\omega)$ 
+		exists, if and only if the ROC of the corresponding Laplace transform $X(s)$
+		contains the imaginary axis $\Re[s]=0$ or $s=\mathrm{i}\omega$.
+	
+	\end{itemize}
+	
+	
+	{\bf Example 1: } Consider the Laplace transform of a two-sided signal 
+		$x(t)=e^{-b|t|}$:
+	
+	The Laplace transform of the two components can be obtained from the two examples 
+	discussed above. From example 1, we get
+	
+	and let $b=-a$ in example 2, we have
+	
+	Combining the two components, we have
+	
+	Whether $X(s)$ exists or not depends on $b$. If $b>0$, i.e., $x(t)$ decays 
+	exponentially as $|t| \rightarrow \infty$, then the ROC is the strip between $-b$
+	and $b$ and $X(s)$ exists. But if $b<0$, i.e., $x(t)$ grows exponentially as 
+	$|t| \rightarrow \infty$, then the ROC is an empty set and $X(s)$ does not exist.
+	
+	{\bf Example 2: } Given the following Laplace transform, find the corresponding 
+		signal:
+	
+	Given the two poles $s_{p_1}=-1$ and $s_{p_2}$ of the expression, there are three 
+	associated ROCs: 
+	\begin{itemize}
+	\item The half plane to the right of the rightmost pole $s_{p_2}=-1$, with the 
+	corresponding right sided time function
+		
+	\item The half plane to the left of the leftmost pole $s_{p_1}=-2$, with the 
+	corresponding left sided time function
+		
+	\item The vertical strip between the two poles $-1 < \Re[s] < -2$, with the 
+		corresponding two sided time function
+		 
+	\end{itemize}
+	In particular, note that only the first ROC includes the $\mathrm{i}\omega$-axis and the 
+	corresponding time function has a Fourier transform. Fourier transform of the
+	other two functions do not exist.
+	
+	
+	\paragraph{Properties of Laplace Transform}\mbox{}\\\\
+	The Laplace transform has a set of properties in parallel with that of the Fourier 
+	transform. The difference is that we need to pay special attention to the ROCs. In 
+	the following, we always assume
+	
+	and
+	
+	
+	\begin{itemize}
+	\item {\bf Linearity}
+	
+	While it is obvious that the ROC of the linear combination of $x(t)$ and $y(t)$ 
+	should be the intersection of the their individual ROCs $R_x \cap R_y$ in which both
+	$X(s)$ and $Y(s)$ exist, we note that in some cases when {\em zero-pole cancelation}
+	occurs, the ROC of the linear combination could be larger than $R_x \cap R_y$, as 
+	shown in the example below.
+	
+	{\bf Example } Assume:
+	
+	and
+	
+	then
+	
+	
+	\item {\bf Time Shifting}
+	
+	
+	\item {\bf Shifting in s-Domain}
+	
+	Note that the ROC is shifted by $s_0$, i.e., it is shifted vertically by $Im[s_0]$ 
+	(with no effect to ROC) and horizontally by $\Re[s_0]$. If $R_x$ is $\Re[s]>0$, the
+	new ROC is $\Re[s+s_0]>0$, i.e., $\Re[s]>-\Re[s_0]$.
+	
+	\item {\bf Time Scaling}
+	
+	Note that the ROC is horizontally scaled by $1/a$, which could be either positive
+	($a>0$) or negative ($a<0$) in which case both the signal $x(t)$ and the ROC of
+	its Laplace transform are horizontally flipped. 
+	
+	\item {\bf Conjugation}
+	
+	{\bf Proof: } 
+	
+	
+	\item {\bf Convolution}
+	
+	Note that the ROC of the convolution could be larger than the intersection of $R_x$ and
+	$R_y$, due to the possible pole-zero cancelation caused by the convolution, similar 
+	to the linearity property.
+	
+	{\bf Example } Assume 
+	
+	then
+	
+	
+	\item {\bf Differentiation in Time Domain}
+	
+	This can be proven by differentiating the inverse Laplace transform:
+	
+	Again, multiplying $X(s)$ by $s$ may cause pole-zero cancelation and therefore the
+	resulting ROC may be larger than $R_x$. For example, when $x(t)=u(t)$ and $X(s)=1/s$ 
+	with $\Re[s]>0$ as the ROC, $\mathrm{d} x(t)/\mathrm{d}t=\delta(t)$ and with $sX(s)=1$ whose ROC is the
+	entire s-plane. In general, we have:
+	
+	
+	{\bf Example } The ROC of ${\cal L}[\delta(t)]=1$ is the entire s-plane, and we have:
+	
+	and more generally:
+	
+	
+	\item {\bf Differentiation in s-Domain}
+	
+	This can be proven by differentiating the Laplace transform:
+	
+	Repeat this process we get:
+	
+	
+	\item {\bf Integration in Time Domain}
+	
+	This can be proven by realizing that:
+	
+	and therefore by convolution property we have
+	
+	Also note that as the ROC of ${\cal L}[u(t)]=1/s$ is the right half plane $\Re[s]>0$, 
+	the ROC of $X(s)/s$ is the intersection of the two individual ROCs 
+	$R_x \cap \{\Re[s]>0\}$, except if pole-zero cancelation occurs 
+	(when $x(t)=\mathrm{d}\delta(t)/\mathrm{d}t$ with $X(s)=s$) in which case the ROC is the
+	entire s-pane.
+	
+	\end{itemize}
+	
+	\paragraph{Laplace Transform of Typical Signals}\mbox{}\\\\
+	
+	\begin{itemize}
+	\item $\delta(t)$, $\delta(t-\tau)$
+	
+	
+	Moreover, due to time shifting property, we have:
+	
+	
+	\item $u(t)$, $t\;u(t)$, $t^n\;u(t)$
+	
+	Due to the property of time domain integration, we have:
+	
+	Applying the s-domain differentiation property to the above, we have
+	
+	and in general:
+	
+	
+	\item $e^{-at}u(t)$, $te^{-at}u(t)$
+	
+	Applying the s-domain shifting property to:
+	
+	we have
+	
+	Applying the same property to
+	
+	we have
+	
+	
+	\item $e^{-\mathrm{i}\omega_0 t}u(t)$, $\sin(\omega_0 t)u(t)$, $\cos(\omega_0 t)u(t)$ 
+	
+	Letting $a=\pm \mathrm{i}\omega_0$ in:
+	
+	we get
+	
+	and therefore:
+	
+	and :
+	
+	
+	\item $t\;\cos(\omega_0 t)u(t)$, $t\;\sin(\omega_0 t)u(t)$ 
+	
+	Letting $a=\pm \mathrm{i}\omega_0$ in:
+	
+	we get:
+	
+	Furthermore we have:
+	
+	and:
+	
+	
+	\item $e^{-at}\cos(\omega_0 t) u(t)$,  $e^{-at}\sin(\omega_0 t) u(t)$  
+	
+	Applying s-domain shifting property to:
+	
+	and:
+	
+	we get, respectively:
+	
+	and:
+	
+	
+	\end{itemize}
+	
+	\paragraph{Solving differential systems}\mbox{}\\\\
+	 A voltage $x(t)$ is applied as the input to a resistor $R$, 
+	a capacitor $C$ and an inductor $L$ connected in series. The output $y(t)$ is 
+	the voltage across one of the three elements. The system can be described by a 
+	differential equation in time domain
+	
+	or an algebraic equation in s-domain:
+	
+	and the overall impedance of the circuit is defined as the ratio between voltage 
+	$V(s)$ and the current $I(s)$ 
+	
+	which is composed of the individual impedance of the three elements
+	
+	\vskip 0.2in
+	
+	\begin{tabular}{l|c|c|c} \hline
+		& resistor $R$ & capacitor $C$ & inductor $L$  \\ \hline
+	time domain & $i=\frac{v}{R}$ & $i=\frac{1}{C}\frac{dv}{\mathrm{d}t}$ & $v=\frac{1}{L}\frac{di}{\mathrm{d}t}$ 
+	\\ \hline 
+	s-domain    & $V_R=IR$ & $V_C=I/Cs$ & $V_L=IsL$	\\ \hline
+	impedance $Z=V/I$   &    $R$   &   $1/sC$   &   $sL$    \\ \hline
+	\end{tabular}
+	\vskip 0.2in
+	If the output is the voltage across one of the three elements ($V_L$, $V_R$, or $V_C$), 
+	the transfer function $H(s)$ can be easily obtained by treating the series circuit as a
+	voltage divider: 
+	\begin{itemize}
+	\item Output is voltage across the capacitor $v_C(t)$
+	
+	\item Output is voltage across the resistor $v_R(t)$
+	
+	\item Output is voltage across the inductor $v_L(t)$
+	
+	\end{itemize}
+	If we define
+	
+	the common denominator of the transfer functions can be written in standard 
+	(canonical) form
+	
+	with two roots
+	
+	and the transfer functions above can be written in standard forms:
+	\begin{itemize}
+	\item 
+	
+	with two poles $p_1, p_2$ and no zeros. 
+	\item 
+	
+	with two poles $p_1, p_2$ and one zero at the origin. 
+	\item 
+	
+	with two poles $p_1, p_2$ and two repeated zeros at the origin. 
+	\end{itemize}
+	The three transfer functions behave like low-pass, band-pass and high-pass filter, 
+	respectively. Moreover, when the common real part $-\zeta \omega_n$ of the two complex
+	conjugate poles is small (i.e., $0<\zeta < 0.5$), there will be a narrow pass-band 
+	around $\omega=\omega_n$ for all three transfer functions. The magnitude and phase 
+	angle of the corresponding frequency response function $|H(\mathrm{i}\omega)|$ can be 
+	qualitatively determined in the s-plane, as to be discussed later.
+	
+	\paragraph{Unilateral Laplace Transform}\mbox{}\\\\
+	The Laplace transform so far discussed is {\em bilateral} as it can be applied 
+	to left sided signals as well as right sided ones. Now we will consider the
+	{\em unilateral} Laplace transform of an arbitrary signal $x(t)$ defined as:
+	
+	This definition always assumes $x(t)=0$ for $t<0$. When the unilateral Laplace
+	transform is applied to find the transfer function $H(s)={\cal UL}[h(t)]$ of an
+	LTI system, it is always assumed to be causal. And the ROC is always right sided
+	in s-plane.
+	
+	By definition, the unilateral Laplace transform of any signal $x(t)=x(t)u(t)$ 
+	is identical to its bilateral Laplace transform. However, when 
+	$x(t) \ne x(t)u(t)$, the two Laplace transforms are different. 
+	
+	Unilateral Laplace Transform shares all the properties of bilateral Laplace
+	transform, except some of the properties are expressed in different forms.
+	Here we only consider the differentiation in time domain:
+	
+	
+	{\bf Proof:} 
+	\begin{eqnarray}
+	{\cal UL}[\frac{d}{\mathrm{d}t} x(t)]&=&\int\limits_{0^-}^{+\infty} x'(t)e^{-st}\mathrm{d}t
+		=\int\limits_{0^-}^{+\infty} e^{-st}d[x(t)]
+		=x(t)e^{-st}|_{0^-}^{+\infty}-\int\limits_{0^-}^{+\infty} x(t)d(e^{-st})
+		\nonumber \\
+		&=&-x(0)+s \int\limits_{0^-}^{+\infty} x(t)e^{-st}\mathrm{d}t=sX(s)-x(0^-)
+		\nonumber
+	\end{eqnarray}
+	We can further get Laplace transform of higher order derivatives
+	
+	and in general
+	
+
+	\StickyNote[2.5cm]{\LARGE To finish before year 2020}[6.5cm]
+	
+	\pagebreak
 	\subsubsection{Hilbert Transform}
 	\StickyNote[2.5cm]{\LARGE To start write and finish before year 2020}[6.5cm]
 	
+	\pagebreak
 	\subsection{Functional dot product (inner product)}\label{functional dot product}
 	The "\NewTerm{functional dot product}\index{function dot product}\index{orthogonality of functions}\index{functions orthogonality}" (very strong analogy with the dot product in seen in the section Vector Calculus) may seem unnecessary when examined for the first time outside of an application context or only as generalization purpose, but in fact it has many practical applications. We will make such direct use in the section of Wave Quantum Physics and Quantum Chemistry, or even more important in the context of trigonometric polynomials through the Fourier series and transforms (\SeeChapter{see section Sequences and Series page \pageref{fourier series}}) that we find everywhere in contemporary physics and computer science.
 	
@@ -1402,7 +3038,7 @@ For convergence, it is obviously important to have following condition for the a
 	
 	and substituting into (\ref{eq}) gives:
 	
-	since $x \mathrm{d}/\mathrm{d}x$ is equivalent to $t d/dt$.
+	since $x \mathrm{d}/\mathrm{d}x$ is equivalent to $t \mathrm{d}/\mathrm{d}t$.
 	We can also write down the equation obtained by picking another zero, $b$. Defining:
 	
 	which implies:
@@ -1442,7 +3078,7 @@ For convergence, it is obviously important to have following condition for the a
 	
 	For this purpose we introduce the weight function $w(x)=e^{-x^2}$ therefore:
 	
-	So we get (we use the Gauss integral as proved in the section Statistics):
+	So we get (we use the Gauss integral as proved in the section Statistics page \pageref{Gauss integral}):
 	
 	\end{tcolorbox}
 	
@@ -3290,7 +4926,7 @@ on the interval $E = [0,+\infty[$.\\
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.6]{img/analysis/maps_homeomorphism.jpg}
-		\caption{Intuitive maps homeomorphism (source: ?)}
+		\caption[Intuitive maps homeomorphism]{Intuitive maps homeomorphism (source: ?)}
 	\end{figure}
 	
 	\pagebreak

@@ -5,7 +5,7 @@
 	\section{Calculus}\label{calculus}
 	\lettrine[lines=4]{\color{BrickRed}I}n the Arithmetic chapter of this book we have written extensively on various theorems using abstract numbers in order to extend the scope of the validity of the latter. However we have only discussed a few on how we should handle these abstract numbers. This is what we will see now.
 	
-As you may know already know, a number may be considered by making an abstraction of the nature of the objects that constitutes the group that it characterizes and as well as how to codify it (Indo-Arabic numbers, Roman numbers or other system...). We then say that the number is an "\NewTerm{abstract number}\index{abstract number}" and when we handle these kinds of objects we say that we are doing "algebra calculus" or also "\NewTerm{literal calculation}".
+As you may know already know, a number may be considered by making an abstraction of the nature of the objects that constitutes the group that it characterizes and as well as how to codify it (Indo-Arabic numbers, Roman numbers or other system...). We then say that the number is an "\NewTerm{abstract number}\index{abstract number}" and when we handle these kinds of objects we say that we are doing "algebra calculus" or also "\NewTerm{literal calculation}". 
 
 \textbf{Definition (\#\mydef):} "\NewTerm{Literal calculation}\index{Literal calculation}" is the fact to calculate with variables (that is to say with letters) as you would with numbers.
 
@@ -360,8 +360,9 @@ In the case of an equation with the absolute value (\SeeChapter{see section Oper
 	
 	which is the famous "\NewTerm{Newton's binomial}\index{Newton's binomial}" (that we will reuse many times in different chapters and thus sections of this book) or also named "\NewTerm{Binomial theorem}\index{binomial theorem}".
 	
-	More explicitly\label{binomial coefficient development}
+	More explicitly\label{binomial coefficient development}:
 	
+	also named "\NewTerm{binomial series}\index{binomial series}".
 	\end{theorem}
 	\begin{dem}
 	This relation can be proved quite simply by induction assuming true the previous relation and calculating it for the rank $1$:
@@ -553,7 +554,7 @@ In the case of an equation with the absolute value (\SeeChapter{see section Oper
 	
 	
 	\pagebreak
-	\subsubsection{Factorization Theorem of Polynomials}
+	\subsubsection{Factorization Theorem of Polynomials}\label{factorization theorem}
 	We will now prove an important theorem that is in fact originally illustrated (among others) by the remarkable identities we saw above:
 	
 	\begin{theorem}
@@ -604,7 +605,7 @@ and according to the result of the previous theorem on the Euclidean division:
 	\subsubsection{Diophantine equation}\label{diophantine equation}
 	If we generalize the concept of univariate polynomial with several variables such as:
 	
-	then we call "\NewTerm{Diophantine equation}\index{Diophantine equation}" an equation of the form:
+	then we name "\NewTerm{Diophantine equation}\index{Diophantine equation}" an equation of the form:
 	
 	where $P$ is a polynomial with integer (or rational) coefficients for which seeks the radicals (roots) strictly in $\mathbb{N}$ or $\mathbb{Q}$. Conventional Diophantine equations are for examples:
 	\begin{itemize}
@@ -1134,7 +1135,7 @@ and according to the result of the previous theorem on the Euclidean division:
 	
 	Before we begin, we refer the reader to the section on Set Theory to get a refresh of the structure and fundamental properties that make up a Group and also to the section of Linear Algebra (because we use some results proved in it).
 	
-	\subsubsection{Cyclic Groups}
+	\subsubsection{Cyclic Groups}\label{cyclic groups}
 	The cyclic group (whose definition of has already been given in the section of Set Theory) will serve us a basis for the study of finite groups. Moreover, rather than making generalized expansions we preferred to take specific examples to present the idea of cyclic group (more suitable for an engineering approach).
 	
 	We will take then the very nice example of the hours of a clock... with three different approaches that will successively (!) and simple address the concept of a cyclic group.
@@ -1954,9 +1955,11 @@ We assume as obvious (without proof) that two functions whose slopes are the sam
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 We will prove in the chapter of Analytic Geometry page \pageref{equation of the straight line} that two functions whose slopes multiplication is equal $-1$ are perpendicular.
 	\end{tcolorbox}
-	\item[D2.] We call "\NewTerm{derivative on $a$}\index{derivative}" or "\NewTerm{instantaneous slope}" or "\NewTerm{first derivative}\index{first derivative}", the limit when $h$ tends to $0$ (if the limits exists) of the ratio of the orthogonal projection of two points $x_1\neq x_2$ infinitely close  of a continuous function $f$ (in the sense that it does not contain "holes") on the $x$-axis and $y$-axis so that:
+	\item[D2.] We name "\NewTerm{derivative on $a$}\index{derivative}" or "\NewTerm{instantaneous slope}" or "\NewTerm{first derivative}\index{first derivative}", the limit when $h$ tends to $0$ (if the limits exists) of the ratio of the orthogonal projection of two points $x_1\neq x_2$ infinitely close  of a continuous function $f$ (in the sense that it does not contain "holes") on the $x$-axis and $y$-axis so that:
 	
-A graphic interpretation gives us that $f'(a)$ is the directing coefficient (the slope of the tangent at the point of abscissa $a$).
+	This relation is sometimes named "\NewTerm{Newton's difference quotient}\index{Newton's difference quotient}".
+	
+	A graphic interpretation gives us that $f'(a)$ is quite obviously the directing coefficient (the slope of the tangent at the point of abscissa $a$).
 	\begin{tcolorbox}[title=Remarks,colframe=black,arc=10pt]
 	\textbf{R1.} The letter $\mathrm{d}$ means here a "\NewTerm{differential}\index{differential}" and expresses the fact that we take an infinitesimal difference of the same amount.\\
 
@@ -3214,7 +3217,7 @@ An important example of differential form in thermodynamics, is the elementary w
 	
 	Consider we want to calculate the integral (not bounded for the moment):
 	
-	although we do not know directly how to calculate the primitive of this function $f (x)$ (at least we imagine being in that situation) we know (in one way or another) that exists (we do treat of improper integrals at this level).
+	although we do not know directly how to calculate the primitive of this function $f(x)$ (at least we imagine being in that situation) we know (in one way or another) that exists (we do treat of improper integrals at this level).
 
 	The technique then consists in this integral to perform the following change of variable:
 	
@@ -3415,6 +3418,8 @@ An important example of differential form in thermodynamics, is the elementary w
 		An integration by part gives:
 		
 		Therefore:
+		
+		The generalization is in our point of view immediate and we get the following reduction formula:
 		
 		\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 		Another very important primitive with the exponential in physics is that we had proved in our study of the law of Gauss-Laplace law (Normal Law) in the section of Statistics (determination of the expected mean).
@@ -3860,6 +3865,23 @@ An important example of differential form in thermodynamics, is the elementary w
 		Proceeding in the same way, but using the hyperbolic cosine instead of hyperbolic sine, we get obviously (we can detail on demand as always):
 		
 		We will reuse these last two relation in important practical cases of the section of Analytical Mechanics, Civil Engineering (where the constant $a$ is equal $1$, $\ln(a)$ will be equal to $0$) and General Relativity (where $a$ will be nonzero and therefore it will not be possible to omit the constant $\ln(a)$).
+		
+		\item In mathematics, there are several integrals known as the "\NewTerm{Dirichlet integral}\index{Dirichlet integral}\label{Dirichlet integral}". One of those is the improper integral of the sinc function over the positive real line:
+	
+	By Fubini's Theorem (see \pageref{fubini theorem}):
+	
+	Then using the primitive of $e^{ax}$:
+	
+	and using the primitive of $e^{ax}\sin(bx)$:
+	
+	Hence:
+
+	Using the primitive of $\frac{1}{x^2+a^2}$ seen earlier:
+	
+	As:
+	
+	Then:
+	
 		
 		\item Let us consider an integral of the following form that we can use to improve the Stirling formula (\SeeChapter{see section Theoretical Computing page \pageref{stirling}}) and also that we need absolutely for the study of the circular Fresnel aperture diffraction (\SeeChapter{see section Wave Optics page \pageref{wave optics}}):
 		
@@ -4845,11 +4867,13 @@ An important example of differential form in thermodynamics, is the elementary w
 	Indeed:
 	
 	\end{tcolorbox}
-	We then define the exponential of a matrix $A\in M_n(\mathbb{C})$ as the matrix limit of the sequence:
+	We then define the "\NewTerm{exponential of a matrix}\index{exponential of a matrix}\label{exponential of a matrix}" $A\in M_n(\mathbb{C})$ as the matrix limit of the sequence:
 	
 	If the matrix $A$ is diagonal obviously its exponential is easy to calculate. Indeed, if:
 	
 	It follows:
+	
+	This property of diagonal matrices will also be very useful to us in the section of General Relativity during our study of the variation of the metric determinant.
 	
 	However, it is clear that a non-diagonal matrix will be much more complicated to deal with! We will then use a diagonalization technique or an endomorphisms reduction\index{endomorphism reduction}\footnote{In linear algebra, an "endomorphism reduction" aims to express matrices and endomorphisms in a simpler form, for example to facilitate calculations. This consists essentially in finding a decomposition of the vector space into a direct sum of stable subspaces on which the induced endomorphism is simpler. Less geometrically, this corresponds to finding a basis of the space in which the endomorphism is simply expressed lile for example the spectral theorem (\SeeChapter{see section Linear Algebra page \pageref{spectral theorem}}).} (\SeeChapter{see section Linear Algebra page \pageref{matrix endomorphism}}) to simplify our problem.
 	
@@ -5450,7 +5474,7 @@ The physicists often needs to simply and formally solve problems, to approximate
 	
 	In the next subsection we will how to calculate the partial sum of some classic series that are important in physics, statistics and finance. We will start with Gauss arithmetic series that are an expression of the sum of the $n$ first nonzero integers raised to a given power $k$ in a condensed form. The application of this condensed form of a series has an important practical use in physics, statistics and finance when we wish to simplify the expression of certain results.
 	
-	\subsubsection{Gauss Series}
+	\subsubsection{Gauss Series}\label{gauss series}\index{Gauss series}
 	
 	Gauss arithmetic series are an expression of the sum of the $n$ first nonzero integers raised to a given power $k$ in a condensed form $S_k$. The application of this condensed form of a series has an important practical use in physics, statistics and finance when we wish to simplify the expression of certain results.
 	
@@ -5659,8 +5683,8 @@ The physicists often needs to simply and formally solve problems, to approximate
 	The reader will have observed that the reason $r$ does not appear in the latter relation. Indeed, by taking (always) the same development that for the Gauss series, the term $r$ is simplified and vanish.
 	\end{tcolorbox}
 	
-	\subsubsection{Geometric Series}
-	Similarly, with a geometrical sume where we have for recall:
+	\subsubsection{Geometric Series}\label{geometric series}
+	Similarly, with a geometrical sum where we have for recall:
 	
 	we have therefore:
 	
@@ -6125,45 +6149,6 @@ The physicists often needs to simply and formally solve problems, to approximate
 	\texttt{>readlib(mtaylor):\\
 	>mtaylor(f(x,y), [x,y], 3);}
 	
-	\paragraph{Quadratic Form}\mbox{}\\\\
-	Now we will need for the section of Theoretical Computing to state an important property (which would have also its place only in the section of Differential and Integral Calculus):
-	
-	Let $f$ be a function defined and derived over an interval $I$ and given $a$ an element of $I$. If $f$ is such that $f'(a)=0$ then we say it has a "\NewTerm{local extremum}\index{local extremum}\label{local extremum}" on $a$.
-	
-	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	The reciprocal is false, the function $x^3$ is such an example. Its derivative is zero at $0$ but there is no local extreme at this point. So be careful!
-	\end{tcolorbox}
-	
-	However, let $f$ be a function defined and derived over an interval $I$ and given $a$ an element of $I$. If $f$ is such that $f'(a)=0$ and if $f'$ changes sign in $a$ then $f$ has a local extremum at $a$.
-	
-	To return now to our bivariate development Taylor, we know that if $(x_0,y_0)$ is a local extremum of $f$ then we have in a first time (\SeeChapter{see section Differential and Integral Calculus page \pageref{local extremum}}):
-	
-	However we have seen that this condition is not sufficient to ensure that $(x_0,y_0)$ is a local extremum.
-	
-	Reconsider the Taylor expansion of $f$ above taking into account the above condition. Development simplified then to:
-	
-	Then we know that by definition so that the $(x_0,y_0)$ is a local minimum (respectively a local maximum) it is sufficient that the expression in brackets is positive (respectively negative). Since the second derivatives of $f$ are continuous, it is sufficient that the expression:
-	
-	to be positive (negative resp.) regardless of $h$ or $k$ and it is zero only if $h=k=0$. Then we say that $q$ is a "\NewTerm{positive definite quadratic form (resp. negative definite)}\index{positive definite quadratic form}".
-	
-	To simplify writing and to comply with traditions we put now:
-	
-	Then we can rewrite $q$ as follows:
-	
-	where $H$ remains the Hessian matrix of $f$ evaluated on $(x_0,y_0)$.
-	
-	So we see that $q$ is positive definite (local minimum) and if $a>0$ and $\det(H)>0$, negative definite (local maximum) if $a<0$ and $\det(H)>0$.
-	
-	Returning to the partial derivatives these conditions are described as follows:
-	\begin{itemize}
-		\item Positive definite (local minimum) if:
-		
-		
-		\item Negative definite (local maximum) if:
-		
-	\end{itemize}
-	Finally we see that the sign of the determinant of Hessian matrix and that of $\dfrac{\partial^2 f}{\partial x^2}(x_0,y_0)$ allow us to obtain a sufficient condition to determine if we are in the presence of a local extremum.
-	
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 	\textbf{{\Large \ding{45}}Example:}\\\\
 	Let us see an example with the famous humpback whale:\\
@@ -6184,6 +6169,110 @@ The physicists often needs to simply and formally solve problems, to approximate
 		\caption{Bivariate Taylor example with Maple 4.00b}
 	\end{figure}
 	\end{tcolorbox}
+	
+	\paragraph{Quadratic Form}\mbox{}\\\\
+	Now we will need for the section of Theoretical Computing to state an important property (which would have also its place only in the section of Differential and Integral Calculus):
+	
+	Let $f$ be a function defined and derived over an interval $I$ and given $a$ an element of $I$. If $f$ is such that $f'(a)=0$ then we say it has a "\NewTerm{local extremum}\index{local extremum}\label{local extremum}" on $a$.
+	
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	The reciprocal is false, the function $x^3$ is such an example. Its derivative is zero at $0$ but there is no local extreme at this point. So be careful!
+	\end{tcolorbox}
+	
+	However, let $f$ be a function defined and derived over an interval $I$ and given $a$ an element of $I$. If $f$ is such that $f'(a)=0$ and if $f'$ changes sign in $a$ then $f$ has a local extremum at $a$.
+	
+	To return now to our bivariate development Taylor, we know that if $(x_0,y_0)$ is a local extremum of $f$ then we have in a first time (\SeeChapter{see section Differential and Integral Calculus page \pageref{local extremum}}):
+	
+	However we have seen that this condition is not sufficient to ensure that $(x_0,y_0)$ is a local extremum.
+	
+	Reconsider the Taylor expansion of $f$ above taking into account the above condition. Development simplifies then to:
+	
+	Then we know that by definition so that the $(x_0,y_0)$ is a local minimum (respectively a local maximum) it is sufficient that the expression in brackets is positive (respectively negative). Since the second derivatives of $f$ are continuous, it is sufficient that the expression:
+	
+	to be positive (negative resp.) regardless of $h$ or $k$ and it is zero only if $h=k=0$. Then we say that $q$ is a "\NewTerm{positive definite quadratic form (resp. negative definite)}\index{positive definite quadratic form}".
+	
+	To simplify writing and to comply with traditions we put now:
+	
+	Then we can rewrite $q$ as follows:
+	
+	where $H$ remains the Hessian matrix of $f$ evaluated on $(x_0,y_0)$.
+	
+	So we see that $q$ is positive definite (local minimum) if $a>0$ and $\det(H)>0$, negative definite (local maximum) if $a<0$ and $\det(H)>0$.
+	
+	Returning to the partial derivatives these conditions are described as follows:
+	\begin{itemize}
+		\item Positive definite (local minimum) if:
+		
+		
+		\item Negative definite (local maximum) if:
+		
+		
+		\item Indefinite if:
+		
+	\end{itemize}
+	Finally we see that the sign of the determinant of Hessian matrix and that of $\dfrac{\partial^2 f}{\partial x^2}(x_0,y_0)$ allow us to obtain a sufficient condition to determine if we are in the presence of a local extremum.
+	
+	If We now consider a general $2\times 2$ symmetric matrix:
+	
+	It should be almost obvious to the reader that this matrix induces, in the sens of the Hessian matrix, the quadratic form:
+	
+	If $y = 0$, then we have $\mathrm{Q}_A(x,0) = ax^2$ (parabola), so we must certainly have $a > 0$ in order for $A$ to be positive definite.
+	
+	The following examples illustrate that in general, it cannot easily be determined whether a symmetric matrix is positive definite from inspection of the entries.
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\textbf{{\Large \ding{45}}Examples:}\\\\
+	E1. As first example, consider the matrix:
+	
+	Then:
+	
+	and we have whatever $(x_0,y_0)$:
+	
+	Therefore, even though all of the entries of $A$ are positive, $A$ is not positive definite.
+	\end{tcolorbox}
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	E2. Consider the matrix:
+	
+	Then:
+	
+	which can be seen to be always nonnegative. Furthermore, $ \mathrm{Q}_A(x,y) =0 $ if and only if $x = y$ and $y =0$, so for all nonzero vectors $(x,y)$, $ \mathrm{Q}_A(x,y) >0 $ and $A$ is positive definite, even though $A$ does not have all positive entries.\\
+	
+	E3. Let:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.7]{img/algebra/hessian_exp_x_y.jpg}
+	\end{figure}
+	We have:
+	
+	which yields the critical points $(x, x)$ for all $x \in \mathds{R}$. We also have:
+	
+	which yields:
+	
+	That is,$\mathrm{H}f(x,x)$, is positive semidefinite, making $(x,x)$ a global minimizer of $f(x,y)$.
+	\end{tcolorbox}
+	
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	E4. Let:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.7]{img/algebra/hessian_x3-12xy.jpg}
+	\end{figure}
+	We have:
+	
+	which yields the critical points $(0, 0)$ and $(2, 1)$. We also have:
+	
+	and therefore:
+	
+	We see that $\mathrm{H}f(2, 1)$ is positive definite, because its principal minors are positive, but $\mathrm{H}f(0, 0)$ is not, as $\Delta_1 = 0$ and $\Delta_2 = -144$. That is, $\mathrm{H}f(0, 0)$ is indefinite, so $(0, 0)$ is a saddle point.
+	\newline
+	Furthermore:
+	
+	so $f(x, y)$ has no global minimizer on $\mathds{R}^2$. We can conclude, however, that $(2, 1)$ is a strict local minimizer.\\
+	
+	It should be emphasized that if the Hessian is positive semidefinite or negative semidefinite at a critical point, then it cannot be concluded that the critical point is necessarily a minimizer, maximizer or saddle point of the function.
+	\end{tcolorbox}
+	
 	
 	\paragraph{Lagrange Remainder}\mbox{}\\\\
 	There may be an interest for some numerical applications (\SeeChapter{see section Theoretical Computing page \pageref{numerical methods}}) to know the approximation error of the polynomial $P_n(x)$ in relation to the function $f(x), \forall x$.
@@ -6404,9 +6493,15 @@ The physicists often needs to simply and formally solve problems, to approximate
 	
 	Therefore:
 	
+	Or more generally:
+	
+	So if we take the famous case where $t_0=-T/2$ we get:
+	
+	Obviously the two relation above are the Fourier coefficient in the "time space" (or "time domain") point of view. We will see in the section of Electrical Engineering that there is an equivalent if we work with Fourier series in the frequency space (or "frequency domain").
+	
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
-	\textbf{{\Large \ding{45}}Example:}\\\\
-	Upon decomposition of a continuous signal, we say (improperly at our point of view) that the coefficients $a_n,b_n$ are each (implicitly) a separate frequency associated with an amplitude that we visualize on a graph by vertical lines. This graph shows the "\NewTerm{frequency spectrum}\index{frequency spectrum}" of the decomposed signal. We can also add another representation which is named "\NewTerm{phase spectrum}\index{phase spectrum}". This spectrum gives us the phase of the harmonic signal (in phase advance or delay).
+	\textbf{{\Large \ding{45}}Examples:}\\\\
+	E1. Upon decomposition of a continuous signal, we say (improperly at our point of view) that the coefficients $a_n,b_n$ are each (implicitly) a separate frequency associated with an amplitude that we visualize on a graph by vertical lines. This graph shows the "\NewTerm{frequency spectrum}\index{frequency spectrum}" of the decomposed signal. We can also add another representation which is named "\NewTerm{phase spectrum}\index{phase spectrum}". This spectrum gives us the phase of the harmonic signal (in phase advance or delay).
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/algebra/fourier_spectrum_graph.jpg}
@@ -6445,6 +6540,16 @@ The physicists often needs to simply and formally solve problems, to approximate
 		\includegraphics{img/algebra/fourier_coefficients_example.jpg}
 		\caption{Frequency spectrum of the example Fourier series coefficients}
 	\end{figure}
+	E2. Let us consider another famous case! The signal decomposition of the  square plus of amplitude $A$ and width $T_p$ (this function is sometimes denoted $\Pi_P(t)$) and of period $T$:
+	\begin{figure}[H]
+		\centering
+		\includegraphics{img/algebra/square_pulse.jpg}
+	\end{figure}
+	
+	\end{tcolorbox}
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	
+	So we fall back on a discrete version of the famous cardinal sine function (\SeeChapter{see section Trigonometry page \pageref{sinc cardinal}})!
 	\end{tcolorbox}
 	The abuse to talk about "frequencies" for Fourier coefficients thus leads us to have negative frequencies on the  $x$-axis... but it's only a question of vocabulary (there is no direct relation with the real frequencies) with which you must be familiar.
 	
@@ -6562,7 +6667,8 @@ The physicists often needs to simply and formally solve problems, to approximate
 		\includegraphics{img/algebra/fourier_series_with_various_terms.jpg}
 		\caption{Example of Fourier series in Maple 4.00b with $4$, $8$ and $16$ terms}
 	\end{figure}
-	For $50$ terms we get:
+	For $50$ terms we get:\\
+	
 	\texttt{> plot(subs(N=50,S),x=-Pi..Pi,numpoints=800);}\\
 	\begin{figure}[H]
 		\centering
@@ -6592,7 +6698,7 @@ The physicists often needs to simply and formally solve problems, to approximate
 	
 	As what interest us is to determine the maximum of the Gibbs phenomenon (the disturbance), we see that it takes place in this particular case that we presented (see figure above) for each multiple of $\pi$ and as the denominator of the expression of the integral will decrease as the multiple is higher, it follows that the greatest maximum is at the point where $2nx=\pi$  (the point $0$ at the opposite will cancel the integral therefore we must this latter of our choice). Then we have:
 	
-	the evaluation of this integral can be done only numerically as we know, therefore we get:
+	the evaluation of this integral can be done only numerically as far as we know, therefore we get:
 	
 	That is about $18\%$ above the expected threshold value.
 	
@@ -6627,13 +6733,13 @@ The physicists often needs to simply and formally solve problems, to approximate
 	
 	Therefore, let us resume the expressions proved just earlier:
 	
-	that we can write equivalently in the following traditional form (wherein it is customary to put the factor $1 / T$ rather in $f (t)$):
+	that we can write equivalently in the following traditional form (wherein it is customary to put the factor $1/T$ rather in $f(t)$):
 	
 	and let us write this for future needs in the following form:
-		
+	
 	and let us put naturally that:
 	
-	Thus, when $T\rightarrow +\infty$, the pulsation tends to zero and we have $\omega\rightarrow \omega$ because we move from discrete values in continuous values that browse through the set of real number $\mathbb{R}$ (for all $k$). Therefore:
+	Thus, when $T\rightarrow +\infty$, the pulsation tends to zero and we have $\omega_n\rightarrow \omega$ because we move from discrete values in continuous values that browse through the set of real number $\mathbb{R}$ (for all $k$). Therefore:
 	
 	we pass to the limit that is to say:
 	
@@ -6724,11 +6830,11 @@ The physicists often needs to simply and formally solve problems, to approximate
 	\end{tcolorbox}
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
 	\textbf{{\Large \ding{45}}Examples:}\\\\
-	E1. Let us see now a first example (among the two fundamental) of a Fourier transform that we use again in the sections about quantum physics as well as in wave optics. We will calculate the Fourier transform (spectrum) of the following function (rectangular pulse):
+	E1. Let us see now a first example (among the three fundamentals) of a Fourier transform that we use again in the sections about quantum physics as well as in wave optics. We will calculate the Fourier transform (spectrum) of the following function (rectangular pulse):
 	\begin{figure}[H]
 		\centering
-		\includegraphics{img/algebra/fourier_transform_rectangular_pulse.jpg}
-		\caption[]{Rectangular pulse example for Fourier Transform}
+		\includegraphics[scale=0.5]{img/algebra/fourier_transform_rectangular_pulse.jpg}
+		\caption{Rectangular pulse example for Fourier Transform}
 	\end{figure}
 	We have therefore:
 	
@@ -6784,6 +6890,31 @@ The physicists often needs to simply and formally solve problems, to approximate
 	and therefore:
 	
 	It is then usual to say that the Fourier transform of a Gaussian is another Gaussian!!
+	\end{tcolorbox}
+	
+	\pagebreak
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	E3.\label{inverse fourier transform square pulse} This last example is very important to understand the Nyquist sampling. We consider a square pulse in the frequency domain:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/algebra/inverse_fourier_transform_rectangular_pulse.jpg}
+		\caption{Rectangular pulse example for Inverse Fourier Transform}
+	\end{figure}
+	Let us calculate its inverse Fourier transform:
+	
+	There is something important to notice here (or to remember whatever...)!!! First, we know that sinc is equal to $1$ at $t=0$. But we also know that every time $Wt=k\pi$ with $k\in\mathbb{N}^{*}$ we have $\mathrm{sinc}=0$. Therefore, every time $t=k\pi/W$ we have:
+	
+	To make things more nice, signal processing engineers like to write rather the previous result into the form:
+	
+	and as you have almost surely noticed... this introduce a new type of sine cardinal (sic...!).  You may ask yourself why....????? That's quite easy. Written this way the $\mathrm{sinc}_\pi$ cancels for:
+	
+	This is prettier.... and even has a name: the "\NewTerm{normalized sinc function}\index{normalized sinc function}" and result in the following well know plot in signal processing for the study of the Nyquist sampling theorem:
+	\end{tcolorbox}
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{img/algebra/sinc_inverse_fourier_transform.jpg}
+	\end{figure}
 	\end{tcolorbox}
 	
 	\pagebreak
@@ -7606,7 +7737,7 @@ When a vector can be expressed in the above way we say that the vector is in "\N
 The subspace generated by a nonzero vector consists of all multiples of this vector. We name such a subspace a "\NewTerm{vector line}\index{vector line}". A subspace generated by two vector non multiple of each other is named a "\NewTerm{vector map}\index{vector map}" or "\NewTerm{vector plane}\index{vector plane}".
 	\end{tcolorbox}
 	
-	\subsubsection{Linear Dependance or Independance}
+	\subsubsection{Linear Dependence or Independence}
 	What follows is very important in physics: we advise future physicists or engineer really take the time to read the developments below.
 	
 	If $(\vec{e}_1,\vec{e}_2,\vec{e}_3)$ are three vectors of $e^3$ whose representatives are not parallel to the same plane (by convention a zero-vector is parallel to any plane), so any vector $\vec{x}$ of $E^3$ can be written by the linear combination:
@@ -7903,7 +8034,7 @@ For "classic" resolution methods of such systems, we refer the readers to the se
 	\begin{dem}
 	Given:
 	
-	which is the "\NewTerm{orthogonal projection vector}\index{orthogonal projection vector}" (the $x$ on index of $\text{project}$ meaning "the vector $\vec{x}$") of the vector $\vec{y}$ of standardization at the unit of vector $\vec{x}$.
+	which is the "\NewTerm{orthogonal projection vector}\index{orthogonal projection vector}\label{orthogonal projection vector}" (the $x$ on index of $\text{project}$ meaning "the vector $\vec{x}$") of the vector $\vec{y}$ of standardization at the unit of vector $\vec{x}$.
 	
 	Using the scalar product, the vector $\text{proj}_x\vec{y}$ can be expressed otherwise, we just need to take the relation that we have seen above:
 	\begin{figure}[H]
@@ -8084,7 +8215,7 @@ For "classic" resolution methods of such systems, we refer the readers to the se
 	\subsubsection{Cross Product}
 	The cross product of two vectors is a proper operation to the dimension $3$. To introduce it, it is first necessary to orient the space intended to receive it. The orientation is defined by the concept of "determinant", therefore we will begin with a brief introduction to the study of this concept. This study will be repeated later in more details in the analysis of linear systems in the section of Linear Algebra.
 	
-	\textbf{Definition (\#\mydef):} We name basically "\NewTerm{determinant}\index{determinant}" of two column vectors of $\mathbb{R}^2$ (for the general form of the determinant see the section of Linear Algebra):
+	\textbf{Definition (\#\mydef):} We name basically "\NewTerm{determinant}\index{determinant}" of two column vectors of $\mathbb{R}^2$ (for the general form of the determinant see the section of Linear Algebra page \pageref{determinant}):
 	
 	and we denote it:
 	
@@ -8676,11 +8807,17 @@ $: the value of this function at the point $i$ is simply $a_i$.
 	
 	That it is tradition to write as:
 	
-	named the "\NewTerm{directional derivative}\index{directional derivative}". Its value is maximum obviously if $\theta=0$, that is to say that the gradient is colinear to the variation $\mathrm{d}\vec{r}$. Hence, the direction (and therefore the norm) of greatest increase of $f$ is the same direction as the gradient vector!! Thus we proved the property P3.
+	named the "\NewTerm{directional derivative}\index{directional derivative}". Its value is maximum obviously if $\theta=0$, that is to say that the gradient is colinear to the variation $\mathrm{d}\vec{r}$. Hence, the direction (and therefore the norm) of greatest increase of $f$, often named direction of "\NewTerm{deepest ascent}\index{deepest ascent}\label{eepest ascent}", is the same direction as the gradient vector!! Thus we proved the property P3.
 	
-	Obviously the directional derivative takes on its greatest negative value if $\theta=\pi$ (or $180$ degrees). Hence, the direction of greatest decrease of $f$ is the direction opposite to the gradient vector.
-
-	The property P4 can be explains without formalism as following:
+	Obviously the directional derivative takes on its greatest negative value if $\theta=\pi$ (or $180$ degrees). Hence, the direction of greatest decrease of $f$ is the direction opposite to the gradient vector and often named direction of "\NewTerm{deepest descent}\index{deepest descent}\label{eepest descent}".
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/algebra/gradient_deepest_descent_deepest_ascent.jpg}
+		\caption{Gradient deepest ascent and deepest descent}
+	\end{figure}
+	If $\theta=\pi/2$ then there is no change in altitude in this direction and we are on an "\NewTerm{isocline}\index{isocline}".
+	
+	The property P4 can be explained without formalism as following:
 	\begin{itemize}
 		\item If the function is decreasing in one variable, then the partial derivative is negative, so the component vector of the gradient for that variable points in the negative direction - which means increasing function value.
 
@@ -8724,7 +8861,7 @@ $f(x,y)$ is decreasing in $x$, the function decreases as you move forward in $x$
 	
 	Since cosine is negative and sine is positive, the angle must be in the second quadrant. Therefore:
 	
-	that is to say approximately $114.5916$ degrees (or seen from the point of view of the first quadrant: $39.792$ degrees).
+	that is to say approximately $114.5916$ degrees (or seen from the point of view of the first quadrant: $39.792$ degrees).\\
 	
 	With Maple 4.00b we can have a more detailed and general investigation of the calculation we just did:\\
 
@@ -9763,7 +9900,7 @@ Given the basis vectors $\left(\vec{v}_1,\vec{v}_2,...,\vec{v}_n \right)$ of $E$
 	\end{tcolorbox}
 	The above example show the statement that the column rank of a matrix equals its row rank is equivalent to the statement that the rank of a matrix is equal to the rank of its transpose.
 	
-	Before continuing we would like to indicate to the reader that later we will prove that if the rows of a matrix are independant, its determinant is non zero $\det(A)\neq 0$ and therefore $\text{rk}(A)=n$ and obviously $\text{rk}(A)=1$ when $\det(A)=0$.
+	Before continuing we would like to indicate to the reader that later we will prove that if the rows of a matrix are independent, its determinant is non zero $\det(A)\neq 0$ and therefore $\text{rk}(A)=n$ and obviously $\text{rk}(A)=1$ when $\det(A)=0$.
 	
 	\textbf{Definition (\#\mydef):} A matrix is said to have "\NewTerm{full rank}\index{full rank}" if its rank equals the largest possible for a matrix of the same dimensions, which is the lesser of the number of rows and columns. A matrix is said to be "\NewTerm{rank deficient}\index{rank deficient}" if it does not have full rank.
 	
@@ -10198,7 +10335,7 @@ Given the basis vectors $\left(\vec{v}_1,\vec{v}_2,...,\vec{v}_n \right)$ of $E$
 	
 	and finally:
 	
-	Therefore the determinant, in absolute value, represents the area of the parallelogram defined by the vectors $\vec{v}_1,\vec{v}_2$ when these vectors are linearly independent. We can generalize this result to a $n$-dimensional space, in particular, for $n=3$, the determinant of three linearly independent vectors represents the volume of the parallelepiped defined by these as we already prove it during our study of the mixed product in the section of Vector Calculus.
+	Therefore the determinant, in absolute value, represents the area of the parallelogram defined by the vectors $\vec{v}_1,\vec{v}_2$ when these vectors are linearly independent. We can generalize this result to a $n$-dimensional space, in particular, for $n=3$, the determinant of three linearly independent vectors represents the volume of the parallelepiped defined by these as we already prove it during our study of the mixed product in the section of Vector Calculus page \pageref{mixed product}.
 	
 	The more general case of the expression of the determinant is a little trickier to ascertain. This requires that we define a particular bijective application but simple that we have already met in the section Statistics.
 	
@@ -10536,7 +10673,7 @@ Given the basis vectors $\left(\vec{v}_1,\vec{v}_2,...,\vec{v}_n \right)$ of $E$
 	
 	For a simple, detailed, and important practical application in the industry (because otherwise in this entire book we will rarely inverse small matrices), the reader can refer to the section of Theoretical Computing in the part concerning the multiple linear regression.
 	
-	Let us also indicate the following important properties where $A$ and $B$ are a square invertible matrix $M_{n}(\mathbb{C})$ and $\lambda\in\mathbb{C}$ (the first should be obvious, the second has already been presented earlier but unproven and the third one is important for the proof of the variance inflation factor that we we will prove in the section of Theoretical Computing) :
+	Let us also indicate the following important properties where $A$ and $B$ are a square invertible matrix $M_{n}(\mathbb{C})$ and $\lambda\in\mathbb{C}$ (the first should be obvious, the second has already been presented earlier but unproven and the third one is important for the proof of the variance inflation factor that we we will prove in the section of Theoretical Computing on page \pageref{variance inflation factor}) :
 	
 	Let us prove the last property using the property of associativity:
 	\begin{dem}
@@ -10701,7 +10838,7 @@ Given the basis vectors $\left(\vec{v}_1,\vec{v}_2,...,\vec{v}_n \right)$ of $E$
 	\end{flushright}
 	\end{dem}
 	
-	\subsubsection{Rotation Matrices and Eigenvalues}
+	\subsubsection{Rotation Matrices and Eigenvalues}\label{rotation matrix in linear algebra}
 	Now that we have seen what was an eigenvalue and an eigenvector, let us come back on a particular type of orthogonal matrices that we will be particularly useful to us in our study of quaternions (\SeeChapter{see section Numbers page \pageref{quaternions}}), of groups and symmetries (\SeeChapter{see section Set Algebra page \pageref{set algebra}}) and particle physics (\SeeChapter{see section Elementary Particle Physics page \pageref{elementary particle physics}}).
 	
 	We denote, as what has been seen in the section of Set Algebra, $\text{O}(n)$ the set of $n\times n$ (square) orthogonal matrices with coefficients in $\mathbb{R}$, that is to say, satisfying:
@@ -11342,7 +11479,7 @@ Given the basis vectors $\left(\vec{v}_1,\vec{v}_2,...,\vec{v}_n \right)$ of $E$
 	
 	\end{tcolorbox}
 	
-	\subsection{Metric and Signature}
+	\subsection{Metric and Signature}\label{metric and signature}
 	As we have seen in it in the section of Vector Calculus (and Topology), the dot product of a vector $\vec{x}$ can be used to define the concept of norm of a vector (and also the concept of distance).
 	
 	Let us recall that we have by definition the norm of a vector which is given by (\SeeChapter{see section Vector Calculus page \pageref{dot product}})\label{norm tensor notation}:
@@ -11481,7 +11618,7 @@ Given the basis vectors $\left(\vec{v}_1,\vec{v}_2,...,\vec{v}_n \right)$ of $E$
 		
 	that is without units (so you have to multiply it by a factor of elementary volume to get volume units). If we note in another way the determinant:
 		
-	We get the common relation we can found in many books on General Relativity and String Theory but given without proof and named the "\NewTerm{Riemannian volume}\index{Riemannian volume}" form or simply "\NewTerm{volume form}":
+	We get the common relation we can found in many books on General Relativity and String Theory but given without proof and named the "\NewTerm{Riemannian volume}\index{Riemannian volume}\label{Riemannian volume}" form or simply "\NewTerm{volume form}":
 		
 	or written in the following "\NewTerm{invariant volume element}\index{invariant volume element}" form:
 	
@@ -11530,7 +11667,7 @@ Given the basis vectors $\left(\vec{v}_1,\vec{v}_2,...,\vec{v}_n \right)$ of $E$
 	\subsection{Operation in Basis}
 	The interest of physicist for the tensor calculus, is passing parameters from one base to another for some given reasons (often the aim is to simplify the study of problems or simply because the studied states depend - or may depend - on the geometry of the space in question). It is therefore necessary to introduce the main tools relating thereto. We will also take this opportunity to present the developments that could have been already addressed in the section of Vector Calculus.
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	As I like to say... Tensor Calculus is to physics with is XML to computing science. A background independant language!
+	As I like to say... Tensor Calculus is to physics with is XML to computing science. A background independent language!
 	\end{tcolorbox}
 	
 	\subsubsection{Gram-Schmidt Orthogonalization Method}
@@ -12668,6 +12805,25 @@ For this, let us return the expression of the vectors $\vec{e}_k$ of the natural
 	
 	and that this is another way of expressing that an infinitesimal variation on a geodesic according to the principle of least action kills the metric. We will therefore work from now on (as before) with nonlinear differential equations that must be integrated to find the behavior of matter in a given space.
 	\end{tcolorbox}
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\textbf{{\Large \ding{45}}Example:}\\\\
+	Let's try to verify this by calculating one component of the covariant differentiation in the spherical coordinates.\\
+	
+	We recall from our article that the diagonal metric of the $2$-sphere surface $\mathcal{S}^2$ expression is (\SeeChapter{see section Differentia Geometry \pageref{metric two sphere}}):
+	
+	If we were to calculate the component $g_{\phi\phi;\theta}$, we should then write:
+	
+	But $g_{ij}\neq 0$ only if $i=j$, based on the above expressions, so we can simplify this relation:
+	
+	As (\SeeChapter{see section Differential and Integral Calculus page \pageref{usual derivatives}}):
+	
+	 Further below (see page \pageref{Christoffel symbol 2-sphere}) we will prove that for $\mathcal{S}^2$ we have:
+	
+	So that:
+	
+	Finally, we confirm that this component of the covariant derivative with respect to $\theta$ equals also zero in a polar coordinates system, as expected:
+	
+	\end{tcolorbox}
 	Let us now determine an expression which will be very useful in General Relativity when we will determine the Einstein field equations (another way of expressing that the covariant derivative of the metric is null):
 
 	Let us perform the contracted multiplication of:
@@ -12823,7 +12979,7 @@ For this, let us return the expression of the vectors $\vec{e}_k$ of the natural
 
 	By extension:
 	
-	Let us recall that implicitly, this relation, named "\NewTerm{Bianchi second identity}\index{}" or "\NewTerm{Bianchi differential identity}\index{Bianchi differential identity}", always expresses simply (if one may say ...) the fact that gravity and geometry of space are linked together.
+	Let us recall that implicitly, this relation, named "\NewTerm{Bianchi second identity}\index{Bianchi second identity}\label{Bianchi second identity}" or "\NewTerm{Bianchi differential identity}\index{Bianchi differential identity}", always expresses simply (if one may say ...) the fact that gravity and geometry of space are linked together.
 
 	Following a reader request let us detail much more how to derivate this identity!
 
@@ -12935,7 +13091,7 @@ curvature tensor, or the Ricci tensor, so check the sign conventions of whatever
 	\end{tcolorbox}
 	
 	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
-	E3. Let us now impose ourselves the diagonal metric of the 2-sphere surface $\mathcal{S}^2$ (without the temporal component). We have then in accordance with what we have seen in the section of Differential Geometry page \pageref{metric two sphere}:
+	E3. \label{Christoffel symbol 2-sphere}Let us now impose ourselves the diagonal metric of the 2-sphere surface $\mathcal{S}^2$ (without the temporal component). We have then in accordance with what we have seen in the section of Differential Geometry page \pageref{metric two sphere}:
 	
 	and:
 	

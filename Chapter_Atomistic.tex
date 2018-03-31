@@ -866,7 +866,7 @@ The wavelength belonging to the Balmer series ($n_1=2,n_2=3,4,5,...$ is therefor
 	
 	\textbf{R2.} Once again know from the wave quantum physics that the exclusion principle applies to particles that are "fermions". These are the particles (elementary or composite) which have half-integer spin, such as the proton, neutron and neutrino. This principle does not apply to the group of particles naed "bosons" which have zero or integer spin.
 	\end{tcolorbox}
-	It is possible from this principle, to establish a kind of catalog of atomic elements from the orbital filling possibilities, assumed layered, improving Mendeleev classification.
+	It is possible from this principle, to establish a kind of catalog of atomic elements from the orbital filling possibilities, assumed layered, improving Mendeleev classification (see just further below the corresponding table).
 
 	Students often see them for the first time in school when they study chemistry. They use it most of the time, without knowing what they really represent (and also sometimes the teachers...).
 	
@@ -1061,14 +1061,19 @@ The wavelength belonging to the Balmer series ($n_1=2,n_2=3,4,5,...$ is therefor
 	
 	The Aufbau principle can be applied, in a modified form, to the protons and neutrons in the atomic nucleus, as in the shell model of nuclear physics and nuclear chemistry.
 	
-	And finally so far this is the only image of a nice periodic table that I have been able to found for this book but there exist much more complete and technical one but the quality is awful...:
+	And finally so far this is the only image of a nice periodic table that I have been able to found for this book but (there exist much more complete and technical one but their screen rendering quality is awful...):
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.75]{img/atomistic/periodic_table.jpg}
 		\caption[Periodic (Mendeleev) table]{Periodic (Mendeleev) table (source: European Synchrotron)}
 	\end{figure}
-	
-	The form of the periodic table is closely related to the electron configuration of the atoms of the elements:
+	Or a much more pedagogical one:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/atomistic/periodic_table_illustrated.pdf}
+	\end{figure}
+	\pagebreak
+	The structure of the periodic table is closely related to the electron configuration of the atoms of the elements:
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.53]{img/atomistic/periodic_table_structure.jpg}
@@ -1101,7 +1106,7 @@ The wavelength belonging to the Balmer series ($n_1=2,n_2=3,4,5,...$ is therefor
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=1]{img/atomistic/wave_particle_duality.jpg}
-		\caption{Dual nature of light (source: S. Tanzilli, CNRS)}
+		\caption[Dual nature of light]{Dual nature of light (source: S. Tanzilli, CNRS)}
 	\end{figure}
 	To this date, no contradiction could be found between the predictions of quantum physics and associated experimental tests. This success has unfortunately a price: the theory is based on a rather abstract mathematical formalism, which makes it quite difficult at first. Hopefully until we not deal with the spin we can be dispensed Heisenberg's matrix formalism to focus on formalism of Schrödinger's wave equation that is much simpler and which to a certain level can get a mental picture of what is happening.
 	
@@ -2242,7 +2247,7 @@ Any vector (or function if we generalize vector space to function space) $|x\ran
 	
 	Therefore becomes:
 	
-	This equation constitutes the "\NewTerm{Schrödinger's classical evolution equation}\index{Schrödinger's classical evolution equation}" which allows to study systems evolving over time, in particular the processes involving the absorption and the emission of radiation and the diffusion of the radiation by the atoms.
+	This equation constitutes the "\NewTerm{Schrödinger's classical evolution equation}\index{Schrödinger's classical evolution equation}" or  "\NewTerm{time-dependant Schrödinger's equation}\index{time-dependant Schrödinger's equation}" which allows to study systems evolving over time, in particular the processes involving the absorption and the emission of radiation and the diffusion of the radiation by the atoms.
 	
 	In particular, for a spinless particle subjected to a potential energy $E_p$, by always maintaining that the relation between $K$ and $H$ is general, the equation of evolution is then written:
 	
@@ -2320,8 +2325,29 @@ Any vector (or function if we generalize vector space to function space) $|x\ran
 	or in representative notation:
 	
 	and that of an operator in the Heisenberg picture is:
-
+	
 	The Heisenberg picture is useful because we can see a closer connection to classical physics than with the Schrödinger picture. In classical physics, we describe the evolution of a system in terms of the time evolution of the observables, such as position or angular momentum, as dictated by the classical equations of motion. Classical mechanics does not include the concept of state vectors, as quantum mechanics does.
+	
+	\paragraph{Conserved Quantities and Commutators}\mbox{}\\\\\
+	Let us recall the time-dependent Schrödinger equation obtained just earlier:
+	
+	We saw earlier that the expectation value of an observable physical quantity $\mathcal{O}$ is given by:
+	
+	where for recall $\hat{\mathbb{O}}$ is the operator representing the quantity (observable) $\mathcal{O}$. For $\mathcal{O}$ to be conserved, its value $\langle \mathcal{O} \rangle$ must not change in time, so the question is, when is  $\langle \mathcal{O} \rangle$ independent of time? To answer that question, we assume that  $\langle \hat{\mathcal{O}} \rangle$ is independent of time and compute $\mathrm{d}\langle \mathcal{O} \rangle/\mathrm{d}t$ as follows:
+	
+	The complex conjugate Schrödinger equation is:
+	
+	Using the fact that $H$ is real or hermitian, this can be written (in the case where the Hamiltonian is a matrix we use here the property $(AB)^T=B^TA^T$ proved in the section of Linear Algebra page \pageref{transposed matrix}):
+	
+	Therefore combining the two previous time-dependent Schrödinger equation into the previous integral we get:
+	
+	So if the observable $\mathcal{O}$ is conserved then we must have:
+	
+	That is:
+	
+	Hence a conserved quantity in quantum mechanics can be defined as one for which the probabilities of measuring the various eigenvalues for that quantity are independent of time in all states. Mathematically conserved quantities correspond to Hermitian operators $\hat{\mathcal{O}}$ satisfying:
+	
+	This is a very important result for our study of Wave Quantum Physics and also for the next section of Relativistic Quantum Physics!
 	
 	\paragraph{Schrödinger picture by separation of variables}\mbox{}\\\\\
 	Let us also see an interesting mathematical manipulation and somewhat similar to the previous one of Schrödinger's equation of evolution. This manipulation will allow us to see that the separation of variables works very well with the equation of evolution and that it will allow us to fall back on a result obtained previously (it is always pedagogically to see several approaches).
@@ -2428,7 +2454,7 @@ The writing of the last relation is easily justified because let us recall that 
 	which therefore always gives the probability of finding the state $n$ at the position $x$.
 	
 	\pagebreak
-	\paragraph{Continuity equation}\mbox{}\\\\\
+	\paragraph{Schrödinger continuity equation}\mbox{}\\\\\
 	Let us consider now the important example of the equation of evolution for a free particle, that is to say with $E_p=0$. Therefore we have:
 	
 	The probability of finding the particle in a volume $V$ is, as we have seen, given by:
@@ -4497,6 +4523,7 @@ delta\_w:=w[0]/10: w[1]:=w[0]-delta\_w; w[2]:=w[0]+delta\_w;\\
 	
 	We thus fall back on the Klein-Gordon equation for a free particle without spin!
 	
+	\subsubsection{Generalized Klein-Gordon Equation continuity equation}
 	It would be interesting now to look at the expression of the continuity equation (let us recall that it expresses the conservation of energy!!) with the inclusion of the magnetic field (because in fact the continuity equation still makes problem... and even a very big problem!!!). For this, consider the case of a free particle moving with a momentum $\vec{p}$ and having an energy $E$. We saw that we could associate to it a plane wave of the form:
 	
 	Given the free Klein-Gordon equation and its complex conjugate (we work with naturellesunits):
@@ -4565,7 +4592,7 @@ delta\_w:=w[0]/10: w[1]:=w[0]-delta\_w; w[2]:=w[0]+delta\_w;\\
 	  &f(\vec{\nabla}\circ\vec{g})=\vec{\nabla}\circ(f\cdot \vec{g})-(\vec{\nabla})\circ\vec{g}\Rightarrow \bar{\Psi}(\vec{\nabla}\circ\vec{\nabla}\Psi)=\vec{\nabla}\circ(\bar{\Psi}\vec{\nabla}\Psi)-(\vec{\nabla}\bar{\Psi})\circ\vec{\nabla}\Psi
 	\end{align}
 	\end{subequations}
-	We substract (a)-(b) to get:
+	We subtract (a)-(b) to get:
 	
 	As $\vec{\nabla}\circ\vec{\nabla}=\vec{\nabla}^2=\Delta$:
 	
@@ -4580,7 +4607,7 @@ delta\_w:=w[0]/10: w[1]:=w[0]-delta\_w; w[2]:=w[0]+delta\_w;\\
 	Let us recall that during our first study of the Klein-Gordon equation we have seen that in quantum physics equivalent is given by the same equation but with the following meanings: $\rho$ is the probability density, $\vec{j}$ is the flux density of particles.
 	We then have:
 	
-	If the associated wave function $\Psi$ and its conjugate complex $\bar{\Psi}$ are given in a special cas by:
+	If the associated wave function $\Psi$ and its conjugate complex $\bar{\Psi}$ are given in a special case by:
 	
 	The derivatives with respect to time of these functions are obviously:
 	
@@ -4596,7 +4623,7 @@ delta\_w:=w[0]/10: w[1]:=w[0]-delta\_w; w[2]:=w[0]+delta\_w;\\
 	
 	Putting ourselves in the situation of that time of knowledge of quantum physics, the Klein-Gordon equation has several pathologies and disadvantages:
 	\begin{itemize}
-		\item The probability density $\rho=2EA^2$ may become negative (since as we have seen, the energy can also be), which is inexplicable. Such a situation does not exist with the Schrödinger equation.
+		\item The probability density $\rho=2EA^2$ may become negative (since as we have seen, the energy can also be negative), which is inexplicable. Such a situation does not exist with the Schrödinger equation.
 		
 		\item The Klein-Gordon equation has the disadvantage of being of the second order in $t$ (the Schrödinger equation is of the first order). The temporal evolution requires therefore the knowledge of not only of $\Psi(t_0)$ but also of its derivative $(\partial_t \Psi)_{t=t}$
 
@@ -4726,7 +4753,7 @@ delta\_w:=w[0]/10: w[1]:=w[0]-delta\_w; w[2]:=w[0]+delta\_w;\\
 
 	It is usual to combine the two spinors in a single spinor (this becomes a "\NewTerm{bispinor}\index{bispinor}") of $4$ components (a spinor with $4$ components, two of which are in fact associated with the particles and two with the antiparticles as we shall see):
 	
-	and to define the following two matrices (commonly named "\NewTerm{Gamma matrices}\index{Gamma matrices}") (in a so-named "\NewTerm{chiral form}"):
+	and to define the following two matrices (commonly named "\NewTerm{Gamma matrices}\index{Gamma matrices}") in a so-named "\NewTerm{standard form}":
 	
 	where $\mathds{1}$ is the $2\times 2$ unit matrix traditionally defined by:
 	
@@ -4777,11 +4804,45 @@ delta\_w:=w[0]/10: w[1]:=w[0]-delta\_w; w[2]:=w[0]+delta\_w;\\
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	Since the Dirac equation applies to the spin $1/2$ particles, it also applies to neutrinos whose mass at rest is zero (thus the resolution of the Dirac equation is largely simplified).
 	\end{tcolorbox}
-	In the purpose now of interpreting the physical content of the Dirac equation, we will use a different representation of the Pauli matrices. We have seen that the representation by the matrices $4\times 4$:
 	
-	was named "\NewTerm{Chiral representation}\index{Chiral representation}" (or "\NewTerm{Weyl representation}\index{Weyl representation}") whereas we will now use the "\NewTerm{Dirac representation}\index{Dirac representation}" defined by:
+	\subsubsection{Gamma, alpha, beta matrices}
+	In the purpose now of interpreting the physical content of the Dirac equation, we will use a different representation of the gamma matrices. We have introduced earlier the representation by the following matrices $4\times 4$:
 	
-	We easily check (elementary linear algebra) that this representation is obtained by the transformation:
+	that named "\NewTerm{standard representation}\index{standard representation}" and denoted rigorously:
+	
+	with for recall:
+	
+	But in fact these matrices are by far not the only $4\times 4$ matrices that satisfy the following set of equalities that we will justify later during our study of the linearized Dirac equation (page \pageref{linearized dirac equation}):
+	
+	For example, we will use many times the "\NewTerm{Dirac representation}\index{Dirac representation}" defined by:
+	
+	Or more explicitly:
+	
+	With the corresponding Dirac alpha and beta matrices:
+	
+	This representation (also not unique!) is particularly useful because it highlights the spinor character (due to the half-integer spin) of the electron wave function and separates the positive and negative energy components.
+	
+	With Maple 4.00b it can easily be checked that they satisfy the set of three equalities introduced just earlier (see the Maple companion book):\\
+	
+	\texttt{>with(linalg):\\
+	>beta:=array([[1,0,0,0],[0,1,0,0],[0,0,-1,0],[0,0,0,-1]]);\\
+	>alpha1:=array([[0,0,0,1],[0,0,1,0],[0,1,0,0],[1,0,0,0]]);\\
+	>alpha2:=array([[0,0,0,-I],[0,0,I,0],[0,-I,0,0],[I,0,0,0]]);\\
+	>alpha3:=array([[0,0,1,0],[0,0,0,-1],[1,0,0,0],[0,-1,0,0]]);\\
+	>evalm(beta\string^2);\\
+	>evalm(alpha1\string^2);\\
+	>evalm(alpha2\string^2);\\
+	>evalm(alpha3\string^2);\\
+	>readlib(commutat):\\
+	>evalm(c(alpha1,alpha2));\\
+	>evalm(c(alpha1,alpha3));\\
+	>evalf(evalm(c(alpha2,alpha3)));\\
+	>evalf(evalm(c(alpha1,beta)));\\
+	>evalf(evalm(c(alpha2,beta)));\\
+	>evalf(evalm(c(alpha3,beta)));\\
+	}
+	
+	We can also easily check (elementary linear algebra) that the Dirac representation is obtained from the standard representation by the transformation:
 	
 	where:
 	
@@ -4794,7 +4855,51 @@ delta\_w:=w[0]/10: w[1]:=w[0]-delta\_w; w[2]:=w[0]+delta\_w;\\
 		$\square$  Q.E.D.
 	\end{flushright}
 	\end{dem}
-	Let us now look for solutions specific to the Dirac equation in the form:
+	But notice that there is also another possible choice, named the "\NewTerm{chiral representation}\index{chiral representation}" defined by:
+	
+	Or more explicitly:
+	
+	With the corresponding chiral alpha and beta matrices:
+	
+	Thus more explicitly:
+	
+	Its advantage is that both spinors transform independently under rotations and translations. It is particularly useful for massless particles, the equations being considerably simplified. It has been used for the neutrino although neutrino oscillations show that their mass is non-zero.
+	
+	But notice that there is again also another possible choice, named the "\NewTerm{Weyl representation}\index{Weyl representation}" defined by:
+	
+	Or more explicitly:
+	
+	With the corresponding Weyl alpha and beta matrices:
+	
+	Thus more explicitly:
+	
+	This representation is useful when one seeks to derive the Dirac equation using the irreducible representations of the Lorentz group.
+	
+	But notice that there is again also another possible choice, named the "\NewTerm{Majorana representation}\index{Majorana representation}" defined by:
+	
+	Majorana matrices in the representation above obey also the following mandatory gamma anticommutation relations (as so far we don't know the $\beta$ and $\alpha_i$ corresponding Majorana matrices) as seen at page \pageref{gamma anticommutation relations} (and that can easily be verified using the same type of Maple code as given just earlier!):
+	
+	Thus, for $i\neq j$:
+	
+	and it is also immediate using this anticommutation relation that:
+	
+	A further, purely imaginary representation of the Majorana matrices spread in the literature is given by:
+	
+	That latter Majorana representation can be obtained from the original representation by the unitary transformation:
+	
+	There is alsoooooo another Majorana representation (sorry...) also denoted identically as previously (sic!) and defined by:
+	
+	That is explicitly:
+	
+	This representation has the interesting property that all matrices $\gamma^\mu$ are pure imaginary what make the Dirac fields of the Dirac equation a non-complex field where the particles are therefore their own antiparticles.
+	\begin{tcolorbox}[title=Remarks,colframe=black,arc=10pt]
+	\textbf{R1.} All these possibilities explains why physicists speaks sometimes of Dirac, Majorana or Weyl fermions.\\
+	
+	\textbf{R2.} Sadly it seems that there is no international convention on the definition and names of the above representations. It is a bit a mess and depending on the textbook you will not get the same definitions. They're also the leading causes of stress disorders amongst physicists.
+	\end{tcolorbox}
+	
+	\subsubsection{Free particle solution}
+	Let us now look for solutions specific to the Dirac equation in the form of a free particle\footnote{If the developments may bee to hard for the reader, he can jump straight to the case of the free particle at rest solution at page \pageref{free particle solution at rest}}
 	
 	By substituting in the Dirac equation and after simplification by $e^{\mathrm{i}\vec{p}\circ\vec{r}-Et}$ we find easily:
 	
@@ -4812,7 +4917,7 @@ delta\_w:=w[0]/10: w[1]:=w[0]-delta\_w; w[2]:=w[0]+delta\_w;\\
 	
 	This is therefore a system of equations very funny (...) to solve....... (do not forget that each term of the above relation is implicitly a $2\times 2$ matrix).
 	
-	With Chirale, representation we would have obtained (always by adopting the traditional notation of this book for the scalar product):
+	With Chirale representation we would have obtained (always by adopting the traditional notation of this book for the scalar product):
 	
 	and we would not have come fall back on such an aesthetic and physical condition for there to be solutions!
 
@@ -4846,7 +4951,7 @@ We therefore know that there are solutions to the Dirac equation. Let us now det
 	
 	and noting the spinors by (we change the notation to come back to the original one):
 	
-	We finally have using $(1)$ and $(2)$ and by denoting $N()$ the part of the solution we should normalize, the following possible solutions and which are independent:
+	\label{free particle dirac equation involving factor N} We finally have using $(1)$ and $(2)$ and by denoting $N()$ the part of the solution we should normalize (see page \pageref{normalization dirac free particle solution}), the following possible solutions and which are independent:
 	
 	
 	with $E=+\sqrt{\ldots}$ and also:
@@ -4856,10 +4961,93 @@ We therefore know that there are solutions to the Dirac equation. Let us now det
 
 	All this can be abbreviated globally:
 	
-	Let us say indicate that the term $\vec{p}\circ\vec{\sigma}$ which is therefore the projection of the momentum (momentum) on a mathematical entity directly related to the spin is named "\NewTerm{helicity}" and therefore fined by:
+	Let us say indicate that the term $\vec{p}\circ\vec{\sigma}$ which is therefore the projection of the momentum (momentum) on a mathematical entity directly related to the spin is named "\NewTerm{helicity}\index{helicity}" and therefore fined by:
 	
 	
-	\subsection{Linearized Dirac Equation}
+	\subsubsection{Free particle solution at rest}\label{free particle solution at rest}
+	We start again from:
+		
+	Let us consider the derivatives of the free particle solution above:
+	
+	Substituting these into the Dirac equation gives:
+	
+	which can be written:
+	
+	This is the Dirac equation in "momentum" – note it contains no derivatives.
+	
+	For a particle at rest $\vec{p}=\vec{0}$ then:
+	
+	Hence the Dirac equation reduces to:
+	
+	Explicitly:
+	
+	We see quite immediately that this equation has for independent orthogonal solutions:
+	
+	The two first solutions leads us to:
+	
+	And the two last to:
+	
+	So we still have negative energy solutions (antiparticles)!
+	
+	Including the time dependence from $\Psi=\Psi_0(E,\vec{0})e^{-\mathrm{i}Et}$ gives:
+	
+	We therefore have two spin states with $E>0$ and two spin states with $E<0$. More explicitly, $\Phi_1$ then describes an $S=\frac{1}{2}$ (in Planck units) fermion of mass $m$ with spin $\uparrow$, $\Phi_2$ describes an $S=\frac{1}{2}$ (in Planck units) fermion of mass $m$ with spin $\downarrow$, $\Phi_3$ describes an $S=\frac{1}{2}$ (in Planck units) antifermion of mass $m$ with spin $\uparrow$, $\Phi_4$ describes an $S=\frac{1}{2}$ (in Planck units) antifermion of mass $m$ with spin $\downarrow$.
+	
+	In quantum physics we can't just discard the $E<0$ solutions as unphysical
+as we require a complete set of states, i.e. four solutions!
+	
+	We can also see something important! The antiparticle solution is the complex conjugate of the particle solution! Keep this in mind for when we will study the Majorana equation later!
+	
+	For information the reader can check that if we take back the relations proved earlier:
+	
+	
+	
+	
+	and we put $\vec{p}=\vec{0}$ we fall back on the same type of spinors as we just get above!
+	
+	\subsubsection{Majorana equation}
+	An electrically charged particle is different from its antiparticles as it has the opposite electric charge, and electric charge is a measurable, stable property. It is possible, however, for an electrically neutral particle to be its own antiparticle. Photons, which have spin $1$ (in units of the rationalized Planck's constant $\hbar$) are a familiar case; neutral ions (spin $0$) are a further example, and gravitons (spin $2$) another. Particles that are their own antiparticles must be created by field $\Phi$ that obey:
+	
+	that is... real fields (!), because the complex-conjugate field $\Psi^\dagger$ create their antiparticles. 
+	
+	The equations for particles with spin $0$, spin $1$ and spin $2$ - the Klein-Gordon, Maxwell (electromagnetism) and Einstein Field equations (General Relativity) respectively - readily accommodate real fields, as these equations are formulated using real numbers.
+	
+	Indeed, when in 1928, Paul Dirac discovered the theoretical framework for describing spin-$1/2$ particles, it seemed that complex numbers were unavoidable. Diracc's original equation contained both real and imaginary numbers, and therefore it can only pertain to complex fields. For Dirac, who was concerned with describing  electrons, this feature posed no problem, and even came to seem an advantage because it explained why positrons, the antiparticles of electrons, exist.
+	
+	Enter Ettore Majorana. In his 1937 paper, Majoran posed, and answered, the question of whether equations for spin-$1/2$ fields must necessarily, like Dirac's original equation, involve complex numbers.
+	
+	Considerations of mathematical elegance and symmetry both motivated and guided his investigation. Majorana discovered that, to the contrary, there is a simple, clever modification of Dirac's equation that involves only real numbers. With this discovery, Majorana made the idea that spin-$1/2$ particles could be their own antiparticles theoretically respectable, that is, consistent with the general principles of relativity and quantum theory.
+	
+	Majoran inquired whether it might be possible for a spin-$1/2$ particle to be its own antiparticle, by attempting to find the equation that such an object would satisfy. To get an equation of Dirac's type (that is, suitable for spin-$1/2$) but capable of governing a real field, required $\gamma$m matrices that are purely imaginary.
+	
+	These matrices that we have already introduced earlier and named the "\NewTerm{Majorana representation}\index{Majorana representation}" is defined by:
+	
+	And we know, the Majorana matrices in the representation above obey also the following mandatory gamma anticommutation relations (as so far we don't know the $\beta$ and $\alpha_i$ corresponding Majorana matrices for recall!) as seen at page \pageref{gamma anticommutation relations}:
+	
+	Thus, for $i\neq j$:
+	
+	and it is also immediate using this anticommutation relation that:
+	
+	A further, purely imaginary representation of the Majorana matrices spread in the literature is also a we know given by:
+	
+	That latter Majorana representation can be obtained from the original representation by the unitary transformation:
+	
+	There is alsoooooo again as we already know another Majorana representation also denoted identically as previously (sic!) and defined by:
+	
+	That is explicitly:
+	
+	This representation has the interesting property that all matrices $\gamma^\mu$ are pure imaginary what make the Dirac fields of the Dirac equation a non-complex field where the particles are therefore their own antiparticles.
+	
+	Indeed, the "\NewTerm{Majaorana's equation}\index{Majaorana's equation}", then, is simply:
+	
+	Because the $\tilde{\gamma}^\mu$ matrices are purely imaginary, the matrices $\mathrm{i}\tilde{\gamma}^\mu$ are real, and consequently this equation can govern a real field $\tilde{\Psi}$.
+	
+	Particles corresponding to Majorana spinors are known as Majorana particles, due to the above self-conjugacy constraint. All the fermions included in the Standard Model have been excluded as Majorana fermions (since they have non-zero electric charge they cannot be antiparticles of themselves) with the exception of the neutrino (which is neutral).
+
+	Theoretically, the neutrino is a possible exception to this pattern. If so, neutrinoless double-beta decay, as well as a range of lepton-number violating meson and charged lepton decays, are possible. A number of experiments probing whether the neutrino is a Majorana particle are currently (year 2017) underway.
+	
+	\pagebreak
+	\subsection{Linearized Dirac Equation}\label{linearized dirac equation}
 	We saw at the beginning of our study of Wave Quantum Physics that the classic Schrödinger equation of evolution was:
 	
 	ie a differential equation of the first order with respect to time and the second with respect to the spatial coordinates.
@@ -4885,6 +5073,10 @@ We therefore know that there are solutions to the Dirac equation. Let us now det
 	Thus, the simplest relativistic evolution wave equation that we can construct will be:
 	
 	In a much more common form in the literature:
+	
+	Or also:
+	
+	Or in natural units:
 	
 	As here:
 	
@@ -4938,9 +5130,12 @@ We therefore know that there are solutions to the Dirac equation. Let us now det
 	
 	In the choice considered by Dirac or Weyl, we have the following Pauli matrices and unit matrix:
 	
-	This leads to the matrices $\alpha_i$, $\beta$ (we recognize that the $\alpha_i$ are in fact the gamma matrices $\gamma_i$ introduce earlier above at the difference of a $-$ sign on one component but that anyways leads to exactly the same results!!!!!):
+	This leads to the matrices $\alpha_i$, $\beta$ (we recognize that the $\alpha_i$ are in fact the gamma matrices $\gamma_i$ in their Chiral representation as introduced earlier above at the difference of a $-$ sign on one component but that anyways leads to exactly the same results!!!!!):
 	
-	We can be check that the linearization conditions are satisfied by the preceding matrices:
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Notice that all matrices above are Hermitians!
+	\end{tcolorbox}
+	We can check that the linearization conditions are satisfied by the preceding matrices:
 	\begin{itemize}
 		\item First condition:
 		
@@ -4956,11 +5151,17 @@ We therefore know that there are solutions to the Dirac equation. Let us now det
 		
 		The second condition is well fulfilled!
 		\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-		The last relation should be written:
+		\label{gamma anticommutation relations}The last relation should be written:
 		
-		and if we take the gamma matrices with the Dirac representation introduce earlier above, the same is satisfied bu generalized if we include $\gamma_0$ to:
+		and if we take the gamma matrices with the Dirac or \underline{any other} representation introduce earlier above, the same is satisfied but generalized if we include $\gamma_0$ to:
 		
-		where $\eta_{ij}$ the Minkowski metric with signature $(+ - - -)$. This relation is important because it is sometimes used as the definition of the gamma matrices (!!!) and it makes appears the metric!!!
+		where $\eta_{ij}$ the Minkowski metric with signature $(+, -, -, -)$. This relation is important because it is sometimes used as the definition of the gamma matrices (!!!) and it makes appears the metric!!!\\
+		
+		From the abvoe relation we have immediately for $i\neq j$:
+		
+		and it is also immediate using the latter anticommutation relation that:
+		
+		The reader should also know that physicists have derived from the above relation a small dozens of remarkable identities involving the $\gamma$-matrices and that also can be used to very that the chosen matrices can have indeed the status of $\gamma$-matrices. We will not present and prove these identities actually in this book as they are useless relatively to the actual content!
 		\end{tcolorbox}
 		
 		\item Third condition:
@@ -5063,6 +5264,148 @@ We therefore know that there are solutions to the Dirac equation. Let us now det
 		\includegraphics{img/atomistic/dirac_sea.jpg}	
 		\caption[Dirac Sea]{Dirac Sea (source: ?)}
 	\end{figure}
+	\subsubsection{Linearized Dirac Equation continuity equation}
+	Now consider probability density/current – this is where the perceived problems with the Klein-Gordon equation arose. For this, identically as we did for the Generlized Klein-Gordon equation, we start with the linearized Dirac equation (in natural units to simplify):
+	
+	or:
+	
+	Where we know now obviously that:
+	\begin{enumerate}
+		\item $\vec{\alpha}$ are Pauli matrices
+		
+		\item $\vec{\alpha}$ and $\vec{\beta}$ are Hermitian
+	\end{enumerate}
+	Writing the above relation inf full gives:
+	
+	and its Hermitian conjugate:
+	
+	Now, exactly as we did the the Generalized Klein-Gordon equation we write take the first above expansion that we multiply by $\Phi^\dagger$ and we substract here be the second Hermitian expansion that we multiply by $\Phi$:
+	
+	Remembering that $\alpha$ and $\beta$ are Hermitian, we can write:
+	
+	The right hand side can easily be simplified by chain derivation rule:
+	
+	Se see also that the terms $m_0\beta\Psi$ cancels each other, then it remains:
+	
+	We multiply both sides by $\mathrm{i}$ and rearrange a bit:
+	
+	Now using the identity:
+	
+	Gives the linearized continuity Dirac equation:
+	
+	The probability density and current  can be identified as:
+	
+	where:
+	
+	Then, unlike the generalized Klein-Gordon equation, the Dirac equation has probability densities which are always positive!
+	
+	In regard of what we have seen earlier, we can introduce the "\NewTerm{four-vector fermion current}\index{four-vector fermion current}":
+	
+	and $\rho$ is the probability density as we know:
+	
+	
+	\label{normalization dirac free particle solution}Now let us come back to the normalization of $N$ that appeared during our study of the free Dirac particle solution page \pageref{free particle dirac equation involving factor N}. If we proceed by analogy (...), remember first that we get with the Klein-Gordon equation that:
+	
+	And just now we get that:
+	
+	So now knowing this, let us consider the following solution that we have obtained:
+	
+	That to simplify we will put a being $\Psi$. Then (still in natural units):
+	
+	Now to get the same result as for the Klein-Gordon equation, we must have:
+	
+	Hence:
+	
+	Or more differently written:
+	
+	
+	\subsubsection{Linearized Dirac Equation Angular Momentum + Helicity Conservation}
+	For the Dirac linearized equation model is orbital angular momentum a good quantum number? I.e. does:
+	
+	commute with the Hamiltonian:
+	
+	where for recall the corresponding Dirac alpha and beta matrices are:
+	
+	To check this, let us consider the $x$ component of $\vec{L}$ (we implicitly assume that we work with the Dirac alpha and beta matrices so we don't denote the lower index $D$ anymore):
+	
+	So we may think that:
+	
+	even if the shortcut is nice and may look correct... this is a wrong shortcut in fact especially when we deal with differential operators as both arguments of the commutator (typical well know trap in maths when we do things too quickly)!!!
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	The term $\beta m_0$ disappears as it is not a differential operator (only a real matrix with a constant factor $m_0$). By cons, the first term has the $\vec{p}$ in it, and this latter is a vector of differential operators!
+	\end{tcolorbox}
+	
+	We already know that for the linear momentum, the only non-zero contributions come form:
+	
+	Hence (we use a lot here the Poisson brackets properties seen at page \pageref{poisson bracket}):
+	
+	Two techniques were employed along the way: between the $4$th and the $5$th line of the above development, we used (see page \pageref{poisson bracket}):
+	
+	and between the $7$th and $8$th we used:
+	
+	The same strategy can be adopted to solve for $[H,L_y]$ and $[H,L_z]$:
+	
+	Thus $[H,\vec{L}]$ can be determined by:
+	
+	Therefore:
+	
+	Hence the angular momentum does not commute with the Hamiltonian and is not a constant of motion!
+	
+	Introduce a new $4\times 4$ operator:
+	
+	where as we know, the $\vec{\sigma}$ are the Pauli spin matrices i.e.:
+	
+	Now consider the commutator:
+	
+	here (obvious!):
+	
+	and hence:
+	
+	Consider the $x$ component:
+	
+	Taking each of the commutators in turn:
+	
+	Hence:
+	
+	The same strategy can be used to solve for $[H,\Sigma_2]$ and $[H,\Sigma_3]$:
+	
+	Therefore:
+	
+	Hence the observable corresponding to the operator $\vec{\Sigma}$ is also not a constant of motion. However, referring back to our relation:
+	
+	We have:
+	
+	Therefore:
+	
+	Because:
+	
+	Thus, Dirac equation proved a description of "intrinsic" angular moment (ie spin).
+	
+	How let us show that helicity $\hat{h}$ (projection of the spin along the direction of motion for recall), does commute with the Hamiltonian, which means that helicity is a conserved quantity. Let us recall the definition of helicity:
+	
+	So we want to calculate:
+	
+	We see here a problem... Indeed, on the left term with have $4\times 4$ matrices, and on the right term a $2\times 2$ matrices. So we try by moving to then generalized total spin matrix introduced earlier above:
+	
+	Therefore if we focus on a only a component given that the direction is only along the $z$-axis, we can write:
+	
+	And, for recall, as:
+	
+	Hence:
+	
+	If:
+	
+	then helicity commutes with the Hamiltonian, and therefore helicity is a conserved quantity. Let us verify the previous equality:
+	
+	and:
+	
+	Therefore:
+	
+	The same strategy can be adopted to solve for $[H,h_1]$ and $[H,h_2]$:
+	
+	Therefore:
+	
+	Helicity is therefore a conserved quantity!
 	
 	\pagebreak
 	\subsection{Generalized Dirac Equation}
@@ -5083,6 +5426,10 @@ We therefore know that there are solutions to the Dirac equation. Let us now det
 	We then get the generalized Hamiltonian of Dirac in the following traditional form:
 	
 	Therefore we have in another well known form:
+	
+	Or in natural units:
+	
+	And as we know $\vec{p}=\mathrm{i}\vec{\nabla}=\mathrm{i}\partial_\mu$ and $\vec{\alpha}=\vec{\gamma}$, hence the well know form (using $q=e$ for the electron charge):
 	
 	
 	\pagebreak
@@ -5108,7 +5455,7 @@ We therefore know that there are solutions to the Dirac equation. Let us now det
 	In order to simplify the calculation of the prior-previous equations we will reduce the situation to a non-relativistic case, that is to say when the mass energy is much greater than the kinetic energy. Therefore the previous solution becomes (we forget the second which would cause problems ...):
 	
 	The idea is simple but you had to think about it! It should be notice that depending on the authors and professor it is the following term which is named "\NewTerm{helicity}\index{helicity}":
-
+	
 	as it is the projection (as we will see later) of the spin operator on the linear momentum.
 	
 	The idea is then to find a solution to:
@@ -5165,7 +5512,7 @@ We therefore know that there are solutions to the Dirac equation. Let us now det
 
 	After rearrangement:
 	
-	which constitutes the "\NewTerm{Pauli equation}\index{Pauli equation}" and thus describes in a relativistic way the two components of $\phi_{a0}$ of the spin of the electron (this is really a two-equation system).
+	which constitutes the "\NewTerm{Pauli equation}\index{Pauli equation}", or \NewTerm{Schrödinger-Pauli equation}\index{Schrödinger-Pauli equation}", and thus describes in a relativistic way the two components of $\phi_{a0}$ of the spin of the electron (this is really a two-equation system).
 
 	The expression:
 	
@@ -5365,7 +5712,7 @@ of the system with a Faraday balance or a magnetometer (SQUID).
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/atomistic/sodium_zeeman_effect.jpg}	
-		\caption{Source: Hyperphysics}
+		\caption[]{Source: Hyperphysics}
 	\end{figure}
 	\end{tcolorbox}
 	
@@ -7553,6 +7900,8 @@ to:
 	
 	and with the previous developments, we have:
 	
+	Or written differently:
+	
 	Thus:
 	
 	Which gives after simplification:
@@ -7712,7 +8061,7 @@ to:
 	 %\setlength\extrarowheight{10pt}
 	 \begin{table}[H]
 		\begin{center}
-		 \begin{tabular}{|m{5.5cm}|m{3.5cm}|m{3cm}|m{3cm}|}
+		 \resizebox{\textwidth}{!}{\begin{tabular}{|m{5.5cm}|m{3.5cm}|m{3cm}|m{3cm}|}
 		 \hline 
 		 \centering\arraybackslash\ \cellcolor{black!30} \textbf{Four} & \centering\arraybackslash\ \cellcolor{black!30} \textbf{Phenomenological} & \centering\arraybackslash\ \cellcolor{black!30} \textbf{Macroscopic}  & \centering\arraybackslash\ \cellcolor{black!30}\textbf{Intensity} \\ 
 		 \centering\arraybackslash\ \cellcolor{black!30} \textbf{Fundamentals Interactions} & \centering  \cellcolor{black!30} \textbf{Description} & \centering  \cellcolor{black!30} \textbf{Phenomenon}  & \cellcolor{black!30} \\ 
@@ -7725,7 +8074,7 @@ to:
 		 \hline 
 		 \pbox{5cm}{Strong Force \\ \tiny (finite range, particle interaction with mass: gluons)} & \centering\arraybackslash\ \pbox{5cm}{$U(r)=\dfrac{C}{r}e^{-r/R}$ \\ $R=\dfrac{\hbar}{m_0c}$ \\ \tiny Yukawa} & \centering\arraybackslash\  \pbox{5cm}{\includegraphics{img/atomistic/interaction_strong.jpg} \\ \tiny Nuclear plant} & \centering\arraybackslash\ $\alpha_s=\dfrac{g_s^2}{\hbar c}\cong 1$ \\ 
 		 \hline 
-		 \end{tabular}
+		 \end{tabular}}
 		\caption[]{Radiometric and Photometric quantities}
 		\end{center}
 	\end{table}

@@ -540,19 +540,19 @@ $n$ & & $n(a,a+5)$  \\ \hline % ne pas enlever les espaces vides entre les ligne
 	
 	The complexity becomes the rule and not the exception, and what appears "chaotic" follows very specific properties from a very specific closed form function.
 	
-	It is these results that we will see. For this, we will study the evolution of animal populations (this includes obviously therefore humans) whose numbers growth rate  $k$ varies from $1$ to $4$. We will study these variations by the calculation and by studying the graph of the logistic function.
+	It is these results that we will see. For this, we will study the evolution of animal populations (this includes obviously therefore humans) whose numbers growth rate $K$ varies from $1$ to $4$. We will study these variations by the calculation and by studying the graph of the logistic function.
 	
 	Let us see now some special cases:
 	\begin{enumerate}
-		\item If the initial value $x_0$ is equal to $0.1$ and $k=1$ the evolution of the population for the first forty periods is represented by the graph below:
+		\item If the initial value $x_0$ is equal to $0.1$ and $K=1$ the evolution of the population for the first forty periods is represented by the graph below:
 		\begin{figure}[H]
 			\centering
 			\includegraphics{img/economy/logistic_population_01.jpg}
-			\caption{Plot of the logistic equation with $x_0=0.1$ and $k=1$}
+			\caption{Plot of the logistic equation with $x_0=0.1$ and $K=1$}
 		\end{figure}
 		We note that for this growth rate and this initial condition, the population will decrease and approach zero.
 		
-		\item If the initial value $x_0$ is equal to $0.1$ and $k=2$ the evolution of the population for the first forty periods is represented by the graph below:
+		\item If the initial value $x_0$ is equal to $0.1$ and $K=2$ the evolution of the population for the first forty periods is represented by the graph below:
 		\begin{figure}[H]
 			\centering
 			\includegraphics{img/economy/logistic_population_02.jpg}
@@ -560,7 +560,7 @@ $n$ & & $n(a,a+5)$  \\ \hline % ne pas enlever les espaces vides entre les ligne
 		\end{figure}
 		We note that for this growth rate, the population will stabilize around a number corresponding to half of the population that the territory could accommodate (remember that $1=100\%$ on the $y$-axis).
 		
-		\item If the initial value $x_0$ is equal to $0.1$ and $k=3$ the evolution of the population for the first forty periods is represented by the graph below:
+		\item If the initial value $x_0$ is equal to $0.1$ and $K=3$ the evolution of the population for the first forty periods is represented by the graph below:
 		\begin{figure}[H]
 			\centering
 			\includegraphics{img/economy/logistic_population_03.jpg}
@@ -568,18 +568,18 @@ $n$ & & $n(a,a+5)$  \\ \hline % ne pas enlever les espaces vides entre les ligne
 		\end{figure}
 		With a growing rate of $3$, the number of individuals of this population starts to oscillate between two values that can be calculated using the computer. We then obtain the values $0.64$ and $0.68$.
 		
-		\item If the initial value $x_0$ is equal to $0.1$ and $k=3.5$ the evolution of the population for the first forty periods is represented by the graph below:
+		\item If the initial value $x_0$ is equal to $0.1$ and $K=3.5$ the evolution of the population for the first forty periods is represented by the graph below:
 		\begin{figure}[H]
 			\centering
 			\includegraphics{img/economy/logistic_population_04.jpg}
-			\caption{Plot of the logistic equation with $x_0=0.1$ and $k=3.5$}
+			\caption{Plot of the logistic equation with $x_0=0.1$ and $K=3.5$}
 		\end{figure}
 		With an effective growth rate of $3.5$ the populatio oscillates between four values: $0.39$ and $0.83$, then $0.49$, and finally $0.87$. The evolution of a population that has such actual growth rate is clearly cyclical.
-		\item If the initial value $x_0$ is equal to $0.1$ and $k=4.5$ the evolution of the population for the first forty periods is represented by the graph below:
+		\item If the initial value $x_0$ is equal to $0.1$ and $K=4.5$ the evolution of the population for the first forty periods is represented by the graph below:
 		\begin{figure}[H]
 			\centering
 			\includegraphics{img/economy/logistic_population_05.jpg}
-			\caption{Plot of the logistic equation with $x_0=0.1$ and $k=4.5$}
+			\caption{Plot of the logistic equation with $x_0=0.1$ and $K=4.5$}
 		\end{figure}
 		We notice that when the growth rate is is equal to $4.5$, the number of individuals of  seems to oscillate irregularly in a "chaotic" way between two extremes: the saturation as $x$ approaches $1$ and extinction as $x$ approaches $0$.
 	\end{enumerate}
@@ -590,20 +590,34 @@ $n$ & & $n(a,a+5)$  \\ \hline % ne pas enlever les espaces vides entre les ligne
 	The population growth is always given by the equation:
 	
 	\begin{enumerate}
-		\item Depending on to the initial population is $x_0=0.1$ or $x_0=0.8$ we get for $k=1$:
+		\item Depending on to the initial population is $x_0=0.1$ or $x_0=0.8$ we get for $K=1$:
 		\begin{figure}[H]
 			\centering
 			\includegraphics{img/economy/logistic_population_06.jpg}
 			\caption{Comparison plots of logistic equations for small $k$}
 		\end{figure}
 		
-		\item Depending on to the initial population is $x_0=0.1$ or $x_0=0.8$ we get for $k=2$:
+		\item Depending on to the initial population is $x_0=0.1$ or $x_0=0.8$ we get for $K=2$:
 		\begin{figure}[H]
 			\centering
 			\includegraphics{img/economy/logistic_population_07.jpg}
 			\caption{Comparison plots of logistic equations for medium $k$}
 		\end{figure}
-		We see that regardless of the initial population, it tends to a stabilization.
+		We see that regardless of the initial population, it tends to a stabilization (equal to $0.5$) after a few iterations named an "\NewTerm{attractor}\index{attractor}". This is even more visible with the following plot:
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{img/economy/logistic_attractor_k_2.jpg}
+		\end{figure}
+		or with $K=1.6$ we see that the attractor is at almost $0.38$:
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{img/economy/logistic_attractor_k_1_6.jpg}
+		\end{figure}
+		or with $K=2.8$ we see that the attractor is at almost $0.64$:
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{img/economy/logistic_attractor_k_2_8.jpg}
+		\end{figure}
 		
 		\item Depending on to the initial population is $x_0=0.1$ or $x_0=0.8$ we get for $k=3.8$:
 		\begin{figure}[H]
@@ -620,15 +634,39 @@ $n$ & & $n(a,a+5)$  \\ \hline % ne pas enlever les espaces vides entre les ligne
 			\caption{Comparison plots of logistic equations for one large $k$ and small $\delta k$}
 		\end{figure}
 		We can notice here that evolution of the populations are very different even though they were very close initially and even if the evolution function of these populations is a very simple expression. If we had taken as initial population $x_0=8.00001$ we could have also found a very different evolution of population trends.
+		
+		This is oscillation is even more visible with the following plot:
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{img/economy/logistic_attractor_k_3_1.jpg}
+		\end{figure}
+		We see above that the points oscillates between two bounds. This is not an attractor with a unique point, but an attractor with two points. The attractor is then named a "\NewTerm{periodic attractor}\index{periodic attractor}".
+		
+		With $K=3.5$ there are $4$ periodic attractors:
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{img/economy/logistic_attractor_k_3_5.jpg}
+		\end{figure}
+		With $K=3.56$ there are $8$ periodic attractors:
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{img/economy/logistic_attractor_k_3_56.jpg}
+		\end{figure}
+		
 	\end{enumerate}
-	The conclusion of this model is that outside of the chaotic phase, the initial value is not important, but in this chaotic phase, otherwise, the smallest variation in initial value change completely the following values. This is named the "\NewTerm{butterfly effect}" (for more details about the Butterfly Effect see the mathematical developpements of the section of Marine \& Weather engineering).
+	Now if we plot the attractors value in function of the iterations for difference values of the $K$ above we get the following dot point plot:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/economy/logistic_attractors_plot.jpg}
+	\end{figure}
+	The conclusion of this model is that outside of the chaotic phase, the initial value is not important, but in this chaotic phase, otherwise, the smallest variation in initial value change completely the following values. This is named the "\NewTerm{butterfly effect}" (for more details about the Butterfly Effect see the mathematical developments of the section of Marine \& Weather engineering).
 	
 	\paragraph{Feigenbaum's Bifurcation Diagram}\mbox{}\\\\
 	To understand the evolution of a population with logistic model, we have previously showed the evolution over time, forty periods, of a population corresponding to a specific initial value and a constant $k$ determined. We have seen, by taking some particular values of $k$, that for these different values, the population had a different pattern. So we will study now the behavior of the logistics by taking $k$ as variable.
 	
 	Giving to $k$ values between $0$ and $4$ with a step of $0.02$, we will, for each of these values, calculate what will be the population for each period between the $30$th and $130$th.
 	
-	With Maple 4.00b we get:
+	With Maple 4.00b we get (in the R companion book the equivalent script is also given in R language):
 	
 	\texttt{
 	>with(plots): with(plottools);\\
@@ -651,6 +689,12 @@ $n$ & & $n(a,a+5)$  \\ \hline % ne pas enlever les espaces vides entre les ligne
 		\caption{Feigenbaum diagram with Maple 4.00b}
 	\end{figure}
 	This diagram (where we can observe bifurcations), is named "\NewTerm{Feigenbaum diagram}", named after the physicist Mitchell Feigenbaum who studied it in depth and showed that we found him in many natural phenomena.
+	
+	We can identify in the diagam above the different attractors hat we have seen just earlier:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/economy/logistic_attractors_full_plot.jpg}
+	\end{figure}
 	
 	We will now have an qualitative approach of two remarkable properties of this diagram: the doubling period and its fractal dimension!!
 	
@@ -685,7 +729,7 @@ $n$ & & $n(a,a+5)$  \\ \hline % ne pas enlever les espaces vides entre les ligne
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/economy/feigenbaum_bifurcation_stable_windows.jpg}
-		\caption[]{Viewing the background changes and the stalization windows}
+		\caption[]{Viewing the background changes and the stabilization windows}
 	\end{figure}
 	We can notice that in this windows there are bifurcations that look like the Feigenbaum diagram itself if we zoom on it.
 	
@@ -1259,7 +1303,7 @@ We differentiate and define four types of situations (which we formalize below).
 	
 	\textbf{R2.} Zero sum games are sometimes named "\NewTerm{antagonistic games}".\\
 	
-	\textbf{R3.} Since the invention of the atomic bomb, the balance of terror is  based on the doctrine of offensive deterrence. Opposed by the reciprocal ability to inflict massive damage, the respective nuclear arsenals self-cancelling in a zero-sum game, by a principle of mutually assured destruction.
+	\textbf{R3.} Since the invention of the atomic bomb, the balance of terror is  based on the doctrine of offensive deterrence. Opposed by the reciprocal ability to inflict massive damage, the respective nuclear arsenals self-canceling in a zero-sum game, by a principle of mutually assured destruction.
 	\end{tcolorbox}	
 	
 	\item[D3.] The "\NewTerm{with and without balance games}": a cooperative non zero sum game is said with "\NewTerm{Nash equilibrium}" if there are a couple of strategies (in the case of a two-player game) such that no player has the interest to unilaterally change his strategy to ensure the maximum minimum (the "\NewTerm{maximin}") earnings.
@@ -1268,27 +1312,40 @@ We differentiate and define four types of situations (which we formalize below).
 \end{itemize}
 
 	\pagebreak
-	\subsection{Behavorial decision bias (cognitive bias)}
-	Before starting with technical and mathematics technics it is important for the manager, top manager, CEO/CFO (or even the student in Economy) to understand why it is more important to trust in mathematical results rather than on human intuition and to try not forget what follows as most of time I see huge error of evaluation in Fortune 500 companies!
+	\subsection{Behavorial decision bias (cognitive bias)}\label{cognitive bias}
+	Before starting with technical and mathematics technics it is important for the manager, top manager, CEO/CFO and any other CXO(or even the student in Economy) to understand why it is more important to rely in mathematical results rather than to trust on human intuition and to try not forget what follows as most of time I see huge error of evaluation in Fortune $500$ companies!
 	
-	First, the study of human intuition in economy is named "comportemental economy".
-	
-	Cognitive biases are tendencies to think in certain ways that can lead to systematic deviations from a standard of rationality or good judgment, and are often studied in psychology and behavioral economics.
+	First, for information, the study of human intuition in economy is named "comportemental economy". And in this stud field "\NewTerm{cognitive biases}\index{cognitive biases}" are tendencies by humans to think in certain ways that can lead to systematic deviations from a standard of rationality or good judgment, and are often studied in psychology and behavioral economics.
 	
 	In the early 1970s, Amos Tversky and Daniel Kahneman introduced the term "cognitive bias" to describe people's systematic but purportedly flawed patterns of responses to judgment and decision problems (managers, students, economists, and so on...). Indeed, they have showed that people routinely employ heuristics - rules of thumb, or mental shortcuts - to simplify and, worse, oversimplify decisions under uncertainty. Moreover, they have shown time and again that our choices are frequently skewed by an array of cognitive biases.
 	
 	Most work before the 1970 were done in behavioral finance and focused on asset pricing and the behavior of investors. But increasingly, attention is being paid to decision-making in the corporate realm. Because of their training and experience, managers might be presumed to be less likely to use mental shortcuts, and less vulnerable to cognitive biases. True or not, consultants in decision analysis have made a good living by showing managers how they fall into decision traps, and professors have delighted in showing their executive MBA students just how flawed their judgment can be.
 	
-	On the way it is also important to distinguish between "cognitive biases" and "logical fallacies". A logical fallacy is an error in logical argumentation (e.g. ad hominem attacks, slippery slopes, circular arguments, appeal to force, etc.). A cognitive bias, on the other hand, is a genuine deficiency or limitation in our thinking — a flaw in judgment that arises from errors of memory, social attribution, and miscalculations (such as statistical errors or a false sense of probability).
+	On the way it is also important to distinguish between "cognitive biases" and "logical fallacies". A logical fallacy is an error in logical argumentation (e.g. ad hominem attacks, slippery slopes, circular arguments, appeal to force, etc.). A cognitive bias, on the other hand, is a genuine deficiency or limitation in our thinking — a flaw in judgment that arises from errors of memory, social attribution, and miscalculations (such as statistical errors or a false sense of probability\footnote{These latter being often the most difficult point during debates when people don't understand that when they use arguments, the have the \underline{\textbf{burden of proof}}, and even more difficult when they don't understand the concept of "proof"!!!!}).
 	
 	Although the reality of these biases is confirmed by replicable research, there are often controversies about how to classify these biases or how to explain them. Some are effects of information-processing rules (i.e., mental shortcuts), called heuristics, that the brain uses to produce decisions or judgments. Such effects are called cognitive biases. Biases have a variety of forms and appear as cognitive ("cold") bias, such as mental noise, or motivational ("hot") bias, such as when beliefs are distorted by wishful thinking. Both effects can be present at the same time.
 	
 	Over time, the behaviorists have compiled a long list of biases and heuristics. No one can say with certainty which of these inflict the most harm, but financial managers would do well to watch out for five: anchoring and adjustment, framing, optimism, overconfidence, and self-serving bias. One the next page the reader can see a very good summary illustration (the original author is sadly unknown...) of the most common well known cognitive bias:
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.46]{img/economy/cognitive_bias_summary.jpg}
+		\includegraphics[scale=0.45]{img/economy/cognitive_bias_summary.jpg}
 	\end{figure}
-	Here we will focus only on two important bias for business: the "sunk cost" bias and the "anchor bais".
+	Also here is another useful and nice complementary poster that will be appreciated by any scientist or any person that has for purpose to reason following some good practices:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/economy/logical_fallacies.jpg}
+		\caption{Some famous logicial fallacies}
+	\end{figure}
+	And apart from the fact that you can detect logical fallacies used by people, you can also categorize them quite well using the Myers-Briggs classification model:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/economy/myers_briggs_types.jpg}
+		\caption{Myers-Briggs personality type classification}
+	\end{figure}
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	And keep in mind.... the fact that you (as reader of this book) or other people are unable to grasp science and maths is obviously not a valid argument against it.
+	\end{tcolorbox}
+	Here we will focus only on two important bias for business: the "sunk cost" bias and the "anchor bias".
 	
 	\subsubsection{Sunk Cost}
 	A sunk cost is a cost that has already been incurred and thus cannot be recovered. A sunk cost differs from future costs that a business may face, such as decisions about inventory purchase costs or product pricing. Sunk costs (past costs) are excluded from future business decisions, because the cost will be the same regardless of the outcome of a decision.
@@ -1327,6 +1384,41 @@ We differentiate and define four types of situations (which we formalize below).
 	\end{tcolorbox}
 	This is why in business whoever makes that first offer has the edge since the anchoring effect will essentially make that number the starting point for all further negotiations. Not only that, it will bias those negotiations in your favor. That first offer helps establish a range of acceptable counteroffers, and any future offers will use that initial number as an anchor or focal point. One study even found that starting with an overly high salary request actually resulted in higher resulting salary offers.
 
+	\subsubsection{Wisdom of Crowds}
+	Way back in 1906, the English polymath Francis Galton visited a country fair in which $800$ people took part in a contest to guess the weight of a slaughtered ox. After the fair, he collected the guesses and calculated their average which turned out to be $547$ [kg]. To Galton's surprise, this was within $1\%$ of the true weight of $543$ [kg].
+	
+	This is one of the earliest examples of a phenomenon that has come to be known as the "\NewTerm{Wisdom of the crowd}\index{wisdom of crowds}" (even if it is anecdotal, not scientific!). The idea is that the collective opinion of a group of individuals can be better (outperform) than a single expert opinion.
+
+	The popular interpretation of the Wisdom of Crowds phenomenon is that each participant brings a certain amount of information to the result, and a certain amount of noise. Over a large enough sample size, the noise (divergent) cancels itself out if the estimates are independent and non-emotional (there is no influence between the people), while the information converges on a value which, in the absence of systematic bias, should be proximate to the true value. This works quite well on very simple questions that doesn't involve mathematical competences.
+	
+	This is result is related to the  central limit theorem and the law of large numbers that are cousins. Basically, the main difference is that CLT is concerned with the distribution of the empirical mean and the LoLN is concerned with how close the empirical mean approaches the expected value:
+	\begin{itemize}
+		 \item Law of large numbers (LoLN): As the number of samples grows large, the empirical mean approaches the expected value with probability $1$, for recall (\SeeChapter{see section Statistics page \pageref{weak law of large numbers}}):
+		
+		\item Central limit theorem: As the number of samples grows large, the empirical mean becomes normally distributed. The mean of the normal distribution is that specified by the LoLN. Also, the standard deviation shrinks as the number of samples grows so, for a very large number of samples, the normal distribution becomes eventually a single number and the two results become equivalent.
+		
+	\end{itemize}
+
+	 Obviously there as statistical situations where the crowd produces very bad judgment, and argues that in these types of situations their cognition or cooperation failed because (in one way or another) the members of the crowd were too conscious of the opinions of others and began to emulate each other and conform rather than think differently. 
+	 
+	 The most common application is the prediction market or project management task duration estimation.
+	 
+	 To make it work well the following practical assumptions need to be meet:
+	 \begin{itemize}
+	 	\item The individuals must be isolated to not be influenced by other people
+	 	\item The individuals must come from different localizations to avoid cultural bias
+	 	\item The individuals must have a given degree of expertise in the field related to the question
+	 	\item The reasoning methods of individuals must be checked (to avoid false experts and emotion bias)
+	 	\item The individuals must have a reward if they are near from the real value (otherwise some will troll the results)
+	 	\item Individuals that may have a benefit for one reason or another that their estimated value is below or above the real one must be eliminated (risk of conflict of interest)
+	 	\item Extreme values must be eliminated (as sadly there a still people like to play to trolls)
+	 \end{itemize}
+	 and a good practice (as always in management!) is to ask for a three point estimates: optimistic, modal (most likely), pessimistic.
+	\begin{figure}[H]
+		\centering
+		\includegraphics{img/economy/sources.jpg}
+	\end{figure}
+	
 	
 	\pagebreak
 	\subsection{Utility}
@@ -1426,7 +1518,7 @@ We differentiate and define four types of situations (which we formalize below).
 	\pagebreak
 	\subsection{Games Representations}
 
-There are different ways to formalize games and decision theory and especially depending the type of situations in question. Thus, we distinguish:
+There are different ways to formalize Games and Decision theory and especially depending the type of situations in question. Thus, we distinguish:
 	\begin{enumerate}
 		\item The "\NewTerm{extensive forms}" which are synoptic forms  (tree, branch, leaf) useful to a simple understanding of the possible strategies and where the outcome of a game is represented by a leaf in which we find the vector of gains (or "earnings") of the respective players. This kind of representation becomes complicated (hard to draw) with repetitive games.
 		When an extensive form use probabilities, we then refer to a "\NewTerm{decision tree}" because, as we mentioned at the beginning, which says known probabilities says complete apart theory: decision theory.
@@ -2394,7 +2486,7 @@ The response (strategy) of a player $i$ to the responses (strategies) of all oth
 		\item The third relation means that against $S_2$ any strategy different of $S_2$ is preferable to counteract $S_2$ itself. In other words, apply a strategy $S_2$ different from $S_1$ is suicidal (the opposite is therefore not!).
 	\end{enumerate}
 	To introduce such decision situation let use again a long companion example: the Hawk (bad) against Doves (good) game.
-	
+	 
 	The $H$/$D$ game has for purpose to model the relations between individuals competing for a rare resource (food, water, area, companion, contract, etc.) which degree of adaptation will be changed both by obtaining this resource and the violence they suffer or inflict to them to get it.
 	
 	In their competitive interactions, biological organismes use two types of strategies (behaviors): the strategy of the hawk or that of the dove (as you can notice the "neutral" one is not present as it a suicide strategy). 
@@ -2486,7 +2578,7 @@ The response (strategy) of a player $i$ to the responses (strategies) of all oth
 		\caption{Hawk vs Dove evolutionary game matrix explicit example}
 	\end{table}
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	This game can be seen as a war game between two players ... the interpretation of this results is therefore more than relevant. 
+	This game can be seen as a war game between two players ... the interpretation of this results is therefore more than relevant. It is also an excellent comparison example between the competition that may exist between government offices (dowes) and private offices (hawks) providing the same type of product/service.  
 	\end{tcolorbox}
 	We must now consider two strategies:
 	\begin{enumerate}
@@ -3258,7 +3350,7 @@ A demand is named "\NewTerm{price sensitive}" when the percentage change in quan
 \paragraph{Average \& Marginal Cost/Revenue}\mbox{}\\\\
 Let us introduce the subject directly by an example:
 
-Suppose a amateur cook (and economist) invites his friends to his table and proposes to do their a tomato salad. It evaluates the work he has to do this job and figure it in monetary value. It considers that a minute of his time spent in the preparation of the salad corresponds to an expense of 1.-.
+Suppose an amateur cook (and economist) invites his friends to his table and proposes to do their a tomato salad. It evaluates the work he has to do this job and figure it in monetary value. It considers that a minute of his time spent in the preparation of the salad corresponds to an expense of 1.-.
 
 So the data are:
 	\begin{enumerate}
@@ -4536,7 +4628,7 @@ The concept of indifference curves was developed by Vilfredo Pareto and others i
 	
 	This capital corresponds then to the sum gained after ten periods.
 	\end{tcolorbox}
-	The method of calculating the "present value of an annuity at maturity/ postnumerando" works on the same principle but in reverse according to the relation proved above:
+	The method of calculating the "present value of an annuity at maturity/postnumerando" works on the same principle but in reverse according to the relation proved above:
 	
 	So if the terms (amounts paid) are constant we can write:
 	
@@ -4595,6 +4687,7 @@ The concept of indifference curves was developed by Vilfredo Pareto and others i
 	
 	Therefore:
 	
+	As we have proved in the section Sequences and Series (page \pageref{geometric series}) during our study of geometric series that:
 	
 	Therefore:
 	
@@ -4622,9 +4715,9 @@ The concept of indifference curves was developed by Vilfredo Pareto and others i
 	
 	To round a number $x$ to the nearest multiple of $1 / n$ the relation to be used is as follows:
 	
-	The proof is almost intuitive. Just imagine the real axis and cut it into $1 / n$ small intervals. Then $x$ is a given number, the number of these intervals will in $x$ given by:
+	The proof is almost intuitive. Just imagine the real axis and cut it into $1/n$ small intervals. Then $x$ is a given number, the number of these intervals will in $x$ given by:
 	
-	Finally, to know the number strictly less than the desired multiple, we take integer value of the last relation and multiply it by $1 / n$ such that:
+	Finally, to know the number strictly less than the desired multiple, we take the integer value of the last relation and multiply it by $1 / n$ such that:
 	
 	If, however, we wish to have the number rounded to the nearest multiple, then we see with a linear regression that it is necessary to add $0.5$ as:
 	
@@ -6423,7 +6516,7 @@ Shares represent a fraction of ownership in a business. A business may declare d
 	\end{tcolorbox}
 	
 	\pagebreak
-	\paragraph{Theory of Speculation}\mbox{}\\\\
+	\paragraph{Theory of Speculation}\label{theory of speculation}\index{theory of speculation}\index{speculation theory}\index{Bachelier model}\mbox{}\\\\
 	After these many contextual definitions, the goal now is to introduce basic stochastic speculative mathematical techniques used in finance. Indeed, finance has become over time a domain increasingly competitive, the margins on standard products tend to be reduced, the premium is on innovation and automation. This has led to an increasing sophistication of financial products, thus making use of advanced mathematical concepts, primarily based on probability models introduced by Louis Bachelier in his "Theory of Speculation" (1900) but really used massively in practice only since 1973 through different work of Black \& Scholes and Merton (who have earned the Nobel Prize in economics).
 
 	Let us look to start what are the developments proposed by Louis Bachelier in his thesis to determine the predictive mathematical expectation and the estimated standard deviation of a financial asset (result that we will use as part of the study of the evaluation model Black \& Scholes).
@@ -6606,7 +6699,7 @@ Shares represent a fraction of ownership in a business. A business may declare d
 	Finally, it should be noted that this is a theoretical model...! It must therefore always be compared to real practical values to see if it is valid or not. In this case the observation of financial markets shows that it is only outside of the periods of speculative bubbles that the variations can be modeled by a Brownian motion. We must therefore look for more powerful models and we will see one day (...) that the Brownian movement (also named "Brownian process") that is smooth (continuous) and therefore without sudden jumps (therefore unable to model some sudden event markets like the crash or corrections) is a special case of "Lévy processes".
 	
 	\pagebreak	
-	\paragraph{Portfolio efficient diversification models}\mbox{}\\\\
+	\paragraph{Portfolio efficient diversification models}\label{portfolio efficient diversification models}\mbox{}\\\\
 	Diversification is a well known way of reduce common known investment risks under the assumptions that the risk must be minimized and a given portfolio construction target is reached.
 	
 	The most common efficient diversification refers to the organizing principle of portfolio theory, which attempts to maximize portfolio expected return for a given level of portfolio risk. In other words, having enough diversification in an investment portfolio to earn money, while still keeping risks within reasonable bounds.
@@ -7847,7 +7940,7 @@ So to summarize:
 	\end{tcolorbox}
 	
 	
-	\subparagraph{Itô process}\mbox{}\\\\
+	\subparagraph{Itô process}\label{ito process}\mbox{}\\\\
 	 Let us consider now a Brownian process corresponding to a variation of $x$ in continuous time defined by:
 	
 	$a$ and $b$ then being functions of the two variables $x$ and $t$. This consideration is what we name an "\NewTerm{Itô process}", which is named after Kiyosi Itô. It is therefore a generalization of the previous case where $a$ and $b$ are no longer constant.
@@ -8056,7 +8149,7 @@ So to summarize:
 
 	This last relation is often written in the following form:
 	
-	Notice that if we write\label{jensen inequality finance} (due to the Jensen inequality proven in the Statistics section):
+	Notice that if we write\label{jensen inequality finance} (due to the Jensen's inequality proven in the Statistics section page \pageref{jensen inequality}):
 	
 	this gives us the expectation mean of positive deviations from the strike price. And if we update this value in the idea that this sum of money can be invested in a risk-free return asset, we then get the Monte Carlo version of the evaluation of a Call type option:
 	
@@ -9907,6 +10000,11 @@ prices benefit buyers and hurt sellers. In the case of exchange rates, where the
 	
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 	This study domain is often named "\NewTerm{Business Intelligence}" in companies (this is a subfamily in fact limited to descriptive elementary statistics that should be named "Business Facts" instead... as we have described during our study of Data Mining at page \pageref{data mining}). A variable analyzed using TSA tools will be named a "\NewTerm{Key Performance Indicator (IPC)}" and a set of IPC a "\NewTerm{dashboard}". 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.6]{img/economy/bloomberg_dashboard.jpg}
+		\caption{Bloomberg\textsuperscript{TM} terminal KPI's dashboard}
+	\end{figure}
 	\end{tcolorbox}
 	\textbf{Definition (\#\mydef):} A "\NewTerm{discrete time series}" or "\NewTerm{discrete chronological series}" is a series of observations $Y_t$ of a variable $y$ at different dates $t$. Usually the basis space $t$ is countable, so that at $t=1\ldots T$. The whole being denoted:
 	
@@ -11560,7 +11658,7 @@ We often speak about 3M (Mathematics Method for Management) or even sometimes "s
 	Many techniques are however not presented in this section because the have already been proved in other chapters of the book. Indeed, complex, critical and cutting edge management techniques make a huge usage of statistics, probabilities, decision theory, graph theory (Markov chains or not, complete graphs for the management of communication, etc.), financial analysis and optimization algorithms. Because whole chapters in this book are already dedicated to those enumerated subjects, it would be redundant to return on them!
 
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-We often speak about 3M (Mathematics Method for Management) or even sometimes "scientific management" to describe the set of mathematical tools applied to management (there exists also a training curriculum on the subject of fifty days...). Some people also use the abbreviation "SciProM" for "Scientific Project Management). A common English term that became fashionable in Europe to describe this area of application is also the "\NewTerm{Decisioneering}" referring to the fact that these are tools decision support for engineers. 
+We often speak about 3M (Mathematics Method for Management) or even sometimes about "scientific management" to describe the set of mathematical tools applied to management (there exists also a training curriculum on the subject of fifty days...). Some people also use the abbreviation "SciProM" for "Scientific Project Management) when it is project oriented and more generally of "Evidence-Based Management". A common English term that became fashionable in Europe to describe this area of application is also the "\NewTerm{Decisioneering}" referring to the fact that these are tools decision support for engineers. 
 	\end{tcolorbox}
 
 	Before starting let us indicate that despite their intrinsic importance, quantitative management techniques (also including operational research techniques, Monte Carlo simulation and Bootstrapping as studied in the section of Numerical Methods and also Six Sigma as studied in the section of Industrial Engineering and the Decision Theory) are still little used in industry, either because of lack of training of policy makers (except in the financial sector), or by the lack of relevance of the tool or the difficulty to implement it. The main concerns raised by decision makers in the application of mathematical models in the companies are:
@@ -11594,18 +11692,33 @@ We have chosen in this section to present the more conventional quantitative tec
 	One last word to close this introduction... the quantitative manager or quantitative analyst has to know something... Sure you want to write verbose explantations of your analysis but never forget that Executives (at least actually) are looking only for what they name WIIFM (What's In It For Me). So you must understand that you are paid most of times to produce headlines and not to write novels...
 
 \pagebreak
-	\subsection{Corporate Finance Management}
-	Corporate finance is the area of finance dealing with the sources of funding and the capital structure of corporations and the actions that managers take to increase the value of the firm to the shareholders, as well as the tools and analysis used to allocate financial resources. The primary goal of corporate finance is to maximize or increase shareholder value.
+	\subsection{Corporate and Government Finance Management}
+	Corporate and Government finance is the area of finance dealing with the sources of funding and the capital structure of corporations and governments and the actions that managers and politicians should take to increase the value of the firm/administration to the shareholders, the competitiveness/attractiveness of their business/nation as well as the tools and analysis used to allocate financial resources in a certain or probabilistic World (ie Universe). The primary goal of corporate and governments finance is to maximize or increase shareholder/citizen value through various adjustment variables and anticipate market trends and risks.
 	
 	Investment analysis (or capital budgeting) is concerned with the setting of criteria about which value-adding projects should receive investment funding, and whether to finance that investment with equity or debt capital.
 	
-	As many subject in Corporate Finance are related to investment banking topics we will not repeat in this section the study of Actuarial, Interests calculations, Loan Amortization/Repayment, Portfolio Theory and Forecasting that we have already study in detail in the section Economy.
+	As many subject in Corporate and Government Finance are related to investment banking topics we will not repeat in this section the study of Actuarial, Interests calculations, Loan Amortization/Repayment, Portfolio Theory and Forecasting that we have already study in detail in the section Economy (page \pageref{economy}).
 	
-	Also the reader has to know that corporate finance is not only related to investment banking but also to benchmarking and optimization and as we have already study these subject in the sections of Game and Decision Theory and Numerical Methods/Analysis.
+	Also the reader has to know that Corporate and Government Finance is not only related to investment but also to benchmarking and optimization and as we have already study these subject in the sections of Game and Decision Theory and Numerical Methods/Analysis we will not come back on these latter.
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/economy/corporate_finance.jpg}
 	\end{figure}
+	Corporate Finance management is a every day challenge for every good CXO (CEO, CFO, CTO, CRO, etc.) and costs optimization should be his everyday way of life by always taking care of his own cognitive biases, market uncertainties (nothing is "sure" in Economy/Finance\footnote{Never forget the adage: "The problem in the world is that intelligent people are full of doubts, while the idiots are full of confidence"}) and having always a reserve of alternative strategies in case of economic conjuncture variations (that in the probabilistic point of view may always have the possibility to occur!).
+	
+	All CXO have always to face risks (especially "\NewTerm{risk–benefit ratio}\footnote{It is the ratio of the risk of an action to its potential benefits. For example, driving an automobile is a risk most people take daily, also since it is mitigated by the controlling factor of their perception of their individual ability to manage the risk-creating situation.}\index{risk-benefit ratio}") and uncertainties hence the fact that any good manager associate arguments with probabilities or with precautions (some bad managers avoid risks subjectively but the main purpose of a real entrepreneur is to take risks to innovate and perform always better!):
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.07]{img/economy/rum.jpg}
+		\caption{Risk-Uncertainty Matrix CXO knowledge}
+	\end{figure}
+	The list of possible risks is huge and we can found some exhaustive lists in good project management books, but here is a quite good summary of most important financial related type of risks:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/economy/types_of_risks.jpg}
+		\caption{Typical type of financial risks}
+	\end{figure}
+	
 	
 	\pagebreak
 	\subsubsection{Basic Accounting Equation}
@@ -11661,11 +11774,11 @@ We have chosen in this section to present the more conventional quantitative tec
 	
 	\pagebreak
 	\subsubsection{Ratio Analysis}
-	A problem involved when comparing companies of different sizes  is to calculate and compare financial ratios.  Using ratios eliminates as we know the size problem because the size effectively divides out. We're then left with percentages, multiples, or time periods. 
+	A problem involved when comparing companies (or organizations) of different sizes is to calculate and compare  ratios that can provide very useful managerial information about efficiency. Using ratios eliminates as we know the size problem because the size effectively divides out. We are then left with percentages, multiples, or time periods. 
  
-	There is a problem in discussing financial ratios. Because a ratio is simply one number divided by another, and because there are so many accounting numbers out there, we could  examine a huge number of possible ratios (remember the reference on the UBS catalog on financial indicators that we have mention in the section Economy\footnote{reader can also refer to book as \textit{Financial Ratios for Executives, How to Assess Company Strength, Fix Problems, and Make Better Decisions} of  Michael Rist and Albert J. Pizzica}).
+	There is a problem in discussing ratios. Because a ratio is simply one number divided by another they are incapable of accommodating multiple inputs and outputs when accurate objective relative weights for inputs and outputs are not known, and because there are so many accounting numbers out there, we could  examine a huge number of possible ratios (remember the reference on the UBS catalog on financial indicators that we have mention in the section Economy\footnote{reader can also refer to book as \textit{Financial Ratios for Executives, How to Assess Company Strength, Fix Problems, and Make Better Decisions} of  Michael Rist and Albert J. Pizzica}).
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
-	Sadly as far as we know and still in 2016 the are no ISO standard for corporate financial indicator.
+	Sadly as far as we know and still in 2016 the are no ISO standard for corporate  indicators.
 	\end{tcolorbox}
 	Everybody has a favorite indicator. We will restrict ourselves to a representative sampling.  In this section, we only want to introduce you to some commonly used financial ratios and as you will see it is quick boring as the variables are never robustly well defined (furthermore most teachers and practitioners of corporate finance do not know how to write a technical paper or book properly...). The chosen indicators are not necessarily the ones we think are the best. In fact, some of them may strike you as illogical or not as useful as some alternatives. If they do, don't be concerned. As an engineer, you can always decide how to compute your own ratios. 
 	
@@ -11693,7 +11806,7 @@ We have chosen in this section to present the more conventional quantitative tec
 	\paragraph{Short term solvency or liquidity measure}\mbox{}\\\\
 	As the name suggests, "\NewTerm{short-term solvency ratios}" as a group are intended to provide information about a firm’s liquidity, and these ratios are sometimes namede "\NewTerm{liquidity measures}"
 
- 	The primary concern is the firm’s ability to pay its bills over the short run without undue stress. Consequently, these ratios focus on current assets and current liabilities.
+ 	The primary concern is the firm's ability to pay its bills over the short run without undue stress. Consequently, these ratios focus on current assets and current liabilities.
 
 	For obvious reasons, liquidity ratios are particularly interesting to short-term creditors. Because financial managers work constantly with banks and other short-term lenders, an understanding of these ratios is essential
 	One of the best known and most widely used ratios is the "\NewTerm{current ratio}". As you might guess, the current ratio at time $t$ is defined  as follows:
@@ -11812,7 +11925,203 @@ book ratio}":
 	
 	In a loose sense, the market-to-book ratio therefore compares the market value of the firm's investments to their cost. A value less than $1$ could mean that the firm has not been successful overall in creating value for its stockholders.
 	
-	This completes our definitions of some common ratios. We could tell you about more of them, but these are enough for now and its already quite boring enough in absence of ISO norms.
+	This completes our definitions of some common one-to-one ratios. We could tell you about more of them, but these are enough for now and its already quite boring enough in absence of ISO norms. So now let us deal with multiple-to-multiple ratios performance analysis:
+	
+	\paragraph{Data Envelopment Analysis}\mbox{}\\\\
+ 	"\NewTerm{Data envelopment analysis}\index{data envelopment analysis}" (DEA) is a operational research methodology (\SeeChapter{see section Numerical methods page \pageref{nonlinear optimization}}) to evaluate the relative efficiency score $\eta$\footnote{When we focus on service organizations we generally cannot determine what the engineered, optimum or absolute efficient output-to-input ratio is. Consequently we cannot determine whether a service unit is absolutely efficient. We can, however, compare several service unit output-to-input ratios and determine that one unit is more or less efficient than another - benchmarking. The difference in efficiency will be due to the technology or production process used, how well that process is managed, and/or the scale or size of the unit.} of multiple decision-making units (DMUs or "comparable production units") when the production process presents a structure of multiple inputs $x_i$ and outputs $y_i$. It is a quite powerful service management and benchmarking technique originally developed by Chames, Cooper and Rhodes (1978) to evaluate nonprofit and public sector organizations\footnote{It has been developed in fact to analyze the efficiency of the US resources allocation  strategy to the schools and have afterwards be applied to all other government services. The India government also use it for the same purposes.}. DEA has since been proven to locate ways to improve service not visible with other techniques. Yet there is an anomaly surrounding this developing methodology. One of the largest US banks located over $\$100$ million of excess annual personnel and operating costs, enough to affect their earnings per share and these savings were not identifiable with other techniques in use. While other banks have also realized improved profits through initiatives driven by DEA, we could not locate more than 10 banks in this category. While businesses have no obligation to report their internal methods, DEA has not been widely adopted by banks. Why is DEA, a method that can generate new paths to improved profits not used when other less powerful techniques continue in use? We believe that greater adoption of DEA will only be possible when it is more accessible to non-technical skills (as most managers and CXO are soft-skills).
+ 	
+ 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	In the literature, the two most widely used variants of the DEA method are: the CCR model (Charnes, Cooper and Rhodes, 1978) which assumes constant scale returns and the BCC model (Banker, Charnes et al. Cooper, 1984) which assumes variable scale yields. In the case of constant scale returns, it is assumed that an increase in the amount of inputs consumed will lead to a proportional increase in the quantity of outputs produced. On the other hand, in the case of returns of variable scales (increasing or decreasing), the quantity of outputs produced is considered to increase more or less proportionally than the increase in inputs.
+	\end{tcolorbox}
+ 	Managers have not widely adopted DEA to improve organization performance, in part, because most DEA publications are in academic journals or books requiring the ability to understand operational research and supporting mathematical notation. In fact, some 
+managers trying to use DEA based on their understanding of academic publications have misunderstood the way to apply DEA. They erroneously attribute weak results to the technique when the problem is often due to the misapplication of DEA. Another problem (maybe it is the biggest), DEA will be more used when CXO will stop to fear the fact to listen that their organization is non-efficient.
+
+	We will explains here what DEA does, how DEA evaluates efficiency, how DEA identifies paths to improve efficiency, limitations of DEA, and how to use DEA. This will enable managers or governments to explore and assess the value of their organization using DEA in their service operations.
+	
+	What does DEA do?
+	\begin{enumerate}
+		\item DEA compares service units considering all resources used and services provided, and identifies the most efficient units or best practice units (branches, departments, individuals) and the inefficient units in which real efficiency improvements are possible. This is achieved by comparing the mix and volume of services provided and the resources used by each unit compared with those of all the other units. In short, DEA is a very powerful benchmarking technique.
+		
+		\item DEA calculates the amount and type of cost and resource savings that can be achieved by making each inefficient unit as efficient as the most efficient - best practice - units.
+		
+		\item Specific changes in the inefficient service units are identified, which management can implement to achieve potential savings located with DEA. These changes would make the efficient units performance approach the best practice unit performance. In addition, DEA estimates the amount of additional service an inefficient unit can provide
+without the need to use additional resources.
+		
+		\item Management receives information about performance of service units that can be used to help transfer system and managerial expertise from better-managed, relatively
+efficient units to the inefficient ones. This has resulted in improving the productivity of the inefficient units, reducing operating costs and increasing profitability.
+	\end{enumerate}
+	The above four types of DEA information prove extremely valuable because they identify relationships not identifiable with alternative techniques that are commonly used in service organizations. As a result, improvements to operations extend beyond any performance improvements management may have achieved using other techniques.
+	
+	It is considered that the non-efficiency of an organization is mainly due to two main factors:
+	\begin{itemize}
+		\item The organization may be non-efficient because its management may perform better (not to say deficient...).
+		
+		\item The organization may be non-efficient because it hasn't reached it's optimal size
+	\end{itemize}
+	
+ 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	Some managers pretend that their organization that performs badly according to a DEA analysis because they cannot be compared with other organization because of special other factors. This may be true but then... the \textit{burden of proof} lies on them (as we have proved it in the section Statistics page \pageref{nhst}).
+	\end{tcolorbox}
+	Obviously the efficiency score must be considered as an order of amplitude, a result of binary judgment that helps manager to know if there is something to change or not. We could obviously used combinatorics methods on the inputs and outputs to get an interval rather than a punctual value.
+	
+	Let us introduce now the corresponding mathematical framework! The operational research technique is used to find the set of coefficients ($u$'s and $v$'s) that will give the highest possible efficiency ratio of outputs to inputs for the service unit being evaluated.
+	
+	In the model:
+	\begin{itemize}
+		\item $j$ is the number of service units (SU) being ocmapred in the DEA analysis
+		\item $\text{SU}_j$ is the service unit number $j$
+		\item $\eta_j$ is the efficiency of the service unit $j$ being evaluated by DEA
+		\item $y_{rj}$ is the amount of output $r$ used by service unit $j$
+		\item $x_{ij}$ is the amount of input $i$ used by the service unit $j$
+		\item $i$ number of inputs used by the SUs
+		\item $r$ number of outputs generated by the SUs
+		\item $u_r$ coefficent or weight assigend by DEA to output $r$
+		\item $v_i$ coefficient or weight assigend by DEA to input $i$
+	\end{itemize}
+	The data required to apply DEA are the actual observed outputs produced $y_{rj}$ and the actual inputs used $x_{ij}$, during one time period for each service unit in the set of units being evaluated. Hence, $x_{ij}$ is the observed amount of the $i$th input used by the $j$th service unit, and $y_{rj}$ is the amount of $r$th output produced by the $j$th service unit.
+	
+	If the value of $\theta$ for the service unit being evaluated is less than $100\%$, then that unit is inefficient, and there is the potential for that unit to produce the same level of outputs with fewer inputs.
+	
+	The objective function is given by:
+	
+	This is subject to the constraint that when the same set of $u$ and $v$ coefficients is applied to all other service units being compared, no service unit (SU) will be more than $100\%$ efficient as follows:
+	
+	Finally all this compacted into the classical form of optimization problem will be written:
+	
+	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
+	It is recommended that the number of inputs and outputs attributes to not be bigger that then number of organizations divided by $3$.
+	\end{tcolorbox}
+	Note that optimal multipliers calculated by DEA are objectively determined weights that may not correspond to relative values that an analyst would assign to outputs and inputs and this is a good point as therefore there a are not subjective (or biased) human choice to do! Furthermore the weights can be different for each SU and this is more realistic! This is actually a strength and is not a weakness of DEA. A unit located as inefficient using DEA is so identified only after all possible weights have been considered to give that branch the highest rating possible consistent with the constraint that no branch in the data set can be more than $100\%$ efficient. Hence, any other set of weights applied to all branches would only make an inefficient branch appear equally or less efficient; that is, DEA gives the benefit of the doubt to each branch or service
+unit in calculating the efficiency value. In addition DEA will not erroneously locate an efficient unit as inefficient. Hence, DEA gives the "benefit of the doubt" to each unit being evaluated trying to make it look as efficient as possible in comparison with the other units. This bias makes this a tool that managers can use with confidence.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/economy/dea.jpg}
+		\caption{Data Envelopment Analysis}
+	\end{figure}
+	To appreciate the power and limitations of DEA in improving efficiency,let us see an example with Microsoft Excel (the reader can also found the corresponding example in the R companion book):
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\textbf{{\Large \ding{45}}Example:}\\
+	Consider we have five administrations (office) that delivers birth and marriage acts in various quantities during the same period of time and that each office has one employee only. We want to run a DEA analysis on the following situation summarized in the table below:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|c|c|c|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Government Office} & \textbf{\begin{tabular}[c]{@{}c@{}}Input 1\\ Employees\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Output 1\\ Birth acts\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Output 2\\ Marriage acts\end{tabular}} \\ \hline
+		Office A & $1$ & $1$ & $6$ \\ \hline
+		Office B & $1$ & $3$ & $8$ \\ \hline
+		Office C & $1$ & $4$ & $3$ \\ \hline
+		Office D & $1$ & $5$ & $6$ \\ \hline
+		Office E & $1$ & $6$ & $2$ \\ \hline
+		\end{tabular}
+	\end{table}
+	For this purpose in Microsoft Excel 14.0.7190 we build the following structure:
+	\end{tcolorbox}
+	
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/economy/dea_ms_excel_01.jpg}
+		\caption[]{Data Envelopment Analysis example in Microsoft Excel 14.0.7190}
+	\end{figure}
+	Or explicitly:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{img/economy/dea_ms_excel_02.jpg}
+		\caption[]{Data Envelopment Analysis formulas in Microsoft Excel 14.0.7190}
+	\end{figure}
+	Once this done we run a first time the solver with the following settings:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/economy/dea_ms_excel_03.jpg}
+		\caption[]{Data Envelopment Analysis solver in Microsoft Excel 14.0.7190}
+	\end{figure}
+	\end{tcolorbox}
+	
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	Then we get for Office A:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{img/economy/dea_ms_excel_04.jpg}
+	\end{figure}
+	Doing the same for Office B but with the following settings:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{img/economy/dea_ms_excel_05.jpg}
+	\end{figure}
+	we get:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{img/economy/dea_ms_excel_06.jpg}
+	\end{figure}
+	\end{tcolorbox}
+	
+	\begin{tcolorbox}[colframe=black,colback=white,sharp corners]
+	And proceeding same for Office C, we get:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{img/economy/dea_ms_excel_07.jpg}
+	\end{figure}
+	and for Office D:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{img/economy/dea_ms_excel_08.jpg}
+	\end{figure}
+	and finally for Office E:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{img/economy/dea_ms_excel_09.jpg}
+	\end{figure}
+	We see that all five efficiencies $\{0.7500,1.0000,0.7308,1.0000,\}$ matches perfectly with the results we get with R in the corresponding companion book.
+	\end{tcolorbox}
+	
+	First, as we know, efficiency can be simply defined as the ratio of output to input.
+More output per unit of input reflects relatively greater efficiency. If the greatest possible output per unit of input is achieved, a state of absolute or optimum efficiency has been achieved and it is not possible to become more efficient without new technology or other changes in the production process.
+ 	 	
+ 	Some of the advantages of DEA are:
+	\begin{itemize}
+		\item no need to explicitly specify a mathematical form for the production function
+		\item proven to be useful in uncovering relationships that remain hidden for other methodologies
+		\item capable of handling multiple inputs and outputs
+		\item capable of being used with any input-output measurement
+		\item the sources of inefficiency can be analyzed and quantified for every evaluated unit
+	\end{itemize}
+	Some of the disadvantages of DEA are:
+	\begin{itemize}
+		\item results are sensitive to the selection of inputs and outputs
+		\item you cannot test for the best specification
+		\item the number of efficient firms tends to increase with the number of inputs and output variables
+	\end{itemize}
+	DEA is commonly applied in the electric utilities sector. For instance a government authority can choose Data Envelopment Analysis as their measuring tool to design an individualized regulatory rate for each firm based on their comparative efficiency. The input components would include man-hours, losses, capital (lines and transformers only), and goods and services. The output variables would include number of customers, energy delivered, length of lines, and degree of coastal exposure (Berg 2010). DEA is also regularly used to assess the efficiency of public and not-for-profit organizations, e.g. hospitals (Kuntz, Scholtes \& Vera 2007; Kuntz \& Vera 2007; Vera \& Kuntz 2007) or police forces (Thanassoulis 1995; Sun 2002; Aristovnik et al. 2013, 2014).
+	
+	DEA has been recognized as a valuable analytical research instrument and a practical decision support tool. DEA has been credited for not requiring a complete specification for the functional form of the production frontier nor the distribution of inefficient deviations from the frontier. Rather, DEA requires general production and distribution assumptions only. However, if those assumptions are too weak, inefficiency levels may be systematically underestimated in small samples. In addition, erroneous assumptions may cause inconsistency with a bias over the frontier. Therefore, the ability to alter, test and select production assumptions is essential in conducting DEA-based research. However, the DEA models currently available offer a limited variety of alternative production assumptions only.
+	
+	We have described the basic DEA model, the insights it provides in a simple example where similar insight could be gained from observation and where the operational research programming calculations could easily be done with a simple spreadsheet software.
+	
+	The reader should know however that in the specialized literature about the subjects he can also found a lot of other DEA models. Respectively (with their respective abreviations):
+	\begin{itemize}
+		\item FDH: Free disposability hull, no convexity assumption
+		\item VRS: Variable returns to scale, convexity and free disposability
+		\item DRS: Decreasing returns to scale, convexity, down-scaling and free disposability
+		\item CRS: Constant returns to scale, convexity and free disposability
+		\item IRS: Increasing returns to scale, (up-scaling, but not down-scaling), convexity and free disposability
+		\item IRS2: Increasing returns to scale (up-scaling, but not down-scaling), additivity, and free disposability
+		\item ADD: Additivity (scaling up and down, but only with integers), and free disposability; also known af replicability and free disposability, the free disposability and replicability hull (frh) – no convexity assumption
+		\item FDH+: A combination of free disposability and restricted or local constant return to scale
+	\end{itemize}		
+	The model that we have seen above is named the "\NewTerm{CRS model}\index{CRS model}" for "Constant Returns to Scale".
+
+	Each model exists also for information in two variations (or "orientations") that so far I'm not very a fan of (so I will not introduce them in this book):
+	\begin{itemize}
+		\item "Input oriented": the DEA model minimize the inputs for a given level of outputs. In other words, it indicates of how much an organization can increase its inputs by still producing the same level of outputs. Then the performance margin is obviously on the input (ie it must decrease\footnote{This is typically the case in organizations that has become too big and must apply a cost compression optimization plan}).
+		
+		\item "Output oriented": the DEA model maximize the outputs for a given level of inputs. In other words, it indicates of how much an organization can increase its outputs by still having the same level of inputs. Then the performance margin is obviously on the output (ie it must increase).
+	\end{itemize}
+	The orientation of the model must be chosen according to the variables (inputs or outputs) over which decision-makers exercise the greatest management power. For example, a public school principal probably has more management power over the teaching staff (input) than the number of students received or the student results (outputs). In this case, an input orientation is more appropriate.
+
+	In the public sector, but sometimes also in the private sector, a certain level of resources is allocated and guaranteed to organizations. In such a case, the decision makers seek to maximize the benefits provided, and therefore choose an output orientation. Otherwise, if the objective of the decision-makers is to produce a certain level of outputs (for example an imposed quota), the latter seek to minimize the consumption of resources. They therefore opt for an input orientation.
+
+If no constraints are imposed on the decision-makers and if they exercise a management power over both the inputs and the outputs, the orientation of the model depends on the objectives set for the organizations. Is the goal to reduce costs (input orientation) or to maximize production (orientation output)?
 	
 	\pagebreak
 	\subsubsection{Weighted Average Cost of Capital (WACC)} 
@@ -11961,7 +12270,7 @@ Since the early 1980s, there are very simple softwares to use such as @Risk of P
 	\end{enumerate}
 	in more accurate models we have to take into account the uncertaintity and the we don't speak of NPV anymore but of "\NewTerm{expected Net Presente Values (eNPV)}" or "\NewTerm{risk-adjusted net present value (rNPV)}".
 	
-	The period of calculation of the NPV or eNPV typically one year, but could be measured in quarter-years, half-years or months. After the cash flow for each period is calculated, the present value of each one is achieved by discounting its future value (see below a recall of actuarial calculations we proved in the section Economy) at a periodic rate of return (the rate of return dictated by the market). NPV is the sum of all the discounted future cash flows. Because of its simplicity, NPV is a useful tool to determine whether a project or investment will result in a net profit or a loss. A positive NPV results in profit, while a negative NPV results in a loss. The NPV measures the excess or shortfall of cash flows, in present value terms, above the cost of funds. NPV is a central tool in "\NewTerm{discounted cash flow (DCF)}" analysis and is a standard method for using the time value of money to appraise long-term projects. It is as we already know now after our study of the section Economy widely used throughout economics, finance, and accounting.
+	The period of calculation of the NPV or eNPV typically one year, but could be measured in quarter-years, half-years or months. After the cash flow for each period is calculated, the present value of each one is achieved by discounting its future value (see below a recall of actuarial calculations we proved in the section Economy) at a periodic rate of return (the rate of return dictated by the market). NPV is the sum of all the discounted future cash flows. Because of its simplicity, NPV is a useful tool to determine whether a project or investment will result in a net profit or a loss. A positive NPV results in profit, while a negative NPV results in a loss. The NPV measures the excess or shortfall of cash flows, in present value terms, above the cost of funds. NPV is a central tool in "\NewTerm{discounted cash flow (DCF)}\index{discounted cash flow analysis}" analysis and is a standard method for using the time value of money to appraise long-term projects. It is as we already know now after our study of the section Economy widely used throughout economics, finance, and accounting.
 
 	In the case when all future cash flows are positive, or incoming (such as the principal and coupon payment of a bond) the only outflow of cash is the purchase price, the NPV is simply the PV of future cash flows minus the purchase price (which is its own PV). NPV can be described as the "difference amount" between the sums of discounted cash inflows and cash outflows. It compares the present value of money today to the present value of money in the future, taking inflation and returns into account.
 
@@ -12477,11 +12786,13 @@ are also the correct ones: They are the "internal rate of return" and the "net p
 		\item The gender of the employee denoted by $S$ (sport shows that physical endurance are not the same between man and woman).
 		\item The age of the employee denoted by $A$.
 		\item The education level in years of studies after the period of compulsory education denoted by $E$.
+		\item The score to cognitive/physics tests (depending on the job)
 		\item The number of people the employee will have to manage denoted by $N_e$.
 		\item The amount of cash (budget) the employee will have to manage denoted by $B$.
 		\item The number of years of experience in the same field denoted by  $Y_e$.
 		\item The number of useful foreign languages $N_l$ that the employee know and the corresponding level $L_l$.
 		\item The reputation (or "connections") in the real life (can be quantified with social networks and followers by making a clear distinction between ingoing and outgoing connections obviously...)
+		\item The number of people that the employee has to manage\footnote{With a maximum threshold of $150$ as above this number, named \NewTerm{Dunbar's number}\index{Dunbar's number}, it has been shown that it is the limit to the number of people with whom one can maintain stable social relationships.}
 	\end{enumerate}
 	\StickyNote[2.5cm]{\LARGE To finish and write before year 2020}[6.5cm]
 	
@@ -12493,10 +12804,10 @@ are also the correct ones: They are the "internal rate of return" and the "net p
 	
 	We will focus here only on subjects that are very specific to quantitative project management and are commonly designated under the name of "\NewTerm{Project Management Engineering}".
 	
-	\subsubsection{Probabilistic PERT}\label{probabilitic pert}
+	\subsubsection{Probabilistic PERT (Beta-PERT Distribution)}\label{probabilitic pert}
 	Always remaining within the framework of statistics and probabilities with respect to mathematical management techniques, there is a project management empirical law (domain we assume known by the reader as trivial) widely used in the context of "\NewTerm{probabilistic PERT}" (where PERT stands for Program Evaluation and Review Technic) and included in a lot of specialized softwares to make cost and time predictions for project plannings (\SeeChapter{see section Graph Theory page \pageref{gantt chart}}). We speak then about "\NewTerm{Probabilistic Network Evaluation Technique (PNET)}".
 
-	This empirical distribution, named "\NewTerm{beta distribution}" or sometimes "\NewTerm{PERT law}" is often presented as follows in the books and without proof (...) and applies as well to costs or time estimation:
+	This empirical distribution, named "\NewTerm{beta distribution}\index{beta distribution}" or sometimes "\NewTerm{PERT law}\index{PERT law}", or also "\NewTerm{Beta-PERT Distribution}\index{Beta-PERT Distribution}", is often presented as follows in the books and without proof (...) and applies as well to costs or time estimation:
 	
 and gives the expected mean duration (or cost) $t_{Pr}$ of an elementary task (not downsizable into sub-tasks) where we have $t_O,t_V,t_P$ which are respectively the optimistic, most likely and pessimistic duration (or cost) of the task. We will show below the origin of this relation and why it is partially false when written in a such simple way!
 
@@ -12587,7 +12898,7 @@ as well as:
 	
 And finally:
 	
-This gives us to resume tb.he following relations:
+This gives us to resume the following relations:
 \begin{equation}
   \addtolength{\fboxsep}{5pt}
    \boxed{
@@ -12600,6 +12911,8 @@ This gives us to resume tb.he following relations:
    \end{gathered}
    }
 \end{equation}
+that is assimilated in some textbooks to the Beta-PERT distribution with a scale parameter $\lambda$ equal to $4$ as a more general derivation (that we will not present here) gives :
+	
 	\begin{tcolorbox}[title=Remark,colframe=black,arc=10pt]
 The last two expressions of the variance and expected mean are the ones you can find in any project management book (of course without proof...) such as the famous PMBOK (Project Management Body of Knowledge). Unfortunately, there are two errors in this project management reference book as far as y know (the first error was corrected at the beginning of the years 2010). Indeed, the first error is that the modal value is said to be imposed by the project manager but as we know, in fact it should be calculated with the first of the three above relations using the pessimistic and optimistic task duration (or cost)!!! The second mistake is that the PMBOK say that the modal value is always smaller than the expected mean. Which is obviously wrong! To check this we can put for example $a = 0$:
    
@@ -12849,7 +13162,7 @@ Let us communicate again the Six Sigma table according to the worst situation of
 	\caption{Defectives and Sigma quality level of a non-center process}
 	\end{table}	
 
-where we proved in the chapter of Industrial Engineering that the PPM values were given by:	
+where we proved in the section of Industrial Engineering (see page \pageref{quality levels}) that the PPM values were given by:	
 	
 Which gives for a level of quality of 3 sigma with Maple 4.00b:\\
 
@@ -13099,7 +13412,7 @@ and adopting the notations accordingly, this gives:
 	
 	
 	\subsubsection{Weighted Ishikawa Diagram}
-	The traditional Ishikawa diagram is a qualitative tool of management. Using this tool one can show the relations between causes and the analyzed effect. The most often used is the Ishikawa diagram in a form named the "6M+E model". The symbol 6M+E describes next general causes: man, machine, material, method, management, measurement and environment.
+	The traditional "\NewTerm{Ishikawa diagram}\index{Ishikawa diagram}\label{Ishikawa diagram}", or "\NewTerm{fishbone diagram}\index{fishbone diagram}", is a qualitative tool of management. Using this tool one can show the relations between causes and the analyzed effect. The most often used is the Ishikawa diagram in a form named the "6M+E model". The symbol 6M+E describes next general causes: man, machine, material, method, management, measurement and environment.
 
 	This diagram is presented in the figure below:
 	\begin{figure}[H]
@@ -14124,7 +14437,7 @@ As often, managers like to make sensitivity analysis (we have already mentioned 
 	
 	By taking the expressions of the different probabilities:
 	
-	We thus see that the probability of occurrence of a call during a time $t$ after a duration $t_0$ during which none has occurred is the same as the probability of occurrence of a call for a duration $t$, independent of what happened before. We therefore consider that the phenomenon (the exponential law) is "without memory".
+	We thus see that the probability of occurrence of a call during a time $t$ after a duration $t_0$ during which none has occurred is the same as the probability of occurrence of a call for a duration $t$, independent of what happened before. We therefore consider that the phenomenon (the exponential law) is "without memory"\label{without memeory process}.
 	
 	\pagebreak
 	\subsubsection{$M/M/\ldots$ service times modelisation}
@@ -15085,12 +15398,10 @@ and then use optimization techniques (\SeeChapter{see section Numerical Methods 
 	
 	Let us consider now the waves propagating inside a cylindrical tube or pipe (horizontal along the $x$-axis) of section $S$. Let us denote by $P_0$ and $\rho_0$ the pressure and density of the gas in equilibrium. In these conditions of equilibrium, $P_0$ and $\rho_0$ are the same throughout the whole gas volume of the cylinder, that is to say independent of any coordinate.
 	
-	If the gas pressure is disturbed for example by one of the two opening of the cylinder, a volume element thereof $S\mathrm{d}x$ will intuitively move because the pressures $P$ and $P'$ on the two sides $S, S'$ of this little volume will be different and therefore produce a resultant force (and therefore a power surface density).
-	
+	If the gas pressure is disturbed for example by one of the two opening of the cylinder, a volume element thereof $S\mathrm{d}x$ will intuitively move because the pressures $P$ and $P'$ on the two sides $S, S'$ of this little volume will be different and therefore produce a resultant force (and therefore a power surface density)\label{basic frequency spectrum human ear}.
 	\begin{figure}[H]
-		\begin{center}
-			\includegraphics{img/economy/frequency_spectrum.jpg}
-		\end{center}	
+		\centering
+		\includegraphics{img/economy/frequency_spectrum.jpg}
 		\caption{Basic frequency spectrum with transported surface power  density}
 	\end{figure}
 	
@@ -15358,7 +15669,7 @@ and then use optimization techniques (\SeeChapter{see section Numerical Methods 
 	The difference is that the energy carried by the sound wave is distributed in an area which expands as $R^2$ (where $R$ is the distance to the source) as for the light (electrodynamics waves) emitted by stars. So the power per unit area should decrease as $1/R^2$ (exactly according to the same mathematical development than for electromagnetic waves seen in the section of Electrodynamics) and as the power per unit area is proportional to $\xi_\text{eff}^2$ or to $P_\text{eff}^2$ this implies that a spherical wave, both displacement $\xi_\text{eff}$, as the sound pressure $P_\text{eff}$ must decrease as $1/R$.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.5]{img/electromagnetism/spherical_wave_front.jpg}
+		\includegraphics[scale=0.8]{img/electromagnetism/spherical_wave_front.jpg}
 		\caption[Spherical wave front]{Spherical wave front (source: ?)}
 	\end{figure}
 	In the case of sine waves, we will have to modify the wave equation:
@@ -15525,11 +15836,13 @@ For waves that propagate in a medium, such as sound waves, the velocity of the o
 		\item[D1.] We say that two frequencies (or two periodic waves) are "\NewTerm{in harmony}" with each other if the ratio of their frequencies is equal to unity:
 		
 
-		\item[D2.] We say that two frequencies (or two periodic waves) are "\NewTerm{at the octave}" to each other if the ratio of their frequencies is equal two:
+		\item[D2.] We say that two frequencies (or two periodic waves) are "\NewTerm{at the octave}" to each other if the ratio of their frequencies is equal to two:
 		
 		Let us notice that the first harmonic ($n=1$) corresponds to the octave of the fundamental $f_0$:
 		
-	For example, some singers are capable of singing on $8$ octaves (that is to say a frequency ratio of $16$). Thus, in the case of a stringed instrument with Dirichlet conditions this is equivalent obviously to pluck the string in the middle (for guitars that match to press the rope on the fret of the 12th box with respect to the frequency of an open string to get one octave).		
+	For example, some singers are capable of singing on $8$ octaves (that is to say a frequency ratio of $16$). Thus, in the case of a stringed instrument with Dirichlet conditions this is equivalent obviously to pluck the string in the middle (for guitars that match to press the rope on the fret of the 12th box with respect to the frequency of an open string to get one octave).
+	
+		The octave ratio sounds pretty good for the majority of humans.		
 
 		\item[D3.] We say that two frequencies (or two periodic waves) are "\NewTerm{at the quint}" to each other if the ratio of their frequencies is equal to $3/2$:
 		
@@ -15552,7 +15865,7 @@ For waves that propagate in a medium, such as sound waves, the velocity of the o
 	 The octave, the quint, the quart and the tones are obviously named "interval ratio" in music. Ratios, rather than direct frequency measurements, allow musicians to work with relative pitch measurements applicable to many instruments in an intuitive manner, whereas one rarely has the frequencies of fixed pitched instruments memorized and rarely has the capabilities to measure the changes of adjustable pitch instruments.
 	\end{tcolorbox}
 	Obviously, if we want to make music, we have to choose a mark (reference). As the frequency range is infinite, there was chosen a frequency at which the current human ear is the most sensitive: $440$ [Hz] that is named the "\NewTerm{La}" and is denoted by (A) by the Anglo Saxon.
-
+	
 	In theory, the occidental students learn the empirical sequences of $7$ notes and whose writing origin is purely mnemonic (we find this result on electronic tuners with the Anglo-Saxon system using certain letters of the alphabet):
 	\begin{figure}[H]
 		\begin{center}

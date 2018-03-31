@@ -43,11 +43,17 @@
 	
 	Astronomers and astrophysicists like to talk in minutes or seconds of arc such as:
 	
-	For example if the Moon has a diameter angle of approximately $29'$ ($0.5^\circ$) in the sky in if our eyes would have a deep exposure capability we would be able to see that Andromeda (M31) has a diameter angle of $178'$ ($3^\circ$), therefore about $6$ times as wide as the Moon!
+	For example if the Moon has a diameter angle of approximately $29'$ ($0.5^\circ$) in the sky and if our eyes would have a deep exposure capability we would be able to see that Andromeda (M31) has a diameter angle of $178'$ ($3^\circ$), therefore about $6$ times as wide as the Moon!
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=1]{img/geometry/angular_diameter.jpg}
 		\caption[]{Earth's sky as seen if human eyes had deep exposure capabilities}
+	\end{figure}
+	Here is a  nice visual summarizing this concept of sub-angles units:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.8]{img/geometry/degrees_minutes_seconds.jpg}
+		\caption[Degrees, minutes of arc, seconds of arc]{Degrees, minutes of arc, seconds of arc (author: ?)}
 	\end{figure}
 
 	\pagebreak
@@ -100,7 +106,7 @@ Read "\NewTerm{cosine}\index{cosine}" for "cos", "\NewTerm{sine}\index{sine}" fo
 In practice (school or high level engineering) you have to take care to two important properties: 
 	\begin{enumerate}
 		\item Trigonometric functions are far from being bijective. Indeed, they tend to repeat themselves periodically as we will see further below. Nonetheless with a little restriction on their definition domain, they may acquire this quality. In this context, the perspective of a reciprocal becomes possible.
-		\item If the sign of the bracket of the arc tangent is negative, then we do not know exactly in which quadrant (I, II, III or IV) we are so we do not know the sign of the numerator or denominator! It is for this reason that most calculators and softwares have two arc tangent functions: \texttt{arctan} and \texttt{arctan2}. The first gives an angle between $\left[-\dfrac{\pi}{2},-\dfrac{\pi}{2}\right]$ and therefore we can not know precisely in which quadrant we are. The second gives us an angle between $\left[-\pi,\pi\right]$ so we can know in which quadrant we are but we must provide the sign of the numerator or denominator.
+		\item If the sign of the bracket of the arc tangent is negative, then we do not know exactly in which quadrant (I, II, III or IV) we are so we do not know the sign of the numerator or denominator! It is for this reason that most calculators and softwares have two arc tangent functions: \texttt{arctan} and \texttt{arctan2}. The first gives an angle between $\left[-\dfrac{\pi}{2},+\dfrac{\pi}{2}\right]$ and therefore we can not know precisely in which quadrant we are. The second gives us an angle between $\left[-\pi,\pi\right]$ so we can know in which quadrant we are but we must provide the sign of the numerator or denominator.
 	\end{enumerate}
 
 	From these functions, we can make some combinations and define simple but remarkable relations but whom usefulness is debatable (and which are very rarely used) such as:
@@ -217,7 +223,11 @@ As we saw at the beginning of this section, following the definition of the trig
 	\end{figure}
 	Let us now introduce one last definition concerning circle trigonometric function relation that we will meet again in the sections of Wave Optic or during our study of Fourier transforms in the section of Sequences and Series which is the "\NewTerm{sine cardinal}\index{sine cardinal}\label{sinc cardinal}":
 	
-	represented by:
+	represented by (with Maple 4.00b):
+	
+	\texttt{>with(plots):\\
+	>sinc:=sin(x)/x;\\
+	>plot([sinc(x)], x=-5*Pi..5*Pi, Sinc);}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.8]{img/geometry/sinus_cardinal_2d.jpg}
@@ -232,6 +242,9 @@ As we saw at the beginning of this section, following the definition of the trig
 \includegraphics[scale=0.8]{img/geometry/sinus_cardinal_3d.jpg}
 \caption{Pseudo 3D plot of the sinc function with Maple 4.00b}
 \end{figure}
+In either case, the value at $x = 0$ is defined to be the limiting value $\mathrm{sinc(0)} = 1$ that is really easy to prove using Hospital's rule (\SeeChapter{see section Differential and Integral Calculus page \pageref{Hospital rule}}).
+
+Keep in mind that "sinc" function is particularly important in signal processing and is the Fourier transform of a rectangular pulse and also in some Optics Phenomenon.
 
 	\subsubsection{Remarkable trigonometric triangle identities}\label{remarkable trigonometric identities}
 	The drawing below will allow us to build relations that will help to solve equations involving trigonometric functions (all these relations are of primary importance in physics to simplify problem solving!).
@@ -571,7 +584,7 @@ It helps perhaps to resume that the following relations are the Simpson's relati
 	\end{figure}
 	The angle between points $B$ and $C$, denoted by $\alpha$, could not be shown in the diagram above because of lack of space.
 	
-	Let us recall that the perimeter of a unit circle on the sphere of radius unity is obviously $P=2\pi R$ (\SeeChapter{see section Euclidean Geometry page \pageref{circle}}). The perimeter of the circle as a function of the opening angle of the latter being given by (relation very often used in physics !!!):
+	Let us recall that the perimeter of a unit circle on the sphere of radius unity is obviously $P=2\pi R$ (\SeeChapter{see section Euclidean Geometry page \pageref{circle}}). The perimeter of the circle as a function of the opening angle of the latter being given by (relation very often used in physics !!!)\label{arc length trigonometry}:
 	
 	\begin{figure}[H]
 	\centering
@@ -648,7 +661,7 @@ It helps perhaps to resume that the following relations are the Simpson's relati
 	
 	After simplification we deduce that the area $S$ of the triangle $ABC$ is:
 	
-	where $\varepsilon$ is a solid angle (see below definition).
+	where $\varepsilon$ is a solid angle (see below definition). That latter relation is sometimes named "\NewTerm{Girard's theorem}\index{Girard's theorem}".
 	
 	It is fairly simple to generalize this concept to other forms following the same philosophy (especially those composed of triangles...).
 	
@@ -3096,7 +3109,7 @@ $(A_i,\alpha_i)$ and $(x_G,y_G,z_G)$ those of $G$, then we have (in the discrete
 	\thispagestyle{empty}
 	\mbox{}			
 	\section{Projective Geometry}\label{projective geometry}
-	\lettrine[lines=4]{\color{BrickRed}S}ince Chasles and this until the years 1930s, Projective Geometry was often synonymous of "higher geometry." It was opposed to Euclidean Geometry: that was said to be elementary and analytical. At the time of Monge, Carnot and von Staudt, we also spoke of "geometry of position" or "geometry of situation". These geometries study figures at the point of view of their respective positions and of their invariant properties which bind them in a geometric transformation (rotation, symmetry, scaling, etc.), homographic in particular. Besides the harmonic division, basic concept, it uses the famous anharmonic ratio (cross ratio), the inverse, the involution the transformation by reciprocal polar, stereographic projection, the correlation, the homology, the duality, the conical, etc. (see later in this text for the definitions).
+	\lettrine[lines=4]{\color{BrickRed}S}ince Chasles and this until the years 1930s, Projective Geometry was often synonymous of "higher geometry." It was opposed to Euclidean Geometry: that was said to be elementary and analytical. At the time of Monge, Carnot and von Staudt, we also spoke of "geometry of position" or "geometry of situation". These geometries study figures at the point of view of their respective positions and of their invariant properties which bind them in a geometric transformation (rotation, symmetry, scaling, etc.), homographic in particular. Besides the harmonic division, basic concept, it uses the famous anharmonic ratio (cross ratio), the inverse, the involution the transformation by reciprocal polar, stereographic projection\footnote{ie: projection on a plane}, the correlation, the homology, the duality, the conical, etc. (see later in this text for the definitions).
 	
 	\textbf{Definition (\#\mydef):} "\NewTerm{Projective geometry}\index{projective geometry}" is a topic of mathematics. It is the study of geometric properties that are invariant with respect to projective transformations. This means that, compared to elementary geometry, projective geometry has a different setting, "\NewTerm{projective space}\index{projective space}", and a selective set of basic geometric concepts. 
 	
@@ -3704,7 +3717,7 @@ $(A_i,\alpha_i)$ and $(x_G,y_G,z_G)$ those of $G$, then we have (in the discrete
 		\includegraphics[scale=0.8]{img/geometry/orthographic_view.jpg}
 		\caption{Orthogonal projection in real life...}
 	\end{figure}
-	Nowadays, softwares like AutoCAD, Inventor, Cathia and so one generates automatically orthogonal projections from an isometric view of a drawing.
+	Nowadays, softwares like AutoCAD, Inventor, Cathia and so on... generate automatically orthogonal projections from an isometric view of a drawing.
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/geometry/technical_drawing_perspective.jpg}
@@ -3765,10 +3778,10 @@ $(A_i,\alpha_i)$ and $(x_G,y_G,z_G)$ those of $G$, then we have (in the discrete
 	Although this is the most used method in the industry on paper, however, it has a drawback: the real effect of depth is lost entirely this is what orthogonal projection is many times is often accompanied of an isometric projection view of the object of interest.
 	
 	\pagebreak
-	\subsubsection{Spherical projections}
-	Spherical projections is an important field in engineering topography and geography (and therefore navigation). As far as we know there is not far from more than $200$ various techniques of spherical projection. 
+	\subsection{Spherical projections}
+	Spherical projections\index{spherical projections} is an important field in engineering topography and geography (and therefore navigation). As far as we know there is not far from more than $200$ various techniques of spherical projection. 
 	
-	Indeed, it is impossible to render paths on a sphere onto a flat surface in such a way that all distances remain the same. In drawing a map of a sphere, therefore, some compromises must be made. Most maps adopt one of two possible strategies that areas are preserved or that angles are preserved. Stereographic projection is one way of making maps, and it preserves angles. It has been used since ancient times for this purpose, and its basic geometrical properties were known even then.
+	Indeed, it is impossible to render paths on a sphere onto a flat surface in such a way that all distances remain the same. In drawing a map of a sphere, therefore, some compromises must be made. Most maps adopt one of two possible strategies that areas are preserved or that angles are preserved. Stereographic projection (ie. projection on a plane) is one way of making maps, and it preserves angles. It has been used since ancient times for this purpose, and its basic geometrical properties were known even then.
 
 	We will focus in this book only on the most known spherical projections and also without detailing the problems of projecting images from a sphere to a plane when the number of points (pixels) is not infinite...
 	
@@ -3791,8 +3804,8 @@ $(A_i,\alpha_i)$ and $(x_G,y_G,z_G)$ those of $G$, then we have (in the discrete
 	\end{center}
 	\end{tcolorbox}
 	
-	\paragraph{Stereographic projection (Normal Lambert's equal area)}\mbox{}\\\\
-	The stereographic projection is one way of projecting the points that lie on a spherical surface onto a plane. Such projections are commonly used in Earth and space mapping where the geometry is often inherently spherical and needs to be displayed on a flat surface such as paper or a computer display. Any attempt to map a sphere onto a plane requires distortion, stereographic projections are no exception and indeed it is not an ideal approach if minimal distortion is desired. 
+	\subsubsection{Stereographic projection}
+	The "\NewTerm{stereographic projection}\index{stereographic projection}" (in the classical sens of the term), or more precisely the "\NewTerm{azimuthal normal aspect projection}\index{azimuthal normal aspect projection}", is one way of projecting the points that lie on a spherical surface onto a plane. Such projections are commonly used in Earth and space mapping where the geometry is often inherently spherical and needs to be displayed on a flat surface such as paper or a computer display. Any attempt to map a sphere onto a plane requires distortion, stereographic projections are no exception and indeed it is not an ideal approach if minimal distortion is desired. 
 
 	A physical model of stereographic projections is to imagine a transparent sphere sitting on a plane. If we name the point at which  the sphere touches the plane the "south pole" then we place a light source at the "north pole". Each ray from the light passes through a point on the and then strikes the plane, this is the stereographic projection of the point on the sphere. 
 	
@@ -3850,7 +3863,7 @@ $(A_i,\alpha_i)$ and $(x_G,y_G,z_G)$ those of $G$, then we have (in the discrete
 	And when the projection plane is assimilated to the (complex) projection plane, then we get the relation that we can found most of time in books:
 	
 	\begin{theorem}
-	The stereographic projection is a conformal projection (ie. conserves the angles). That is to say:
+	The stereographic projection is a conformal projection\index{conformal projection} (ie. conserves the angles). That is to say:
 	
 	If we consider the stereographic projection $\pi:S^2 \setminus\{\vec{e}_3\}\in\mathbb{R}^3$ as we have proved it, defined by:
 	
@@ -3917,8 +3930,8 @@ $(A_i,\alpha_i)$ and $(x_G,y_G,z_G)$ those of $G$, then we have (in the discrete
 	\end{dem}
 	
 	\pagebreak
-	\paragraph{Cylindrical projection (Normal Gall's stereographic)}\mbox{}\\\\
-	The cylindrical projection is one where lines of latitude are projected to equally spaced parallel lines and lines of longitude are projected onto not necessarily equally spaced parallel lines. The figure below illustrates the basic projection, a line is projected from the center of the sphere through each point on the sphere until it intersects.
+	\subsubsection{Cylindrical projection}
+	The "\NewTerm{cylindrical projection}\index{cylindrical projection}" (in the classical sense of the term) or more precisely named the "\NewTerm{cylindrical normal aspect projection}\index{cylindrical normal aspect projection}", is one where lines of latitude are projected to equally spaced parallel lines and lines of longitude are projected onto not necessarily equally spaced parallel lines. The figure below illustrates the basic projection, a line is projected from the center of the sphere through each point on the sphere until it intersects.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.85]{img/geometry/cylindrical_projection_mathematical_aspect.jpg}
@@ -3942,9 +3955,10 @@ $(A_i,\alpha_i)$ and $(x_G,y_G,z_G)$ those of $G$, then we have (in the discrete
 		\centering
 		\includegraphics{img/geometry/cylindrical_projection_cylinder_open.jpg}
 	\end{figure}
+	It should be quite obvious (without proof) that this projection does not conserve the areas, but conserve the angles!
 	
-	\paragraph{Mercator projection}\mbox{}\\\\
-	A Mercator projection is similar in appearance to a cylindrical projection but has a different distortion in the spacing of the lines of longitude. 
+	\subsubsection{Mercator projection}
+	A "\NewTerm{Mercator projection}\index{Mercator projection}" is similar in appearance to a cylindrical projection but has a different distortion in the spacing of the lines of longitude (the same idea applies for the so named "Gall stereographic projection" or "Gall–Peters projection" that we will not introduce in this book). 
 
 	Like the cylindrical projection North and South are always vertical, we cannot therefore represent the poles because the mathematics have an infinity singularity there.
 
@@ -4002,7 +4016,40 @@ $(A_i,\alpha_i)$ and $(x_G,y_G,z_G)$ those of $G$, then we have (in the discrete
 		\caption[Mercator world map as seen in 1569]{Mercator world map as seen in 1569... (source: Wikipedia)}
 	\end{figure}
 	
-	\subsubsection{Other perspectives}
+	\subsubsection{Lambert's equivalent projection (Peters projection)}
+	The idea behind the "\NewTerm{Lambert's equivalent projection}\index{Lambert's equivalent projection}", also named "\NewTerm{Lambert's cylindrical equal-area projection}\index{Lambert's cylindrical equal-area  projection}" or sometimes "\NewTerm{Peter's projection}\index{Peter's projection}" (must not be confused with "Gall's-Peter projection"!), is quite easy as illustrated in the figure below:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.7]{img/geometry/lambert_spherical_projection.jpg}
+		\caption{Lambert's equivalent projection (or Lambert's equal area projection)}
+	\end{figure}
+	Suppose we have a terrestrial globe as visible above. It is enough to wrap a sheet of paper around the globe as in the figure above and to project horizontally each point of the sphere on the cylinder. For that, if $A$ is a point of the sphere, we take the line passing through $A$ and perpendicular to the axis of the polesü This line intersects the cylinder at $A'$: the point $A'$ represents the point $A$ on the map.
+	
+	Or more explicitly:
+	\begin{figure}[H]
+		\centering
+		\includegraphics{img/geometry/lambert_projection_earth.jpg}
+	\end{figure}
+	Now using the following figure, let us prove that the Lambert's cylindrical projection conserve the areas:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.7]{img/geometry/lambert_projection_equal_area.jpg}
+	\end{figure}
+	For this proof, we will look to a small area of the sphere delimited by the parallels of latitude $\theta_1$ and $\theta_2$ and of the meridians of longitute $\phi_1$ and $\phi_2$. We will denote by $R$ the radius of the sphere and we will assume that $\theta_2-\theta_1$ and $\phi_2-\phi_1$ are positive and small.
+
+	According to this assumption, the area of this region is that of a small rectangle (see figure above). At the latitude $\theta_1$, the radius of the parallel is obviously $R\cos(\theta_1)$. Then by a simple rule of three, then length of the arc from angle $\phi_2-\phi_1$ is equal to $R(\phi_2-\phi_1)\cos(\theta_1)$, as the length of the are est is the product or the radius by the angle in radian (\SeeChapter{see section Trigonometry page \pageref{arc length trigonometry}}).
+	
+	What is now the height of this rectangle? As the meridian is a circle of radius $R$ and that the height of the rectangle is given by angle $\theta_2-\theta_1$, then this height is given approximately by $R(\theta_2-\theta_1)$. Then the area of our small region is approximately equal to:
+	
+	Let us calculate now the area of its projection on the cylinder. This projection is now a real rectangle. The parallel has been projected on a circle of radius $R$. As the corresponding angle has remained the same, that is $\phi_2-\phi_1$, the width of the rectangle is $R(\phi_2-\phi_1)$. For the height, the reader must notice that the tangent ot the meridian at the latitude $\theta_1$ make an angle of:
+	
+	with the horizontal. The projection on the vertical of a segment of length $R(\theta_2-\theta_1)$ is then equal to:
+	
+	The area on the map is then equal to:
+	
+	Thus, the same area than that of the small area on the sphere. This finish the proof that Lambert's cylindrical projection conserves the area.
+	
+	\subsection{Other perspectives}
 	We can also choose any other angle of perspective and that not keep anything as equal but that are just well adapted to the technology or to human perception. For example the game Diablo II or Age of Empire use an angle in degrees of $53.130102^\circ$ (rounded to $53$) as for old $4:3$\footnote{The origin of the $4:3$ is interesting and useful as the radio forms a Pythagorean triangle, meaning that the length of the diagonal (hypotenuse) is an exact integer value (of pixels...).} screens it gives as result that an object have a vanishing line on the upper left corner of the $4:3$ screen will also pass trough the bottom right corner of the screen. It is therefore just choice of comfort.
 	\begin{figure}[H]
 		\centering
@@ -4015,7 +4062,7 @@ $(A_i,\alpha_i)$ and $(x_G,y_G,z_G)$ those of $G$, then we have (in the discrete
 		\includegraphics{img/geometry/trimetric_projection.jpg}
 		\caption[]{Example of trimetric projection}
 	\end{figure}
-	To resume we have seen so far the following projections:
+	To resume we have seen so far the following projections (the spherical projections are not listed in the figure below for the moment!):
 	\begin{figure}[H]
 		\centering
 		\includegraphics{img/geometry/projections_summary.jpg}
@@ -6079,7 +6126,7 @@ style=PATCH,axes=NORMAL);
 	
 	About the relation:
 	
-	is named the "\NewTerm{first Frenet formula}\index{first Frenet formula}\label{first Frenet formula}" and shows obviously that $\vec{N}$ and $\mathrm{d}T/\mathrm{d}s$ are collinear and hence their cross product is zero (result that will be used used later).
+	is named the "\NewTerm{first Frenet formula}\index{first Frenet formula}\label{first Frenet formula}" and shows obviously that $\vec{N}$ and $\mathrm{d}\vec{T}/\mathrm{d}s$ are collinear and hence their cross product is zero (result that will be used used later).
 	
 	These relations are justified by the analogy with mechanics. Indeed, remember that we have shown above that:
 	
@@ -8207,13 +8254,13 @@ With our example we can see that $S=10$:
 		\centering
 		\begin{minipage}{.45\linewidth}
 		  \includegraphics[width=7cm,height=7cm]{img/geometry/paraboloid_of_revolution.jpg}
-		  \captionof{figure}{Paraboloid of revolution }
+		  \captionof{figure}{Paraboloid of revolution}
 		  \label{img1}
 		\end{minipage}
 		\hspace{.05\linewidth}
 		\begin{minipage}{.45\linewidth}
 		  \includegraphics[width=7cm,height=7cm]{img/geometry/hyperbolic_paraboloid.jpg}
-		  \captionof{figure}{Hyperbolic paraboloid (source: Wikipedia)}
+		  \captionof{figure}{Hyperbolic paraboloid}
 		  \label{img2}
 		\end{minipage}
 	\end{figure}
@@ -8878,7 +8925,7 @@ If $e$ is an edge of a graph $G$, we denote by $G-e$ the subgraph $G'=(X,E-\left
 	\end{enumerate}
 	
 	\pagebreak
-	\subsection{Graph Adjacency matrix}\label{adjacency matrix}
+	\subsection{Graph Adjacency Matrix}\label{adjacency matrix}
 	Formally, a graph is also a set on which we have defined a binary, anti-reflexive (no element is related to itself) and symmetric (if $x$ is related to $y$, then $y$ is related to $x$) relation. The graph structure may then seem particularly poor.
 	
 	But we can also associate to a graph $G$ vertices $x_1,\ldots, x_n$ a square matrix $M$ of dimensions $m\times n$ named the "\NewTerm{adjacency matrix}\index{adjacency matrix}" of the graph and whose elements are $0$ or $1$. Denoting by $m_{ij}$ the term located at the intersection of row number $i$ (representing the vertices $x_i$) and column $j$ (representing the vertices $x_j$), $M$ is defined as:
