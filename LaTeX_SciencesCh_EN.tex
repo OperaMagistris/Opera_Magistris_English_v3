@@ -1,34 +1,37 @@
 %---------------------------------
 %Coordinator: Vincent ISOZ
-%Last Update: 2018-01-20
+%Last Update: 2021-12-26
 %Contact: info@sciences.ch
-%Compiled on: TeXMaker 5.0.2 x64/MiKTeX 2.9 / Package Update 2018-01-20/Microsoft Windows 10 Creator Update x64/PC 16GB RAM (recommanded otherwise the document could not compiled correctly or not at all without deactivating the LOF and LOT!)
+%Compiled on: TeXMaker 5.1.1 x64 / MiKTeX 2.9 / Packages Update 2021-11-17 / Microsoft Windows Pro 10.0.19041 x64/PC 64GB RAM (recommended 32 GB at least otherwise the document could not compiled correctly or not at all without disabling the List of Figures and List of Tables!)
 
 %Remarks: 
 
 %R1. The tkz-tab and etex packages must be installed manually from the MikTeX Package Manager!!!
 
-%R2. When you install first MiKTeX and after TeXMaker don't forget to reboot computer. Compile the document (probably will fail first time...). Do an update of packages using the MiKTeX package updater. Try compile again and use once again de MiKTeX package update. And it should work! If it still don't work i have notice that sometimes corrupted images cause the compilation to not be possible.
+%R2. When you install first MiKTeX and after TeXMaker don't forget to reboot the computer. Compile the document (probably will fail first time...). Do an update of packages using the MiKTeX package updater. Try compile again and use once again de MiKTeX package updater. And it should work! If it still doesn't work I have noticed that sometimes corrupted images cause the compilation to not be possible. 
 
-%R3. Try using a less as possible styles and math operators to avoid confusion (thanks).
+%R3. Compile the document consecutively five times at least to get a publishable version!
 
-%R4. Since 2015-08-29 the ctable package makes conflicts and therefore you can't compile the document with it anymore. We have commented it.
+%R4. Try using a less as possible styles and math operators to avoid confusion (thanks).
 
-%R5. When the MikTeX Updater updates the BibTex package, then you have to remove all temporary compilation files of the book to be able to compile it again.
+%R5. Since 2015-08-29 the ctable package makes conflicts and therefore you can't compile the document with it anymore. We have commented it.
 
-%R6. Above 2,600 pages the MikTeX compilation reach TeX memory limit. You will get the message:
+%R6. When the MikTeX Updater updates the BibTex package, then you have to remove all temporary compilation files of the book to be able to compile it again.
+
+%R7. Above 2,600 pages the MikTeX compilation reach TeX memory limit. You will get the message:
 %TeX capacity exceeded, sorry [main memory size=3000000]
 %To solve this open a command Window or the PowerShell and enter:
 %initexmf --edit-config-file=pdflatex
-%Add the following line in the new document that appears on the screen:
-%pool_size=5000000
-%main_memory=6000000
-%extra_mem_bot=2000000
-%font_mem_size=2000000
+%Add the following line in the new document that appears on the screen (remove the percent symbol at the beginning of each line!):
+%pool_size=6000000
+%main_memory=7000000
+%extra_mem_bot=3000000
+%font_mem_size=3000000
 %and save it (ctrl+s) and quit the editor. After rebuild the format with:
 %initexmf --dump=pdflatex
 %that's it!!!!
-%R6. To remove all equation in Notepad++ with a RegEx, use:
+
+%R8. To remove all equations in Notepad++ with a RegEx, use:
 % (?s)\\begin\{gather\}.*?\\end\{gather\}
 %don't forget to activate the field ". match newlines"
 %---------------------------------
@@ -50,7 +53,7 @@
 %package for beautiful quote font
 \usepackage{calligra}
 %package to control margine and paper size
-\usepackage[paperheight=297mm,paperwidth=210mm,top=2.5cm,bottom=2.5cm,left=2cm,right=2cm,bindingoffset=1cm]{geometry}
+\usepackage[paperheight=297mm,paperwidth=210mm,top=2.5cm,bottom=2.5cm,left=2cm,right=2cm,marginparwidth=1.5cm,bindingoffset=1cm]{geometry}
 %packages pour l'internationalisation de la police et son rendu
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -69,6 +72,9 @@
 \usepackage[hang,flushmargin,bottom]{footmisc} 
 %package to have more deep levels than by default
 \usepackage{enumitem}
+%pretty circle bullets
+\newcommand*\circledbullet[1]{\tikz[baseline=(char.base)]{%
+            \node[shape=circle,fill=blue!20,draw,inner sep=2pt] (char) {#1};}}
 %package to have enumerations on multiple columsn
 \usepackage{multicol}
 %package for colors in tables, title page and anywhere else
@@ -111,7 +117,7 @@
 \definecolor{namecolor}{cmyk}{1,.50,0,.10}
 %toc/lof/lot stuff
 \usepackage{minitoc}
-\setcounter{minitocdepth}{2}
+\setcounter{minitocdepth}{3}
 \usepackage{tocloft} %this line and above two is to minimize vertical space in LOF and to increase number alignement in LOF
 \addtolength{\cftfignumwidth}{1em}
 \addtolength{\cfttabnumwidth}{1em}
@@ -128,11 +134,11 @@
 \usepackage{fancybox} %for rows/columns with bck colors
 \usepackage{hhline} %for double horizontal lines
 \usepackage{diagbox}
-%\usepackage{diagbox}
 \usepackage{rotating} %rotation of text
 \usepackage{makecell}
 \setlength{\textfloatsep}{0.1cm} %space below table (between table and text)
 %macro to vertically center images in cells
+\usepackage{setspace} %package to remvoe vertical line spaces in paragraphs using tiny font size
 \newcommand\cincludegraphics[2][]{\raisebox{-0.6\height}{\includegraphics[#1]{#2}}}
 %\usepackage{ctable} %for long tables
 \usepackage{longtable} %to repeat title row on multiple pages
@@ -157,6 +163,7 @@
 \newcommand\BackImage[2][scale=1]{%
 \BgThispage
 \backgroundsetup{
+  opacity=1,
   contents={\includegraphics[#1]{#2}}
   }
 }
@@ -175,6 +182,12 @@
         \stepcounter{def}%
         \thedef}
         
+%numbering quotes
+\newcounter{quot}
+\newcommand{\myquot}{%
+        \stepcounter{quot}%
+        \thequot}
+        
 %numbering lines
 \usepackage[modulo,right]{lineno}
 %put personal paragraphs number or simply margin notes
@@ -183,6 +196,9 @@
 \newcommand{\myparagraph}{%
         \stepcounter{importantparagraph}%
         \theimportantparagraph}
+        
+%Words that we don't want to see hyphenate in the book
+\hyphenation{Patreon}
 
 %style for equations boxes
 \newcommand*{\boxcolor}{orange}
@@ -236,9 +252,9 @@ inner ysep=10pt
 \usepackage{scalefnt}
 %to build matrix multiplication scheme
 \usepackage{amsbsy}
-\newcommand*{\clap}[1]{\hbox to 0pt{\hss#1\hss}}
+\newcommand*{\cclap}[1]{\hbox to 0pt{\hss#1\hss}}
 \newcommand*{\mat}[1]{\boldsymbol{\mathrm{#1}}}
-\newcommand*{\subdims}[3]{\clap{\raisebox{#1}[0pt][0pt]{$\scriptstyle(#2 \times #3)$}}}
+\newcommand*{\subdims}[3]{\cclap{\raisebox{#1}[0pt][0pt]{$\scriptstyle(#2 \times #3)$}}}
 \fboxrule=1pt
 %to build star vote system
 \usetikzlibrary{arrows,shapes.geometric,positioning,matrix}
@@ -273,34 +289,56 @@ inner ysep=10pt
 \usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
 %for codes
 \usepackage{listings,lstautogobble,xcolor}
-%color definition for matlab script
+%color definition for MATLAB scripts
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
 \lstset{language=Matlab,%
     %basicstyle=\color{red},
-    breaklines=true,%
+    breaklines=true,
+    basicstyle=\small\ttfamily,
     morekeywords={matlab2tikz},
-    keywordstyle=\color{blue},%
+    keywordstyle=\color{blue},
     morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
-    identifierstyle=\color{black},%
+    identifierstyle=\color{black},
     stringstyle=\color{mylilas},
-    commentstyle=\color{mygreen},%
+    commentstyle=\color{mygreen},
     showstringspaces=false,%without this there will be a symbol in the places where there is a space
     numbers=left,%
     numberstyle={\tiny \color{black}},% size of the numbers
     numbersep=9pt, % this defines how far the numbers are from the text
     emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
     %emph=[2]{word1,word2}, emphstyle=[2]{style}, 
-    autogobble=true   
+    autogobble=true,
+    frame=tb  
+}
+%color definition for R scripts
+\lstset{language=R,
+	breaklines=true,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{mylilas},
+    otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{mygreen},
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    firstnumber=1,
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style}, 
+    autogobble=true
 }
 %for algorithms
 \usepackage[linesnumbered,ruled]{algorithm2e}
+
 %load americal mathematical society packages for equations
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \DeclareMathOperator{\sgn}{sgn} %must be after package ams!
 \usepackage{gauss} %package for gauss elimination in linear algebra
 \usepackage{xfrac} %package for small fractions like spin 1/2
 \usepackage{gensymb} %for degree symbole
+\usepackage{arcs} %for arc symbol over letters (overarc)
 \usepackage{empheq} %for multiple equations box
 \usepackage{etoolbox} %to create matrices with outbounds legends using bbordermatrix
 \let\bbordermatrix\bordermatrix
@@ -314,10 +352,11 @@ inner ysep=10pt
 %package for linear system of equations
 \usepackage{systeme}
 %packages for special integral
-\usepackage{wasysym} %closed inetegrals
+\usepackage{wasysym} %closed inetegrals and planets symbols
 \usepackage{esint} %intégrales de contour orientées (analyse complexe)
 \usepackage{bigints} %write huge integral
-\usepackage{yhmath} %write arc symbol above multiple letters
+%to have an arc over 2 letters as the arc package and the yhmath package have issues
+\def\wideparen#1{\overset{\;\rotatebox{90}{)}}{#1}}
 %package for unitary matrix
 \usepackage{dsfont}
 %definition for theorems
@@ -350,7 +389,17 @@ inner ysep=10pt
 %for quantum bra-ket symbols
 \usepackage{braket}
 %numbering of equations restart at each section
-\numberwithin{equation}{section} 
+\numberwithin{equation}{section}
+%change the colors of equation numbering
+\definecolor{GhostWhite}{rgb}{0.86, 0.86, 0.86}
+
+\makeatletter
+\renewcommand{\eqref}[1]{\textup{\eqreftagform@{\ref{#1}}}}
+\let\eqreftagform@\tagform@
+\def\tagform@#1{%
+  \maketag@@@{\footnotesize\color{GhostWhite}(\ignorespaces#1\unskip\@@italiccorr)}%
+}
+\makeatother
 %package for terms simplifications in equations
 \usepackage[makeroom]{cancel}
 %package for watermark
@@ -423,7 +472,9 @@ inner ysep=10pt
 \usepackage[Bjornstrup]{fncychap}
 \ChNameVar{\Huge}
 %for electronic circuit
-\usepackage[compatibility]{circuitikz}
+\usepackage[americanvoltages,fulldiodes,siunitx, nooldvoltagedirection]{circuitikz}
+\usetikzlibrary{babel} %to manage conflicts between babel and circuitikz. Must be ALWAYS after calling circuitikz
+\newcommand{\equals}{=} %to solve a problem inside circuitikz figures
 \input{electronic_symbols_macros.tex}
 %package for small TOC
 \usepackage{shorttoc}
@@ -500,7 +551,7 @@ inner ysep=10pt
 \usepackage[yyyymmdd]{datetime}
 
 %package hyperref for links and pdf metadata, Must be the last package!
-\usepackage[unicode,pdfencoding=auto,hidelinks,pdfinfo={pdfauthor={ISOZ Vincent},pdftitle={Elementary Applied Mathematics - Sciences.ch},pdfsubject={Elementary Applied Mathematics},pdfkeywords={Arithmetics;Statistics;Geometry;Trigonometry;Quantitative Finance;Engineering;Theoretical Computing},pdfproducer={Scientifc Evolution Sàrl}, pdfcreator={ISOZ Vincent}}]{hyperref}
+\usepackage[unicode,pdfencoding=auto,hidelinks,pdfinfo={pdfauthor={ISOZ Vincent},pdftitle={Opera Magistris (4th edition) - Sciences.ch},Title={Opera Magistris (4th edition) - Sciences.ch},pdfsubject={Elementary Applied Mathematics for Engineers},Subject={Elementary Applied Mathematics for Engineers},pdfkeywords={Arithmetics;Statistics;Analysis;Calculus;Algebra;Astronomy;Astrophysics;Cosmology;Trigonometry;Quantitative Finance;Engineering;Theoretical Computing},Keywords={Arithmetics;Statistics;Analysis;Calculus;Algebra;Astronomy;Astrophysics;Cosmology;Trigonometry;Quantitative Finance;Engineering;Theoretical Computing},pdfproducer={Scientifc Evolution Sàrl}, pdfredactor={ISOZ Vincent},Author={collective work}}]{hyperref}
 \definecolor{wine-stain}{rgb}{0.5,0,0}
 \hypersetup{colorlinks,linkcolor=wine-stain,linktoc=all}
 
@@ -516,6 +567,9 @@ inner ysep=10pt
 \strictpagecheck
 
 %*****************************************fancy quotes starts here
+
+\newcommand{\newmargnote}[1]{\marginnote{\setstretch{.6}\parbox[t]{\marginparwidth}{\emph{#1}}}}
+
 \definecolor{quotemark}{gray}{0.7}
 \makeatletter
 \def\fquote{%
@@ -531,7 +585,7 @@ inner ysep=10pt
                       }%
 \def\fquote@iii[#1]{%
     \def\tempc{#1}%
-    \vspace{1em}%
+    \vspace{0.9em}%
     \noindent%
     \begin{list}{}{%
          \setlength{\leftmargin}{0.1\textwidth}%
@@ -544,6 +598,7 @@ inner ysep=10pt
          \begingroup\itshape}%
  \def\endfquote{%
  \endgroup\par%
+\newmargnote{\tiny \color{blue}{\makecell{ quote\\ \thesection:\thepage.\#\myquot} }}[-0.7cm]
  \makebox[0pt][l]{%
  \hspace{0.8\textwidth}%
  \begin{picture}(0,0)(0,0)%
@@ -553,20 +608,24 @@ inner ysep=10pt
  \ifx\tempa\empty%
  \else%
     \ifx\tempc\empty%
-       \hfill\rule{100pt}{0.5pt}\\\mbox{}\hfill\tempa\ \emph{\tempb}%
+       \hfill\rule{110pt}{0.5pt}\\\mbox{}\hfill\tempa\  \emph{\tempb}%
    \else%
-       \hfill\rule{100pt}{0.5pt}\\\mbox{}\hfill\tempa\ \emph{\tempb}\ \tempc%
+       \hfill\rule{110pt}{0.5pt}\\\mbox{}\hfill\tempa\  \emph{\tempb}\ \tempc%
    \fi\fi\par%
-   \vspace{0.5em}%
+   \vspace{0.4em}%
  \end{list}%
  }%
  \makeatother
- %*****************************************fancy quotes ends here
+%*****************************************fancy quotes ends here
+
 %package for some advanced plots
 \usepackage{pgfplots}
+%for polar plots
+\usepgfplotslibrary{polar}
 \usetikzlibrary{patterns}
 
-\usepackage{titlesec}
+%the nobottomtitles help to avoid section titles alone at the bottom of pages (works well)!
+\usepackage[nobottomtitles]{titlesec}
 %this is a test to make chapter title bigger
 %\titleformat{\chapter}{\bf\huge}{\thechapter}{1em}{}
 
@@ -596,7 +655,7 @@ inner ysep=10pt
 
 
 \begin{document}
-	\sloppy %to force texts and equations to respects pages margins
+	\sloppy %to force texts and equations to respect pages margins
 	\pageref*{LastPage} %the star is to avoid the page number to be a link
 	\raggedbottom
 	\pagenumbering{roman}
@@ -608,7 +667,7 @@ inner ysep=10pt
 	%\pagecolor{titlepagecolor}
 	\noindent
 	\color{gray}
-	{\normalsize The free 6,000 pages super-quick, super-painless undergraduate transportable Book}\\
+	{\normalsize The free 8,000 pages super-quick, super-painless undergraduate transportable Book}\\
 	{\normalsize on Elementary Applied Mathematics for Engineers (EAME). Built for people, not for profit!}
 	\color{white}
 	\makebox[0pt][l]{\rule{1.3\textwidth}{1pt}}\\
@@ -617,7 +676,7 @@ inner ysep=10pt
 	\scalebox{2.2}{\fontsize{32pt}{0pt}\selectfont \textbf{Opera Magistris}} \\ \textcolor{namecolor}	{\textsf{Original distribution}}
 	\vfill
 	\noindent
-	{\huge \textsf{3rd Edition}}
+	{\huge \textsf{4th Edition (2021)}}
 	\vskip\baselineskip
 	\noindent
 	\textsf{\{ISBN 978-2-8399-0932-7\} January 2014}
@@ -626,14 +685,14 @@ inner ysep=10pt
 	Compiled with {\huge \LaTeXe} on \TeX maker
 	\vskip\baselineskip
 	{\small
-EAME-3 work is licensed under a Creative Commons "Attribution
+EAME-4 work is licensed under a Creative Commons "Attribution
 3.0 Unported" license.\\ paternity; no commercial usage; sharing of conditions identical\\
 \url{https://creativecommons.org/licenses/by-nc-sa/4.0/}}\\[2pt]
 \includegraphics[width=1cm]{img/icons/share2.eps}\includegraphics[width=1cm]{img/icons/remix2.eps}
 \includegraphics[width=1cm]{img/icons/by2.eps}
 \includegraphics[width=1cm]{img/icons/nc-eu2.eps}
 \includegraphics[width=1cm]{img/icons/sa2.eps}\\
-2001-2017: \textit{One book to rule them (almost) all!} \href{https://www.facebook.com/sharer/sharer.php?u=http://www.sciences.ch/htmlen/latex/LaTeX_SciencesCh.pdf}{\faThumbsOUp{}}
+2001-2021: \textit{One book to rule them (almost) all!} \href{https://www.facebook.com/sharer/sharer.php?u=http://www.sciences.ch/htmlen/latex/LaTeX_SciencesCh.pdf}{\faThumbsOUp{}}
 \\\\
 	
 	%\titlepagedecoration
@@ -651,6 +710,13 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	%     \put(0,0){\includegraphics[width=\paperwidth,height=\paperheight]{img/even_page.jpg}}
 	%\fi
  	%}r
+ 	
+ 	\AddToShipoutPicture{%
+      \parbox[t][\paperheight][t]{\paperwidth}{%
+           \includegraphics[width=\paperwidth]{img/printer_marks.pdf}
+      }
+    }
+    
 	\begin{titlepage}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
@@ -663,7 +729,7 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 
 \textsc{\Large Original Distribution}\\[1.5cm] % Name of your university/college
 \textsc{\Huge \textbf{Opera Magistris}}\\[0.5cm] % Major heading such as course name
-\textsc{\large 3rd Edition}\\[0.5cm] % Minor heading such as course title
+\textsc{\large 4th Edition}\\[0.5cm] % Minor heading such as course title
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
@@ -717,28 +783,42 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 \vfill % Fill the rest of the page with whitespace
 
 \end{titlepage}
-	\begin{versionhistory}
-		\vhEntry{3.10}{2018-01-20}{VI}{New topics added and a few corrections of typing/translation errors (see change log)}
-		\vhEntry{3.9}{2017-11-13}{VI}{Some minor updates for the free version of the book (see change log)}
-		\vhEntry{3.8}{2017-08-01}{VI}{Some major and critical updates and corrections (see change log)}
-		\vhEntry{3.7}{2017-06-01}{VI}{French 3rd Edition translation into English finished!}
-		\vhEntry{3.6}{2017-05-01}{VI}{French 3rd Edition translation into English. Translation progress $\sim 99\%$}
-		\vhEntry{3.5}{2017-04-01}{VI}{French 3rd Edition translation into English. Translation progress $\sim 96\%$}
-		\vhEntry{3.4}{2017-02-11}{VI}{French 3rd Edition translation into English. Translation progress $\sim 96\%$}
-		\vhEntry{3.3}{2016-01-27}{VI}{French 3rd Edition translation into English. Translation progress $\sim 96\%$}
-		\vhEntry{3.0}{2014-01-22}{VI}{French 3rd Edition published on the Internet as PDF ($4,888$ pages).}
-		\vhEntry{2.0}{2005-03-10}{VI}{French 2nd Edition published on the Internet as PDF ($2,001$ pages).}
-		\vhEntry{1.0}{2002-05-01}{VI}{French 1st Edition published on the Internet as HTML only.}
-	\end{versionhistory}
+	
+	\chapter{Revision History}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{lllp{8cm}}
+		\textbf{Version} & \textbf{Date} & \textbf{Redactor(s)} & \textbf{Description} \\
+		 &  &  &  \\
+		4.0 & 2021-05-10 & VI & Again a few new small topics added and a few corrections of typing/translation errors (see change log) \\
+		3.11 & 2018-06-10 & VI, DK & New topics added and a few corrections of typing/translation errors (see change log) \\
+		3.10 & 2018-01-20 & VI, DK & New topics added and a few corrections of typing/translation errors (see change log) \\
+		3.9 & 2017-11-13 & VI, DK & Some minor updates for the free version of the book (see change log) \\
+		3.8 & 2017-08-01 & VI, DK & Some major and critical updates and corrections (see change log) \\
+		3.7 & 2017-06-01 & VI, DK & French 3rd Edition translation into English finished! \\
+		3.6 & 2017-05-01 & VI, DK & French 3rd Edition translation into English. Translation progress $\sim 99\%$ \\
+		3.5 & 2017-04-01 & VI, DK & French 3rd Edition translation into English. Translation progress $\sim 96\%$ \\
+		3.4 & 2017-02-11 & VI, DK & French 3rd Edition translation into English. Translation progress $\sim 96\%$ \\
+		3.3 & 2016-01-27 & VI & French 3rd Edition translation into English. Translation progress $\sim 96\%$ \\
+		3.0 & 2014-01-22 & VI, RR, LG, HL & French 3rd Edition published on the Internet as PDF ($4,888$ pages). \\
+		2.0 & 2005-03-10 & VI, RR & French 2nd Edition published on the Internet as PDF ($2,001$ pages). \\
+		1.0 & 2002-05-01 & VI & French 1st Edition published on the Internet as HTML only. \\
+		\end{tabular}
+	\end{table}
+	
+	\pagebreak
 	\begin{fquote}[Toni Morrison]If there's a book that you want to read, but it hasn't been written yet, then you must write it.
  	\end{fquote}
-	\newpage\null\thispagestyle{empty}\newpage %création d'une nouvelle page en forcant la disparition du numéro de page
+ 	
+	%\newpage\null\thispagestyle{empty}\newpage %création d'une nouvelle page en forcant la disparition du numéro de page
 	\dominitoc
 	\shorttoc{Contents}{0} % Only chapters
 	\pagebreak
 	\renewcommand{\contentsname}{Table of Contents}
 	\tableofcontents
 	\newpage\null\thispagestyle{empty}\newpage
+	
 	%global interparagraph
 	\setlength{\parskip}{12pt}
 	\pagenumbering{arabic}
@@ -747,7 +827,7 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\space#1}{}}
 	\renewcommand{\sectionmark}[1]{\markright{#1}}
 	\fancyhead[LE,RO]{\nouppercase\leftmark~(\nouppercase\rightmark)} %LE=Left Even,RO=Right Odd
-	\fancyhead[LO,RE]{EAME v3.11-2014}
+	\fancyhead[LO,RE]{EAME v4.0-2021}
 	\renewcommand{\footrulewidth}{1pt}
 	\fancyfoot[LE,RO]{{\thepage}/\pageref*{LastPage} (\Acrobatmenu{GoBack}{Go back})}
 	\fancyfoot[LO,RE]{\href{mailto:info@sciences.ch}{info@sciences.ch}}
@@ -763,45 +843,16 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	
 
 	\chapter{Warnings}
+	\adjustmtc % line necessary to adjust the minitoc which otherwise are all shifted by one chapter
 	\minitoc
 	\input{Chapter_Warnings.tex}
 	
 	
 	\chapter{Acknowledgements}
+	\input{Chapter_Acknowledgments.tex}
 
-	The ideas in this book have been developed and reinforced by many people. I have greatly benefited from my regular interactions with  students (university, engineering schools) and executives from all backgrounds, including CEOs, CFOs, PMs of many companies around the world, teaching sessions, developing company-specific programs, consulting, and even informal conversations. I am grateful to them for sharing their wisdom with me and inspiring many of the ideas in the book.
-
-	This book and its companion website would not have been possible without the valuable support of the people mentioned below. They find here the expression of my gratitude (and for sure if some errors remains in this book this is obviously their fault...):
 	
-	\begin{itemize}		
-		\item \textbf{HARMEL Léon }(†2012), graduate electrical engineer with a specialization in electronics and automation, responsible in the physical research laboratory at ACEC in Charleroi (BEL), for the provision of documentation that was used in the sections of Corpuscular Quantum Physics, Wave Quantum Physics,  Quantum Field Theory, Spinor calculus and General Relativity.
-		
-		\item \textbf{KOLANI Daname}, Ph.D. student in portfolio management at UM5-Rabat (MAR) for his help on the redaction of the R and MATLAB™ companion books, proofreading and complements of the section in this book about data mining and machine learning and translation of a few hundred pages of the original french website into this \LaTeX{} book.
-		
-		\item \textbf{LEGRAND Mathias}, Ph.D. of the École Centrale de Nantes (FRA) for his help on the translation of the first $550$  pages of the original french website into this \LaTeX{} book.
-		
-		\item \textbf{RICCHIUTO Ruben}, engineer degree in physics HES (B.Sc.) from the Engineering School of Geneva (CHE) and mathematician from the University of Geneva for his valuable help in plasma physics, electromagnetism, quantum physics, statistics, topology, quantum chemistry, fractals theory, analysis and many other areas affecting pure mathematics and computing.
-		
-		\item Regulars users of \href{http://www.les-mathematiques.net}{{\color{blue} Les Mathematiques.net}} and \href{http://www.futura-sciences.com}{{\color{blue} Futura-Sciences.com}} forum, for their valuable assistance in many areas of mathematics and physics. The debates and discussions that took place on the forums helps to constantly improve the educational aspect of this book.
-		
-		\item The \href{http://www.wikipedia.com}{{\color{blue} Wikipedia}} and \href{http://www.planetmath.com}{{\color{blue} PlanetMath}} websites to whom I am indebted to many borrow almost word by word (and this is mutual...).
-		
-		\item The professors Gabriel Nagy of Michigan State University, Liam Revell of Massachusetts Boston University, Jorge Cham (of PhD Comics) and the OpenStax team that have received \underline{and} read my multiple e-mails inquiries about images credits and texts credits but that never answered to me (not quite good examples of what should be the "scientific collaboration and spirit"...)
-	\end{itemize}
-	
-	And thanks to all readers, webmasters and teachers for their websites and quality documents available for free and anonymously on the Internet and regular forum stakeholders. I sometimes verbatim recovered their explanations that do not require additions or corrections. It's probably needless to say that you should not assume that these people are in total agreement with the scientific purposes views expressed in this book; and are not responsible for any errors or obscurities that you might accidentally find in it.
-	
-	Thanks also to the few colleagues and customers who were willing to give me their comments to improve the content of this book. However, it is certain that it can still be improved on many points.
-	
-	I would like finally to thank especially all of my family for their continued support and my friends for their patience as I was almost completely absent, but I would like to send a special thanks to my Dad and Mom, for all of her incredibly help and support over the last months of translation of this book! I would like also to apologize to some of my customers and colleagues because as I answered very slowly to their e-mails and phones during thirteen months to better focus on the translation of this book. Thanks also to my girlfriend for always being there to take care of me when I forget to take care of myself...
-	
-	I would sincerely appreciate your comments, criticisms, corrections and suggestions for improving the text, for this purpose you can use the public guestbook associated to this PDF (for questions please use the forum!):
-	\begin{center}
-	\url{http://www.sciences.ch/htmlen/guestbook.php}
-	\end{center}
-	or if you want to have a private communication you can contact me by {\href{mailto:info@sciences.ch}{{\color{blue}email}}}. I will respond promptly (in three weeks most of time).
-	
-\chapter{Introduction}
+	\chapter{Introduction}
 	%To add line numbers on all paragraphes each 5 lines if necessary	
 	%\linenumbers
 	
@@ -810,28 +861,28 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	\input{Chapter_Introduction.tex}
 	
 
-\chapter{Arithmetic}
+   \chapter{Arithmetic}
 
 	\textit{\textbf{Mathematics is the ultimate form of forced art.}} (unknown)
 	\minitoc
 	\input{Chapter_Arithmetic.tex}
 	
 	
-  \chapter{Algebra}
+   \chapter{Algebra}
 
 	\textit{\textbf{Algebra is the science of calculating the quantities or structures represented by letters.}} (Larousse)
 	\minitoc
 	\input{Chapter_Algebra.tex}
 	
 		
- \chapter{Analysis}
+   \chapter{Analysis}
 
-	\textit{\textbf{The analysis is the rigorous formulation of calculus.}}(Wikipedia)
+	\textit{\textbf{The analysis is the rigorous formulation of calculus.}} (Wikipedia)
 	\minitoc
 	\pagebreak
 	\input{Chapter_Analysis.tex}
 		
-\chapter{Geometry}
+    \chapter{Geometry}
 
 	\textit{\textbf{Geometry is the mathematical discipline that focuses on the rigorous study of spaces and forms}}. (Larousse)
 	\minitoc
@@ -844,46 +895,46 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	\minitoc
 	\input{Chapter_Mechanics.tex}
 	
-\chapter{Electromagnetism}
+   \chapter{Electromagnetism}   
 
 	\textit{\textbf{Electrodynamic is the field of physics that study the dynamic action of electric currents and the propagation of electromagnetic waves.}}
 	\minitoc
 	\pagebreak
 	\input{Chapter_Electromagnetism.tex}
 
-\chapter{Atomistic}
-
+   \chapter{Atomistic}
+   \label{atomistic}
 	\textit{\textbf{The atomic physics is the part of physics that deals with quantified energy states of corpuscular and wave particles and of exchange of energies within the atom}}. (Larousse)
 	\minitoc
 	\pagebreak
 	\input{Chapter_Atomistic.tex}
 	
 
-\chapter{Cosmology}
-
+   \chapter{Cosmology}
+	\label{cosmology}
 	\textit{\textbf{Cosmology is the science that studies the structure, evolution and the general laws of the universe as a whole}}. (Larousse)
 	\minitoc
 	\pagebreak
 	\input{Chapter_Cosmology.tex}
 
 	
-\chapter{Chemistry}
-
-	\textit{\textbf{Chemistry is the science that studies the nature and properties of simple substances, the molecular action of these bodies on each other and combinations due to this action.}}(Larousse)
+   \chapter{Chemistry}
+	\label{chemistry}
+	\textit{\textbf{Chemistry is the science that studies the nature and properties of simple substances, the molecular action of these bodies on each other and combinations due to this action.}} (Larousse)
 	\minitoc
 	\pagebreak 
 	\input{Chapter_Chemistry.tex}
 	
 	
-\chapter{Theoretical Computing}
+    \chapter{Theoretical Computing}
 	\label{theoretical computing}
-	\textit{\textbf{The theoretical computer science is the branch of science that deals with the development of algorithms and theoretical tools that can be apply to IT to solve formal problems related to the simulation of physical phenomena or data treatments and the exchange of information.}}(Larousse)
+	\textit{\textbf{The theoretical computer science is the branch of science that deals with the development of algorithms and theoretical tools that can be apply to IT to solve formal problems related to the simulation of physical phenomena or data treatments and the exchange of information.}} (Larousse)
 	\minitoc
 	\pagebreak 
 	\input{Chapter_Computing.tex}
 	
 	
-\chapter{Social Sciences}
+   \chapter{Social Sciences}
 
 	\textit{\textbf{Social mathematics are the analysis and formal modeling tools of the behavior and management of a population and its trade in goods in all its activities, in interaction with its environment.}} (Sciences.ch)
 	\minitoc
@@ -891,29 +942,27 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	\input{Chapter_SocialSciences.tex}
 	
 		
-\chapter{Engineering}
+   \chapter{Engineering}
 
 	\textit{\textbf{Engineering is the set of practices consisting to apply the results of the exact sciences and basic research to practical industrial or daily problems.}} (Larousse)
 	\minitoc
 	\pagebreak
 	\input{Chapter_Engineering.tex}
-
-	
 	
  	\chapter{Epilogue}
-	You have traveled a long distance with us through this book. We have now reached the epilogue, where by tradition, the main redactor is allowed to give voice its own personal opinions. 
+	You have travelled a long distance with us through this book. We have now reached the epilogue, where by tradition, the main redactor is allowed to give voice its own personal opinions. 
 
 	Indeed, I want to leave you with some of my thoughts on theory versus practice, business and engineering education, applied mathematics research, and what I hope you will take with you after having read this book.
 	
 	By nature, academic engineering is very closely related to its practice. Theory and practice are ruled by the same ideas. As an academic myself teaching since 2001 in Fortune 500 and SME companies, I am proud to claim that the majority of engineering ideas were either invented or developed in academia first before they crossed over into practice.
 	
-	But engineering research is not just for aspiring academics: As i know it very well management and economics consultants are basically researchers even if most of them have a very low analytic level. Firms like McKinsey, Ernst \& Young, KPMG and Accenture may have different audiences, production speeds, team systems, and publication and evaluation processes, but they research the same issues that academics do and with the same methods at the exception that the level is significantly lower.
+	But engineering research is not just for aspiring academics: As I know it very well management and economics consultants are basically researchers even if most of them have a very low analytic level. Firms like McKinsey, Ernst \& Young, KPMG and Accenture may have different audiences, production speeds, team systems, and publication and evaluation processes, but they research the same issues that academics do and with the same methods at the exception that the level is significantly lower.
 
-	There is also much cross-fertilization: Many professors work regularly with major consulting in USA or asset-investment firms and some have even quit academia altogether to quadruple their pay (or increase their global hapiness...).
+	There is also much cross-fertilization: Many professors work regularly with major consulting in USA or asset-investment firms and some have even quit academia altogether to quadruple their pay (or increase their global happiness...).
 
 	Because engineering is by nature such an applied discipline, after reading this book, you should probably not need anything else to understand engineering research today. In an ideal World, you should be able to read the current state-of-the-art research right now.
 	
-	So, do we really understand engineering? Certainly not fully! We haven seen through this book that finance is as much an art as it is a science. Given our deficiencies, given that all our methods have their errors, what should we do? My best advice to you is to use common sense, to employ a number of different techniques to come up with a range of possible answers, avoid cognitive biases, and to then make a judgment at the end of the day as to what estimate appears most reasonable in light of different models and your peer-reviewers.
+	So, do we really understand engineering? Certainly not fully! We haven seen through this book that finance is as much an art as it is a science. Given our deficiencies, given that all our methods have their errors, what should we do? My best advice to you is to use common sense, to employ a number of different techniques to come up with a range of possible answers, avoid cognitive biases, and to then make a judgement at the end of the day as to what estimate appears most reasonable in light of different models and your peer-reviewers.
 	
 	Our book has covered the principles of engineering in some depth and breadth. You should be very well prepared now for the next steps in your lifetime engineering education.
 	
@@ -930,7 +979,7 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 	\chapter{Biographies}
 	\input{Chapter_Biographies.tex}
 
-	\chapter{Chronology}
+	\chapter{Chronology}\label{chronology}
 	\input{Chapter_Chronology.tex}
 
 	\chapter{Humor}
@@ -943,224 +992,40 @@ EAME-3 work is licensed under a Creative Commons "Attribution
 
 			
 	\chapter{Quotes}
-	\begin{figure}[H]
-		\centering
-		\includegraphics{img/be_greater_than_average.jpg}	
-	\end{figure}
-	\begin{fquote}[John Aubrey]Without faith, God is nothing. Without science, man is nothing.
- 	\end{fquote}
+	\input{Chapter_Quotes.tex}
+	
  	
-	\begin{fquote}[Leonardo da Vinci]He who loves practice without theory is like the sailor who boards ship without a rudder and compass and never knows where he may cast.
- 	\end{fquote}
- 	
-	\begin{fquote}[Richard Feynman]Physics is like sex. Sure it may have some practical results, but that's not why we do it.
- 	\end{fquote}
- 	
-	\begin{fquote}[Martin Gardner]Mathematics is not only real, but it is the only reality. That is that entire universe is made of matter, obviously. And matter is made of particles. It's made of electrons and neutrons and protons. So the entire universe is made out of particles. Now what are the particles made out of? They're not made out of anything. The only thing you can say about the reality of an electron is to cite its mathematical properties. So there's a sense in which matter has completely dissolved and what is left is just a mathematical structure.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Owen Chamberlain]Each generation of scientists stands upon the shoulders of those who have gone before.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Kiyoshi Ito]In precisely built mathematical structures, mathematicians find the same sort of beauty others find in enchanting pieces of music, or in magnificent architecture. There is however, one great difference between the beauty of mathematical structures and that of great art. Music by Mozart, for instance, impress greatly even those who do not know musical theory; the cathedral in Cologne overwhelms spectators even if they know nothing about Christianity. The beauty in mathematical structures, however, cannot be appreciated without understanding of a group of numerical formulae that express laws of logic. Only mathematicians can read "musical scores" containing many numerical formulae, and play that "music" in their hearts.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Ray Bradbury]You don't have to burn books to destroy a culture. Just get people to stop reading them.
- 	\end{fquote}
- 	
- 	 \begin{fquote}[Edward Teller]The science of today is the technology of tomorrow.
- 	\end{fquote}
- 	
- 	 \begin{fquote}[Brian Cox]Science is different to all the other systems of thought... because you don't need faith in it, you can check that it works!
- 	\end{fquote}
- 	
- 	\begin{fquote}[George Bernard Shaw]The fact that a believer is happier than a skeptic is no more to the point than the fact that a drunken man is happier than a sober one.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Carl Sagan]I don't want to believe, I want to know.
- 	\end{fquote}
- 	
- 	 \begin{fquote}[Richard Feynman]Science is just imagination in straitjacket.
- 	\end{fquote}
- 	
- 	 \begin{fquote}[Stephen Hawking]The greatest enemy of knowledge is not ignorance, is the illusion of knowledge.
- 	\end{fquote}
- 	
- 	 \begin{fquote}[?]Without data you are juste another person without opinions, but without mathematics you are just a data collector.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Albert Einstein]I have no special talents, I am only passionately curious.
- 	\end{fquote}
-
-	\begin{fquote}[Dara Briain]People keep saying "Science doesn't know everything!". Well, science know it doesn't know everything; otherwise it would stop.
- 	\end{fquote}
- 	
- 	\begin{fquote}[?]Without faith, God is nothing. Without science, man is nothing!
- 	\end{fquote}
-
- 	 \begin{fquote}[Stephen Hawking]One can't prove that God doesn't exists, but Science makes God unnecessary.
- 	\end{fquote}
-
- 	 \begin{fquote}[Voltaire]The power of numbers was much more respected among us when we knew nothing about them..
- 	\end{fquote}
-
-	\begin{fquote}[Jean Rostand]To reflect is to disturb one's thoughts.
- 	\end{fquote} 
- 	
- 	\begin{fquote}[John Cleese]If you are stupid how can you possibly realize that you are stupide?.
- 	\end{fquote} 	
- 	
- 	\begin{fquote}[Frank Wilczek]If you don't make mistakes, you're not working on hard enough problems. And that's a big mistake.
- 	\end{fquote}
-
-	\begin{fquote}[?]Success relies on the success of those who have preceded us.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Brigitte Le Roux, Henry Rouanet]Between quantity and quality there is geometry.
- 	\end{fquote}
-
-	\begin{fquote}[Leonardo da Vinci]Practice should always be based upon a sound knowledge of theory.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Richard Feynman]It doesn't matter how beautiful your theory is, it doesn't matter how smart you are. If it doesn't agree with experiment, it's wrong.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Ronald Fisher]To call in the statistician after the experiment is done may be no more than asking him to perform a post-mortem - he may be able to say what the experiment died of.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Charles Babbage]Errors using inadequate data are much less than those using no data at all
- 	\end{fquote}
- 	
- 	\begin{fquote}[Leonardo da Vinci]Details make perfection, and perfection is not a detail.
- 	\end{fquote}
- 	
- 	\begin{fquote}[LNeil Degrasse Tyson]Ignorance is a virus. Once it starts spreading, it can only be cured by reason. For the sake of humanity, we must be that cure!
- 	\end{fquote}
- 	
- 	\begin{fquote}[David Hilbert]The art of doing mathematics consists in finding that special case which contains all the germs of generality. 
- 	\end{fquote}
-
- 	\begin{fquote}[Mark Twain]There are three kinds of lies: lies, damned lies and statistics. 
- 	\end{fquote}
-
- 	\begin{fquote}[Derek Bok]If you think education is expensive, try ignorance.
- 	\end{fquote}
- 
-  	\begin{fquote}[David Hilbert]The art of doing mathematics consists in finding that special case which contains all the germs of generality.
- 	\end{fquote}
- 	
- 	 \begin{fquote}[Benjamin Franklin]Tell me and I forget, teach me and I remember, involve me and I learn.
- 	\end{fquote}
-  	
- 	 \begin{fquote}[Albert Einstein]Not everything that can be counted counts, and not everything that counts can be counted.
- 	\end{fquote}
-
- 	 \begin{fquote}[Niels Bohr]An expert is a person who has found out by his own experience all the mistakes that one can make in a very narrow field.
- 	\end{fquote}
- 	
- 	 \begin{fquote}[Daniel C. Denett]What you can imagine depends on what you know.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Arthur C. Clarke]Any sufficiently advanced technology is indistinguishable from divinity.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Nikola Tesla]What one man calls God, another call it the Laws of Physics.
- 	\end{fquote}
- 	
- 	\begin{fquote}[?]The only person you need to be better thhan is the person you were yesterday.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Eleanor Roosevelt]Great minds discuss ideas. Average minds discuss events. Small minds discuss people.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Marie Curie]Be less curious about people and more curious about ideas.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Albert Einstein]Creativity is intelligence having fun.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Aaron Swartz]With enough of us, around the world, we'll not just send a strong message opposing the privatization of knowledge - we'll make it a thing of the past.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Buddha]When you move your focus from competition to contribution life becomes a celebration. Never try to defeat people, just win the hearts.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Bertrand Russell]The whole trouble with the world is that the stupid are cocksure, and the intelligent are full of doubt.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Gerge Bernard Show]Some men see things as they are and ask why. Others dream things that never were and ask why not.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Albert Einstein]If you can't explain it to a six year old, you don't understand it well enough yourself.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Hubert Reeves]Man is the most insane species. He worships an invisible God and destroys a visible Nature. Unaware that the Nature he is destroying is this God he is worshiping.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Willima Thomson (Lord Kelvin)]If you can't measure it, you can't improve it!
- 	\end{fquote}
- 	
- 	\begin{fquote}[Albert Einstein]Once you stop learning, you start dying.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Socrates]There is only one good, KNOWLEDGE, and one evil, IGNORANCE.
- 	\end{fquote}
- 	
- 	\begin{fquote}[?]The purpose of argument, should not be victory, but progress.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Richard Dawkins]Science is the poetry of reality!
- 	\end{fquote}
- 	
- 	\begin{fquote}[Sthepen Hawking]Real science can be far stranger than science fiction and much more satisfying.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Alan Watts] You don't understand the basic assumptions of your own culture if your own culture is the only culture you know.
- 	\end{fquote}
- 	
- 	\begin{fquote}[Elon Musk]The ones who are crazy enough to think that they can change the world are the ones who do!
- 	\end{fquote}
- 	
- 	\begin{fquote}[Leonardo da Vinci]The noblest pleasure is the joy of understanding!
- 	\end{fquote}
- 	
- 	\begin{fquote}[Galileo Galilei]Doubt is the father of invention!
- 	\end{fquote}
- 	
- 	\begin{fquote}[Fred Mosteller]It is easy to lie with statistics, but easier to lie without them.
- 	\end{fquote}
-
-\chapter{Change Log}
+ 	\chapter{Change Log}\label{change log}
 
 This is a detailed change log of the book for people interested to see how this book has evolved (to keep in touch with new releases send us an e-mail to subscribe to the newsletter):
 	\begin{itemize}
 		\item \textbf{May 2002}
-		\begin{itemize}[noitemsep]
-			\item Definitions (science, law, theorem, postulate, axiom, corollary, ...)
-			\item Operations of addition, subtraction, multiplication, division, power
-			\item Concept of Numbers (integers, relative real, fractional, complex algebra, abstract,...)
-			\item Domain of definition of variables
-			\item Arithmetic polynomials
-			\item Absolute value
-			\item Binary relations, order relations
-			\item Gamma Function Euler, Euler's constant
-			\item Electromagnetic wave equation, the wave speed, speed of the light, transported energy
-			\item Introduction to Optics
-			\item Rule of three, percentages
-			\item Net quantities, the cost price of purchase, indices, sale prices, brut prices, net profit, net price, assets
-			\item Simple and compound interest, late and early payments
-			\item Portfolio management (decision criteria, goodwill, return on investisment)
-			\item MarkowitzModel  (utility function, selection criteria)
-			\item Vocabulary about Stock Exchange
-			\item Plasma Frequency
-			\item Probability (universe, events, axioms)
-			\item Combinatorial Analysis
-			\item Statistics (discrete variables, continuous variable, standard deviation, variance and covariance)
-			\item Distribution Functions (discrete uniform law, Bernoulli's law, binomial law, hypergeometric law, multinomial law, Poisson's law, Gauss-Laplace law, Cauchy's law, beta law, gamma law, chi-square law, Student's law)
-			\item Estimator, correlation
-			\item Matrix of covariance
-			\item Statistical adequation tests
-		\end{itemize}
+			\begin{itemize}[noitemsep]
+				\item Definitions (science, law, theorem, postulate, axiom, corollary, ...)
+				\item Operations of addition, subtraction, multiplication, division, power
+				\item Concept of Numbers (integers, relative real, fractional, complex algebra, abstract,...)
+				\item Domain of definition of variables
+				\item Arithmetic polynomials
+				\item Absolute value
+				\item Binary relations, order relations
+				\item Gamma Function Euler, Euler's constant
+				\item Electromagnetic wave equation, the wave speed, speed of the light, transported energy
+				\item Introduction to Optics
+				\item Rule of three, percentages
+				\item Net quantities, the cost price of purchase, indices, sale prices, brut prices, net profit, net price, assets
+				\item Simple and compound interest, late and early payments
+				\item Portfolio management (decision criteria, goodwill, return on investment)
+				\item Markowitz Model (utility function, selection criteria)
+				\item Vocabulary about Stock Exchange
+				\item Plasma Frequency
+				\item Probability (universe, events, axioms)
+				\item Combinatorial Analysis
+				\item Statistics (discrete variables, continuous variable, standard deviation, variance and covariance)
+				\item Distribution Functions (discrete uniform law, Bernoulli's law, binomial law, hypergeometric law, multinomial law, Poisson's law, Gauss-Laplace law, Cauchy's law, beta law, gamma law, chi-square law, Student's law)
+				\item Estimator, correlation
+				\item Matrix of covariance
+				\item Statistical adequation tests
+			\end{itemize}
 		\item \textbf{June 2002}
 			\begin{itemize}[noitemsep]
 				\item Introduction Set Theory (Zermelo-Fraenkel theory, inclusion, complementarity, intersection, union, product, empty set
@@ -1173,8 +1038,8 @@ This is a detailed change log of the book for people interested to see how this 
 				\item Ampere's Theorem
 				\item Biot-Savartlaw, magnetic field, magnetic induction
 				\item Maxwell's equations
-				\item Dimensions in euclidiean and fractal geometry
-				\item Geometric shapes unidimensionelles, bidimensionelles, tridimensionelles
+				\item Dimensions in euclidean and fractal geometry
+				\item One-dimensions, two-dimension, three-dimension Geometric shapes
 				\item Pythagorean theorem
 				\item Physical units systems
 				\item The principle of least action and energy conservation
@@ -1192,7 +1057,7 @@ This is a detailed change log of the book for people interested to see how this 
 				\item Creating of Table of Contents
 				\item Visual representations of functions
 				\item 2nd degree polynomials and roots
-				\item Operator of vector and scalar fields (gradient, nabla, divergence, curl, laplacien)
+				\item Operator of vector and scalar fields (gradient, nabla, divergence, curl, laplacian)
 				\item Vector Analysis (concept of arrow, set of vectors, scalar multiplication, vector space, linear combinations, generating families, bases of a vector space)
 				\item Tensor calculus (Einstein convention, Kronecker symbol, anti-symmetry symbol)
 				\item Notations for grouped multiplications (Big Sigma) and sums (Big Pi)
@@ -1202,6 +1067,7 @@ This is a detailed change log of the book for people interested to see how this 
 				\item Inertial forces (Coriolis force)
 				\item Drake Equation
 			\end{itemize}
+		\pagebreak
 		\item \textbf{August 2002}
 			\begin{itemize}[noitemsep]
 				\item New biographies (Hilbert, Riemann, Legendre)
@@ -1223,7 +1089,7 @@ This is a detailed change log of the book for people interested to see how this 
 				\item Angular momentum
 				\item Theorem of angular momentum
 				\item Newton-Poisson Equation
-				\item Thomson's, Borh's and Sommerfeld-Bohr's atom model
+				\item Thomson's, Bohr's and Sommerfeld-Bohr's atom model
 				\item Hydrogen spectrum
 				\item Assumption of Neutron
 				\item Quantum numbers
@@ -1238,21 +1104,22 @@ This is a detailed change log of the book for people interested to see how this 
 				\item Ballistics (maximum range, safety parabola )
 				\item Introduction to nuclear physics
 				\item Atomic number, mass number
-				\item Radioactivity, activity, filiation, isotopes, isotones, nuclide dating
+				\item Radioactivity, activity, decay chain, isotopes, isotones, nuclide dating
 				\item Atomic mass system (UMA)
-				\item Masse defaults
+				\item Mass defaults
 				\item Fusion and fission
-				\item Alpha and beta (minus and plus) desintegration
+				\item Alpha and beta (minus and plus) disintegration
 				\item Electron capture
 				\item Gamma emission
 			\end{itemize}
+		\pagebreak
 		\item \textbf{September 2002}	
 			\begin{itemize}[noitemsep]
 				\item New Biographies (Dalton, Boltzmann, De Broglie, etc.)
 				\item Principle of good order
 				\item Archimedean Property
 				\item Induction Principle
-				\item Divisability (Euclidean division)
+				\item Divisibility (Euclidean division)
 				\item Congruent numbers
 				\item Proof by nine
 				\item Numbers basis
@@ -1265,25 +1132,25 @@ This is a detailed change log of the book for people interested to see how this 
 				\item Generalization of elementary algebra
 				\item Dimensions of a vector space, extension of a free family, rank of a finite family
 				\item Vector Hyperplane, direct sums
-				\item Almosrt rigorous definition of the concepts of line, surface (plane) and volume
+				\item Almost rigorous definition of the concepts of line, surface (plane) and volume
 				\item Straight line intersection, half-lines, segments, aliquot part
 				\item Continuity axiom of the line and of the plane
 				\item Translation and rotation of plan
 				\item Angles, units, measurements, sides of the angle, sharp edges, flat angles, equal angles ,straight angles, acute angles, obtuse angles, supplementary angles, complementary angles, 
-				\item Perpendicular lines, bissecting angle
+				\item Perpendicular lines, bisecting angle
 				\item Definition of work and energy: kinetic and potential energy theorem (motor work and resisting work)
 				\item Concept of conservative vector field
 				\item Conservation of energy and momentum
 				\item Mass center theorem
 				\item Relativistic force transformation
 				\item Relativistic transformations of electric and magnetic fields
-				\item Chandreskhar limit weights (collapse limit of white dwarfs)
+				\item Chandrasekhar limit weights (collapse limit of white dwarfs)
 				\item Definitions of optics, generalization of the law of refraction
 				\item Broglie normalization condition, linked and non-linked states
 				\item Harmonic oscillator
 				\item Quantum chemistry and molecular vibrations
 			\end{itemize}
-		\item \textbf{Octobre 2002}
+		\item \textbf{October 2002}
 			\begin{itemize}[noitemsep]
 				\item New biographies (Cauchy, Neumann, Bessel, Archimedes)
 				\item New section on "Theoretical Computing"
@@ -1308,219 +1175,218 @@ This is a detailed change log of the book for people interested to see how this 
 				\item Introduction to fractal sets
 				\item Introduction to game theory (cooperative games, earnings, payoff matrix, extensive forms, Pareto optimums, Nash equilibrium, evolutionary games)
 			\end{itemize}
-			\item \textbf{November 2002}
-				\begin{itemize}[noitemsep]
-				\item Fundamental theorem of arithmetic
-				\item Introduction to crypthography (RSA, DES, MD5, SHA-1)
-				\item Euler phi function
-				\item Small Fermat theorem
-				\item Introduction to topological dimensions and scaling 
-				\item Cosine directors
-			\end{itemize}
-			\item \textbf{December 2002}
-				\begin{itemize}[noitemsep]
-				\item New Biographies (Nash, Cartan, Lucas, Lie)
-				\item Detailed development of the "Integer" function
-				\item Superposition of linear quantum states (quantum coherence) 
-				\item Definition of Lipschitz functions and contracting functions 
-				\item Definition of a convergent Cauchy sequence 
-				\item Fixed point theorem (used in fractals, Newton methods and many others)
-				\item Definitions of reality, the problem of the theory and trial on reality
-				\item Definition of Euclidean space and Euclidean affine space
-				\item Definition of property concepts in the field of chemistry
-			\end{itemize}
-			\item \textbf{January 2003}
+		\item \textbf{November 2002}
 			\begin{itemize}[noitemsep]
-				\item Pascal's Theorem
-				\item Buoyancy (Archimedes' principle)
-				\item Simple Introduction to different symmetries in physics (temporal, spatial)
-				\item Simple Introduction to different transformations in the plane (translation, scaling, reflection, isometry, rotation)
-				\item Definition of an inverse and composed function/application
-				\item Trigonometry (introduction, remarkable relations/identities, spherical trigonometry)
-				\item Signature of a vector space
-				\item Schmidt orthogonalization methods, base changes, Fourier associated spaces
-				\item Everything (almost) on the plane and spherical trigonometry
-				\item Keplerian orbital trajectories
-				\item Introduction to the neoclassical monetary model (Say/Walras laws, homogeneity assumption)
-				\item Boolean algebra (simple properties and theorems)
-				\item Redesigned of quantum physics section (order of the subjects)
-				\item Proof of evolutionnary Schrödinger  equation
-				\item Proof of the relativistic evolutionnary Schrödinger equation
-				\item Introduction to Antimatter theory
-			\end{itemize}
-		\item \textbf{February 2003}
-				\begin{itemize}[noitemsep]
-				\item Proof of gradient, divergence, rotational and Laplacian in cartesian, polary, cylindrical and spherical coordinates
-				\item Complete mathematical developments of speed and acceleration expressions in cartesian, polar, cylindrical and spherical coordinates 
-				\item Proof  of the relativistic invariance of the electric charge (charge conservation equation) 
-				\item Proof of the existence of anti-particle  with opposite charge 
-				\item Introduction to Gauge Theory (quadripotentiel Lorenz gauge, Coulomb gauge, Alembertian) 
-				\item Introduction to Lagrangian and Hamiltonian formalism (generalized coordinates, configuration spaces, Euler-Lagrange equation, canonical formalism, Legendre transformation, Poisson brackets) 
-				\item Rigorous definition of the principle of least action
-				\item Definition of Tensor spaces
-				\end{itemize}
-		\item \textbf{March 2003}
+			\item Fundamental theorem of arithmetic
+			\item Introduction to cryptography (RSA, DES, MD5, SHA-1)
+			\item Euler phi function
+			\item Small Fermat theorem
+			\item Introduction to topological dimensions and scaling 
+			\item Cosine directors
+		\end{itemize}
+		\item \textbf{December 2002}
 			\begin{itemize}[noitemsep]
-				\item New Biographies (Lorentz, Minkowski Hermann, Ricci-Curbastro, Levi-Civita)
-				\item Definition of Cartesian product and extension of the scope of application of Cardinals
-				\item Proof of Cauchy-Schwarz inequality
-				\item Proof of the triangle inequality 
-				\item Definitions of the vector product and mixed product 
-				\item Proof of condensed form the sum of the first $n$ integers 
-				\item Proof of the validity of the integration by parts 
-				\item Definition of the algebraic vectorial structure and of an algebra 
-				\item Definition of a homorphismes, isomorphism, endomorphism, automorphism
-			\end{itemize}
-		\item \textbf{April 2003}
+			\item New Biographies (Nash, Cartan, Lucas, Lie)
+			\item Detailed development of the "Integer" function
+			\item Superposition of linear quantum states (quantum coherence) 
+			\item Definition of Lipschitz functions and contracting functions 
+			\item Definition of a convergent Cauchy sequence 
+			\item Fixed point theorem (used in fractals, Newton methods and many others)
+			\item Definitions of reality, the problem of the theory and trial on reality
+			\item Definition of Euclidean space and Euclidean affine space
+			\item Definition of property concepts in the field of chemistry
+		\end{itemize}
+		\item \textbf{January 2003}
+		\begin{itemize}[noitemsep]
+			\item Pascal's Theorem
+			\item Buoyancy (Archimedes' principle)
+			\item Simple Introduction to different symmetries in physics (temporal, spatial)
+			\item Simple Introduction to different transformations in the plane (translation, scaling, reflection, isometry, rotation)
+			\item Definition of an inverse and composed function/application
+			\item Trigonometry (introduction, remarkable relations/identities, spherical trigonometry)
+			\item Signature of a vector space
+			\item Schmidt orthogonalization methods, base changes, Fourier associated spaces
+			\item Everything (almost) on the plane and spherical trigonometry
+			\item Keplerian orbital trajectories
+			\item Introduction to the neoclassical monetary model (Say/Walras laws, homogeneity assumption)
+			\item Boolean algebra (simple properties and theorems)
+			\item Redesigned of quantum physics section (order of the subjects)
+			\item Proof of evolutionary Schrödinger  equation
+			\item Proof of the relativistic evolutionary Schrödinger equation
+			\item Introduction to Antimatter theory
+		\end{itemize}
+	\item \textbf{February 2003}
 			\begin{itemize}[noitemsep]
-				\item New Biographies (Göpper-Meyer, Yukawa, Nöther, Cournot)
-				\item Cournot Theory equilibrium (competition)
-				\item Wilson's model (inventory management)
-				\item Mathematics of phasers
-				\item Relativistic model of the Sommerfeld's atom
-				\item Analytical resolution of the Schrödinger equation
-				\item Heisenberg's principles of quantum  uncertainty
-				\item Lagrangian formalism of quantum physics fields
-				\item Improvement of website forum (add mathematical symbols and external files)
-				\item 10 new links to interesting web pages (associations + math stuff)
+			\item Proof of gradient, divergence, rotational and Laplacian in cartesian, polary, cylindrical and spherical coordinates
+			\item Complete mathematical developments of speed and acceleration expressions in cartesian, polar, cylindrical and spherical coordinates 
+			\item Proof  of the relativistic invariance of the electric charge (charge conservation equation) 
+			\item Proof of the existence of anti-particle  with opposite charge 
+			\item Introduction to Gauge Theory (quadripotentiel Lorenz gauge, Coulomb gauge, Alembertian) 
+			\item Introduction to Lagrangian and Hamiltonian formalism (generalized coordinates, configuration spaces, Euler-Lagrange equation, canonical formalism, Legendre transformation, Poisson brackets) 
+			\item Rigorous definition of the principle of least action
+			\item Definition of Tensor spaces
 			\end{itemize}
-		\item \textbf{Mai 2003}
-			\begin{itemize}[noitemsep]
-				\item New Biographies (Bell, Ramanujan, Landau)
-				\item Proof of the precession of the perihelion of coupled orbits of stars or electric charges
-				\item Definition and developments related to the Virial theorem
-				\item Calculation of potential energy of a material sphere (internal temperature of Stars)
-				\item Definition of prime numbers and proof that they are in infinite in number
-				\item Definition of a fully enclosed ring
-				\item Proof that a rational number is an algebraic number if and only if it is a relative integer.
-				\item Definition of a multi-linear application/function (or morphism of vector space)
-				\item Definition of a partition of a set and an an equivalence class.
-				\item Descriptions of set operations of absorption and idempotence.
-				\item Definitions and examples of sagittals diagrams.
-				\item Definition of a magma and a monoid
-				\item Pseudo-proofs of algebraic structures of fundamental sets of arithmetic
-				\item Development of the theory of angular momentum in wave quantum physics
-				\item Definition of a Diophantine equation and sets of Fermat's Last Theorem
-			\end{itemize}
-		\item \textbf{October 2003}
-			\begin{itemize}[noitemsep]
-				\item New Biographies (Abel, Banach, Boole, Bose, Brouwer, Clausius, Cayley, Curie,  Connes, Dirichlet, Frege, Gibbs, Picard, Erdos, Grothendieck, Hamilton, Hausdorf,  Heaviside, Helmholtz, Hermite, Hoyle, Jacobi, Klein, Kronecker, Langevin, Lee, Lobachevsky , Möbius, Monge, Fish, Schwartz, Shannon, Thom, van der Waals, Vieta, Weinberg, Witten, Gamow, Sturm, Liouville,Clairaut, Teller)
-				\item Definition of puncutal spaces in classical mechanics, of writing conventions and changes in referentials
-				\item Mathematical theory of projective perspective with vanishing points and definition of the projective and isometric perspectives
-				\item Simplistic definition of the concept of "derivative" in functional analysis.
-				\item Proof of some common derivatives (polynomials, composite functions, inverse functions, cosine, sine, arc sine, arc cosine, quotient of two functions, etc.).
-				\item Numerical Methods: mathematical explanation of the complexity of an algorithm and  elementary optimization research
-				\item Method of calculating the number $e$
-				\item Resolution Method of $n$ linear equations systems with $n$ unknow using the pivot method
-				\item Search of function roots by the methods of the proportional parts, of the bisection method, of the secant methods (regula falsi) and Newton's method
-				\item Calculations of areas and integrals using the Riemann sums method
-				\item Presentation of the Monte Carlo calculation for integrals, or Pi
-				\item Mathematical development of simplex algorithm used in the operations research (linear programming)
-				\item Contraction of indices in tensor calculus
-				\item Definition and detailed properties of some speical tensor (symmetric tensor, antisymmetric tensor, fundamental tensor, etc.)
-				\item Curvilinear coordinates (determination of the metric and linear element of a spherical and cartesian space and of the plane in polar coordinates)
+	\item \textbf{March 2003}
+		\begin{itemize}[noitemsep]
+			\item New Biographies (Lorentz, Minkowski Hermann, Ricci-Curbastro, Levi-Civita)
+			\item Definition of Cartesian product and extension of the scope of application of Cardinals
+			\item Proof of Cauchy-Schwarz inequality
+			\item Proof of the triangle inequality 
+			\item Definitions of the vector product and mixed product 
+			\item Proof of condensed form the sum of the first $n$ integers 
+			\item Proof of the validity of the integration by parts 
+			\item Definition of the algebraic vectorial structure and of an algebra 
+			\item Definition of a homomorphism, isomorphism, endomorphism, automorphism
+		\end{itemize}
+	\item \textbf{April 2003}
+		\begin{itemize}[noitemsep]
+			\item New Biographies (Göpper-Meyer, Yukawa, Nöther, Cournot)
+			\item Cournot Theory equilibrium (competition)
+			\item Wilson's model (inventory management)
+			\item Mathematics of phasers
+			\item Relativistic model of the Sommerfeld's atom
+			\item Analytical resolution of the Schrödinger equation
+			\item Heisenberg's principles of quantum  uncertainty
+			\item Lagrangian formalism of quantum physics fields
+			\item Improvement of website forum (add mathematical symbols and external files)
+			\item 10 new links to interesting web pages (associations + math stuff)
+		\end{itemize}
+	\item \textbf{May 2003}
+		\begin{itemize}[noitemsep]
+			\item New Biographies (Bell, Ramanujan, Landau)
+			\item Proof of the precession of the perihelion of coupled orbits of stars or electric charges
+			\item Definition and developments related to the Virial theorem
+			\item Calculation of potential energy of a material sphere (internal temperature of Stars)
+			\item Definition of prime numbers and proof that they are in infinite in number
+			\item Definition of a fully enclosed ring
+			\item Proof that a rational number is an algebraic number if and only if it is a relative integer.
+			\item Definition of a multi-linear application/function (or morphism of vector space)
+			\item Definition of a partition of a set and an equivalence class.
+			\item Descriptions of set operations of absorption and idempotence.
+			\item Definitions and examples of sagittals diagrams.
+			\item Definition of a magma and a monoid
+			\item Pseudo-proofs of algebraic structures of fundamental sets of arithmetic
+			\item Development of the theory of angular momentum in wave quantum physics
+			\item Definition of a Diophantine equation and sets of Fermat's Last Theorem
+		\end{itemize}
+	\item \textbf{October 2003}
+		\begin{itemize}[noitemsep]
+			\item New Biographies (Abel, Banach, Boole, Bose, Brouwer, Clausius, Cayley, Curie,  Connes, Dirichlet, Frege, Gibbs, Picard, Erdos, Grothendieck, Hamilton, Hausdorf,  Heaviside, Helmholtz, Hermite, Hoyle, Jacobi, Klein, Kronecker, Langevin, Lee, Lobachevsky , Möbius, Monge, Fish, Schwartz, Shannon, Thom, van der Waals, Vieta, Weinberg, Witten, Gamow, Sturm, Liouville,Clairaut, Teller)
+			\item Definition of punctual spaces in classical mechanics, of writing conventions and changes in referential
+			\item Mathematical theory of projective perspective with vanishing points and definition of the projective and isometric perspectives
+			\item Simplistic definition of the concept of "derivative" in functional analysis.
+			\item Proof of some common derivatives (polynomials, composite functions, inverse functions, cosine, sine, arc sine, arc cosine, quotient of two functions, etc.).
+			\item Numerical Methods: mathematical explanation of the complexity of an algorithm and  elementary optimization research
+			\item Method of calculating the number $e$
+			\item Resolution Method of $n$ linear equations systems with $n$ unknown using the pivot method
+			\item Search of function roots by the methods of the proportional parts, of the bisection method, of the secant methods (regula falsi) and Newton's method
+			\item Calculations of areas and integrals using the Riemann sums method
+			\item Presentation of the Monte Carlo calculation for integrals, or Pi
+			\item Mathematical development of simplex algorithm used in the operations research (linear programming)
+			\item Contraction of indices in tensor calculus
+			\item Definition and detailed properties of some special tensor (symmetric tensor, antisymmetric tensor, fundamental tensor, etc.)
+			\item Curvilinear coordinates (determination of the metric and linear element of a spherical and cartesian space and of the plane in polar coordinates)
 Christoffel symbols (first and second type).
-				\item Proof of the Cantor-Bernstein theorem
-				\item Determination of the free generalized Lagrangian in General Relativity
-			\end{itemize}
-		\pagebreak
-		\item \textbf{December 2003}
-			\begin{itemize}[noitemsep]
-				\item New Biographies (Kirchhoff biographers, Markowitz, Cox Merton, Scholes, Sharpe, Ferdinan von Lindemann, Bachelier, Stefan)
-				\item Proof of one of the Stirling formulas
-				\item Detailed calculation of a simple model of a Star surface temperature
-				\item Detailed calculations of temporal properties of the securities values
-				\item Proof of Taylor series and Maclaurin (limited and unlimited)
-				\item Defining the Lagrange rest and of Alembert's, Cauchy, integral test and absolute convergence criterias
-				\item Developments relative to the definitions of brightness, luminosity, apparent and absolute magnitude of Stars and calclulation of the distance to Cepheids
-				\item Definitions of the solid angle, the solid angle of revolution and the elementary solid angle
-				\item Definition of photometric and photonic and international system quantities
-				\item Definitions and developments related to the light intensity, energy flow (with proof of Beer-Lambert' law), emittance, radiance (with Lambert's law), Kirchhoff's law
-				\item Proofs of Stefan's law and Stefan-Boltzmann law
-				\item Resolutions of third degree polyonials by radicals (Cardan's method) and development about solving quadratic polynomials in the complex set
-				\item Definition of the concept of equations and inequalities
-				\item Determination of the Cartesian equation of the plane, line (in space),cone and sphere
-				\item Definition of market efficiency
-				\item Determination of the Black \& Scholes equation 
-				\item Presentation of the mathematical aspectts of Wiener process
-				\item Ito lemma and Brownian motion (random walk)
-			\end{itemize}
-		\item \textbf{January 2004}
-			\begin{itemize}[noitemsep]
-				\item Definition of the indefinite integral
-				\item Newtonian cosmological model (without the cosmological constant)
-				\item Statement of the Peano's
-				\item Introduction to Linear Algebra (Gauss reduction method, elementary operations between matrices)
-				\item Statement of 5 Euclid's axioms and 5 groups of axioms in geometry
-				\item Proof of relations for calculating the perimeter of the surface and the center of gravity of the square, the rectangle and triangle
-				\item Proof of relations for calculating the volumes and surfaces of the torus, the sphere, the ellipsoid, cylinder and cone
-				\item Definition of the centroid (center of gravity) and demonstration of four properties related thereto
-				\item Demonstration of decomposition odd function and pair of any function
-				\item Definition of hyperbolic trigonometric functions and enumeration of relations and proof of related remarkable properties
-				\item Introduction to differential geometry (definition of a Riemannian geometry, Frenet triad, parametrised surface, etc.)
-				\item DIntroduction to graph theory (Königsberg's bridges proof)
-				\item Definition of a topological space and Hausdorff definition of a metric / ultra-metric space and associated distances (hölder, discreet, equivalent ...)
-				\item Definition of a Lipschitz function (and related isometrics)
-				\item Definition of open and closed set (open/closed balls, spheres, adherence, Hausdorff's excess) and diameters
-				\item Definition of set distances (gap) and of a variety / map / atlas and differential homeomorphism
-			\end{itemize}
-		\item \textbf{April 2004}
-			\begin{itemize}[noitemsep]
-				\item Proof of the Guldin's theorem
-				\item Proof of König's theorem of kinetic energy and angular momentum
-				\item Presentation and proofs of various techniques for calculating the moments of inertia: Huygens-Steiner theorem, polar inertia moment, inertia tensor, generalized Huygens-Steiner
-				\item Definition of "power" and "performance" and proof of the calculation of the power of a rotating machine
-				\item Proof of Boltzmann thermodynamic entropy law and the following statistical distributions: Maxwell speeds, Maxwell-Boltzmann, Fermi-Dirac, Bose-Einstein
-				\item Proof of some principal moments of inertia of the following bodies: torus, spheres, cones, rectangular plate, tube
-				\item Introduction to wave optics: Huygens principle, proof of Malus law, development of Fraunhofer model in the case of a rectangular slot. 
-				\item Definition and proof of the resolving power of a simple rectangular slot.
-				\item Proof of the origin and the solution of the no less famous Bessel differential equation of order $n$
-				\item Proof of the wave function of a stretched rope and a stretched circular membrane
-				\item Proof of Planck's law and of known approximations (first Wien's Law, Rayleigh-Jeans law).
-				\item Proof of the displacement law (second Wien's law) and the Stefan-Boltzmann law through Planck's law and determination of the Stefan-Boltzmann constant
-				\item Study of the origin of Planck dimensions: Planck length, Planck mass, Planck density, Planck time, Planck energy
-			\end{itemize}
-		\item \textbf{July 2004}
-			\begin{itemize}[noitemsep]
-				\item Proof of the physical origin of heat
-				\item Proof of Torricelli's theorem
-				\item Proof of Venturi effect
-				\item Proof of Poiseuille's law
-				\item Proof of relativistic Compton effect
-				\item Proof of the existence of the fossil radiation in the Universe
-				\item Introductions to quotients sets (in this case $\mathbb{Z}/n$
-				\item Proof of the physical origin of heat
-				\item Proof of Torricelli's theorem
-				\item Proof of Venturi's effect
-				\item Proof of Poiseuille's law
-				\item Proof of relativistic Compton effect
-				\item Proof of the existence of the fossil radiation in the Universe
-				\item Introductions to quotients sets (in this case $\mathbb{Z}/nZ$)
-				\item Proof of Lorentz transformations for speed and acceleration
-				\item Determination of the relativistic Lagrangian of a free system
-				\item Proof and definition of Ricci theorem, of the covariant derivative, of the Ricci identity, of the Riemann-Christoffel tensor, of the Ricci tensor, of the Ricci scalar, identities of both Bianchi and finally Einstein tensor
-				\item Mathematical definition of the capacity and determination of the expression of a  parallel plane capacity
-				\item Determination of the electrostatic potential energy
-				\item Proof of the value of the field of and electric potential of a straight infinite wire.
-				\item Determination of the basic properties of electric dipoles as the rigid dipole moment, the presentation of the induced dipole moment, hydrogen bonds, Van der Waals forces, etc.
-				\item Definition of the Curie symmetry principle and Statement of 6 resulting properties
-				\item Definition of pseudo vectors
-				\item Proof of the relations for the volume of the pyramid, the paraboloid, the tetrahedron,  ocatahedron, cube and parallelepiped
-				\item Determination of the magnetic field produced by a toroidal solenoid, a rectilinear solenoid infinity and a current loop
-				\item Determination of the magnetic field produced by a magnetic dipole and basic definitions of the properties of magnetic materials
-				\item Calculation of the Larmor radius and cyclotron pulsation in a non-relativistic framework
-				\item Determination of the Lagrangian of the electromagnetic field and by extension in the non-relativistic approximation of the tensor of the electromagnetic field
-				\item Introduction to the calculation of the radiation emitted by an accelerated charge (synchrotron radiation, Lienard-Wiechert's retarted potentials)
-				\item Calculation of the values of resistors and capacitors in series
-				\item Difference between electrical potential and electromotive potential
-				\item Proof of Faraday's law and definition of "self inductance"
-				\item Proof of Descartes formulas for the concave and convex spherical surfaces and refracting/not refracting as well as for refractive lenses.
-				\item Definition of stigma and proof that the parable is strictly stigmatic
-				\item Proof of Descartes formulas for thin lenses and conjugation law
-				\item Definition of diopter and explanation of various visual disabilities
-			\end{itemize}
-		\item \textbf{July 2004}
-			\begin{itemize}[noitemsep]
+			\item Proof of the Cantor-Bernstein theorem
+			\item Determination of the free generalized Lagrangian in General Relativity
+		\end{itemize}
+	\item \textbf{December 2003}
+		\begin{itemize}[noitemsep]
+			\item New Biographies (Kirchhoff biographers, Markowitz, Cox Merton, Scholes, Sharpe, Ferdinan von Lindemann, Bachelier, Stefan)
+			\item Proof of one of the Stirling formulas
+			\item Detailed calculation of a simple model of a Star surface temperature
+			\item Detailed calculations of temporal properties of the securities values
+			\item Proof of Taylor series and Maclaurin (limited and unlimited)
+			\item Defining the Lagrange rest and of Alembert's, Cauchy, integral test and absolute convergence criterias
+			\item Developments relative to the definitions of brightness, luminosity, apparent and absolute magnitude of Stars and calculation of the distance to Cepheids
+			\item Definitions of the solid angle, the solid angle of revolution and the elementary solid angle
+			\item Definition of photometric and photonic and international system quantities
+			\item Definitions and developments related to the light intensity, energy flow (with proof of Beer-Lambert' law), emittance, radiance (with Lambert's law), Kirchhoff's law
+			\item Proofs of Stefan's law and Stefan-Boltzmann law
+			\item Resolutions of third degree polynomials by radicals (Cardan's method) and development about solving quadratic polynomials in the complex set
+			\item Definition of the concept of equations and inequalities
+			\item Determination of the Cartesian equation of the plane, line (in space),cone and sphere
+			\item Definition of market efficiency
+			\item Determination of the Black \& Scholes equation 
+			\item Presentation of the mathematical aspects of Wiener process
+			\item Ito lemma and Brownian motion (random walk)
+		\end{itemize}
+	\item \textbf{January 2004}
+		\begin{itemize}[noitemsep]
+			\item Definition of the indefinite integral
+			\item Newtonian cosmological model (without the cosmological constant)
+			\item Statement of the Peano's
+			\item Introduction to Linear Algebra (Gauss reduction method, elementary operations between matrices)
+			\item Statement of 5 Euclid's axioms and 5 groups of axioms in geometry
+			\item Proof of relations for calculating the perimeter of the surface and the center of gravity of the square, the rectangle and triangle
+			\item Proof of relations for calculating the volumes and surfaces of the torus, the sphere, the ellipsoid, cylinder and cone
+			\item Definition of the centroid (center of gravity) and demonstration of four properties related thereto
+			\item Demonstration of decomposition odd function and pair of any function
+			\item Definition of hyperbolic trigonometric functions and enumeration of relations and proof of related remarkable properties
+			\item Introduction to differential geometry (definition of a Riemannian geometry, Frenet triad, parametrised surface, etc.)
+			\item Introduction to graph theory (Königsberg's bridges proof)
+			\item Definition of a topological space and Hausdorff definition of a metric / ultra-metric space and associated distances (hölder, discreet, equivalent ...)
+			\item Definition of a Lipschitz function (and related isometrics)
+			\item Definition of open and closed set (open/closed balls, spheres, adherence, Hausdorff's excess) and diameters
+			\item Definition of set distances (gap) and of a variety / map / atlas and differential homeomorphism
+		\end{itemize}
+	\item \textbf{April 2004}
+		\begin{itemize}[noitemsep]
+			\item Proof of the Guldin's theorem
+			\item Proof of König's theorem of kinetic energy and angular momentum
+			\item Presentation and proofs of various techniques for calculating the moments of inertia: Huygens-Steiner theorem, polar inertia moment, inertia tensor, generalized Huygens-Steiner
+			\item Definition of "power" and "performance" and proof of the calculation of the power of a rotating machine
+			\item Proof of Boltzmann thermodynamic entropy law and the following statistical distributions: Maxwell speeds, Maxwell-Boltzmann, Fermi-Dirac, Bose-Einstein
+			\item Proof of some principal moments of inertia of the following bodies: torus, spheres, cones, rectangular plate, tube
+			\item Introduction to wave optics: Huygens principle, proof of Malus law, development of Fraunhofer model in the case of a rectangular slot. 
+			\item Definition and proof of the resolving power of a simple rectangular slot.
+			\item Proof of the origin and the solution of the no less famous Bessel differential equation of order $n$
+			\item Proof of the wave function of a stretched rope and a stretched circular membrane
+			\item Proof of Planck's law and of known approximations (first Wien's Law, Rayleigh-Jeans law).
+			\item Proof of the displacement law (second Wien's law) and the Stefan-Boltzmann law through Planck's law and determination of the Stefan-Boltzmann constant
+			\item Study of the origin of Planck dimensions: Planck length, Planck mass, Planck density, Planck time, Planck energy
+		\end{itemize}
+	\item \textbf{July 2004}
+		\begin{itemize}[noitemsep]
+			\item Proof of the physical origin of heat
+			\item Proof of Torricelli's theorem
+			\item Proof of Venturi effect
+			\item Proof of Poiseuille's law
+			\item Proof of relativistic Compton effect
+			\item Proof of the existence of the fossil radiation in the Universe
+			\item Introductions to quotients sets (in this case $\mathbb{Z}/n$
+			\item Proof of the physical origin of heat
+			\item Proof of Torricelli's theorem
+			\item Proof of Venturi's effect
+			\item Proof of Poiseuille's law
+			\item Proof of relativistic Compton effect
+			\item Proof of the existence of the fossil radiation in the Universe
+			\item Introductions to quotients sets (in this case $\mathbb{Z}/nZ$)
+			\item Proof of Lorentz transformations for speed and acceleration
+			\item Determination of the relativistic Lagrangian of a free system
+			\item Proof and definition of Ricci theorem, of the covariant derivative, of the Ricci identity, of the Riemann-Christoffel tensor, of the Ricci tensor, of the Ricci scalar, identities of both Bianchi and finally Einstein tensor
+			\item Mathematical definition of the capacity and determination of the expression of a  parallel plane capacity
+			\item Determination of the electrostatic potential energy
+			\item Proof of the value of the field of and electric potential of a straight infinite wire.
+			\item Determination of the basic properties of electric dipoles as the rigid dipole moment, the presentation of the induced dipole moment, hydrogen bonds, Van der Waals forces, etc.
+			\item Definition of the Curie symmetry principle and Statement of 6 resulting properties
+			\item Definition of pseudo vectors
+			\item Proof of the relations for the volume of the pyramid, the paraboloid, the tetrahedron, octahedron, cube and parallelepiped
+			\item Determination of the magnetic field produced by a toroidal solenoid, a rectilinear solenoid infinity and a current loop
+			\item Determination of the magnetic field produced by a magnetic dipole and basic definitions of the properties of magnetic materials
+			\item Calculation of the Armorial radius and cyclotron pulsation in a non-relativistic framework
+			\item Determination of the Lagrangian of the electromagnetic field and by extension in the non-relativistic approximation of the tensor of the electromagnetic field
+			\item Introduction to the calculation of the radiation emitted by an accelerated charge (synchrotron radiation, Lienard-Wiechert's retarded potentials)
+			\item Calculation of the values of resistors and capacitors in series
+			\item Difference between electrical potential and electromotive potential
+			\item Proof of Faraday's law and definition of "self inductance"
+			\item Proof of Descartes formulas for the concave and convex spherical surfaces and refracting/not refracting as well as for refractive lenses.
+			\item Definition of stigma and proof that the parable is strictly stigmatic
+			\item Proof of Descartes formulas for thin lenses and conjugation law
+			\item Definition of diopter and explanation of various visual disabilities
+		\end{itemize}
+	\item \textbf{September 2004}
+		\begin{itemize}[noitemsep]
 			\item Statement of Mach's principle
 			\item Presentation of the photoelectric effect and proof of the physical law governing it.
 			\item Proof by example that the light can be seen as both a particle or as a wave
@@ -1530,426 +1396,527 @@ Christoffel symbols (first and second type).
 			\item Determination of the radius of the atom using the Rutherford-Coulomb scattering(verbatim: determining the cross section for Rutherford)
 			\item Presentation of macroscopic and microscopic interactions of X and gamma-rays with matter (which includes details study of the materialization of a photon in electron-positron pair)
 			\item Introduction to spinors
-			\item Definition of operating properties of matrices, remarkable matrices, determinants, eigenvectors and eignevalues
+			\item Definition of operating properties of matrices, remarkable matrices, determinants, eigenvectors and eigenvalues
 			\item Statements of the postulates of wave quantum physics
 			\item Determination of the orbitals of the hydrogen-atom
-			\end{itemize}
-		\item \textbf{November 2004}
-			\begin{itemize}[noitemsep]
-				\item New Biographies (Smith, Say, Malthus, Keynes, Walras, Pareto)
+		\end{itemize}
+	\item \textbf{November 2004}
+		\begin{itemize}[noitemsep]
+			\item New Biographies (Smith, Say, Malthus, Keynes, Walras, Pareto)
 			\item Presentation and proof of Noether's theorem
 			\item Enumeration of some major physical chemical, astronomical constants
 			\item Introduction to the theory of speculation: (predictive expectation of a financial asset)
 			\item Introduction to the preference theory (Arrow-Debreu model)
 			\item Presentation of solutions of the Black \& Scholes equation and remarks on the delta - Proof of the Call-Put parity equation
 			\item Determination of initial stock (optimum) within the framework of the supply chain management
-			\end{itemize}
-		\item \textbf{January 2005}
-			\begin{itemize}[noitemsep]
-				\item New Biographies (Penrose, Hawking, Turing, Marx) 
-				\item Development of "dual" version of Maxwell equations and proof of the origin of the expression (hypothesis) of magnetic monopoles 
-				\item Definition of P, NP and NPC class algorithms
-				\item Proof of the fundamental theorem of calculus also named "fundamental theorem of integral and differential calculus" 
-				\item Presentation of the cGH cube and the Copenhagen interpretation 
-				\item Introduction to the mathematical concepts of artificial neural networks 
-				\item Introduction to the mathematical concepts of Genetic Algorithms
-				\item Detailed mathematical introduction to fractals
-				\item Basics maths stuffs on Quantum Computing
-				\item Introduction to fuzzy logic
-				\item Proof of Shannon theorem, Morgan theorems, expansion theorem, Karnaugh maps, complete adder, full substractor
-			\end{itemize}
-		\item \textbf{April 2005}
-			\begin{itemize}[noitemsep]
-				\item Basic definitions on block codes, linear codes, systematic codes in error correcting codes
-				\item Proof of the relation of the relativistic change in mass
-				\item Introduction to codes and prefix codes
-				\item Proof of the formula for the calculation of the number of days between two given dates 
-				\item Rounding calculations techniques
-				\item Definition of rigid or non-rigid post and praenumerando annuities with or without constant rate (certain future)
-				\item Definition and study of the properties of loans repayment or constant annuity
-			\end{itemize}
-		\item \textbf{April 2006}
-			\begin{itemize}[noitemsep]
-				\item Presentation of Schild's criterion via the Einstein effect (gravitational redshift)
-				\item Development of the Newtonian approximation of the geodesic equation
-				\item Definitions and proofs of developed forms of four-vectors of displacement, velocity, current, acceleration and energy-momentum
-				\item Proof of the provenance of electromagnetic field tensor and referential calculation changes
-				\item Definition of a tautology and principle of non-tautology
-				\item Descriptions, definitions and many proofs on quaternions
-				\item Proof of Euler's number irrationality
-				\item Definition of the log-normal, triangular and Weibull distribution and proof of their mean and standard deviation
-				\item Introduction to error calculation (absolute and relative uncertainties, error propagation, significant numbers, etc.)
-				\item Proof of the deflection of light near a Star with the Newtonian gravitational model
-				\item Definition of a rotation matrix (and developments related thereto)
-				\item Proof of the existence of the Euclidean division in the ring of polynomials
-				\item Definitions of MWRR (Time of Money Weighted Return) and TWRR (Time Weighted Rate of Return)
-				\item Proof of Gauss-Ostrogradsky theorem 
-			\end{itemize}
-		\item \textbf{July 2006}
-			\begin{itemize}[noitemsep]
-				\item Definition of the concept of dual space
-				\item Definition of Pareto law and proof of mean and standard deviation
-				\item Definition of quantile (quartile, percentile)
-				\item Proof that the mode is the value that minimizes the absolute dispersion
-				\item Proof of Minkowski and Bienaymé-Tchebychev inequalities
-				\item Proof of the weak law of large numbers 
-				\item Proof of Euler's formula for planar graphs
-				\item Introduction to the mathematical method of Six Sigma process controls
-				\item Proof of the variational calculus theorem
-				\item Proof of the calculation of the apparent superluminal speed of a high Redshift Star
-				\item Zero-sum game resolution method using operational research
-				\item Definition of investment funds
-				\item Proof of the beta expression of a simple linear regression model (Sharpe)				
-			\end{itemize}
-		\item \textbf{October 2006}
-			\begin{itemize}[noitemsep]
-				\item Proof Binomial and Poisson likelihood estimators
-				\item Presentation of the concept of "color" and subtractive and additive synthesis
-				\item Proof of Einstein equation fields (approach using weak fields approximation)
-				\item Differentiation of the equivalence principle, weak equivalence principle and Einstein's equivalence principle
-				\item Proof of the duration of the Daytime arc of planets in the approximation of the null precession and nutation
-				\item Digital and formal study (approximative) of Lagrange points of a binary system
-				\item Method of resolution of 4th degree polynomial (Ferrari's method)
-				\item Presentation of the Gram determinant via the Euclidean volume represented by the joint product of the vectors of a canonical basis
-				\item Definition of monotonic, strictly monotone functions, etc .. without pure formal approach
-				\item Approximative determination via the Yukawa potential (mass fields) of the mass of mesons of the weak interaction and the strong nuclear interaction.
-				\item Introduction to first order linear differential equations			
-			\end{itemize}
-		\item \textbf{December 2006}
-			\begin{itemize}[noitemsep]
-				\item New Biographies (Heckman, McFadden, Tesla)
-				\item Bernoulli numbers and polynomials
-				\item Roche Limit
-				\item Flattening of celestial bodies
-				\item Pressure and kinetic temperature
-				\item Proof of a special case of magnet or electromagnet force
-				\item Fundamental introduction to Hermitian and Hilbert vector spaces 
-				\item Schwarzschild solution in General Relativity
-				\item Precession of the perihelion of Mercury in General Relativity
-				\item Light Deflection in General Relativity
-				\item Shapiro delay in General Relativity
-				\item Evaluation Model of Financial Assets
-				\item The Black Hole Universe
-				\item Coupling constants of fundamental interactions
-				\item Hamiltonian of the Schrödinger equation for a charged particle in an electromagnetic field
-				\item Markov chains
-				\item Theory of queues
-				\item Introduction to weather and marine engineering mathematics
-				\item Practical example in Microsoft Excel of the efficiency Markowitz model
-				\item Practical example in Microsoft Excel of the Sharp efficiency model
-				\item Simplified proof of Green(-Riemann)'s and Stokes theorem
-				\item Detailed proofs on principal component analysis (PCA)
-				\item Proof of the spectral theorem in the real numbers case
-				\item Detailed proofs on logistic regression
-				\item Proof of Rolle's theorem and mean value
-				\item Proof of the Hopital theorem and generalized finite increments (generalized mean value)
-				\item Introduction of Geometric law and proof of its variance and mean
-				\item Proof of calculation of the area and volume of the five regular Platonic polyhedra
-				\item Introduction to field algebra and geometry
-				\item Detailed calculations of the collapsing critical mass (Jeans' Mass) and critical radius (Jeans' Radius) of an interstellar cloud or stellar nurseries
-				\item Detailed calculations of the collapse time of an interstellar cloud
-				\item Detailed calculations of a Star nuclear life
-				\item Detailed mathematical introduction to Fourier transforms
-				\item Detailed resolution of homogeneous linear differential equations with constant coefficients
-				\item Presentation of the Cornu's spiral for civil engineering
-				\item Mathematics of biometric functions
-				\item Determination and simple resolution of the Pauli equation
-				\item General solution (Fourier transform) of the electromagnetic wave equation
-				\item Introduction to strength of materials
-				\item Visual Horizon
-				\item Growth rate of a population depending on the temperature
-				\item Pitot Tube and Pressure drop
-				\item $U(1)$ gauge theories in quantum field physics
-				\item Bezier curves
-				\item Differential equation system with matrix exponentiation
-			\end{itemize}
-		\item \textbf{September 2008}
-			\begin{itemize}[noitemsep]
-				\item New Biographies (Pearson, Gosset, Fisher)
-				\item New important usual primitives for civil engineering and analytical mechanics
-				\item Detailed proofs of the origin of arcsinh and arccosh functions
-				\item Proof of Laplace equation and Mayer relation
-				\item Proof of the propagation of pressure waves
-				\item Historical introduction for nuclear physics
-				\item Proof of Maxwell relations in thermodynamics and introduction to free energy and enthalpy
-				\item Adiabatic atmosphere model
-				\item Proof of Lorenz equations and the butterfly effect
-				\item Calculations of some optical properties of the prism
-				\item Conditions of decoherence/interferences of electromagnetic waves
-				\item Bloch Sphere
-				\item Proof of the minimum surface of revolution volume
-				\item Treatment of the free particle
-				\item Treatment of the polarized spin qubit and the qubit of spin 1/2
-				\item Characteristic function and central limit theorem
-				\item Some proofs on the inequalities in triangles
-				\item Proof of the volume of a barrel with circular section 
-				\item Proof of the origin of the mean and standard deviation ot the Student and Fisher-Snedecor laws
-				\item Introduction to the marginal cost
-				\item Statistical test of the one-way ANOVA
-				\item Statistical Pearson's Chi-square adjustment test  
-				\item Introduction to the analysis of variance of regression
-				\item Correspondence Factorial Analysis
-				\item Development of linear free or forced RC, RL, RLC circuits
-			\end{itemize}
-		\item \textbf{September 2008}
-			\begin{itemize}[noitemsep]
-				\item Simple or complex topology systems analysis for preventive maintenance
-				\item Introduction to finite and infinite continued fractions
-				\item Detailed Solutions of a rectangular tunneling barrier
-				\item Mathematical model of alpha decay via tunneling
-				\item Introduction to Brownian motion model according to Langevin model
-				\item Introduction to tribology/friction
-				\item Introduction to time series analysis
-				\item Additional proofs on long term and short term process capability indices and measuring devices in Statistical Process
-				\item Proof of the calculation of the PPM in SPC centered or non-centered process
-				\item Proof of Taguchi quality cost relation
-				\item Proof of Lienard-Wiechert expression of electric and magnetic potentials 
-				\item Introduction to complex analysis
-				\item Proof of the second Friedmann equation in cosmology
-				\item Proof of "slowing" of light near a Black Hole
-				\item Proof of the expression of the Taylor expansion of a function of two real variables
-				\item Introduction to experimental design (DoE)
-				\item Proof of Eherenfest's theorem
-				\item Proof of the likelihoos estimators of the Weibull distribution with two parameters
-				\item Example of application of decision theory
-				\item Bands theory (parabolic and semi-classical approximation) within semiconductors
-				\item Theorem of residues and Laurent series
-				\item Proofs of Lean Six Sigma values for business processes/workflows
-			\end{itemize}
-		\item \textbf{October 2011}
-			\begin{itemize}[noitemsep]
-				\item New Biography (Erlang, Hotelling)
-				\item Detailed calculation of the geostationary orbit
-				\item Calculations on PVC meteorological probe balloons
-				\item Developments on the symmetrical gyroscope and weighing router
-				\item Detail calculations and proof on Gini index
-				\item Secular balance, transient and non-equilibrium in radioactive filiation
-				\item Detailed calculations on the approximate radius of rapidly rotating Stars
-				\item Proofs on historical delta-normal and variance-covariance Value At Risk
-				\item Two new jokes in the Humor section
-				\item Empirical statistical model of wage control
-				\item Simplified proof of the possible absence of arbitrage opportunity in Finance
-				\item Calculations on self-financing portfolio on the underlying risk
-				\item Introduction to mathematical techniques in Insurance
-				\item Mathematical developments on the power and intensity of a longitudinal sound wave
-				\item Statistical bilateral Z-test on the difference in the two means
-				\item Statistical Student T-test on two paired sample means
-				\item Proof of statistical confidence interval relation of sample large proportions
-				\item Statistical test for equal proportions of two large samples
-				\item Application of Shannon's theorem to calculate a statistical index of diversity
-				\item Proof of the determination of coefficients of a multiple linear regression
-				\item Proof of the determination of the coefficients of a simple linear regression through the origin
-				\item Introduction to sensitivity analysis
-				\item Introduction and some proof on rank/order statistics
-				\item Demonstration of the provenance, hope and variance of the negative binomial distribution
-				\item Control charts with detailed mathematical proofs
-				\item Mathematical approach of first Google Page Rank algorithm
-				\item Proof of Beltrami's identity to simplify the Euler-Lagrange equation
-				\item Exact binomial statistical test for the balance of a population with two characteristics
-				\item Developments and study of gravity waves in a fluid
-				\item Some simple developments on the gears/gear shafts
-				\item Proof of skin's effect
-				\item Theory of the rainbow
-				\item Theory of double pendulum
-				\item Boltzmann distribution law
-				\item Dalton's and Amagat laws
-				\item Heat Flow
-				\item Average power in alternative current
-				\item Presentation of some detailed calculations on the betatron
-			\end{itemize}
-		\item \textbf{May 2013}
-			\begin{itemize}[noitemsep]
-				\item New Biographies (Napier, Wilcoxon, Born, Heisenberg, Jordan, Kolmogorov, Stokes, Ostrogradsky, Zeeman, Joseph, Faraday, Meitner, Curie, Biot, Debye, Drude, Ohm)
-				\item Detailed example of construction of a particular neural network with Microsoft Excel
-				\item Resolution of homogeneous linear differential equations of order 1 with non constant coefficients
-				\item Example of a Fourier transform of a Gaussian function and proof of the property of the Fourier transform of a derivative
-				\item Introduction to interactions in two-factor ANOVA
-				\item Confidence interval and prediction interval of a linear regression
-				\item Statistical Test signs (median test)
-				\item Introduction of conditional probability and the conditional mean of Pareto law
-				\item Determination of the estimators of the gamma distribution using the method of moments
-				\item Second mathematical approach to the identification of the tides
-				\item Statistical Kolmogorov-Smirnov adjustment test with Lilliefors approach
-				\item Proof of the Scheafer's quota model
-				\item Proof of the calculation of the synodical period of the planets and of demotion of time
-				\item Proof of the construction of Brownian bridges
-				\item Proof of the origin of the rare events control chart
-				\item Calculation of the discount factor of a retiring insurance based on inflation and life expectancy
-				\item Proof of two-factor ANOVA relations without repetition and repetition
-				\item Mathematical proof and physics of the LASER
-				\item Theorem of Taylor series with integral rest
-				\item Stability of the Poisson distribution
-				\item Statistical Poisson test for 1 or 2 samples
-				\item Statistical non-parametric Kruskal-Wallis and Friedman tests
-				\item Statistical normality test of Ryan-Joiner
-				\item Statistical C Cochran test
-				\item Usual Taylor-Maclaurin Series
-				\item Polynomial regression by least squares method
-				\item Spatiotemporal Finite Difference Method with Maxwell's equations
-				\item Break-even Analysis
-				\item Mechanical Harmonic Oscillator
-				\item Acoustic Doppler Effect
-				\item Periodic waves overlays
-				\item Statistical Tukey test of range
-				\item Forecasting models by moving average, seasonal coefficients, simple smoothing, Brown double smoothing, double Holt (additive) smoothing, double Holt and Winter (multiplicative) smoothing
-				\item Introduction to elementary  AR, AM, ARMA and ARIMA autoregressive models
-				\item Proof of the expression of the correction factor on finite population
-				\item Statistical Fisher exact test
-				\item Exponential Laplace Smoothing
-				\item Cohen approval Kappa and McNemar statistical test
-				\item Kaplan-Meier survival analysis model
-				\item Cramer's V
-				\item Clustering $K$-Means algorithm
-				\item Clustering Dendrograms algorithm
-				\item Statistical Wilcoxon signed rank test for one sample or two paired samples
-				\item Quantitative study of the effective potential energy (harmonic model of the atomic bonding) of the hydrogen-atom
-				\item Proof of beams equation (Euler-Bernoulli equation)
-				\item Calculation of the failure rate of a system using the technique of maximum likelihood
-				\item We added a chronology of Sciences
-				\item Proof of Einstein model (Dulong-Petit law) of the heat capacity of crystalline solids and derivation of the Debye model
-				\item Langenvin Model of diamagnetism and paramagnetism
-				\item Introduction to line integrals calculation
-				\item Naive determination of the energy of a magnetic dipole
-				\item "Liquid drop" nuclear Model 
-				\item Magnetic model of spin resonance
-				\item Integrating factor method for solving differential equations
-				\item Constant variation method for solving differential equations
-				\item Mendel's law
-				\item Temporary and Deferred Life Annuity
-				\item Carnot Cycle
-				\item Durand and Gordon-Shapiro equity valuation model 
-				\item Statistical Anderson-Darling adequation test
-				\item Non-linear optimization by the Newton-Quadratic and Gauss-Newton methods
-				\item Lagrange Polynomial interpolation method
-				\item Statistical Cochran-Mantel Heanzel test
-			\end{itemize}
-		\item \textbf{November 2016}
-			\begin{itemize}[noitemsep]
-				\item Singular value decomposition theorem
-			\end{itemize}
-		\item \textbf{December 2016}
-			\begin{itemize}[noitemsep]
-				\item Fieller's test (ratio of two means)
-			\end{itemize}
-		\item \textbf{January 2017}
-			\begin{itemize}[noitemsep]
-				\item Falling Chimney problem
-				\item Levey-Jennings control charts
-				\item Simple lattice mixture design of experiment with process variables
-				\item Average Failure Rate (reliability)
-				\item Markov Chain Reliability Model
-				\item Design of reliability tests (Chi-squared time of test, Binomial sampling size, Beta-binomial sampling size)
-				\item Weibull distribution linearization
-				\item Inverted pendulum
-				\item Durbin-Watson autocorrelation test
-				\item Fisher's method for multiple $p$-values
-				\item Magnifying glass
-				\item Laney's control chart
-				\item Classification of conical by the determinant	
-				\item Classification of partial differential equations
-			\end{itemize}
-		\item \textbf{February 2017}
-			\begin{itemize}[noitemsep]
-				\item Folded Normal distribution basics CDF and PDF
-				\item Half-Normal distribution CDF, PDF, variance, mean and median
-				\item Telescopic and Gandi's series
-				\item Césaro's sum
-				\item Implicit Differentiation
-				\item Bivariate chain rule
-			\end{itemize}
-		\item \textbf{March 2017}
-			\begin{itemize}[noitemsep]
-				\item Laplace Integration method
-				\item Lenth's PSE Pareto Margin Error for unreplicated factorial designs
-				\item Pareto Margin Error for replicated factorial designs
-				\item Desing of Experiments desirability
-			\end{itemize}
-		\item \textbf{April 2017}
-			\begin{itemize}[noitemsep]
-				\item Friedmann–Lemaître–Robertson–Walker metric
-				\item Jensen inequality
-			\end{itemize}
-		\item \textbf{May 2017}
-			\begin{itemize}[noitemsep]
-				\item Introducing weak field gravitational waves equation
-				\item A mathematical approach of "Divide and rule?" in management
-				\item Three new jokes in the Humor section
-			\end{itemize}
-		\item \textbf{July 2017} (v3.7 $\rightarrow$ v3.8)
-			\begin{itemize}[noitemsep]
-				\item Correction of many typing errors (almost 50)
-				\item Relation 11.3.221 had a integral symbol  (that should not be there)
-				\item Relation 7.1.72 had a wrong variable for the angle
-				\item Relation 7.5.56 there was a $|a|$ instead of a $|b|$ in the second equality
-				\item Relation 11.1.35 had a $4$ that has nothing to do there at the numerator
-				\item Relation 15.7.905 there was an alignement issue
-				\item Relation 15.7.888 had a $\Lambda$ instead of a $\Gamma$ at the denominator
-				\item Relation 11.1.20 had a missing $T$
-				\item Relations 11.3.169 must be $r_E$ instead of $r-E$ (LaTeX typing error...)
-				\item Table 8.10 and 8.11 had wrong units in the header row
-				\item New photo about a quasi vertical circular rainbow and a photo a nuclear magnetic resonance machine
-				\item There was a typing error in the period (T) relation of the simple pendulum
-				\item Details of the backpropagation method for neural network
-				\item New mathematical details on the simple linear regression leverage
-				\item Numerical applications of some General Relativity experimental tests
-				\item Derivation of the geodesic of the sphere (as example in the section of Analytical Mechanics)
-				\item ZeroR classification method
-				\item K nearest neighbors classification method
-				\item Definition of Convexity/Concavity of a function (for Jensen inequality proof)
-				\item Proof of  Hermite polynomial Orthogonality
-				\item Derivation of the Bachelier Option Pricing Model
-				\item Derivation Forward/Future Cox-Ross-Ingersoll Equality
-				\item Derivation of the Stress-Energy tensor for a non-relativistic perfect fluid
-				\item Derivation of the orthodromic distance
-				\item Derivation of the area of a section of an ellipse
-				\item There was twice a "Invariance by translation in space" Noether theorem... one of them was obviously "Invariance by translation in time"
-				\item Schwarzschild innermost stable orbit
-				\item Hafele–Keating experiment with General Relativity treatment
-				\item Introducing hyperparameters in Machine Learning
-				\item Kernel smoothing
-				\item Credit Default risk
-				\item We added a lot of new entries in the Chronology section
-			\end{itemize}
-		\item \textbf{November 2017} (v3.8 $\rightarrow$ v3.9)
-			\begin{itemize}[noitemsep]
-				\item Section numbering was not correct anymore because of a MiKTeX update.
-				\item We created all simple cross references
-				\item Multiple errors in PPI (proton-proton Sun chain fuction reaction) in relations 11.2.27, 11.2.29 and 11.2.30
-				\item We added one point to the scientific publication rules (cite equivalent studies for meta-analysis)
-				\item Correction of a few hundred minor typing errors
-				\item Typing error in the relation 5.4.231, the first line should be a $\cos(x)$ and not a $\sin(x)$
-				\item Read "multiplication" instead of "addition" in the remark below the relation 4.2.164.
-				\item A square was missing on the $2$ in 4.4.13.
-				\item A square was missing on the $r$ in 12.1.57
-				\item There was a "$+$" instead of a $\cdot$ in 10.2.21
-				\item Square was missing in relation 4.7.1479, 4.7.1480, 4.7.1481, 4.7.1482. 4.7.1484
-				\item There was a $c^3$ instead of a $c^2$ in the relation 11.1.212
-				\item At 8.3.450 three paragraphs and two equations were duplicates
-				\item Proof of the derivative of $f(g)^{g(x)}$
-				\item OneR (One Rule) in Data Mining with confusion matrix rule selection
-				\item Apriori Association Rule
-				\item Kurtosis and Skewness
-			\end{itemize}
-		\item \textbf{January 2018} (v3.9 $\rightarrow$ v3.10)
-			\begin{itemize}[noitemsep]
-				\item Typing error in relation 8.2.160 (a $\partial$ missing)
-				\item Typing error in relation 9.3.305 (a $\mu$ was missing)
-				\item There was an error sign in all inverse Fourier transfom (error made during the translation of the book into English).
-				\item Dirac continuity equation
-				\item CRS model of Data Envelopment Analysis (DEA)
-				\item Kullback-Leiber divergence
-				\item Continuous and Discrete Linear Convolution
-				\item Dirichlet Integral
-				\item Permutation tests
-				\item Binomial and Gaussian naive bayes
-				\item More cross-references added
-			\end{itemize}
-			\item \textbf{February 2018} (v3.10 $\rightarrow$ v3.11)
-			\begin{itemize}[noitemsep]
-				\item Typing error for the return angle range of the function $\mathrm{atan()}$ ($-$ instead of a $+$).
-				\item There was a typing error in relations 4.7.264 and 4.7.265 (power of $3$ instead of $2$).
-				\item There was a typing error in relation 4.7.512 a $\text{E}(X)$ instead of a $\text{V}(X)$.
-			\end{itemize}
+		\end{itemize}
+	\item \textbf{January 2005}
+		\begin{itemize}[noitemsep]
+			\item New Biographies (Penrose, Hawking, Turing, Marx) 
+			\item Development of "dual" version of Maxwell equations and proof of the origin of the expression (hypothesis) of magnetic monopoles 
+			\item Definition of P, NP and NPC class algorithms
+			\item Proof of the fundamental theorem of calculus also named "fundamental theorem of integral and differential calculus" 
+			\item Presentation of the cGH cube and the Copenhagen interpretation 
+			\item Introduction to the mathematical concepts of artificial neural networks 
+			\item Introduction to the mathematical concepts of Genetic Algorithms
+			\item Detailed mathematical introduction to fractals
+			\item Basics maths stuffs on Quantum Computing
+			\item Introduction to fuzzy logic
+			\item Proof of Shannon theorem, Morgan theorems, expansion theorem, Karnaugh maps, complete adder, full subtracter
+		\end{itemize}
+	\item \textbf{April 2005}
+		\begin{itemize}[noitemsep]
+			\item Basic definitions on block codes, linear codes, systematic codes in error correcting codes
+			\item Proof of the relation of the relativistic change in mass
+			\item Introduction to codes and prefix codes
+			\item Proof of the formula for the calculation of the number of days between two given dates 
+			\item Rounding calculations techniques
+			\item Definition of rigid or non-rigid post and praenumerando annuities with or without constant rate (certain future)
+			\item Definition and study of the properties of loans repayment or constant annuity
+		\end{itemize}
+	\item \textbf{April 2006}
+		\begin{itemize}[noitemsep]
+			\item Presentation of Schild's criterion via the Einstein effect (gravitational redshift)
+			\item Development of the Newtonian approximation of the geodesic equation
+			\item Definitions and proofs of developed forms of four-vectors of displacement, velocity, current, acceleration and energy-momentum
+			\item Proof of the provenance of electromagnetic field tensor and referential calculation changes
+			\item Definition of a tautology and principle of non-tautology
+			\item Descriptions, definitions and many proofs on quaternions
+			\item Proof of Euler's number irrationality
+			\item Definition of the log-normal, triangular and Weibull distribution and proof of their mean and standard deviation
+			\item Introduction to error calculation (absolute and relative uncertainties, error propagation, significant numbers, etc.)
+			\item Proof of the deflection of light near a Star with the Newtonian gravitational model
+			\item Definition of a rotation matrix (and developments related thereto)
+			\item Proof of the existence of the Euclidean division in the ring of polynomials
+			\item Definitions of MWRR (Time of Money Weighted Return) and TWRR (Time Weighted Rate of Return)
+			\item Proof of Gauss-Ostrogradsky theorem 
+		\end{itemize}
+	\item \textbf{July 2006}
+		\begin{itemize}[noitemsep]
+			\item Definition of the concept of dual space
+			\item Definition of Pareto law and proof of mean and standard deviation
+			\item Definition of quantile (quartile, percentile)
+			\item Proof that the mode is the value that minimizes the absolute dispersion
+			\item Proof of Minkowski and Bienaymé-Tchebychev inequalities
+			\item Proof of the weak law of large numbers 
+			\item Proof of Euler's formula for planar graphs
+			\item Introduction to the mathematical method of Six Sigma process controls
+			\item Proof of the variational calculus theorem
+			\item Proof of the calculation of the apparent superluminal speed of a high Redshift Star
+			\item Zero-sum game resolution method using operational research
+			\item Definition of investment funds
+			\item Proof of the beta expression of a simple linear regression model (Sharpe)				
+		\end{itemize}
+	\item \textbf{October 2006}
+		\begin{itemize}[noitemsep]
+			\item Proof Binomial and Poisson likelihood estimators
+			\item Presentation of the concept of "color" and subtractive and additive synthesis
+			\item Proof of Einstein equation fields (approach using weak fields approximation)
+			\item Differentiation of the equivalence principle, weak equivalence principle and Einstein's equivalence principle
+			\item Proof of the duration of the Daytime arc of planets in the approximation of the null precession and nutation
+			\item Digital and formal study (approximative) of Lagrange points of a binary system
+			\item Method of resolution of 4th degree polynomial (Ferrari's method)
+			\item Presentation of the Gram determinant via the Euclidean volume represented by the joint product of the vectors of a canonical basis
+			\item Definition of monotonic, strictly monotone functions, etc .. without pure formal approach
+			\item Approximative determination via the Yukawa potential (mass fields) of the mass of mesons of the weak interaction and the strong nuclear interaction.
+			\item Introduction to first order linear differential equations			
+		\end{itemize}
+	\item \textbf{December 2007}
+		\begin{itemize}[noitemsep]
+			\item New Biographies (Heckman, McFadden, Tesla)
+			\item Bernoulli numbers and polynomials
+			\item Roche Limit
+			\item Flattening of celestial bodies
+			\item Pressure and kinetic temperature
+			\item Proof of a special case of magnet or electromagnet force
+			\item Fundamental introduction to Hermitian and Hilbert vector spaces 
+			\item Schwarzschild solution in General Relativity
+			\item Precession of the perihelion of Mercury in General Relativity
+			\item Light Deflection in General Relativity
+			\item Shapiro delay in General Relativity
+			\item Evaluation Model of Financial Assets
+			\item The Black Hole Universe
+			\item Coupling constants of fundamental interactions
+			\item Hamiltonian of the Schrödinger equation for a charged particle in an electromagnetic field
+			\item Markov chains
+			\item Theory of queues
+			\item Introduction to weather and marine engineering mathematics
+			\item Practical example in Microsoft Excel of the efficiency Markowitz model
+			\item Practical example in Microsoft Excel of the Sharp efficiency model
+			\item Simplified proof of Green(-Riemann)'s and Stokes theorem
+			\item Detailed proofs on principal component analysis (PCA)
+			\item Proof of the spectral theorem in the real numbers case
+			\item Detailed proofs on logistic regression
+			\item Proof of Rolle's theorem and mean value
+			\item Proof of the Hopital theorem and generalized finite increments (generalized mean value)
+			\item Introduction of Geometric law and proof of its variance and mean
+			\item Proof of calculation of the area and volume of the five regular Platonic polyhedra
+			\item Introduction to field algebra and geometry
+			\item Detailed calculations of the collapsing critical mass (Jeans' Mass) and critical radius (Jeans' Radius) of an interstellar cloud or stellar nurseries
+			\item Detailed calculations of the collapse time of an interstellar cloud
+			\item Detailed calculations of a Star nuclear life
+			\item Detailed mathematical introduction to Fourier transforms
+			\item Detailed resolution of homogeneous linear differential equations with constant coefficients
+			\item Presentation of the Cornu's spiral for civil engineering
+			\item Mathematics of biometric functions
+			\item Determination and simple resolution of the Pauli equation
+			\item General solution (Fourier transform) of the electromagnetic wave equation
+			\item Introduction to strength of materials
+			\item Visual Horizon
+			\item Growth rate of a population depending on the temperature
+			\item Pitot Tube and Pressure drop
+			\item $U(1)$ gauge theories in quantum field physics
+			\item Bezier curves
+			\item Differential equation system with matrix exponentiation
+		\end{itemize}
+	\item \textbf{September 2009}
+		\begin{itemize}[noitemsep]
+			\item New Biographies (Pearson, Gosset, Fisher)
+			\item New important usual primitives for civil engineering and analytical mechanics
+			\item Detailed proofs of the origin of arcsinh and arccosh functions
+			\item Proof of Laplace equation and Mayer relation
+			\item Proof of the propagation of pressure waves
+			\item Historical introduction for nuclear physics
+			\item Proof of Maxwell relations in thermodynamics and introduction to free energy and enthalpy
+			\item Adiabatic atmosphere model
+			\item Proof of Lorenz equations and the butterfly effect
+			\item Calculations of some optical properties of the prism
+			\item Conditions of decoherence/interferences of electromagnetic waves
+			\item Bloch Sphere
+			\item Proof of the minimum surface of revolution volume
+			\item Treatment of the free particle
+			\item Treatment of the polarized spin qubit and the qubit of spin 1/2
+			\item Characteristic function and central limit theorem
+			\item Some proofs on the inequalities in triangles
+			\item Proof of the volume of a barrel with circular section 
+			\item Proof of the origin of the mean and standard deviation to the Student and Fisher-Snedecor laws
+			\item Introduction to the marginal cost
+			\item Statistical test of the one-way ANOVA
+			\item Statistical Pearson's Chi-square adjustment test  
+			\item Introduction to the analysis of variance of regression
+			\item Correspondence Factor Analysis
+			\item Development of linear free or forced RC, RL, RLC circuits
+		\end{itemize}
+	\item \textbf{September 2008}
+		\begin{itemize}[noitemsep]
+			\item Simple or complex topology systems analysis for preventive maintenance
+			\item Introduction to finite and infinite continued fractions
+			\item Detailed Solutions of a rectangular tunnelling barrier
+			\item Mathematical model of alpha decay via tunnelling
+			\item Introduction to Brownian motion model according to Langevin model
+			\item Introduction to tribology/friction
+			\item Introduction to time series analysis
+			\item Additional proofs on long term and short term process capability indices and measuring devices in Statistical Process
+			\item Proof of the calculation of the PPM in SPC centered or non-centered process
+			\item Proof of Taguchi quality cost relation
+			\item Proof of Lienard-Wiechert expression of electric and magnetic potentials 
+			\item Introduction to complex analysis
+			\item Proof of the second Friedmann equation in cosmology
+			\item Proof of "slowing" of light near a Black Hole
+			\item Proof of the expression of the Taylor expansion of a function of two real variables
+			\item Introduction to experimental design (DoE)
+			\item Proof of Eherenfest's theorem
+			\item Proof of the likelihood estimators of the Weibull distribution with two parameters
+			\item Example of application of decision theory
+			\item Bands theory (parabolic and semi-classical approximation) within semiconductors
+			\item Theorem of residues and Laurent series
+			\item Proofs of Lean Six Sigma values for business processes/workflows
+		\end{itemize}
+	\item \textbf{October 2011}
+		\begin{itemize}[noitemsep]
+			\item New Biography (Erlang, Hotelling)
+			\item Detailed calculation of the geostationary orbit
+			\item Calculations on PVC meteorological probe balloons
+			\item Developments on the symmetrical gyroscope and weighing router
+			\item Detail calculations and proof on Gini index
+			\item Secular balance, transient and non-equilibrium in radioactive filiation
+			\item Detailed calculations on the approximate radius of rapidly rotating Stars
+			\item Proofs on historical delta-normal and variance-covariance Value At Risk
+			\item Two new jokes in the Humor section
+			\item Empirical statistical model of wage control
+			\item Simplified proof of the possible absence of arbitrage opportunity in Finance
+			\item Calculations on self-financing portfolio on the underlying risk
+			\item Introduction to mathematical techniques in Insurance
+			\item Mathematical developments on the power and intensity of a longitudinal sound wave
+			\item Statistical bilateral Z-test on the difference in the two means
+			\item Statistical Student $T$-test on two paired sample means
+			\item Proof of statistical confidence interval relation of sample large proportions
+			\item Statistical test for equal proportions of two large samples
+			\item Application of Shannon's theorem to calculate a statistical index of diversity
+			\item Proof of the determination of coefficients of a multiple linear regression
+			\item Proof of the determination of the coefficients of a simple linear regression through the origin
+			\item Introduction to sensitivity analysis
+			\item Introduction and some proof on rank/order statistics
+			\item Demonstration of the provenance, hope and variance of the negative binomial distribution
+			\item Control charts with detailed mathematical proofs
+			\item Mathematical approach of first Google Page Rank algorithm
+			\item Proof of Beltrami's identity to simplify the Euler-Lagrange equation
+			\item Exact binomial statistical test for the balance of a population with two characteristics
+			\item Developments and study of gravity waves in a fluid
+			\item Some simple developments on the gears/gear shafts
+			\item Proof of skin's effect
+			\item Theory of the rainbow
+			\item Theory of double pendulum
+			\item Boltzmann distribution law
+			\item Dalton's and Amagat laws
+			\item Heat Flow
+			\item Average power in alternative current
+			\item Presentation of some detailed calculations on the betatron
+		\end{itemize}
+	\item \textbf{May 2013}
+		\begin{itemize}[noitemsep]
+			\item New Biographies (Napier, Wilcoxon, Born, Heisenberg, Jordan, Kolmogorov, Stokes, Ostrogradsky, Zeeman, Joseph, Faraday, Meitner, Curie, Biot, Debye, Drude, Ohm)
+			\item Detailed example of construction of a particular neural network with Microsoft Excel
+			\item Resolution of homogeneous linear differential equations of order 1 with non constant coefficients
+			\item Example of a Fourier transform of a Gaussian function and proof of the property of the Fourier transform of a derivative
+			\item Introduction to interactions in two-factor ANOVA
+			\item Confidence interval and prediction interval of a linear regression
+			\item Statistical Test signs (median test)
+			\item Introduction of conditional probability and the conditional mean of Pareto law
+			\item Determination of the estimators of the gamma distribution using the method of moments
+			\item Second mathematical approach to the identification of the tides
+			\item Statistical Kolmogorov-Smirnov adjustment test with Lilliefors approach
+			\item Proof of the Scheafer's quota model
+			\item Proof of the calculation of the synodical period of the planets and of demotion of time
+			\item Proof of the construction of Brownian bridges
+			\item Proof of the origin of the rare events control chart
+			\item Calculation of the discount factor of a retiring insurance based on inflation and life expectancy
+			\item Proof of two-factor ANOVA relations without repetition and repetition
+			\item Mathematical proof and physics of the LASER
+			\item Theorem of Taylor series with integral rest
+			\item Stability of the Poisson distribution
+			\item Statistical Poisson test for 1 or 2 samples
+			\item Statistical non-parametric Kruskal-Wallis and Friedman tests
+			\item Statistical normality test of Ryan-Joiner
+			\item Statistical C Cochran test
+			\item Usual Taylor-Maclaurin Series
+			\item Polynomial regression by least squares method
+			\item Spatiotemporal Finite Difference Method with Maxwell's equations
+			\item Break-even Analysis
+			\item Mechanical Harmonic Oscillator
+			\item Acoustic Doppler Effect
+			\item Periodic waves overlays
+			\item Statistical Tukey test of range
+			\item Forecasting models by moving average, seasonal coefficients, simple smoothing, Brown double smoothing, double Holt (additive) smoothing, double Holt and Winter (multiplicative) smoothing
+			\item Introduction to elementary  AR, AM, ARMA and ARIMA autoregressive models
+			\item Proof of the expression of the correction factor on finite population
+			\item Statistical Fisher exact test
+			\item Exponential Laplace Smoothing
+			\item Cohen approval Kappa and McNemar statistical test
+			\item Kaplan-Meier survival analysis model
+			\item Cramer's V
+			\item Clustering $K$-Means algorithm
+			\item Clustering Dendrograms algorithm
+			\item Statistical Wilcoxon signed rank test for one sample or two paired samples
+			\item Quantitative study of the effective potential energy (harmonic model of the atomic bonding) of the hydrogen-atom
+			\item Proof of beams equation (Euler-Bernoulli equation)
+			\item Calculation of the failure rate of a system using the technique of maximum likelihood
+			\item We added a chronology of Sciences
+			\item Proof of Einstein model (Dulong-Petit law) of the heat capacity of crystalline solids and derivation of the Debye model
+			\item Langenvin Model of diamagnetism and paramagnetism
+			\item Introduction to line integrals calculation
+			\item Naive determination of the energy of a magnetic dipole
+			\item "Liquid drop" nuclear Model 
+			\item Magnetic model of spin resonance
+			\item Integrating factor method for solving differential equations
+			\item Constant variation method for solving differential equations
+			\item Mendel's law
+			\item Temporary and Deferred Life Annuity
+			\item Carnot Cycle
+			\item Durand and Gordon-Shapiro equity valuation model 
+			\item Statistical Anderson-Darling adequation test
+			\item Non-linear optimization by the Newton-Quadratic and Gauss-Newton methods
+			\item Lagrange Polynomial interpolation method
+			\item Statistical Cochran-Mantel Heanzel test
+		\end{itemize}
+	\item \textbf{November 2016}
+		\begin{itemize}[noitemsep]
+			\item Singular value decomposition theorem
+		\end{itemize}
+	\item \textbf{December 2016}
+		\begin{itemize}[noitemsep]
+			\item Fieller's test (ratio of two means)
+		\end{itemize}
+	\item \textbf{January 2017}
+		\begin{itemize}[noitemsep]
+			\item Falling Chimney problem
+			\item Levey-Jennings control charts
+			\item Simple lattice mixture design of experiment with process variables
+			\item Average Failure Rate (reliability)
+			\item Markov Chain Reliability Model
+			\item Design of reliability tests (Chi-squared time of test, Binomial sampling size, Beta-binomial sampling size)
+			\item Weibull distribution linearisation
+			\item Inverted pendulum
+			\item Durbin-Watson autocorrelation test
+			\item Fisher's method for multiple $p$-values
+			\item Magnifying glass
+			\item Laney's control chart
+			\item Classification of conical by the determinant	
+			\item Classification of partial differential equations
+		\end{itemize}
+	\item \textbf{February 2017}
+		\begin{itemize}[noitemsep]
+			\item Folded Normal distribution basics CDF and PDF
+			\item Half-Normal distribution CDF, PDF, variance, mean and median
+			\item Telescopic and Gandi's series
+			\item Césaro's sum
+			\item Implicit Differentiation
+			\item Bivariate chain rule
+		\end{itemize}
+	\item \textbf{March 2017}
+		\begin{itemize}[noitemsep]
+			\item Laplace Integration method
+			\item Lenth's PSE Pareto Margin Error for unreplicated factorial designs
+			\item Pareto Margin Error for replicated factorial designs
+			\item Design of Experiments desirability
+		\end{itemize}
+	\item \textbf{April 2017}
+		\begin{itemize}[noitemsep]
+			\item Friedmann–Lemaître–Robertson–Walker metric
+			\item Jensen inequality
+		\end{itemize}
+	\item \textbf{May 2017}
+		\begin{itemize}[noitemsep]
+			\item Introducing weak field gravitational waves equation
+			\item A mathematical approach of "Divide and rule?" in management
+			\item Three new jokes in the Humor section
+		\end{itemize}
+	\item \textbf{July 2017} (v3.7 $\rightarrow$ v3.8)
+		\begin{itemize}[noitemsep]
+			\item Correction of many typing errors (almost 50)
+			\item Relation 11.3.221 had a integral symbol  (that should not be there)
+			\item Relation 7.1.72 had a wrong variable for the angle
+			\item Relation 7.5.56 there was a $|a|$ instead of a $|b|$ in the second equality
+			\item Relation 11.1.35 had a $4$ that has nothing to do there at the numerator
+			\item Relation 15.7.905 there was an alignment issue
+			\item Relation 15.7.888 had a $\Lambda$ instead of a $\Gamma$ at the denominator
+			\item Relation 11.1.20 had a missing $T$
+			\item Relations 11.3.169 must be $r_E$ instead of $r-E$ (LaTeX typing error...)
+			\item Table 8.10 and 8.11 had wrong units in the header row
+			\item New photo about a quasi vertical circular rainbow and a photo a nuclear magnetic resonance machine
+			\item There was a typing error in the period ($T$) relation of the simple pendulum
+			\item Details of the back-propagation method for neural network
+			\item New mathematical details on the simple linear regression leverage
+			\item Numerical applications of some General Relativity experimental tests
+			\item Derivation of the geodesic of the sphere (as example in the section of Analytical Mechanics)
+			\item ZeroR classification method
+			\item K nearest neighbours classification method
+			\item Definition of Convexity/Concavity of a function (for Jensen inequality proof)
+			\item Proof of  Hermite polynomial Orthogonality
+			\item Derivation of the Bachelier Option Pricing Model
+			\item Derivation Forward/Future Cox-Ross-Ingersoll Equality
+			\item Derivation of the Stress-Energy tensor for a non-relativistic perfect fluid
+			\item Derivation of the orthodromic distance
+			\item Derivation of the area of a section of an ellipse
+			\item There was twice a "Invariance by translation in space" Noether theorem... one of them was obviously "Invariance by translation in time"
+			\item Schwarzschild innermost stable orbit
+			\item Hafele–Keating experiment with General Relativity treatment
+			\item Introducing hyperparameters in Machine Learning
+			\item Kernel smoothing
+			\item Credit Default risk
+			\item We added a lot of new entries in the Chronology section
+		\end{itemize}
+	\item \textbf{November 2017} (v3.8 $\rightarrow$ v3.9)
+		\begin{itemize}[noitemsep]
+			\item Section numbering was not correct anymore because of a MiKTeX update.
+			\item We created all simple cross references
+			\item Multiple errors in PPI (proton-proton Sun chain function reaction) in relations 11.2.27, 11.2.29 and 11.2.30
+			\item We added one point to the scientific publication rules (cite equivalent studies for meta-analysis)
+			\item Correction of a few hundred minor typing errors
+			\item Typing error in the relation 5.4.231, the first line should be a $\cos(x)$ and not a $\sin(x)$
+			\item Read "multiplication" instead of "addition" in the remark below the relation 4.2.164.
+			\item A square was missing on the $2$ in 4.4.13.
+			\item A square was missing on the $r$ in 12.1.57
+			\item There was a "$+$" instead of a $\cdot$ in 10.2.21
+			\item Square was missing in relation 4.7.1479, 4.7.1480, 4.7.1481, 4.7.1482. 4.7.1484
+			\item There was a $c^3$ instead of a $c^2$ in the relation 11.1.212
+			\item At 8.3.450 three paragraphs and two equations were duplicates
+			\item Proof of the derivative of $f(g)^{g(x)}$
+			\item OneR (One Rule) in Data Mining with confusion matrix rule selection
+			\item Apriori Association Rule
+			\item Kurtosis and Skewness
+		\end{itemize}
+	\item \textbf{January 2018} (v3.9 $\rightarrow$ v3.10)
+		\begin{itemize}[noitemsep]
+			\item Typing error in relation 8.2.160 (a $\partial$ missing)
+			\item Typing error in relation 9.3.305 (a $\mu$ was missing)
+			\item There was an error sign in all inverse Fourier transform (error made during the translation of the book into English).
+			\item Dirac continuity equation
+			\item CCR (Charnes, Cooper and Rhodes) model of Data Envelopment Analysis (DEA)
+			\item Kullback-Leibler divergence
+			\item Continuous and Discrete Linear Convolution
+			\item Dirichlet Integral
+			\item Permutation tests
+			\item Binomial and Gaussian naive bayes
+			\item More cross-references added
+		\end{itemize}
+	\item \textbf{June 2018} (v3.10 $\rightarrow$ v3.11)
+		\begin{itemize}[noitemsep]
+			\item Typing error for the return angle range of the function $\mathrm{atan()}$ ($-$ instead of a $+$)
+			\item There was a typing error in relations 4.7.264 and 4.7.265 (power of $3$ instead of $2$).
+			\item There was a typing error in relation 4.7.512 a $\text{E}(X)$ instead of a $\text{V}(X)$.
+			\item A $c$ was missing in relation 4.5.125
+			\item There were typing error in relations 13.1.739 and 13.1.740
+			\item A $q$ was missing in relations 9.1.31 and 9.1.32
+			\item A $N$ was missing in in the third relation 14.4.238
+			\item We added a few more Taguchi tables and Taguchi interaction tables
+			\item We added the derivation of the one degree of freedom non-central chi-square distribution for the study of tolerance intervals
+			\item We added new details about the regression forced through the original (especially on the problem of the $R^2$ calculation)
+			\item We added some new images (on data fallacies, a joke with Schrödinger cat, planet's comparison size with respected proportions, an illustration of the difference between bagging and boosting)
+			\item We added in the section of Astronomy data tables with the major properties of interest of the planets of our solar system (including Pluto...)
+			\item We added in the section of Astrophysics a small data table with the major properties of some well known stars
+			\item Almost ten section headers were are at the wrong level in the table of contents (...)
+			\item Surprisingly some subjects on Neutron Stars had disappeared (don't ask why...!?). We put them again.
+			\item Cox Survival Model (Cox Proportional Hazard Model)
+			\item We made more explicit the link between the Gauss-Newton method and the gradient descent method
+			\item We added the confidence interval for the Kaplan-Meier estimator and Cox proportional hazard model (ie hazard ratio)
+		\end{itemize}
+	\pagebreak
+	\item \textbf{November 2021} (v3.11 $\rightarrow$ v4.0)
+		\begin{itemize}[noitemsep]
+			\item We noticed that a whole section on Lenz law and inductance wasn't translated since the version 3.1...
+			\item Typing error in the equality in the sentence below equation 14.4.125
+			\item Translation error in the axiomatic system of Lukasiewicz (the first line had a "Axiom A5" instead of "Axiom A4")
+			\item The symbol used for the AND connector in the table 4.5 and the paragraph text were wrong (bad copy paste...)
+			\item Wrong copy/paste in relations 13.1.387 and 13.1.388 (the sum symbol and the index $i$ should not have been there)
+			\item There was copy/paste error in the relation 7.7.247 (a $\mathrm{d}$ at the beginning that should not have been there)
+			\item There were some sign errors in the relations 7.1.20
+			\item Two terms were missing in the relation 4.7.356
+			\item There were typing errors in relations 8.5.92, 8.5.94 and 8.5.95
+			\item There was a copy/paste error in the definition of the weighted average 4.7.39
+			\item There was a wrong $2$ factor in the definition of the covariance 4.7.157
+			\item We replaced all the $x^{'}$ and $x^{''}$ by $x^\prime$ and $x^{\prime\prime}$
+			\item There was a typing error for the energy stored in a capacitor
+			\item There was a typing error in table 5.11 for the tautology ($P \vee \neg Q$ instead of $P \vee \neg P$). Thanks to Matvii Hodovankiuk!
+			\item Improvements and corrections in the subsection relatively to the relativistic redshift
+			\item Improvements and corrections about the SVD theorem
+			\item We added a small biography of F. Yates, A. Friedmann, G. Lemaître, G. Cramer
+			\item We improved the FRLW cosmological models subsection
+			\item We added a few dozens more of spherical harmonics in the section of Quantum Chemistry (thanks to Wikipedia!)
+			\item We added a brief introduction to the concept of $XYZ$ analysis
+			\item We introduced the concept of ideal mechanical advantage and actual mechanical advantage
+			\item Introducing LSTM and GRU recurrent neural networks
+			\item We corrected all the misspelling of "well know"...
+			\item Three new jokes in the "Humour" section
+			\item Mallows's $C_p$ and Akaike Information Criterion (AIC) derivation
+			\item LASSO, Ridge and Elastic Net regularize regressions
+			\item Cross-over methods including the proof of the CV and GCV
+			\item Derivation of multinomial mean and variance
+			\item Weighted linear regression and general ordinary least squares
+			\item $LU$, $QR$ and Cholesky decomposition details
+			\item Gabriel's Horn finite volume and infinite surface solid of revolution
+			\item Derivation or Black Hole's photon-sphere radius
+			\item Risk Parity portfolio optimization
+			\item Law of total variance (iterated law of conditional variance)
+			\item Robust estimators, $M$-estimators and $W$-estimators
+			\item Hertzian dipole (antenna) in harmonic regime in far-field approximation
+			\item Newton-Cotes simple integration methods (Simpson's and Trapezoidal methods)
+			\item Runge-Kutta methods for solution to ordinary differential equations
+			\item Linear ordering isotonic regression
+			\item We added the biography of Jerzy Neyman
+			\item Fourier series generative art
+			\item Rayleigh scattering
+			\item Telegrapher equation
+			\item Inductance of a coaxial cable
+			\item Hotelling's $T$-square test
+			\item Double mass harmonic oscillator
+			\item Lawson Criterion for D-T
+			\item Determinant of block triangular and diagonal matrices
+			\item Woodburry matrix identity and Sherman-Morrison relation
+			\item Factor Analysis
+			\item Total Unduplicated Reach and Frequency Analysis (TURF)
+			\item Equivalence CLAss Transformation (ECLAT)
+			\item Welch Test with Welch-Satterhwaite equation
+			\item Trimmed means $T$-test
+			\item Expectation-Maximization algorithm
+			\item Euler's Homogeneous Function Theorem
+			\item Eurer-Maclaurin theorem
+			\item Planck's 1912 zero point energy radiation law
+			\item Heisenberg uncertainty principle zero point energy
+			\item Bayes Factor
+			\item Abraham-Lorentz formula
+			\item Adjusted R-squared
+			\item Saha ionization equation
+			\item Cosmological Radiowave Background recombination temperature
+			\item Casimir Effect
+			\item Quantum Cosmology (FLWR Wheeler-Dewitt equation)
+			\item Cochran–Armitage test for trend
+			\item Generative Neural Networks (GAN)
+			\item Point biserial correlation
+			\item Sellmeier equation  proof
+			\item Torque of a current loop (DC motor)
+			\item Fresnel circular aperture and circular obstacle diffraction
+			\item Moments generating function and cumulants
+			\item Variance stabilizing transformation
+			\item Laguerre polynomials
+			\item Radial solution or hydrogenoid atom
+			\item Thin film interference
+			\item Fresnel coefficients
+			\item Brewster's angle
+			\item Mollweide projection
+			\item Variance-Bias tradeoff derivation
+			\item variance-bias tradeoff derivation for OLS
+		\end{itemize}
 	\end{itemize}
 
 \chapter{Nomenclature}
@@ -1982,6 +1949,9 @@ This chapter contains a summary with simple description of all symbols used in t
   		\item $)$ Close parenthesis
   		\item $[$ Open bracket
   		\item $]$ Close bracket
+  		\item $\{$ Open brace
+  		\item $\}$ Close brace
+  		\item $\{\ldots\}$ Set
   		\item $\therefore$ Therefore
   		\item $\because$ Because
 	 	\item $\varnothing$ Empty Set
@@ -1998,21 +1968,24 @@ This chapter contains a summary with simple description of all symbols used in t
 	 	\item $\succeq$ preferred or equal to (for utility in econometry)
 	 	\item $\preceq$ not preferred or equal to (for utility in econometry)
 	 	\item $\sim$ equivalent to (for utility in econometry)
-	 	\item $\mathbb{N}$ Natural Numbers set (positive integers)
-	 	\item $\mathbb{Z}$ Relative Numbers set (all integers)
-	 	\item $\mathbb{Q}$ Rational Numbers set (ratio of relative numbers
-	 	\item $\mathbb{R}$ Real Numbers set
-	 	\item $\mathbb{C}$ Complex Numbers set
+	 	\item $\mathbb{N}$ Natural numbers set (positive integers)
+	 	\item $\mathbb{Z}$ Relative numbers set (all integers)
+	 	\item $\mathbb{Q}$ Rational numbers set (ratio of relative numbers)
+	 	\item $\mathbb{R}$ Real numbers set
+	 	\item $\mathbb{C}$ Complex numbers set
+	 	\item $\mathrm{i}$ The pure imaginary number
+	 	\item $\mathbb{H}$ Quaternion numbers set
 	 	\item $\Re$ Real part of a complex number
-	 	\item $\Im$ Imaginary par of a complex number
+	 	\item $\Im$ Imaginary part of a complex number
 	 	\item $\aleph$ Transfinite Cardinal symbol
-	 	\item $\wedge$ AND operator, noted \& in computer science and corresponding to multiplication in maths
+	 	\item $\wedge$ AND operator, denoted \& in computer science and corresponding to multiplication in maths
+	 	\item $\vee$ OR operator, denoted sometimes || in computer science
 	 	\item $\equiv$ Identity symbol (left term is assumed to be equal to the right one and vice-versa)
 	 	\item $\cong$ Approximately equal symbol
 	 	\item $\propto$ Linear proportional symbol 
 	 	\item $\in$ Symbol that means left term belongs to the right term
 	 	\item $\not\in$ Symbol that means left term does not belong to the right term
-	 	\item $\subset$ Symbol that means left term (that is a ) is a subset of the set on the right 
+	 	\item $\subset$ Symbol that means left term (that is a set) is a subset of the set on the right 
 	 	\item $\not\subset$ Symbol that means left term (that is a set) is not a subset of the set on the right
 	 	\item $\subseteq$ Symbol that means left term (that is a set) is a subset or a set equal to the set on the right
 	 	\item $\not\subseteq$ Symbol that means left term (that is a set) is not a subset or even a set equal to the set on the right
@@ -2024,31 +1997,56 @@ This chapter contains a summary with simple description of all symbols used in t
 	 	\item $\mid$ Such that...
 	 	\item $\forall$ For all...
 	 	\item $\exists$ It exists...
+	 	\item $\star$ generic operation (non-explicit) in set theory
+	 	\item $\neg$ Negation (logical negation)
 	 	\item $+$ Addition symbol of two terms
-	 	\item $\displaystyle \sum_{i=1}^n$ Summation of multiple terms
+	 	\item $\displaystyle \sum_{i=1}^n$ Summation of multiple indexed terms
 	 	\item $-$ Subtraction symbol of two terms
 	 	\item $\times, \cdot$ Multiplication (product) symbol of two terms
+	 	\item $\ln$ Natural logarithm (base $e$) of a number
+	 	\item $\log$ Base $10$ (if not indicated) logarithm of a number
 	 	\item $\times$ If left and right terms are vectors, this is the cross product (vectorial product)
-	 	\item $\circ$ dot product, also named "inner product" a scalar product
-	 	\item $\otimes$ tensor product
-	 	\item $\displaystyle \prod_{i=1}^n$ Multiplication (product) symbol of multiple terms
+	 	\item $\circ$ If left and right terms are vectors, this is the dot product, also named "inner product" or "scalar product". Otherwise if used with functions, this is the symbol of composition.
+	 	\item $\vec{\nabla}(f),\vec{\nabla}\cdot f,\vec{\nabla}f,\overrightarrow{\text{grad}}(f)$ Gradient of a scalar field
+	 	\item $\vec{\nabla}(\vec{f})$ Gradient of a vector field
+	 	\item $\vec{\nabla}\circ\vec{f},\text{div}(\vec{f})$ Divergence of a vector field
+	 	\item $\vec{\nabla}\times\vec{f},\text{rot}(\vec{f})$ Rotational (curl) of a vector field
+	 	\item $\Delta\cdot f,\vec{\nabla}^2 f,\vec{\nabla}\circ(\vec{\nabla}\cdot f)$ Laplacian of a scalar field
+	 	\item $\Delta\vec{f}$ Laplacian of a vector field
+	 	\item $\square=\dfrac{1}{c^2}\dfrac{\partial^2}{\partial t^2}-\Delta$ is the d'Alembertian
+	 	\item $\diamond$ vectors elements-wise multiplication (ie Hadamard product)
+	 	\item $\otimes$ tensor product or Kronecker product (depending on the context...) 
+	 	\item $\displaystyle \prod_{i=1}^n$ Multiplication (product) symbol of multiple indexed terms
 	 	\item $\displaystyle\int$ Riemann primitive
 	 	\item $\displaystyle\int\limits_a^b$ Riemann integral in range $[a,b]$
 	 	\item $\displaystyle\oint$ Closed non-oriented curvilinear integral (line integral)
 	 	\item $\displaystyle\ointclockwise$ Clockwise path integral
-	 	\item $\displaystyle\ointctrclockwise$ Counterclockwise path integral
-	 	\item $\div, \backslash$, $:$ Symbols for division for two terms depending on school level
-	 	\item $:$ When the left term is a matrix at the right one a vectros, this is "Frobenius (matrix) dot product" or "Frobenius inner product"
+	 	\item $\displaystyle\ointctrclockwise$ Counter-clockwise path integral
+	 	\item $\mathrm{d},\partial$ Exact and partial differentials
+	 	\item $\mathrm{D}$ Covariant derivative (parallel transport) or Fermi-Walker derivative
+	 	\item $\div, /, :$ Symbols for division for two terms depending on school level
+	 	\item $/, |$ In the field of bayesian analysis these symbols mean "being known", or "knowing that"
+	 	\item $:$ When the left term is a matrix at the right one a vectors, this is "Frobenius (matrix) dot product" or "Frobenius inner product"
 	 	\item $P$ Depending on the context this is a Probability, Cumulated Probability or Part of a set
 	 	\item $\text{E}$ In statistics the expected mean
-	 	\item $\text{V},\sigma^2$ In statistics the variance
+	 	\item $\text{V},\sigma^2$ In statistics the variance ($\sigma$ being the standard deviation)
 	 	\item $\hat{x}$ In physics the amplitude of $x$, in statistics an estimator of $x$
-	 	\item $C_k^n,\begin{pmatrix}n\\k\end{pmatrix}$ is the binomial coefficient define by $n!/(k!(n-k)!)$
-	 	\item $\mathds{1}$ Unity matrix (diagonal with $1$, $0$ everywhere else)
-	 	\item $\ln$ Natural logarithm (base $e$) of a number
-	 	\item $\log$ Base $10$ (if not indicated) logarithm of a number
+	 	\item $C_k^n,\begin{pmatrix}n\\k\end{pmatrix}$ is the binomial coefficient notation\footnote{This book doesn't respect the ISO notation for this coefficient for recall!} defined by $n!/(k!(n-k)!)$
+	 	\item $\mathcal{F}(x(t)), \mathcal{F}(x(t))(\omega), X(\mathrm{i}\omega), X[k]$ are the various notations for the Fourier transform of $x(t)$
+	 	\item $\mathcal{F}^{-1}(F(\omega))(t), \mathcal{F}^{-1}(X[k])$ are the various notations for the inverse Fourier transform
+	 	\item $\mathcal{F}[x[m]]$ is the discrete Fourier transform of $x[m]$
+	 	\item $\mathcal{F}^{-1}[X[n]]$ is the inverse discrete Fourier transform of $X[n]$
+	 	\item $\mathcal{L}(x(t))$ is the Laplace transform
+	 	\item $\mathcal{L}(X(s))$ is the inverse Laplace transform
+	 	\item ${\cal UL}(x(t))$ is the unilateral Laplace transform
+	 	\item $\mathcal{Z}[x[n]]$ is the forward bilateral $\mathcal{Z}$-transform
+	 	\item $\mathcal{Z}^{-1}[X[z]]$ is the inverse $\mathcal{Z}$-transform
+	 	\item ${\cal UZ}[x[n]]$ is the unilateral $\mathcal{Z}$-transform
+	 	\item $\mathds{1}_n$ Unity square (identity) matrix (diagonal with $1$, $0$ everywhere else) of dimension $n$
 	 	\item $\earth$ Symbol in astronomy and astrophysics to refer to the Earth
 	 	\item $\odot$ Symbol in astronomy and astrophysics to refer to the Sun
+	 	\item $*$ Matrix convolution
+	 	\item $\otimes$ Matrix cross-correlation
 	\end{itemize}
 
 
@@ -2074,29 +2072,32 @@ This chapter contains a summary with simple description of all symbols used in t
 	\newpage\null\thispagestyle{empty}\newpage %création d'une nouvelle page en forcant la disparition du numéro de page	
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Bibliography}
-	\defbibnote{myprenote}{Since this work is a reference, we have opted to exclude any reference in the text. So we simply gathered a final bibliography list according to a ranking of use and unassuming it's completeness.
+	\defbibnote{myprenote}{Since this work is a reference, we have tried  to exclude as many external references as possible in the texts. So we simply gathered a final bibliography list according to a ranking of use and unassuming it's completeness.
 
-The books and documents listed below are what I consider as the best references (thus excluding the free PDFs) which have been consulted for the preparation of this book and who is indebted to many high quality borrows. Their reading can be as profitable for all who wish to improve, deepen and broaden their knowledge. 
+	The books and documents in french, english and german listed below are what we consider as the best references (thus excluding the free PDFs) which have been consulted for the preparation of this book and who is indebted to many high quality borrows. Their reading can be as profitable for all who wish to improve, deepen and broaden their knowledge. 
 
-Numerous references, however, are no longer available on the market and it is also necessary that the reader remembers that each entry in the table by itself refers to dozens of other books, it is also impossible to have an exhaustive and objective list (that would be a vicious cycle) of all high-quality books existing in the areas covered by Sciences.ch.
+	Numerous references, however, are no longer available on the market and it is also necessary that the reader remembers that each entry in the table by itself refers to dozens of other books, it is also impossible to have an exhaustive and objective list (that would be a vicious cycle) of all high-quality books existing in the areas covered by \textit{Opera Magistris}.
 
 And here is the complete list:}
 
 	\nocite{*}
 	\printbibliography[prenote=myprenote]
 	
-	+ a thousand of low quality and incomplete scientific papers.
+	+ a thousand of low quality and incomplete scientific papers that do not deserve to be cited.
+	
+	Furthermore... for the parents that want to educate their children in a healthy intellectual environment, I strongly recommend the following books for babies by Chris Ferrie:
+	\includegraphics[width=1.0\textwidth]{img/chris_ferrie.jpg}
 	
 	\phantomsection
 	\cleardoublepage
 	\addcontentsline{toc}{chapter}{Index}
-	\printindex  
+	\printindex
 	
 	\chapter{Donate}
-	The writing of this book took until now $15$ years and huge effort and sacrifices, so if you find this book useful all donations are greatly appreciated and for this purpose you can use the below link depending on your preferences:
+	The writing of this book took until now $15$ years and huge effort and sacrifices. So if you find this book useful all donations of gifts are greatly appreciated and for this purpose you can use the below link depending on your preferences:
 	
 	\begin{center}
-	\href{http://www.sciences.ch/htmlfr/donate.php}{\includegraphics[scale=0.14]{img/paypal.jpg}} $\qquad$ \href{https://www.patreon.com/sciences}{\includegraphics[scale=0.20]{img/patreon.jpg}} $\qquad$ \href{https://www.tipeee.com/elements-of-applied-mathematics}{\includegraphics[scale=0.023]{img/tipeee.jpg}} $\qquad$ \href{http://ko-fi.com/operamagistris}{\includegraphics[scale=0.34]{img/kofi.jpg}}
+	\href{https://www.paypal.me/scientificevolution}{\includegraphics[scale=0.14]{img/paypal.jpg}} $\quad$ \href{https://www.patreon.com/sciences}{\includegraphics[scale=0.20]{img/patreon.jpg}} $\quad$ \href{https://www.tipeee.com/elements-of-applied-mathematics}{\includegraphics[scale=0.023]{img/tipeee.jpg}} $\quad$ \href{http://ko-fi.com/operamagistris}{\includegraphics[scale=0.34]{img/kofi.jpg}} $\quad$ \href{http://a.co/cqLIx5V}{\includegraphics[scale=0.60]{img/amazon_whish_list.jpg}}
 	\end{center}
 	\begin{center}
 		{\large \faBitcoin} 4248d58b-90f0-493e-8114-8dc9f8e5b492
@@ -2134,7 +2135,7 @@ And here is the complete list:}
 	We dedicate this book to all those for which each answer is a question.
 
 \begin{flushright}
-\textit{Giving free access to the source of living water to the thirsty since 14 years}\end{flushright}}
+\textit{Giving free access to the source of living water to the thirsty since 20  years}\end{flushright}}
 
 
 \begin{flushright}
